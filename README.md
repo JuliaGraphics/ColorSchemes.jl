@@ -48,13 +48,15 @@ Or you can load an existing colorscheme from the ColorSchemes/data directory:
 
 loads the colorscheme accessed via the constant `leonardo`.
 
+<img src="doc/leo-colorscheme.png" width=600>
+
 Here's a list of the current colorschemes. For each scheme, first are the contents as is, next is the continuous blends obtained using `colorscheme()`:
 
 <img src="doc/prebuilt-1.png" width=600>
 <img src="doc/prebuilt-2.png" width=600>
 <img src="doc/prebuilt-3.png" width=600>
 
-<a href="doc/colorschemes.svg">SVG</a>
+Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.
 
 ## Colorschemes, blends/gradients
 
@@ -91,7 +93,7 @@ that indicate proportions of colors. For example:
 The colorscheme is in `cs`, and `wts` holds the ratios of each color:
 
     wts
-    10-element Array{Float64,1}:
+    -> 10-element Array{Float64,1}:
      0.294055
      0.0899108
      0.0808455

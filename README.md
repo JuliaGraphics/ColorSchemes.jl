@@ -2,9 +2,14 @@
 
 You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing  palettes that provide colors carefully chosen for readability and communication.
 
-Sometimes, however, you don't always want readability. You might want a _colorscheme_ — a group of interesting colors — rather than a color palette. This package provides a very simple approach to working with colorschemes.
+Sometimes, however, you don't always want readability. You might want a _colorscheme_ — a group of interesting colors that complement each other visually — rather than a color palette. This package provides a very simple approach to working with colorschemes.
 
 Needs: Images.jl, Colors.jl.
+
+You might also like:
+
+[ColorBrewer.jl](https://github.com/timothyrenner/ColorBrewer.jl)
+[NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
 
 ### Basics
 
@@ -28,7 +33,7 @@ To create a colorscheme from this image:
     monalisa = extract("monalisa.jpg", 10, 15, 0.01; shrink=2)
 
 which creates a 10-color scheme (after 15 iterations and with a tolerance of 0.01; the image can be reduced
-in size before processing to save time).
+in size, here by 2, before processing, to save time).
 
     10-element Array{ColorTypes.RGB{Float64},1}:
      RGB{Float64}(0.0465302,0.0466217,0.0477755)

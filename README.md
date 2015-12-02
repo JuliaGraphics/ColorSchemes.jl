@@ -50,9 +50,9 @@ loads the colorscheme accessed via the constant `leonardo`.
 
 Here's a list of the current colorschemes. For each scheme, first are the contents as is, next is the continuous blends obtained using `colorscheme()`:
 
-<img src="doc/prebuilt-3.png" width=400>
-<img src="doc/prebuilt-2.png" width=400>
-<img src="doc/prebuilt-1.png" width=400>
+<img src="doc/prebuilt-1.png" width=600>
+<img src="doc/prebuilt-2.png" width=600>
+<img src="doc/prebuilt-3.png" width=600>
 
 <a href="doc/colorschemes.svg">SVG</a>
 

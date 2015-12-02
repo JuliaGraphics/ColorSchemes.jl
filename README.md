@@ -109,7 +109,7 @@ With these, you can make another colorscheme that repeats the colors according t
 
 returns a new colorscheme where the proportion of each color reflect the weights.
 
-<img src="doc/hokusai-weights.png" width=200>
+<img src="doc/hokusai-weights.png" width=600>
 
 Alternatively:
 
@@ -117,6 +117,6 @@ Alternatively:
 
 Here's how you could use colorschemes in Gadfly:
 
-<img src="doc/hokusai-weights-1.png" width=200>
+<img src="doc/hokusai-weights-1.png" width=600>
 
-<img src="doc/hokusai-weights-2.png" width=200>
+<img src="doc/hokusai-weights-2.png" width=600>

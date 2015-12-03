@@ -14,7 +14,7 @@ To use the package:
 
     using ColorSchemes, Colors
 
-I think you have to have Images.jl installed as well.
+I think you have to have Images.jl and Clustering.jl installed as well.
 
 You might also like:
 

@@ -1,0 +1,177 @@
+<h2>ColorSchemes</h2>
+
+<p>You can use the excellent <a href="https://github.com/JuliaGraphics/Colors.jl">Colors.jl</a> package for working with colors, and for producing  palettes that provide colors carefully chosen for readability and communication.</p>
+
+<p>Sometimes, however, you don't always want readability. You might want a <em>colorscheme</em> — a group of interesting colors that complement each other visually — rather than a color palette. This package provides a very simple approach to working with colorschemes.</p>
+
+<h3>Usage</h3>
+
+<p>To add this package (to Julia 0.4+):</p>
+
+<pre><code>Pkg.clone("git://github.com/cormullion/ColorSchemes.jl.git")
+</code></pre>
+
+<p>To use the package:</p>
+
+<pre><code>using ColorSchemes, Colors
+</code></pre>
+
+<p>I think you have to have Images.jl installed as well.</p>
+
+<p>You might also like:</p>
+
+<ul>
+<li><p><a href="https://github.com/timothyrenner/ColorBrewer.jl">ColorBrewer.jl</a></p></li>
+<li><p><a href="https://github.com/randyzwitch/NoveltyColors.jl">NoveltyColors.jl</a></p></li>
+</ul>
+
+<h3>Basics</h3>
+
+<p>A colorscheme is just an array of colors. Here's one:</p>
+
+<pre><code>const alpine_colors = [
+    RGB(0.277546,0.355398,0.484215),
+    RGB(0.304739,0.42573,0.46747),
+    RGB(0.495398,0.562531,0.427457),
+    RGB(0.610225,0.62717,0.537364),
+    RGB(0.735256,0.728382,0.656772),
+    RGB(0.867237,0.859925,0.784232),
+    RGB(1.,0.997467,0.914244)]
+</code></pre>
+
+<p>You can extract the colors from an image to create a new color scheme. For example, here's a famous painting:</p>
+
+<p><img src="doc/monalisa.jpg" width=200></p>
+
+<p>To create a colorscheme from this image:</p>
+
+<pre><code>monalisa = extract("monalisa.jpg", 10, 15, 0.01; shrink=2)
+</code></pre>
+
+<p>which creates a 10-color scheme (after 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).</p>
+
+<pre><code>10-element Array{ColorTypes.RGB{Float64},1}:
+ RGB{Float64}(0.0465302,0.0466217,0.0477755)
+ RGB{Float64}(0.695769,0.502293,0.165606)
+ RGB{Float64}(0.890576,0.833807,0.492074)
+ RGB{Float64}(0.481471,0.355741,0.108024)
+ RGB{Float64}(0.445139,0.450331,0.24395)
+ RGB{Float64}(0.889475,0.688348,0.29377)
+ RGB{Float64}(0.161839,0.144967,0.0806486)
+ RGB{Float64}(0.736354,0.706571,0.441564)
+ RGB{Float64}(0.292996,0.2819,0.137832)
+ RGB{Float64}(0.612204,0.586307,0.332992)
+</code></pre>
+
+<p>Or you can load an existing colorscheme from the ColorSchemes/data directory:</p>
+
+<pre><code>loadcolorscheme("leonardo")
+</code></pre>
+
+<p>loads the colorscheme accessed via the constant <code>leonardo</code>.</p>
+
+<p><img src="doc/leo-colorscheme.png" width=600></p>
+
+<p>Here's a list of the current colorschemes. For each scheme, first are the contents as is, next is the continuous blends obtained using <code>colorscheme()</code>:</p>
+
+<p><img src="doc/prebuilt-1.png" width=600>
+<img src="doc/prebuilt-2.png" width=600>
+<img src="doc/prebuilt-3.png" width=600></p>
+
+<p>Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.</p>
+
+<h2>Colorschemes, blends/gradients</h2>
+
+<p>As well as accessing individual colors by indexing (eg <code>leonardo[2]</code> or <code>leonardo[2:20]</code>), a colorscheme can also simulate a continuous range of color choices, by handling any number between 0 and 1.</p>
+
+<pre><code>colorscheme(leonardo, 0.5)
+</code></pre>
+
+<p>returns</p>
+
+<pre><code>RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+</code></pre>
+
+<h2>Sorting color schemes</h2>
+
+<p>Sort a colorscheme:</p>
+
+<pre><code>sortcolorscheme(cscheme)
+</code></pre>
+
+<p>or</p>
+
+<pre><code>sortcolorscheme(leonardo, rev=true)
+</code></pre>
+
+<h2>Making colorscheme files</h2>
+
+<p>Make a colorscheme file from a colorscheme like this:</p>
+
+<pre><code>make_colorschemefile("monalisa", leonardo)
+</code></pre>
+
+<p>which creates a file of that name in your current directory.</p>
+
+<h2>Weighted colorschemes</h2>
+
+<p>Sometimes the different percentages of colors can affect the colorscheme. For example, there may be much more brown than yellow. So you can extract both a set of colors and a set of numbers that indicate proportions of colors. For example:</p>
+
+<pre><code>cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2))
+</code></pre>
+
+<p>The colorscheme is in <code>cs</code>, and <code>wts</code> holds the ratios of each color:</p>
+
+<pre><code>wts
+-&gt; 10-element Array{Float64,1}:
+ 0.294055
+ 0.0899108
+ 0.0808455
+ 0.0555576
+ 0.142818
+ 0.0356599
+ 0.0391717
+ 0.112667
+ 0.0596559
+ 0.0896584
+</code></pre>
+
+<p>With these, you can make another colorscheme that repeats the colors according to the weights:</p>
+
+<pre><code>colorscheme_weighted(cs, wts, length)
+</code></pre>
+
+<p>returns a new colorscheme where the proportion of each color reflect the weights.</p>
+
+<p><img src="doc/hokusai-weights.png" width=600></p>
+
+<p>Alternatively:</p>
+
+<pre><code>colorscheme_weighted(extract_weighted_colors("hokusai.jpg")...)
+</code></pre>
+
+<h2>Plotting</h2>
+
+<h4>Gadfly</h4>
+
+<p>Here's how you could use colorschemes in Gadfly:</p>
+
+<p><img src="doc/hokusai-weights-1.png" width=600></p>
+
+<p><img src="doc/hokusai-weights-2.png" width=600></p>
+
+<h4>Winston</h4>
+
+<p>If you use Winston, you can use colorschemes with <code>imagesc</code>:</p>
+
+<p><img src="doc/winston.png" width=600></p>
+
+<p>Sometimes you'll need a smoother gradient with more colors. You can use <code>colorscheme(scheme, n)</code> to generate a more detailed array:</p>
+
+<p><img src="doc/winston-1.png" width=600></p>
+
+<h4>PyPlot</h4>
+
+<p>The colorschemes defined here can be used with the <code>cmap</code> keyword in PyPlot:</p>
+
+<p><img src="doc/pyplot.png" width=600></p>

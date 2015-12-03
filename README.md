@@ -4,12 +4,23 @@ You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl
 
 Sometimes, however, you don't always want readability. You might want a _colorscheme_ — a group of interesting colors that complement each other visually — rather than a color palette. This package provides a very simple approach to working with colorschemes.
 
-Needs: Images.jl, Colors.jl.
+### Usage
+
+To add this package (to Julia 0.4+):
+
+    Pkg.clone("git://github.com/cormullion/ColorSchemes.jl.git")
+
+To use the package:
+
+    using ColorSchemes, Colors
+
+I think you have to have Images.jl installed as well.
 
 You might also like:
 
-[ColorBrewer.jl](https://github.com/timothyrenner/ColorBrewer.jl)
-[NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
+- [ColorBrewer.jl](https://github.com/timothyrenner/ColorBrewer.jl)
+
+- [NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
 
 ### Basics
 
@@ -32,8 +43,7 @@ To create a colorscheme from this image:
 
     monalisa = extract("monalisa.jpg", 10, 15, 0.01; shrink=2)
 
-which creates a 10-color scheme (after 15 iterations and with a tolerance of 0.01; the image can be reduced
-in size, here by 2, before processing, to save time).
+which creates a 10-color scheme (after 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).
 
     10-element Array{ColorTypes.RGB{Float64},1}:
      RGB{Float64}(0.0465302,0.0466217,0.0477755)
@@ -65,7 +75,7 @@ Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.
 
 ## Colorschemes, blends/gradients
 
-As well as accessing a color by indexing (eg `leonardo[2]`), a colorscheme can also simulate a continuous range of color choices, by handling any number between 0 and 1.
+As well as accessing individual colors by indexing (eg `leonardo[2]` or `leonardo[2:20]`), a colorscheme can also simulate a continuous range of color choices, by handling any number between 0 and 1.
 
     colorscheme(leonardo, 0.5)
 
@@ -79,9 +89,13 @@ Sort a colorscheme:
 
     sortcolorscheme(cscheme)
 
+or
+
+    sortcolorscheme(leonardo, rev=true)
+
 ## Making colorscheme files
 
-Make a colorscheme file like this:
+Make a colorscheme file from a colorscheme like this:
 
     make_colorschemefile("monalisa", leonardo)
 
@@ -89,9 +103,7 @@ which creates a file of that name in your current directory.
 
 ## Weighted colorschemes
 
-Sometimes the different percentages of colors can affect the colorscheme. For example, there may
-be much more brown than yellow. So you can extract both a set of colors and a set of numbers
-that indicate proportions of colors. For example:
+Sometimes the different percentages of colors can affect the colorscheme. For example, there may be much more brown than yellow. So you can extract both a set of colors and a set of numbers that indicate proportions of colors. For example:
 
     cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2))
 
@@ -122,8 +134,29 @@ Alternatively:
 
     colorscheme_weighted(extract_weighted_colors("hokusai.jpg")...)
 
+## Plotting
+
+#### Gadfly
+
 Here's how you could use colorschemes in Gadfly:
 
 <img src="doc/hokusai-weights-1.png" width=600>
 
 <img src="doc/hokusai-weights-2.png" width=600>
+
+#### Winston
+
+If you use Winston, you can use colorschemes with `imagesc`:
+
+<img src="doc/winston.png" width=600>
+
+Sometimes you'll need a smoother gradient with more colors. You can use `colorscheme(scheme, n)` to generate a more detailed array:
+
+<img src="doc/winston-1.png" width=600>
+
+#### PyPlot
+
+The colorschemes defined here can be used with the `cmap` keyword in PyPlot:
+
+<img src="doc/pyplot.png" width=600>
+

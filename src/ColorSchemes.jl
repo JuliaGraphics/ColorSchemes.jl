@@ -67,11 +67,11 @@ function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 1)
     newh = round(Int, w/shrink)
     smaller_image = Images.imresize(img, (neww, newh))
     imdata = convert(Array{Float64}, raw(separate(smaller_image).data))/256
-    w, h, nchannels = size(imdata)
-    d = transpose(reshape(imdata, w*h, nchannels))
+    w, h, numchannels = size(imdata)
+    d = transpose(reshape(imdata, w*h, numchannels))
     R = kmeans(d, n, maxiter=i, tol=tolerance)
     colscheme = RGB{Float64}[]
-    for i in 1:nchannels:length(R.centers)
+    for i in 1:numchannels:length(R.centers)
         push!(colscheme, RGB(R.centers[i], R.centers[i+1], R.centers[i+2]))
     end
     return colscheme, R.cweights/sum(R.cweights)

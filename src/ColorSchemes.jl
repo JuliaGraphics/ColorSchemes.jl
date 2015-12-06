@@ -5,7 +5,10 @@ VERSION >= v"0.4.0" && __precompile__()
 """
 A colorscheme is an array of colors.
 
+To use:
     using ColorSchemes, Colors
+
+Functions:
 
     extract(file)
         - extract a new colorscheme from image file, return colorscheme
@@ -31,7 +34,9 @@ export extract, colorscheme,
     loadcolorscheme, sortcolorscheme,
     colorscheme_weighted,
     make_colorschemefile,
-    extract_weighted_colors
+    extract_weighted_colors,
+    list,
+    loadall
 
 # convert a value between oldmin/oldmax to equivalent value between newmin/newmax
 
@@ -80,7 +85,7 @@ end
 """
     colorscheme_weighted(colorscheme, weights, l)
 
-returns a colorscheme of length l where the proportion of each color is represented by the weight of each entry
+returns a new colorscheme of length `l` where the proportion of each color in `colorscheme` is represented by the weight of each entry
 
     colorscheme_weighted(extract_weighted_colors("hokusai.jpg")...)
 """
@@ -110,7 +115,9 @@ function compare_colors(color_a, color_b, field = :l)
 end
 
 """
-Sort a colorscheme using a Luv field, defaults to :l
+Sort a colorscheme using a Luv field, defaults to :l but could be :u or :v
+
+    sortcolorscheme(colorscheme, field; kwargs...)
 """
 
 function sortcolorscheme(colorscheme, field = :l; kwargs...)
@@ -118,7 +125,7 @@ function sortcolorscheme(colorscheme, field = :l; kwargs...)
 end
 
 """
-Load a named colorscheme from a file. (Files don't have suffixes?)
+Load a named colorscheme from a file. (Files don't have suffixes.)
 
     loadcolorscheme("leonardo")
     loadcolorscheme("dali")
@@ -140,13 +147,13 @@ end
 """
 colorscheme(cscheme, x)
 
-find a color in scheme corresponding to point x (between 0 and 1)
+find a color in `cscheme` corresponding to point `x` ([0,1])
 
 returns a single color
 """
 
 function colorscheme(cscheme::AbstractVector, x)
-    x = clamp(x, 0, 1) # must be between 0 and 1
+    x = clamp(x, 0, 1)
     before_fp = remap(x, 0.0, 1.0, 1, length(cscheme))
     before = convert(Int, round(before_fp, RoundDown))
     after =  min(before + 1, length(cscheme))
@@ -173,6 +180,22 @@ function make_colorschemefile(cschemename, cscheme)
     end
     write(cschemefile, "]")
     close(cschemefile)
+end
+
+"""
+list available color schemes in Pkg.dir("ColorSchemes", "data")
+"""
+
+function list()
+    filter(f -> ismatch(Regex("^[a-z]+"), f), readdir(Pkg.dir("ColorSchemes", "data")))
+end
+
+"""
+load all color schemes
+"""
+
+function loadall()
+    map(loadcolorscheme, list())
 end
 
 end

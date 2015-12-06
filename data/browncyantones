@@ -1,3 +1,5 @@
+#a blend from brown to cyan through lighter shades of brown and blue
+
 const browncyantones = [
 RGB(0.347677,0.199863,0.085069),
 RGB(0.560535,0.419142,0.29185),
@@ -8,5 +10,5 @@ RGB(0.762289,0.939134,0.951842),
 RGB(0.639101,0.925688,0.971463),
 RGB(0.504741,0.85335,0.938049),
 RGB(0.342992,0.650614,0.772702)
-]
+];
 

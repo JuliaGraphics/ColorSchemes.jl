@@ -51,7 +51,7 @@ A colorscheme is just an array of colors. Here's one:
 
 You can extract the colors from an image to create a new color scheme. For example, here's a famous painting:
 
-<img src="doc/monalisa.jpg" width=200>
+<img src="doc/monalisa.jpg" width=400>
 
 To create a colorscheme from this image:
 
@@ -81,7 +81,7 @@ loads the colorscheme accessed via the constant `leonardo`.
 
 Here's a list of the current colorschemes. For each scheme, first are the contents as is, next is the continuous blends obtained using `colorscheme()`:
 
-<img src="doc/colorschemes.png" width=600>
+<img src="doc/colorschemes.png" width=800>
 
 Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.
 

@@ -1,10 +1,24 @@
 ## ColorSchemes
 
+### Contents
+
++ [Usage](#Usage)
++ [Basics](#Basics)
++ [Colorschemes, blends/gradients](#Colorschemes, blends/gradients)
++ [Sorting color schemes](#Sorting color schemes)
++ [Making colorscheme files](#Making colorscheme files)
++ [Weighted colorschemes](#Weighted colorschemes)
++ [Plotting](#Plotting)
++ [Gadfly](#Gadfly)
++ [Winston](#Winston)
++ [PyPlot](#PyPlot)
++ [Images](#Images)
+
 You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing  palettes that provide colors carefully chosen for readability and communication.
 
 Sometimes, however, you don't always want readability. You might want a _colorscheme_ — a group of interesting colors that complement each other visually — rather than a color palette. This package provides a very simple approach to working with colorschemes.
 
-### Usage
+### Usage <a id="Usage"></a>
 
 To add this package (to Julia 0.4+):
 
@@ -22,7 +36,7 @@ You might also like:
 
 - [NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
 
-### Basics
+### Basics <a id="Basics"></a>
 
 A colorscheme is just an array of colors. Here's one:
 
@@ -73,7 +87,7 @@ Here's a list of the current colorschemes. For each scheme, first are the conten
 
 Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.
 
-## Colorschemes, blends/gradients
+## Colorschemes, blends/gradients <a id="Colorschemes, blends/gradients"></a>
 
 As well as accessing individual colors by indexing (eg `leonardo[2]` or `leonardo[2:20]`), a colorscheme can also simulate a continuous range of color choices, by handling any number between 0 and 1.
 
@@ -83,7 +97,7 @@ returns
 
     RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 
-## Sorting color schemes
+## Sorting color schemes <a id="Sorting color schemes"></a>
 
 Sort a colorscheme:
 
@@ -93,7 +107,7 @@ or
 
     sortcolorscheme(leonardo, rev=true)
 
-## Making colorscheme files
+## Making colorscheme files <a id="Making colorscheme files"></a>
 
 Make a colorscheme file from a colorscheme like this:
 
@@ -101,7 +115,7 @@ Make a colorscheme file from a colorscheme like this:
 
 which creates a file of that name in your current directory.
 
-## Weighted colorschemes
+## Weighted colorschemes <a id="Weighted colorschemes"></a>
 
 Sometimes the different percentages of colors can affect the colorscheme. For example, there may be much more brown than yellow. So you can extract both a set of colors and a set of numbers that indicate proportions of colors. For example:
 
@@ -134,9 +148,9 @@ Alternatively:
 
     colorscheme_weighted(extract_weighted_colors("hokusai.jpg")...)
 
-## Plotting
+## Plotting <a id="Plotting"></a>
 
-#### Gadfly
+#### Gadfly <a id="Gadfly"></a>
 
 Here's how you could use colorschemes in Gadfly:
 
@@ -144,7 +158,7 @@ Here's how you could use colorschemes in Gadfly:
 
 <img src="doc/hokusai-weights-2.png" width=600>
 
-#### Winston
+#### Winston <a id="Winston"></a>
 
 If you use Winston, you can use colorschemes with `imagesc`:
 
@@ -154,9 +168,53 @@ Sometimes you'll need a smoother gradient with more colors. You can use `colorsc
 
 <img src="doc/winston-1.png" width=600>
 
-#### PyPlot
+#### PyPlot <a id="PyPlot"></a>
 
 The colorschemes defined here can be used with the `cmap` keyword in PyPlot:
 
 <img src="doc/pyplot.png" width=600>
+
+## Images <a id="Images"></a>
+
+Here's how you can use colorschemes with Images.jl. A Julia set is colored using the colors from Vermeer's painting "Girl with a Pearl Earring".
+
+<img src="doc/julia-set-with-girl-pearl-vermeer.jpg" width=600>
+
+    using Images, Colors, ColorSchemes
+
+    function julia(z, c, maxiter::Int64)
+        for n = 1:maxiter
+            if abs(z) > 2
+                return n
+            end
+            z = z^2 + c
+        end
+        return maxiter
+    end
+
+    # convert a value between oldmin/oldmax to equivalent value between newmin/newmax
+    remap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin
+
+    function draw(c, size;
+          xmin = -2, ymin = -2, xmax  =  2, ymax = 2,
+          filename = "/tmp/julia-set.png")
+        array = Array{UInt8}(size, size, 3)
+        a_colormap = loadcolorscheme("vermeer")
+        imOutput = colorim(array)
+        maxiterations = 200
+        for col = linspace(xmin, xmax, size)
+            for row = linspace(ymin, ymax, size)
+                pixelcolor = julia(complex(row, col), c, maxiterations) /256
+                xpos = convert(Int, round(remap(col, xmin, xmax, 1, size)))
+                ypos = convert(Int, round(remap(row, ymin, ymax, 1, size)))
+                imOutput.data[xpos, ypos, :] = [
+                  (colorscheme(a_colormap,pixelcolor).r),
+                  (colorscheme(a_colormap,pixelcolor).g),
+                  (colorscheme(a_colormap,pixelcolor).b)]
+            end
+        end
+        imwrite(imOutput, filename)
+    end
+
+    draw(-0.4 + 0.6im, 1200)
 

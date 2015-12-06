@@ -9,9 +9,9 @@
 + [Making colorscheme files](#Making colorscheme files)
 + [Weighted colorschemes](#Weighted colorschemes)
 + [Plotting](#Plotting)
-+ [Gadfly](#Gadfly)
-+ [Winston](#Winston)
-+ [PyPlot](#PyPlot)
++  [Gadfly](#Gadfly)
++  [Winston](#Winston)
++  [PyPlot](#PyPlot)
 + [Images](#Images)
 
 You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing  palettes that provide colors carefully chosen for readability and communication.

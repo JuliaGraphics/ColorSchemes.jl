@@ -9,9 +9,9 @@
 + [Making colorscheme files](#Making colorscheme files)
 + [Weighted colorschemes](#Weighted colorschemes)
 + [Plotting](#Plotting)
-+  [Gadfly](#Gadfly)
-+  [Winston](#Winston)
-+  [PyPlot](#PyPlot)
++ [Gadfly](#Gadfly)
++ [Winston](#Winston)
++ [PyPlot](#PyPlot)
 + [Images](#Images)
 
 You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing  palettes that provide colors carefully chosen for readability and communication.
@@ -178,7 +178,7 @@ The colorschemes defined here can be used with the `cmap` keyword in PyPlot:
 
 Here's how you can use colorschemes with Images.jl. A Julia set is colored using the colors from Vermeer's painting "Girl with a Pearl Earring".
 
-<img src="doc/julia-set-with-girl-pearl-vermeer.jpg" width=600>
+<img src="doc/julia-set-with-girl-pearl-vermeer.jpg" width=900>
 
     using Images, Colors, ColorSchemes
 

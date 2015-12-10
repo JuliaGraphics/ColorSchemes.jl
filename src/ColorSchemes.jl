@@ -83,15 +83,31 @@ function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 1)
 end
 
 """
-    colorscheme_weighted(colorscheme, weights, l)
+    colorscheme_weighted(colorscheme, weights, length)
 
-returns a new colorscheme of length `l` where the proportion of each color in `colorscheme` is represented by the weight of each entry
+    returns a new colorscheme of length `length` (default 50) where the proportion of each color in `colorscheme` is represented by the associated weight of each entry
+
+    eg:
 
     colorscheme_weighted(extract_weighted_colors("hokusai.jpg")...)
+
+    colorscheme_weighted(extract_weighted_colors("filename00000001.jpg")..., 500)
 """
 
-function colorscheme_weighted(cscheme, weights, l = 750)
+function colorscheme_weighted(cscheme, weights, l = 50)
     iweights = map(n -> convert(Integer, round(n * l)), weights)
+
+    #   adjust highest or lowest so that length of result is exact
+    while sum(iweights) < l
+        val,ix = findmin(iweights)
+        iweights[ix]=val+1
+    end
+
+    while sum(iweights) > l
+        val,ix = findmax(iweights)
+        iweights[ix]=val-1
+    end
+
     a = Array(RGB{Float64},0)
     for n in 1:length(cscheme)
         a = vcat(a, repmat([cscheme[n]], iweights[n]))
@@ -199,3 +215,13 @@ function loadall()
 end
 
 end
+
+#=
+
+cd(".../paintings")
+for p in filter(f -> ismatch(r"^[a-z]+\.jpg|\.png", f), readdir())
+    make_colorschemefile(replace(p, r"\.jpg|\.png", ""), sortcolorscheme(extract(p, 32, 30, 0.001)))
+    extract(p, 32, 20, 0.001)
+end
+
+=#

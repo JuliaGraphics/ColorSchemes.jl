@@ -4,7 +4,7 @@ using Colors, ColorSchemes
 
 function draw_swatches()
     cd(Pkg.dir("ColorSchemes", "data"))
-    imagewidth, imageheight = 800, 3000
+    imagewidth, imageheight = 800, 3500
     margin = 20
     swatch_height = 15
     # send output to file

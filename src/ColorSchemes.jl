@@ -183,6 +183,8 @@ make_colorschemefile(newschemename, cscheme)
 
 write a colorscheme to a file
 
+Example:
+
     make_colorschemefile("hokusai_1", extract("/tmp/1920px-Great_Wave_off_Kanagawa2.jpg"))
 
 newschemename should be valid Julia variable name...

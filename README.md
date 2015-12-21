@@ -178,7 +178,7 @@ Here's how you can use colorschemes with Images.jl. A Julia set is colored using
 
 <img src="doc/julia-set-with-girl-pearl-vermeer.jpg" width=900>
 
-    using Images, Colors, ColorSchemes
+    using Images, FileIO, Colors, ColorSchemes
 
     function julia(z, c, maxiter::Int64)
         for n = 1:maxiter
@@ -211,7 +211,7 @@ Here's how you can use colorschemes with Images.jl. A Julia set is colored using
                   (colorscheme(a_colormap,pixelcolor).b)]
             end
         end
-        imwrite(imOutput, filename)
+        save(filename, imOutput)
     end
 
     draw(-0.4 + 0.6im, 1200)

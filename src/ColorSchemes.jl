@@ -66,7 +66,7 @@ end
 """
 
 function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 1)
-    img = imread(imfile)
+    img = load(imfile)
     w, h = size(img)
     neww = round(Int, w/shrink)
     newh = round(Int, w/shrink)

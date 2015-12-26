@@ -6,6 +6,7 @@ VERSION >= v"0.4.0" && __precompile__()
 A colorscheme is an array of colors.
 
 To use:
+
     using ColorSchemes, Colors
 
 Functions:

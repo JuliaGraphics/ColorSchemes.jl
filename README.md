@@ -28,7 +28,7 @@ To use the package:
 
     using ColorSchemes, Colors
 
-I think you have to have Images.jl and Clustering.jl installed as well.
+Some functions require you to have Images.jl and Clustering.jl installed as well.
 
 You might also like:
 
@@ -40,14 +40,13 @@ You might also like:
 
 A colorscheme is just an array of colors. Here's one:
 
-    const alpine_colors = [
-        RGB(0.277546,0.355398,0.484215),
-        RGB(0.304739,0.42573,0.46747),
-        RGB(0.495398,0.562531,0.427457),
-        RGB(0.610225,0.62717,0.537364),
-        RGB(0.735256,0.728382,0.656772),
-        RGB(0.867237,0.859925,0.784232),
-        RGB(1.,0.997467,0.914244)]
+    const leonardo = [
+      RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788),
+      RGB{Float64}(0.07508160782698388,0.034110215845969745,0.039708343938094984),
+      RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533),
+      RGB{Float64}(0.10025110094110237,0.05342427394738222,0.04975936729231899)
+      RGB{Float64}(0.9330273170314637,0.6651641943114455,0.19865164906805746),
+      RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)]
 
 You can extract the colors from an image to create a new color scheme. For example, here's a famous painting:
 

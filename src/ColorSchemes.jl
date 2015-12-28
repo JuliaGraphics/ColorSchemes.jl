@@ -37,7 +37,8 @@ export extract, colorscheme,
     make_colorschemefile,
     extract_weighted_colors,
     list,
-    loadall
+    loadall,
+    colorscheme_to_image
 
 # convert a value between oldmin/oldmax to equivalent value between newmin/newmax
 
@@ -54,8 +55,7 @@ returns a colorscheme (an array of colors)
 """
 
 function extract(imfile, n=10, i=10, tolerance=0.01; kwargs...)
-    # throw away the weights
-    return extract_weighted_colors(imfile, n, i, tolerance; kwargs...)[1]
+    return extract_weighted_colors(imfile, n, i, tolerance; kwargs...)[1] # throw away the weights
 end
 
 """
@@ -117,7 +117,7 @@ function colorscheme_weighted(cscheme, weights, l = 50)
 end
 
 """
-Compare two colors, using Luv - field defaults to :l but could be :u or :v
+Compare two colors, using Luv - field defaults to luminance :l but could be :u or :v
 """
 
 function compare_colors(color_a, color_b, field = :l)
@@ -132,7 +132,7 @@ function compare_colors(color_a, color_b, field = :l)
 end
 
 """
-Sort a colorscheme using a Luv field, defaults to :l but could be :u or :v
+Sort a colorscheme using a Luv field, defaults to luminance :l but could be :u or :v
 
     sortcolorscheme(colorscheme, field; kwargs...)
 """
@@ -142,13 +142,15 @@ function sortcolorscheme(colorscheme, field = :l; kwargs...)
 end
 
 """
-Load a named colorscheme from a file. (Files don't have suffixes.)
+Load a named colorscheme from a file. (Files don't have suffixes... :()
 
     loadcolorscheme("leonardo")
     loadcolorscheme("dali")
     loadcolorscheme("/Users/me/julia/hokusai")
 
 loads a colorscheme from ../data or current directory
+
+Adds a constant to the workspace.
 """
 
 function loadcolorscheme(cs::AbstractString)
@@ -164,7 +166,7 @@ end
 """
 colorscheme(cscheme, x)
 
-find a color in `cscheme` corresponding to point `x` ([0,1])
+find the nearest color in `cscheme` corresponding to a point `x` between 0 and 1)
 
 returns a single color
 """
@@ -210,11 +212,32 @@ function list()
 end
 
 """
+
 load all color schemes
+
 """
 
 function loadall()
     map(loadcolorscheme, list())
+end
+
+"""
+
+save a colorscheme as an image by repeating each color m times in h rows
+
+    loadcolorscheme("leonardo")
+    img = colorscheme_to_image(leonardo, 50, 200)
+    save("/tmp/cs_image.png", img)
+
+"""
+
+function colorscheme_to_image(cs, m, h)
+    a = Array(ColorTypes.RGB{Float64}, m, h)
+    fill!(a, colorant"black")
+    for n in 1:length(cs)
+        a = vcat(a, repmat([cs[n]], m, h))
+    end
+    return Image(a)
 end
 
 end

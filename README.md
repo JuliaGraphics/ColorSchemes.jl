@@ -14,9 +14,9 @@
 + [PyPlot](#PyPlot)
 + [Images](#Images)
 
-You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing  palettes that provide colors carefully chosen for readability and communication.
+You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing palettes that provide colors carefully chosen for readability and communication.
 
-Sometimes, however, you don't always want readability. You might want a _colorscheme_ — a group of interesting colors that complement each other visually — rather than a color palette. This package provides a very simple approach to working with colorschemes.
+Sometimes, however, you might want a _colorscheme_ — a group of interesting colors that complement each other visually — rather than a color palette. This package provides a very simple approach to working with colorschemes.
 
 ### Usage <a id="Usage"></a>
 
@@ -38,7 +38,7 @@ You might also like:
 
 ### Basics <a id="Basics"></a>
 
-A colorscheme is just an array of colors. Here's one:
+A colorscheme is an array of colors. Here's a typical example:
 
     const leonardo = [
       RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788),
@@ -48,15 +48,33 @@ A colorscheme is just an array of colors. Here's one:
       RGB{Float64}(0.9330273170314637,0.6651641943114455,0.19865164906805746),
       RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)]
 
-You can extract the colors from an image to create a new color scheme. For example, here's a famous painting:
+You can load a predefined scheme using:
+
+    loadcolorscheme("leonardo")
+
+<img src="doc/leo-colorscheme.png" width=600>
+
+You can reference a single value:
+
+    leonardo[3]
+
+    -> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
+
+Or sample a scheme at any point between 0 and 1:
+
+    colorscheme(leonardo, 0.5)
+
+    -> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+
+You can create a new color scheme by sampling an image. For example, here's a famous painting:
 
 <img src="doc/monalisa.jpg" width=400>
 
-To create a colorscheme from this image:
+Use `extract()` to create a colorscheme from this image:
 
     monalisa = extract("monalisa.jpg", 10, 15, 0.01; shrink=2)
 
-which creates a 10-color scheme (after 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).
+which creates a 10-color scheme (using 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).
 
     10-element Array{ColorTypes.RGB{Float64},1}:
      RGB{Float64}(0.0465302,0.0466217,0.0477755)
@@ -70,15 +88,7 @@ which creates a 10-color scheme (after 15 iterations and with a tolerance of 0.0
      RGB{Float64}(0.292996,0.2819,0.137832)
      RGB{Float64}(0.612204,0.586307,0.332992)
 
-Or you can load an existing colorscheme from the ColorSchemes/data directory:
-
-    loadcolorscheme("leonardo")
-
-loads the colorscheme accessed via the constant `leonardo`.
-
-<img src="doc/leo-colorscheme.png" width=600>
-
-Here's a list of the current colorschemes. For each scheme, first are the contents as is, next is the continuous blends obtained using `colorscheme()`:
+The ColorSchemes/data directory contains a number of predefined schemes. In the following illustration, first is shown the contents of a colorscheme, followed by a continuous blend obtained using `colorscheme()` and values ranging from 0 to 1 (stepping through the range `0:0.001:1`):
 
 <img src="doc/colorschemes.png" width=800>
 
@@ -106,19 +116,19 @@ or
 
 ## Making colorscheme files <a id="Making colorscheme files"></a>
 
-Make a colorscheme file from a colorscheme like this:
+You can make a colorscheme file from a colorscheme like this:
 
     make_colorschemefile("monalisa", leonardo)
 
-which creates a file of that name in your current directory.
+which creates a file of that name in your current directory. Use a name that will make a suitable Julia constant name — a name like 'my-scheme" won't work, because `my-scheme` isn't a valid identifier.
 
 ## Weighted colorschemes <a id="Weighted colorschemes"></a>
 
-Sometimes the different percentages of colors can affect the colorscheme. For example, there may be much more brown than yellow. So you can extract both a set of colors and a set of numbers that indicate proportions of colors. For example:
+Sometimes a colorscheme is dominated by some colors, and others occur less frequently. For example, in an image there may be much more brown than yellow. You can extract both a set of colors and a set of weights that indicate proportions of colors. For example:
 
     cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2))
 
-The colorscheme is in `cs`, and `wts` holds the ratios of each color:
+The colorscheme is in `cs`, and `wts` holds the proportions of each color:
 
     wts
     -> 10-element Array{Float64,1}:
@@ -133,11 +143,11 @@ The colorscheme is in `cs`, and `wts` holds the ratios of each color:
      0.0596559
      0.0896584
 
-With these, you can make another colorscheme that repeats the colors according to the weights:
+With these, you can make a weighted colorscheme that repeats the colors according to the weights:
 
     colorscheme_weighted(cs, wts, length)
 
-returns a new colorscheme where the proportion of each color reflect the weights.
+Here, the proportion of each color reflect the weights in the original.
 
 <img src="doc/hokusai-weights.png" width=600>
 
@@ -173,7 +183,7 @@ The colorschemes defined here can be used with the `cmap` keyword in PyPlot:
 
 ## Images <a id="Images"></a>
 
-Here's how you can use colorschemes with Images.jl. A Julia set is colored using the colors from Vermeer's painting "Girl with a Pearl Earring".
+Here's how you can use colorschemes with Images.jl. The Julia set uses colors extracted from Vermeer's painting "Girl with a Pearl Earring" (loaded using `loadcolorscheme("vermeer")`).
 
 <img src="doc/julia-set-with-girl-pearl-vermeer.jpg" width=900>
 
@@ -214,4 +224,5 @@ Here's how you can use colorschemes with Images.jl. A Julia set is colored using
     end
 
     draw(-0.4 + 0.6im, 1200)
+
 

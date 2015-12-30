@@ -19,7 +19,6 @@ function draw_swatches()
     y   = 50
     for f in filter(f -> f != ".DS_Store", files)
         cs = loadcolorscheme(f)
-        @show cs
         w = (imagewidth - margin - margin - 50) / length(cs)
         println(fhandle, """<text x="$(margin)" y="$(y-5)" fill="black" font-size="10px" font-family="Futura">$f</text>\n""")
         x = margin
@@ -33,7 +32,9 @@ function draw_swatches()
         #blend
         stepping = 0.001
         printwidth = (imagewidth - margin - margin - 50)
-        @show printwidth
+        if length(cs) == 0
+            continue
+        end
         for i in 0:stepping:1
             c = colorscheme(cs, i)
             r, g, b = convert(Int, round(256 * c.r)), convert(Int, round(256 * c.g)), convert(Int, round(256 * c.b))

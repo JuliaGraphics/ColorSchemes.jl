@@ -23,8 +23,8 @@ Functions:
         - sort a colorscheme
     colorscheme_weighted(cscheme, weights)
         - return a weighted colorscheme, given a colorscheme and weights for each entry
-    make_colorschemefile(newschemename, cscheme)
-        - make a colorscheme file
+    savecolorscheme(cscheme, filename, comment)
+        - save a colorscheme in a file
 """
 
 module ColorSchemes
@@ -32,12 +32,12 @@ module ColorSchemes
 using Images, Colors, Clustering
 
 export extract, colorscheme,
-    loadcolorscheme, sortcolorscheme,
+    loadcolorscheme,
+    savecolorscheme,
+    sortcolorscheme,
     colorscheme_weighted,
-    make_colorschemefile,
     extract_weighted_colors,
     list,
-    loadall,
     colorscheme_to_image
 
 # convert a value between oldmin/oldmax to equivalent value between newmin/newmax
@@ -142,25 +142,55 @@ function sortcolorscheme(colorscheme, field = :l; kwargs...)
 end
 
 """
-Load a named colorscheme from a file. (Files don't have suffixes... :()
+Load a named colorscheme from a file.
 
-    loadcolorscheme("leonardo")
-    loadcolorscheme("dali")
-    loadcolorscheme("/Users/me/julia/hokusai")
+    leo  = loadcolorscheme("leonardo.txt")
+    leo  = loadcolorscheme("leonardo")
+    dali = loadcolorscheme("my_dali.txt")
+    hok  = loadcolorscheme("/Users/me/julia/hokusai")
 
-loads a colorscheme from ../data or current directory
+loads a colorscheme from ../data or the current directory or the named directory
 
-Adds a constant to the workspace.
 """
 
 function loadcolorscheme(cs::AbstractString)
-    if isfile(Pkg.dir("ColorSchemes", "data", cs))
-        include(Pkg.dir("ColorSchemes", "data", cs))
+    # look in data directory with ".txt"
+    if isfile(Pkg.dir("ColorSchemes", "data", cs * ".txt"))
+        filename = Pkg.dir("ColorSchemes", "data", cs * ".txt")
+    # perhaps without suffix?
+    elseif isfile(Pkg.dir("ColorSchemes", "data", cs))
+        filename = Pkg.dir("ColorSchemes", "data", cs)
+    # or look in current directory with ".txt" suffix
+    elseif isfile(cs * ".txt")
+        filename = cs * ".txt"
     elseif isfile(cs)
-        include(cs)
-    elseif isfile(cs * ".jl")
-        include(cs * ".jl")
+        filename = cs
+    else # not found
+        filename = ""
     end
+    temp = ColorTypes.RGB{Float64}[]
+    if ! isempty(filename)
+        try
+            colorschemefile = open(filename)
+            for ln in eachline(colorschemefile)
+                if startswith(ln, "#") # comment lines...
+                    # println(chomp(ln))
+                elseif isempty(chomp(ln))
+                    # empty line
+                else
+                    (r, g, b) = map(parse, split(ln, "\t"))
+                    push!(temp, RGB(r, g, b))
+                end
+            end
+            close(colorschemefile)
+        catch err
+            println("$err trying to read colorscheme file $filename")
+        end
+    end
+    if length(temp) == 0
+        warn("empty color scheme")
+    end
+    return temp
 end
 
 """
@@ -172,7 +202,7 @@ returns a single color
 """
 
 function colorscheme(cscheme::AbstractVector, x)
-    x = clamp(x, 0, 1)
+    x = clamp(x, 0.0, 1.0)
     before_fp = remap(x, 0.0, 1.0, 1, length(cscheme))
     before = convert(Int, round(before_fp, RoundDown))
     after =  min(before + 1, length(cscheme))
@@ -182,25 +212,27 @@ function colorscheme(cscheme::AbstractVector, x)
 end
 
 """
-make_colorschemefile(newschemename, cscheme)
+savecolorscheme(cscheme, filename, comment)
 
 write a colorscheme to a file
 
 Example:
 
-    make_colorschemefile("hokusai_1", extract("/tmp/1920px-Great_Wave_off_Kanagawa2.jpg"))
+    savecolorscheme(
+        extract("/tmp/1920px-Great_Wave_off_Kanagawa2.jpg"),
+        "/tmp/hok.txt",
+        "Hokusai Great Wave")
 
-newschemename should be valid Julia variable name...
 """
 
-function make_colorschemefile(cschemename, cscheme)
-    cschemefile = open("$(cschemename)", "w")
-    write(cschemefile, "const $(cschemename) = [")
-    for (i, p) in enumerate(cscheme)
-        write(cschemefile, "$(p),")
+function savecolorscheme(cs, file::AbstractString, comment="comment")
+    fhandle = open(file, "w")
+    write(fhandle, string("# ", comment, "\n"))
+    write(fhandle, string("# created $(now())\n"))
+    for each_color in cs
+        write(fhandle, string(each_color.r, "\t", each_color.g, "\t", each_color.b, "\n"))
     end
-    write(cschemefile, "]")
-    close(cschemefile)
+    close(fhandle)
 end
 
 """
@@ -208,33 +240,28 @@ list available color schemes in Pkg.dir("ColorSchemes", "data")
 """
 
 function list()
-    filter(f -> ismatch(Regex("^[a-z]+"), f), readdir(Pkg.dir("ColorSchemes", "data")))
-end
-
-"""
-
-load all color schemes
-
-"""
-
-function loadall()
-    map(loadcolorscheme, list())
+    # read all filenames from directory
+    files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
+    for i in files
+        i_less = replace(i, ".txt", "")
+        println(i_less)
+    end
 end
 
 """
 
 save a colorscheme as an image by repeating each color m times in h rows
 
-    loadcolorscheme("leonardo")
-    img = colorscheme_to_image(leonardo, 50, 200)
+    leo = loadcolorscheme("leonardo.txt")
+    img = colorscheme_to_image(leo, 50, 200)
     save("/tmp/cs_image.png", img)
 
 """
 
 function colorscheme_to_image(cs, m, h)
     a = Array(ColorTypes.RGB{Float64}, m, h)
-    fill!(a, colorant"black")
-    for n in 1:length(cs)
+    fill!(a, cs[1]) # first color goes here
+    for n in 2:length(cs) # rest here
         a = vcat(a, repmat([cs[n]], m, h))
     end
     return Image(a)

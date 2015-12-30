@@ -35,7 +35,7 @@ csw = colorscheme_weighted(c, w)
 @test length(csw) == 50
 
 cd("/tmp")
-make_colorschemefile("test_hokusai", csw)
+savecolorscheme(csw, "test_hokusai.txt", "this is a test")
 csw1 = loadcolorscheme("test_hokusai")
 @test typeof(csw1) == Array{ColorTypes.RGB{Float64},1}
 

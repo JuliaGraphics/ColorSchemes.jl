@@ -4,14 +4,14 @@
 
 + [Usage](#Usage)
 + [Basics](#Basics)
-+ [Colorschemes, blends/gradients](#Colorschemes, blends/gradients)
-+ [Sorting color schemes](#Sorting color schemes)
-+ [Making colorscheme files](#Making colorscheme files)
-+ [Weighted colorschemes](#Weighted colorschemes)
++  [Colorschemes, blends/gradients](#Colorschemes, blends/gradients)
++  [Sorting color schemes](#Sorting color schemes)
++  [Making colorscheme files](#Making colorscheme files)
++  [Weighted colorschemes](#Weighted colorschemes)
 + [Plotting](#Plotting)
-+ [Gadfly](#Gadfly)
-+ [Winston](#Winston)
-+ [PyPlot](#PyPlot)
++  [Gadfly](#Gadfly)
++  [Winston](#Winston)
++  [PyPlot](#PyPlot)
 + [Images](#Images)
 
 You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing palettes that provide colors carefully chosen for readability and communication.
@@ -38,19 +38,23 @@ You might also like:
 
 ### Basics <a id="Basics"></a>
 
-A colorscheme is an array of colors. Here's a typical example:
+A colorscheme is an array of colors:
 
-    const leonardo = [
-      RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788),
-      RGB{Float64}(0.07508160782698388,0.034110215845969745,0.039708343938094984),
-      RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533),
-      RGB{Float64}(0.10025110094110237,0.05342427394738222,0.04975936729231899)
-      RGB{Float64}(0.9330273170314637,0.6651641943114455,0.19865164906805746),
-      RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)]
+    32-element Array{ColorTypes.RGB{Float64},1}:
+     RGB{Float64}(0.0548203,0.016509,0.0193152)
+     RGB{Float64}(0.0750816,0.0341102,0.0397083)
+     RGB{Float64}(0.10885,0.0336675,0.0261204)
+     RGB{Float64}(0.100251,0.0534243,0.0497594)
+     ...
+     RGB{Float64}(0.85004,0.540122,0.136212)
+     RGB{Float64}(0.757552,0.633425,0.251451)
+     RGB{Float64}(0.816472,0.697015,0.322421)
+     RGB{Float64}(0.933027,0.665164,0.198652)
+     RGB{Float64}(0.972441,0.790701,0.285136)
 
-You can load a predefined scheme using:
+You can load a predefined scheme (from the `ColorSchemes/data` directory) using:
 
-    loadcolorscheme("leonardo")
+    leonardo = loadcolorscheme("leonardo")
 
 <img src="doc/leo-colorscheme.png" width=600>
 
@@ -66,7 +70,7 @@ Or sample a scheme at any point between 0 and 1:
 
     -> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 
-You can create a new color scheme by sampling an image. For example, here's a famous painting:
+You can create a new color scheme by sampling an image. For example, here's an image of a famous painting:
 
 <img src="doc/monalisa.jpg" width=400>
 
@@ -94,9 +98,11 @@ The ColorSchemes/data directory contains a number of predefined schemes. In the 
 
 Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.
 
+You can list them with `list()`.
+
 ## Colorschemes, blends/gradients <a id="Colorschemes, blends/gradients"></a>
 
-As well as accessing individual colors by indexing (eg `leonardo[2]` or `leonardo[2:20]`), a colorscheme can also simulate a continuous range of color choices, by handling any number between 0 and 1.
+As well as accessing colors by indexing (eg `leonardo[2]` or `leonardo[2:20]`), a colorscheme can also simulate a continuous range of color choices, by handling any number between 0 and 1 and interpolating between the available colors. So:
 
     colorscheme(leonardo, 0.5)
 
@@ -106,7 +112,7 @@ returns
 
 ## Sorting color schemes <a id="Sorting color schemes"></a>
 
-Sort a colorscheme:
+To sort a colorscheme:
 
     sortcolorscheme(cscheme)
 
@@ -114,19 +120,23 @@ or
 
     sortcolorscheme(leonardo, rev=true)
 
+The default is to sort colors by their LUV luminance value:
+
+    sortcolorscheme(colorscheme, :u)
+
 ## Making colorscheme files <a id="Making colorscheme files"></a>
 
 You can make a colorscheme file from a colorscheme like this:
 
-    make_colorschemefile("monalisa", leonardo)
+    savecolorscheme(leonardo, "/tmp/leonardo_scheme.txt", "comment: from the Mona Lisa")
 
-which creates a file of that name in your current directory. Use a name that will make a suitable Julia constant name — a name like 'my-scheme" won't work, because `my-scheme` isn't a valid identifier.
+which saves the color values in a text file with the provided name. The file contains a number of lines of three Float64 numbers between 0 and 1, for Red, Green, and Blue.
 
 ## Weighted colorschemes <a id="Weighted colorschemes"></a>
 
 Sometimes a colorscheme is dominated by some colors, and others occur less frequently. For example, in an image there may be much more brown than yellow. You can extract both a set of colors and a set of weights that indicate proportions of colors. For example:
 
-    cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2))
+    cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2)
 
 The colorscheme is in `cs`, and `wts` holds the proportions of each color:
 
@@ -145,7 +155,7 @@ The colorscheme is in `cs`, and `wts` holds the proportions of each color:
 
 With these, you can make a weighted colorscheme that repeats the colors according to the weights:
 
-    colorscheme_weighted(cs, wts, length)
+    colorscheme_weighted(cs, wts, len)
 
 Here, the proportion of each color reflect the weights in the original.
 
@@ -153,7 +163,7 @@ Here, the proportion of each color reflect the weights in the original.
 
 Alternatively:
 
-    colorscheme_weighted(extract_weighted_colors("hokusai.jpg")...)
+    colorscheme_weighted(extract_weighted_colors("monalisa.jpg")...)
 
 ## Plotting <a id="Plotting"></a>
 
@@ -174,6 +184,8 @@ If you use Winston, you can use colorschemes with `imagesc`:
 Sometimes you'll need a smoother gradient with more colors. You can use `colorscheme(scheme, n)` to generate a more detailed array:
 
 <img src="doc/winston-1.png" width=600>
+
+Unfortunately, when doing list comprehensions, the information type sometimes goes missing.
 
 #### PyPlot <a id="PyPlot"></a>
 
@@ -206,7 +218,7 @@ Here's how you can use colorschemes with Images.jl. The Julia set uses colors ex
           xmin = -2, ymin = -2, xmax  =  2, ymax = 2,
           filename = "/tmp/julia-set.png")
         array = Array{UInt8}(size, size, 3)
-        a_colormap = loadcolorscheme("vermeer")
+        vermeer_pearl = loadcolorscheme("vermeer")
         imOutput = colorim(array)
         maxiterations = 200
         for col = linspace(xmin, xmax, size)
@@ -215,9 +227,9 @@ Here's how you can use colorschemes with Images.jl. The Julia set uses colors ex
                 xpos = convert(Int, round(remap(col, xmin, xmax, 1, size)))
                 ypos = convert(Int, round(remap(row, ymin, ymax, 1, size)))
                 imOutput.data[xpos, ypos, :] = [
-                  (colorscheme(a_colormap,pixelcolor).r),
-                  (colorscheme(a_colormap,pixelcolor).g),
-                  (colorscheme(a_colormap,pixelcolor).b)]
+                  (colorscheme(vermeer_pearl,pixelcolor).r),
+                  (colorscheme(vermeer_pearl,pixelcolor).g),
+                  (colorscheme(vermeer_pearl,pixelcolor).b)]
             end
         end
         save(filename, imOutput)
@@ -225,4 +237,12 @@ Here's how you can use colorschemes with Images.jl. The Julia set uses colors ex
 
     draw(-0.4 + 0.6im, 1200)
 
+Sometimes you want to save a colorscheme, usually just a pixel high, as an image. You can do this with `colorscheme_to_image()`. The second argument is the number of repetitions for each color, the third is the number of rows. The function returns an image which you can save using FileIO's `save()`:
 
+    (using FileIO, ColorSchemes, Images, Colors)
+
+    vermeer_pearl = loadcolorscheme("vermeer")
+    img = colorscheme_to_image(vermeer_pearl, 30, 400)
+    save("/tmp/cs_vermeer-30-300.png", img)
+
+<img src="doc/cs_vermeer-30-300.png" width=400>

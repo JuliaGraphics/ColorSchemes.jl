@@ -58,13 +58,15 @@ You can load a predefined scheme (from the `ColorSchemes/data` directory) using:
 
 <img src="doc/leo-colorscheme.png" width=600>
 
-You can reference a single value:
+— the `.txt` suffix can be omitted.
+
+You can reference a single value of this scheme:
 
     leonardo[3]
 
     -> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
 
-Or sample a scheme at any point between 0 and 1:
+Or you can 'sample' it at any point between 0 and 1:
 
     colorscheme(leonardo, 0.5)
 
@@ -120,7 +122,7 @@ or
 
     sortcolorscheme(leonardo, rev=true)
 
-The default is to sort colors by their LUV luminance value:
+The default is to sort colors by their LUV luminance value, but you could try the `:u` or `:v` LUV fields (sorting colors is another problem domain not really addressed here...):
 
     sortcolorscheme(colorscheme, :u)
 
@@ -130,7 +132,7 @@ You can make a colorscheme file from a colorscheme like this:
 
     savecolorscheme(leonardo, "/tmp/leonardo_scheme.txt", "comment: from the Mona Lisa")
 
-which saves the color values in a text file with the provided name. The file contains a number of lines of three Float64 numbers between 0 and 1, for Red, Green, and Blue.
+which saves the color values in a text file with the provided name. The file contains one or more lines of three Float64 numbers between 0 and 1, for Red, Green, and Blue. A comment line can be added.
 
 ## Weighted colorschemes <a id="Weighted colorschemes"></a>
 
@@ -185,7 +187,7 @@ Sometimes you'll need a smoother gradient with more colors. You can use `colorsc
 
 <img src="doc/winston-1.png" width=600>
 
-Unfortunately, when doing list comprehensions, the information type sometimes goes missing.
+Unfortunately, when doing array comprehensions, the type information sometimes goes missing, hence the  `Array{ColorTypes.RGB}(` before the comprehension here.
 
 #### PyPlot <a id="PyPlot"></a>
 

@@ -6,13 +6,14 @@ using Base.Test
 # write your own tests here
 
 # create a colorscheme from image file
-hokusai_test = extract(Pkg.dir("ColorSchemes", "test", "hokusai.jpg"))
+
+hokusai_test = extract(dirname(@__FILE__) * "/hokusai.jpg")
 
 @test length(hokusai_test) == 10
 @test typeof(hokusai_test) == Array{ColorTypes.RGB{Float64},1}
 
-# extract colors and weights from image file
-c, w =  extract_weighted_colors(Pkg.dir("ColorSchemes", "test", "hokusai.jpg"), 10, 10, 0.01; shrink = 4)
+# extract colors and weights from image file located here in the test directory
+c, w =  extract_weighted_colors(dirname(@__FILE__) * "/hokusai.jpg", 10, 10, 0.01; shrink = 4)
 
 @test length(c) == 10
 @test length(w) == 10
@@ -34,9 +35,11 @@ csw = colorscheme_weighted(c, w, 37)
 csw = colorscheme_weighted(c, w)
 @test length(csw) == 50
 
-cd("/tmp")
+tempdir = mktempdir()
+cd(tempdir)
 savecolorscheme(csw, "test_hokusai.txt", "this is a test")
-csw1 = loadcolorscheme("test_hokusai")
+csw1 = loadcolorscheme("test_hokusai") # no suffix required
 @test typeof(csw1) == Array{ColorTypes.RGB{Float64},1}
+rm(tempdir, recursive=true)
 
 println("tests finished")

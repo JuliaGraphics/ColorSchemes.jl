@@ -9,6 +9,12 @@ To use:
 
     using ColorSchemes, Colors
 
+or
+
+    using Images, ColorSchemes, Colors, FileIO
+
+if you want image input and output.
+
 Functions:
 
     extract(file)
@@ -16,15 +22,17 @@ Functions:
     extract_weighted_colors(file, n=10, i=10, tolerance=0.01; shrink = 1))
         - return a colorscheme and weights for each entry
     loadcolorscheme("name")
-        - load a predefined colorscheme from file (see ../data)
+        - load a predefined colorscheme from file (see the ../data directory)
     colorscheme(cscheme, n)
-        - return a single color from a color scheme based on location of n (0-1) in scheme
+        - return a single color from a color scheme based on location of n (0-1) in cscheme
     sortcolorscheme(cscheme)
         - sort a colorscheme
     colorscheme_weighted(cscheme, weights)
-        - return a weighted colorscheme, given a colorscheme and weights for each entry
+        - return a weighted colorscheme, given a colorscheme and an array of weights for each entry
     savecolorscheme(cscheme, filename, comment)
         - save a colorscheme in a file
+    colorscheme_to_image(cscheme, m, h)
+        - save colorscheme as image
 """
 
 module ColorSchemes
@@ -269,12 +277,3 @@ end
 
 end
 
-#=
-
-cd(".../paintings")
-for p in filter(f -> ismatch(r"^[a-z]+\.jpg|\.png", f), readdir())
-    make_colorschemefile(replace(p, r"\.jpg|\.png", ""), sortcolorscheme(extract(p, 32, 30, 0.001)))
-    extract(p, 32, 20, 0.001)
-end
-
-=#

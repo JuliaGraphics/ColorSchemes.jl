@@ -22,19 +22,23 @@ Sometimes, however, you might want a _colorscheme_ — a set of 'interesting' co
 
 To add this package (to Julia 0.4+):
 
-    Pkg.clone("git://github.com/cormullion/ColorSchemes.jl.git")
+    Pkg.add("ColorSchemes")
+
+It requires Images.jl, Colors.jl, Clustering.jl, and FileIO.jl.
 
 To use the basic functions in the package:
 
-    using ColorSchemes, Colors
+    using ColorSchemes
 
-You might also like these Julia packages for working with color palettes:
+Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick is used for importing and exporting images.
+
+### Related packages
+
+You might also like these packages for working with color palettes:
 
 - [ColorBrewer.jl](https://github.com/timothyrenner/ColorBrewer.jl)
 
 - [NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
-
-On Linux/UNIX, ImageMagick is required for importing and exporting images.
 
 ### Basics <a id="Basics"></a>
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env julia
 
-using ColorSchemes, Colors
+using ColorSchemes, Colors, FileIO
+
 using Base.Test
 
 # write your own tests here

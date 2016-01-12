@@ -34,6 +34,8 @@ You might also like these Julia packages for working with color palettes:
 
 - [NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
 
+On Linux/UNIX, ImageMagick is required for importing and exporting images.
+
 ### Basics <a id="Basics"></a>
 
 A colorscheme is an array of colors:
@@ -217,7 +219,7 @@ Here's how you can use colorschemes when creating images with Images.jl. The cod
 
 <img src="doc/julia-set-with-girl-pearl-vermeer.jpg" width=900>
 
-    using Images, FileIO, Colors, ColorSchemes
+    using ColorSchemes
 
     function julia(z, c, maxiter::Int64)
         for n = 1:maxiter
@@ -237,7 +239,7 @@ Here's how you can use colorschemes when creating images with Images.jl. The cod
           filename = "/tmp/julia-set.png")
         array = Array{UInt8}(size, size, 3)
         vermeer_pearl = loadcolorscheme("vermeer")
-        imOutput = colorim(array)
+        imOutput = Images.colorim(array)
         maxiterations = 200
         for col = linspace(xmin, xmax, size)
             for row = linspace(ymin, ymax, size)
@@ -250,7 +252,7 @@ Here's how you can use colorschemes when creating images with Images.jl. The cod
                   (colorscheme(vermeer_pearl,pixelcolor).b)]
             end
         end
-        save(filename, imOutput)
+        FileIO.save(filename, imOutput)
     end
 
     draw(-0.4 + 0.6im, 1200)

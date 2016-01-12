@@ -37,7 +37,7 @@ Functions:
 
 module ColorSchemes
 
-using Images, Colors, Clustering
+using Images, Colors, Clustering, FileIO
 
 export extract, colorscheme,
     loadcolorscheme,

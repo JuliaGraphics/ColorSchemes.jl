@@ -30,7 +30,7 @@ To use the basic functions in the package:
 
     using ColorSchemes
 
-Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick is used for importing and exporting images.
+Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.
 
 ### Related packages
 

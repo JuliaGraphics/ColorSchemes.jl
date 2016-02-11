@@ -1,8 +1,10 @@
 #!/usr/bin/env julia
 
-using ColorSchemes, Colors, FileIO
+using ColorSchemes, Colors
 
 using Base.Test
+
+@linux ? using ImageMagick : using FileIO 
 
 # write your own tests here
 

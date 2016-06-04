@@ -244,18 +244,20 @@ function savecolorscheme(cs, file::AbstractString, comment="comment")
 end
 
 """
-list available color schemes in Pkg.dir("ColorSchemes", "data")
+read available color schemes in Pkg.dir("ColorSchemes", "data") and
+return an array of strings
 """
 
 function list()
-    # read all filenames from directory
-    files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
-    for i in files
-        i_less = replace(i, ".txt", "")
-        println(i_less)
-    end
-end
-
+           # read all filenames from directory
+           schemes = AbstractString[]
+           files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
+           for i in files
+               i_less = replace(i, ".txt", "")
+               push!(schemes, i_less)
+           end
+           return schemes
+       end
 """
 
 save a colorscheme as an image by repeating each color m times in h rows
@@ -276,4 +278,3 @@ function colorscheme_to_image(cs, m, h)
 end
 
 end
-

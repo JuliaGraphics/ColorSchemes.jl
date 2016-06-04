@@ -9,6 +9,7 @@
 + [ Making colorscheme files](#Making colorscheme files)
 + [ Weighted colorschemes](#Weighted colorschemes)
 + [Plotting](#Plotting)
++ [ Plots](#Plots.jl)
 + [ Gadfly](#Gadfly)
 + [ Winston](#Winston)
 + [ PyPlot](#PyPlot)
@@ -29,6 +30,10 @@ It requires Images.jl, Colors.jl, Clustering.jl, and FileIO.jl.
 To use the basic functions in the package:
 
     using ColorSchemes
+
+Load a built-in color scheme:
+
+    leonardo = loadcolorscheme("leonardo")
 
 Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.
 
@@ -119,7 +124,12 @@ The `ColorSchemes/data` directory contains a number of predefined colorschemes. 
 
 Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.
 
-You can list the names of colorschemes in the `ColorSchemes/data` directory with `list()`.
+You can list the names of colorschemes in the `ColorSchemes/data` directory with `list()`, and look for matches with `filter()`.
+
+  filter(x-> contains(x, "temp"), list())
+  2-element Array{AbstractString,1}:
+   "lighttemperaturemap"
+   "temperaturemap"    
 
 ## Colorschemes, blends/gradients <a id="Colorschemes, blends/gradients"></a>
 
@@ -176,7 +186,6 @@ The colorscheme is now in `cs`, and `wts` holds the various weights of each colo
      0.0596559
      0.0896584
 
-
 With the colorscheme and the weights, you can make a colorscheme in which the more common colors take up more space in the scheme:
 
     colorscheme_weighted(cs, wts, len)
@@ -192,6 +201,33 @@ Compare the weighted and unweighted versions:
 <img src="doc/hok-scheme-weighted.png" width=600>
 
 ## Plotting <a id="Plotting"></a>
+
+#### Plots <a id="Plots.jl"></a>
+
+Tom Breloff's amazing superplotting package, [Plots.jl](https://github.com/tbreloff/Plots.jl) can use colorschemes.
+
+With the `contour()` function:
+
+    leonardo = loadcolorscheme("leonardo")
+
+    x = 1:0.3:20
+    y = x
+    f(x,y) = begin
+          sin(x) + cos(y)
+      end
+    contour(x, y, f, fill=true, c=leonardo)
+
+<img src="doc/plots-contour-1.png" width=600>
+
+With other plots, use the `palette` keyword:
+
+    canaletto = loadcolorscheme("canaletto")
+
+    plot(Plots.fakedata(100, 20), w=4,
+    background_color=canaletto[1],
+    palette=canaletto)
+
+<img src="doc/plots-background.png" width=600>
 
 #### Gadfly <a id="Gadfly"></a>
 

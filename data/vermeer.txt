@@ -1,4 +1,8 @@
-# colorscheme vermeer
+# colorscheme Vermeer
+# Colors from the Girl with a Pearl Earring, an oil painting by 17th-century
+# Dutch painter Johannes Vermeer. The deep green background has faded to
+# black with time.
+#
 # created 2015-12-29T19:53:22
 0.045319841827409044	0.04074539053177987	0.033174030819406126
 0.06194243196273512	0.05903050212040492	0.05139710689483695

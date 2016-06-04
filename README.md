@@ -126,10 +126,11 @@ Here's an <a href="doc/colorschemes.svg"> SVG</a> of them.
 
 You can list the names of colorschemes in the `ColorSchemes/data` directory with `list()`, and look for matches with `filter()`.
 
-  filter(x-> contains(x, "temp"), list())
-  2-element Array{AbstractString,1}:
-   "lighttemperaturemap"
-   "temperaturemap"    
+    filter(x-> contains(x, "temp"), list())
+
+    2-element Array{AbstractString,1}:
+    "lighttemperaturemap"
+    "temperaturemap"    
 
 ## Colorschemes, blends/gradients <a id="Colorschemes, blends/gradients"></a>
 

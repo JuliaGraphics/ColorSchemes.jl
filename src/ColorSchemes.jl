@@ -9,16 +9,16 @@ To use:
 
     using ColorSchemes, Colors
 
-or
+and
 
-    using Images, ColorSchemes, Colors, FileIO
+    using Images, FileIO
 
 if you want image input and output.
 
 Functions:
 
     extract(file)
-        - extract a new colorscheme from image file, return colorscheme
+        - extract a new colorscheme from an image file, return colorscheme
     extract_weighted_colors(file, n=10, i=10, tolerance=0.01; shrink = 1))
         - return a colorscheme and weights for each entry
     loadcolorscheme("name")
@@ -30,16 +30,19 @@ Functions:
     colorscheme_weighted(cscheme, weights)
         - return a weighted colorscheme, given a colorscheme and an array of weights for each entry
     savecolorscheme(cscheme, filename, comment)
-        - save a colorscheme in a file
+        - save a colorscheme in the file with an optional comment
     colorscheme_to_image(cscheme, m, h)
-        - save colorscheme as image
+        - save colorscheme as image by repeating each color m times in h rows
+    list()
+        - return array of available colorschemes in ../data
 """
 
 module ColorSchemes
 
 using Images, Colors, Clustering, FileIO
 
-export extract, colorscheme,
+export extract,
+    colorscheme,
     loadcolorscheme,
     savecolorscheme,
     sortcolorscheme,
@@ -105,18 +108,15 @@ end
 
 function colorscheme_weighted(cscheme, weights, l = 50)
     iweights = map(n -> convert(Integer, round(n * l)), weights)
-
     #   adjust highest or lowest so that length of result is exact
     while sum(iweights) < l
         val,ix = findmin(iweights)
         iweights[ix]=val+1
     end
-
     while sum(iweights) > l
         val,ix = findmax(iweights)
         iweights[ix]=val-1
     end
-
     a = Array(RGB{Float64},0)
     for n in 1:length(cscheme)
         a = vcat(a, repmat([cscheme[n]], iweights[n]))
@@ -140,7 +140,7 @@ function compare_colors(color_a, color_b, field = :l)
 end
 
 """
-Sort a colorscheme using a Luv field, defaults to luminance :l but could be :u or :v
+    Sort a colorscheme using a Luv field, defaults to luminance :l but could be :u or :v
 
     sortcolorscheme(colorscheme, field; kwargs...)
 """

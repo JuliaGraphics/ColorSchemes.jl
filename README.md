@@ -1,5 +1,15 @@
 ## ColorSchemes
 
+You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing palettes that provide colors carefully chosen for readability and communication.
+
+Sometimes, however, you might want a _colorscheme_ — a set of 'interesting' colors that complement each other visually — rather than a color palette. This package provides a simple approach to working with colorschemes.
+
+You might also like these packages for working with color palettes:
+
+- [ColorBrewer.jl](https://github.com/timothyrenner/ColorBrewer.jl)
+
+- [NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
+
 ### Contents
 
 + [Usage](#Usage)
@@ -14,10 +24,6 @@
 + [ Winston](#Winston)
 + [ PyPlot](#PyPlot)
 + [Images](#Images)
-
-You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing palettes that provide colors carefully chosen for readability and communication.
-
-Sometimes, however, you might want a _colorscheme_ — a set of 'interesting' colors that complement each other visually — rather than a color palette. This package provides a simple approach to working with colorschemes.
 
 ### Usage <a id="Usage"></a>
 
@@ -36,14 +42,6 @@ Load a built-in color scheme:
     leonardo = loadcolorscheme("leonardo")
 
 Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.
-
-### Related packages
-
-You might also like these packages for working with color palettes:
-
-- [ColorBrewer.jl](https://github.com/timothyrenner/ColorBrewer.jl)
-
-- [NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
 
 ### Basics <a id="Basics"></a>
 
@@ -132,9 +130,21 @@ You can list the names of colorschemes in the `ColorSchemes/data` directory with
     "lighttemperaturemap"
     "temperaturemap"    
 
+Of course You can easily make you own colorscheme by building an array:
+
+    grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]
+
+or, slightly longer:
+
+    reds = RGB{Float64}[]
+
+    for i in 0:0.05:1
+      push!(reds, RGB{Float64}(1, 1-i, 1-i))
+    end
+
 ## Colorschemes, blends/gradients <a id="Colorschemes, blends/gradients"></a>
 
-As well as accessing colors by indexing (eg `leonardo[2]` or `leonardo[2:20]`), a colorscheme can simulate a continuous range of colors by handling any number between 0 and 1 and interpolating between the provided color definitions. So:
+As well as accessing colors by indexing (eg `leonardo[2]` or `leonardo[2:20]`), a colorscheme can be used to make a continuous range of colors by handling any number between 0 and 1 and interpolating between the provided color definitions. So:
 
     colorscheme(leonardo, 0.5)
 
@@ -160,7 +170,7 @@ The default is to sort colors by their LUV luminance value, but you could try sp
 
 ## Making colorscheme files <a id="Making colorscheme files"></a>
 
-You can make a colorscheme file from a colorscheme like this:
+You can save a colorscheme into a file like this:
 
     savecolorscheme(leonardo, "/tmp/leonardo_scheme.txt", "comment: from the Mona Lisa")
 
@@ -168,7 +178,7 @@ which saves the color values in a text file with the provided name. The file con
 
 ## Weighted colorschemes <a id="Weighted colorschemes"></a>
 
-Sometimes an image is dominated by some colors with others occurring less frequently. For example, there may be much more brown than yellow in a particular image. You can extract both a set of colors and a set of numerical values or weights that indicate the proportions of colors in the image.
+Sometimes an image is dominated by some colors with others occurring less frequently. For example, there may be much more brown than yellow in a particular image. A colorscheme derived from this image can reflect this. You can extract both a set of colors and a set of numerical values or weights that indicate the proportions of colors in the image.
 
     cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2)
 
@@ -195,7 +205,7 @@ Or in one go:
 
     colorscheme_weighted(extract_weighted_colors("monalisa.jpg")...)
 
-Compare the weighted and unweighted versions:
+Compare the weighted and unweighted versions of schemes extracted from the Hokusai image "The Great Wave":
 
 <img src="doc/hok-scheme-unweighted.png" width=600>
 
@@ -219,6 +229,8 @@ With the `contour()` function:
     contour(x, y, f, fill=true, c=leonardo)
 
 <img src="doc/plots-contour-1.png" width=600>
+
+where `c` is short for `seriescolor`.
 
 With other plots, use the `palette` keyword:
 

@@ -2,13 +2,7 @@
 
 You can use the excellent [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package for working with colors, and for producing palettes that provide colors carefully chosen for readability and communication.
 
-Sometimes, however, you might want a _colorscheme_ — a set of 'interesting' colors that complement each other visually — rather than a color palette. This package provides a simple approach to working with colorschemes.
-
-You might also like these packages for working with color palettes:
-
-- [ColorBrewer.jl](https://github.com/timothyrenner/ColorBrewer.jl)
-
-- [NoveltyColors.jl](https://github.com/randyzwitch/NoveltyColors.jl)
+Sometimes, however, you might want a _colorscheme_ — a set of 'interesting' colors that complement each other visually — rather than a color palette. This package provides a simple approach to working with colorschemes. With `extract()` you can extract colorschemes from images and use them in plots or other graphics programs.
 
 ### Contents
 
@@ -40,8 +34,6 @@ To use the basic functions in the package:
 Load a built-in color scheme:
 
     leonardo = loadcolorscheme("leonardo")
-
-Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.
 
 ### Basics <a id="Basics"></a>
 
@@ -115,6 +107,8 @@ which creates a 10-color scheme (using 15 iterations and with a tolerance of 0.0
      RGB{Float64}(0.736354,0.706571,0.441564)
      RGB{Float64}(0.292996,0.2819,0.137832)
      RGB{Float64}(0.612204,0.586307,0.332992)
+
+(Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.)
 
 The `ColorSchemes/data` directory contains a number of predefined colorschemes. In the following illustration, first is shown the contents of a colorscheme, followed by a continuous blend obtained using `colorscheme()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`):
 
@@ -219,6 +213,7 @@ Tom Breloff's amazing superplotting package, [Plots.jl](https://github.com/tbrel
 
 With the `contour()` function:
 
+    using Plots, Colorschemes
     leonardo = loadcolorscheme("leonardo")
 
     x = 1:0.3:20
@@ -226,19 +221,15 @@ With the `contour()` function:
     f(x,y) = begin
           sin(x) + cos(y)
       end
-    contour(x, y, f, fill=true, c=leonardo)
+    contour(x, y, f, fill=true, seriescolor=leonardo)
 
 <img src="doc/plots-contour-1.png" width=600>
 
-where `c` is short for `seriescolor`.
+(You can use `c` as a short cut for `seriescolor`.)
 
 With other plots, use the `palette` keyword:
 
-    canaletto = loadcolorscheme("canaletto")
-
-    plot(Plots.fakedata(100, 20), w=4,
-    background_color=canaletto[1],
-    palette=canaletto)
+m
 
 <img src="doc/plots-background.png" width=600>
 

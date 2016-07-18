@@ -244,16 +244,21 @@ function savecolorscheme(cs, file::AbstractString, comment="comment")
 end
 
 """
-list available color schemes in Pkg.dir("ColorSchemes", "data")
+list available color schemes in Pkg.dir("ColorSchemes", "data").
+
+Return an array of strings (without the ".txt" extension).
+
 """
 
 function list()
     # read all filenames from directory
     files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
+    schemelist = String[]
     for i in files
         i_less = replace(i, ".txt", "")
-        println(i_less)
+        push!(schemelist, i_less)
     end
+    return schemelist
 end
 
 """

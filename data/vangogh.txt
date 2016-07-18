@@ -1,4 +1,9 @@
-# colorscheme vangogh
+# colorscheme
+#
+# colors from Van Gogh's painting The Starry Night, painted in June, 1889,
+# depicting the view from the east-facing window of his asylum room at
+# Saint-Rémy-de-Provence.
+#
 # created 2015-12-29T19:53:22
 0.07805214539327196	0.0622190753445267	0.0905010963922489
 0.0696892120133937	0.09805612436075063	0.16553643605405555

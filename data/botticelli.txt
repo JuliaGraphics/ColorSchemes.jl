@@ -1,5 +1,8 @@
 # colorscheme botticelli
-# created 2015-12-29T19:53:22
+# Colors from Sandro Botticelli's painting The Birth of Venus, thought to have
+# been painted in the mid 1480s. It depicts the goddess Venus, having emerged
+# from the sea as an adult woman, arriving at the shore.
+# edited 2016-06-04 19:42:51
 0.05695005623735094	0.0653929898638574	0.05267668232432475
 0.10517969694056904	0.1094558088189137	0.08376402353619686
 0.16398935838222442	0.15660910658901703	0.11353151936119886

@@ -165,10 +165,10 @@ function loadcolorscheme(cs::AbstractString)
     # look in data directory with ".txt"
     if isfile(Pkg.dir("ColorSchemes", "data", cs * ".txt"))
         filename = Pkg.dir("ColorSchemes", "data", cs * ".txt")
-    # perhaps without suffix?
+        # perhaps without suffix?
     elseif isfile(Pkg.dir("ColorSchemes", "data", cs))
         filename = Pkg.dir("ColorSchemes", "data", cs)
-    # or look in current directory with ".txt" suffix
+        # or look in current directory with ".txt" suffix
     elseif isfile(cs * ".txt")
         filename = cs * ".txt"
     elseif isfile(cs)
@@ -262,22 +262,23 @@ function list()
     return schemelist
 end
 
-=======
+"""
+
 read available color schemes in Pkg.dir("ColorSchemes", "data") and
 return an array of strings
+
 """
 
 function list()
-           # read all filenames from directory
-           schemes = AbstractString[]
-           files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
-           for i in files
-               i_less = replace(i, ".txt", "")
-               push!(schemes, i_less)
-           end
-           return schemes
-       end
->>>>>>> master
+    # read all filenames from directory
+    schemes = AbstractString[]
+    files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
+    for i in files
+        i_less = replace(i, ".txt", "")
+        push!(schemes, i_less)
+    end
+    return schemes
+end
 """
 
 save a colorscheme as an image by repeating each color m times in h rows

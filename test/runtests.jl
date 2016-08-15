@@ -34,12 +34,10 @@ csw = colorscheme_weighted(c, w, 37)
 csw = colorscheme_weighted(c, w)
 @test length(csw) == 50
 
-# tests might require image services such as ImageMagick
-#tempdir = mktempdir()
-#cd(tempdir)
-#savecolorscheme(csw, "test_hokusai.txt", "this is a test")
-#csw1 = loadcolorscheme("test_hokusai") # no suffix required
-#@test typeof(csw1) == Array{ColorTypes.RGB{Float64},1}
-#rm(tempdir, recursive=true)
-
-println("tests finished")
+# some possible tests would require image services such as ImageMagick:
+# tempdir = mktempdir()
+# cd(tempdir)
+# savecolorscheme(csw, "test_hokusai.txt", "this is a test")
+# csw1 = loadcolorscheme("test_hokusai") # no suffix required
+# @test typeof(csw1) == Array{ColorTypes.RGB{Float64},1}
+# rm(tempdir, recursive=true)

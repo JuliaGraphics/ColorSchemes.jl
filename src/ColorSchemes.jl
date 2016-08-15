@@ -34,7 +34,7 @@ Functions:
     colorscheme_to_image(cscheme, m, h)
         - save colorscheme as image by repeating each color m times in h rows
     list()
-        - return array of available colorschemes in ../data
+        - return array of strings which are names of available colorschemes in ../data
 """
 
 module ColorSchemes
@@ -157,7 +157,7 @@ Load a named colorscheme from a file.
     dali = loadcolorscheme("my_dali.txt")
     hok  = loadcolorscheme("/Users/me/julia/hokusai")
 
-loads a colorscheme from ../data or the current directory or the named directory
+It loads a colorscheme from ../data or the current directory or the named directory.
 
 """
 
@@ -207,6 +207,7 @@ colorscheme(cscheme, x)
 find the nearest color in `cscheme` corresponding to a point `x` between 0 and 1)
 
 returns a single color
+
 """
 
 function colorscheme(cscheme::AbstractVector, x)
@@ -220,9 +221,10 @@ function colorscheme(cscheme::AbstractVector, x)
 end
 
 """
-savecolorscheme(cscheme, filename, comment)
 
-write a colorscheme to a file
+Write a colorscheme to a file.
+
+    savecolorscheme(cscheme, filename, comment)
 
 Example:
 
@@ -244,8 +246,8 @@ function savecolorscheme(cs, file::AbstractString, comment="comment")
 end
 
 """
-<<<<<<< HEAD
-list available color schemes in Pkg.dir("ColorSchemes", "data").
+
+List available color schemes in Pkg.dir("ColorSchemes", "data").
 
 Return an array of strings (without the ".txt" extension).
 
@@ -264,24 +266,7 @@ end
 
 """
 
-read available color schemes in Pkg.dir("ColorSchemes", "data") and
-return an array of strings
-
-"""
-
-function list()
-    # read all filenames from directory
-    schemes = AbstractString[]
-    files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
-    for i in files
-        i_less = replace(i, ".txt", "")
-        push!(schemes, i_less)
-    end
-    return schemes
-end
-"""
-
-save a colorscheme as an image by repeating each color m times in h rows
+Save a colorscheme as an image by repeating each color m times in h rows.
 
     leo = loadcolorscheme("leonardo.txt")
     img = colorscheme_to_image(leo, 50, 200)

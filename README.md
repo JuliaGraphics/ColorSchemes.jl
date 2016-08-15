@@ -122,9 +122,9 @@ You can list the names of colorschemes in the `ColorSchemes/data` directory with
 
     2-element Array{AbstractString,1}:
     "lighttemperaturemap"
-    "temperaturemap"    
+    "temperaturemap"
 
-Of course You can easily make you own colorscheme by building an array:
+Of course you can easily make your own colorscheme by building an array:
 
     grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]
 

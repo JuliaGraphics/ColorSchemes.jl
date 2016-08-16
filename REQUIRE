@@ -3,3 +3,6 @@ Images
 Colors
 Clustering
 FileIO
+@windows ImageMagick
+@linux ImageMagick
+@osx QuartzImageIO

@@ -21,7 +21,7 @@ Sometimes, however, you might want a _colorscheme_ — a set of 'interesting' co
 
 ### Usage <a id="Usage"></a>
 
-To add this package (to Julia 0.4+):
+To add this package:
 
     Pkg.add("ColorSchemes")
 

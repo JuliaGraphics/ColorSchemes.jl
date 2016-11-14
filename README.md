@@ -105,9 +105,9 @@ You can reference a single value of a scheme once it's loaded:
 
     -> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
 
-Or you can 'sample' the scheme at any point between 0 and 1:
+Or you can 'sample' the scheme at any point between 0 and 1 using `get`:
 
-    sample(leonardo, 0.5)
+    get(leonardo, 0.5)
 
     -> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 
@@ -135,11 +135,13 @@ which creates a 10-color scheme (using 15 iterations and with a tolerance of 0.0
 
 (Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.)
 
-The ColorSchemes automatically loads a number of predefined colorschemes. In the following illustration, the contents of a colorscheme is drawn first, followed by a continuous blend obtained using `sample()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`). Below that, a luminance graph shows how the luminance of the scheme varies as the colors change.
+The ColorSchemes automatically loads a number of predefined colorschemes. In the following illustration, the contents of a colorscheme is drawn first, followed by a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`). Below that, a luminance graph shows how the luminance of the scheme varies as the colors change.
 
 It's generally agreed that you should choose for your graphs a colormap with a smooth linear gradient: abrupt changes in luminance, caused by, say, suddenly brighter colors, will cause the viewer of a graph to misinterpret the information.
 
 <img src="doc/colorschemes.png" width=800>
+
+(You can generate this file using `ColorSchemes/data/draw-swatches.jl`.)
 
 You can list the names of built-in colorschemes in the `ColorSchemes/data` directory by looking in the `schemes` symbol. Look for matches with `filter()`.
 
@@ -164,7 +166,7 @@ or, slightly longer:
 
 You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[2:20]`). Or you can sample a colorscheme at a point between 0.0 and 1.0 as if it was a continuous range of colors:
 
-    sample(leonardo, 0.5)
+    get(leonardo, 0.5)
 
 returns
 
@@ -245,9 +247,9 @@ With the `contour()` function, use `cgrad()` to read the colorscheme as a gradie
 With other plots, use the `palette` keyword:
 
     plot(Plots.fakedata(100, 20),
-            w=4,
-            background_color=ColorSchemes.vermeer[1],
-            palette=ColorSchemes.vermeer)
+        w=4,
+        background_color=ColorSchemes.vermeer[1],
+        palette=ColorSchemes.vermeer)
 
 <img src="doc/plots-background.png" width=600>
 
@@ -255,23 +257,64 @@ With other plots, use the `palette` keyword:
 
 Here's how you can use ColorSchemes in Gadfly:
 
-<img src="doc/hokusai-weights-1.png" width=600>
+    x = repeat(collect(1:20), inner=[20])
+    y = repeat(collect(1:20), outer=[20])
+    plot(x=x, y=y,
+        color=x+y,
+        Geom.rectbin,
+        Scale.ContinuousColorScale(p -> get(ColorSchemes.sunset, p)))
+
+<img src="doc/gadfly-sunset.png" width=600>
 
 #### Winston <a id="Winston"></a>
 
 If you prefer Winston.jl for plotting, you can use colorschemes with `imagesc`:
 
+    using Winston
+    klimt = ColorSchemes.klimt
+    Winston.colormap(klimt)
+    Winston.imagesc(reshape(1:10000,100,100))
+
 <img src="doc/winston.png" width=600>
 
-Sometimes you'll want a smoother gradient with more colors. You can use `sample(scheme, n)` to generate a more detailed array of colors, varying `n` from 0 to 1 by 0.001:
+Sometimes you'll want a smoother gradient with more colors. You can use `get(scheme, n)` to generate a more detailed array of colors, varying `n` from 0 to 1 by 0.001:
 
-<img src="doc/winston-1.png" width=600>
+    brasstones = ColorSchemes.brass
+    brasstonesmooth = [get(brasstones, i) for i in 0:0.001:1]
+    Winston.colormap(brasstonesmooth)
+    Winston.imagesc(reshape(1:10000,100,100))
 
-(Unfortunately, when doing array comprehensions in Julia currently, the type information can be lost, hence the addition of `Array{ColorTypes.RGB}()` around the comprehension.)
+<img src="doc/winston1.png" width=600>
 
 #### PyPlot <a id="PyPlot"></a>
 
 The colorschemes can be used with the `cmap` keyword in PyPlot:
+
+    using PyPlot, Distributions
+
+    solar = ColorSchemes.solar
+
+    n = 100
+    x = linspace(-3, 3, n)
+    y = linspace(-3,3,n)
+
+    xgrid = repmat(x',n,1)
+    ygrid = repmat(y,1,n)
+    z = zeros(n,n)
+
+    for i in 1:n
+        for j in 1:n
+            z[i:i,j:j] = pdf(MvNormal(eye(2)),[x[i];y[j]])
+        end
+    end
+
+    fig = PyPlot.figure("pyplot_surfaceplot",figsize=(10,10))
+    ax = fig[:add_subplot](2,1,1, projection = "3d")
+    ax[:plot_surface](xgrid, ygrid, z, rstride=2,edgecolors="k",
+        cstride=2,
+        cmap=ColorMap(solar),
+        alpha=0.8,
+        linewidth=0.25)
 
 <img src="doc/pyplot.png" width=600>
 
@@ -308,9 +351,9 @@ Here's how you can use colorschemes when creating images with Images.jl. The cod
                 xpos = convert(Int, round(remap(col, xmin, xmax, 1, size)))
                 ypos = convert(Int, round(remap(row, ymin, ymax, 1, size)))
                 imOutput.data[xpos, ypos, :] = [
-                  (sample(ColorSchemes.vermeer,pixelcolor).r),
-                  (sample(ColorSchemes.vermeer,pixelcolor).g),
-                  (sample(ColorSchemes.vermeer,pixelcolor).b)]
+                  (get(ColorSchemes.vermeer,pixelcolor).r),
+                  (get(ColorSchemes.vermeer,pixelcolor).g),
+                  (get(ColorSchemes.vermeer,pixelcolor).b)]
             end
         end
         FileIO.save(filename, imOutput)

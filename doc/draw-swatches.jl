@@ -37,7 +37,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
     boxwidth = panewidth * stepping
 
     for i in 0:stepping:1
-        c = sample(eval(ColorSchemes, cschemename), i)
+        c = get(eval(ColorSchemes, cschemename), i)
         sethue(c)
         xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - boxwidth)
         box(Point(xpos + boxwidth/2, O.y), boxwidth, paneheight/3 - 2, :fill)
@@ -47,7 +47,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
     stepping = 0.01
     boxwidth = panewidth * stepping
     for i in 0:stepping:1
-        c = sample(eval(ColorSchemes, cschemename), i)
+        c = get(eval(ColorSchemes, cschemename), i)
         lum = grayify(c)
         sethue(lum...)
         xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - boxwidth)

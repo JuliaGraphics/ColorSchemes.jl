@@ -16,14 +16,17 @@ c, w =  extract_weighted_colors(dirname(@__FILE__) * "/hokusai.jpg", 10, 10, 0.0
 @test length(c) == 10
 @test length(w) == 10
 
-# load scheme from ./data
+# load scheme
 hok = ColorSchemes.hokusai
 
 @test length(hok) == 32
 @test typeof(hokusai_test) == Array{ColorTypes.RGB{Float64},1}
 
 # test that sampling schemes yield different values
-@test sample(hokusai_test, 0.0) != sample(hokusai_test, 0.5)
+@test get(hokusai_test, 0.0) != get(hokusai_test, 0.5)
+
+# test sort
+@test sortcolorscheme(sortcolorscheme(hokusai_test, rev=true)) == hokusai_test
 
 # create weighted palette; there is some unpredictability here...
 csw = colorscheme_weighted(c, w, 37)

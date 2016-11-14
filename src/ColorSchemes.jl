@@ -26,7 +26,7 @@ To use one of the built-in colorschemes, use the symbol:
      RGB{Float64}(0.913858,0.894725,0.474638)
      RGB{Float64}(0.888974,0.881089,0.882728)
 
-or you can import any that you want:
+or you can import them:
 
     julia> import ColorSchemes.pigeon
 
@@ -45,14 +45,14 @@ Functions:
         - extract a new colorscheme from an image file, return a colorscheme
     extract_weighted_colors(file, n=10, i=10, tolerance=0.01; shrink = 1))
         - return a colorscheme and weights for each entry
+    get(cscheme, n)
+        - return a single color from a color scheme based on location of n (0-1) in cscheme
     colorscheme_weighted(cscheme, weights)
         - return a weighted colorscheme, given a colorscheme and an array of weights for each entry
     colorscheme_to_image(cscheme, m, h)
         - make an image of a scheme by repeating each color m times in h rows
     savecolorscheme(cscheme, filename, comment)
         - save a colorscheme in the file with an optional comment
-    sample(cscheme, n)
-        - return a single color from a color scheme based on location of n (0-1) in cscheme
     sortcolorscheme(cscheme)
         - sort a colorscheme
 """
@@ -77,7 +77,7 @@ include(dirname(@__FILE__) * "/../data/colorbrewerschemes.jl")
 # the `schemes` variable now contains the names of the readymade ColorSchemes
 
 export extract,
-    sample,
+    get,
     loadcolorscheme,
     savecolorscheme,
     sortcolorscheme,
@@ -93,7 +93,7 @@ remap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - old
 """
     extract(imfile, n=10, i=10, tolerance=0.01; shrink=n)
 
-extract() extracts the most common colors from an image from imagefile by
+extract() extracts the most common colors from an image from the image file `imfile` by
 finding `n` dominant colors, using i iterations. You can shrink image before
 clustering.
 
@@ -143,7 +143,7 @@ Examples:
 
     colorscheme_weighted(extract_weighted_colors("filename00000001.jpg")..., 500)
 """
-function colorscheme_weighted(cscheme, weights, l = 50)
+function colorscheme_weighted{C<:Colorant}(cscheme::Vector{C}, weights, l = 50)
     iweights = map(n -> convert(Integer, round(n * l)), weights)
     #   adjust highest or lowest so that length of result is exact
     while sum(iweights) < l
@@ -183,7 +183,7 @@ end
 
 Sort a colorscheme using Luv colors, defaults to luminance `:l` but could be `:u` or `:v`.
 """
-function sortcolorscheme(colorscheme, field = :l; kwargs...)
+function sortcolorscheme{C<:Colorant}(colorscheme::Vector{C}, field = :l; kwargs...)
     sort(colorscheme, lt = (x,y) -> compare_colors(x, y, field); kwargs...)
 end
 
@@ -219,14 +219,15 @@ function readcolorscheme(cs::AbstractString)
     return temp
 end
 
+import Base.get
 """
-    sample(cscheme, x)
+    get(cscheme, x)
 
 Find the nearest color in `cscheme` corresponding to a point `x` between 0 and 1)
 
 Returns a single color.
 """
-function sample(cscheme::AbstractVector, x)
+function get{C<:Colorant}(cscheme::Vector{C}, x)
     x = clamp(x, 0.0, 1.0)
     before_fp = remap(x, 0.0, 1.0, 1, length(cscheme))
     before = convert(Int, round(before_fp, RoundDown))
@@ -249,7 +250,7 @@ Example:
         "Hokusai Great Wave")
 
 """
-function savecolorscheme(cs, file::AbstractString, comment="comment")
+function savecolorscheme{C<:Colorant}(cs::Vector{C}, file::AbstractString, comment="comment")
     fhandle = open(file, "w")
     write(fhandle, string("# ", comment, "\n"))
     write(fhandle, string("# created $(now())\n"))
@@ -281,7 +282,7 @@ Example:
     img = colorscheme_to_image(ColorSchemes.leonardo, 50, 200)
     save("/tmp/cs_image.png", img)
 """
-function colorscheme_to_image(cs, m, h)
+function colorscheme_to_image{C<:Colorant}(cs::Vector{C}, m, h)
     a = Array(ColorTypes.RGB{Float64}, m, h)
     fill!(a, cs[1]) # first color goes here
     for n in 2:length(cs) # rest here

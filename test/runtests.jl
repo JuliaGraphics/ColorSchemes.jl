@@ -26,7 +26,7 @@ hok = ColorSchemes.hokusai
 @test get(hokusai_test, 0.0) != get(hokusai_test, 0.5)
 
 # test sort
-@test sortcolorscheme(sortcolorscheme(hokusai_test, rev=true)) == hokusai_test
+@test sortcolorscheme(hokusai_test, rev=true) != sortcolorscheme(hokusai_test)
 
 # create weighted palette; there is some unpredictability here...
 csw = colorscheme_weighted(c, w, 37)

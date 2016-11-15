@@ -7,6 +7,8 @@
 
 ## ColorSchemes
 
+<img src="doc/snapshot.png" width=600>
+
 This package provides tools for working with colorschemes and colormaps. As well as providing many pre-made colormaps and schemes, this package allows you to extract colorschemes from images and use them in plots or other graphics programs.
 
 This package relies on the [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package.

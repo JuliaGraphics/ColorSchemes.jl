@@ -7,7 +7,7 @@
 
 ## ColorSchemes
 
-This package provides some tools for working with colorschemes and colormaps. As well as providing many pre-made colormaps and schemes, this package allows you to extract colorschemes from images and use them in plots or other graphics programs.
+This package provides tools for working with colorschemes and colormaps. As well as providing many pre-made colormaps and schemes, this package allows you to extract colorschemes from images and use them in plots or other graphics programs.
 
 This package relies on the [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package.
 
@@ -70,7 +70,7 @@ The names of the built-in colorschemes are stored in the `schemes` array:
      :PiYG_10
      :PiYG_11
 
-To use one of the built-in colorschemes, use its symbol:
+To access one of these built-in colorschemes, use its symbol:
 
     julia> ColorSchemes.leonardo
 
@@ -142,9 +142,9 @@ which creates a 10-color scheme (using 15 iterations and with a tolerance of 0.0
 
 (Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.)
 
-The ColorSchemes automatically loads a number of predefined colorschemes. In the following illustration, the contents of a colorscheme is drawn first, followed by a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`). Below that, a luminance graph shows how the luminance of the scheme varies as the colors change.
+The ColorSchemes module automatically loads a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
 
-It's generally agreed that you should choose for your graphs a colormap with a smooth linear gradient: abrupt changes in luminance, caused by, say, suddenly brighter colors, will cause the viewer of a graph to misinterpret the information.
+It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients.
 
 <img src="doc/colorschemes.png" width=800>
 
@@ -325,6 +325,17 @@ The colorschemes can be used with the `cmap` keyword in PyPlot:
 
 <img src="doc/pyplot.png" width=600>
 
+### Saving colorschemes as images ###
+
+Sometimes you want to save a colorscheme, which is usually just a pixel thick, as an image. You can do this with `colorscheme_to_image()`. The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's `save()`:
+
+    (using FileIO, ColorSchemes, Images, Colors)
+
+    img = colorscheme_to_image(ColorSchemes.vermeer, 30, 400)
+    save("/tmp/cs_vermeer-30-300.png", img)
+
+<img src="doc/cs_vermeer-30-300.png" width=400>
+
 ## Images <a id="Images"></a>
 
 Here's how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer's painting "Girl with a Pearl Earring".
@@ -367,14 +378,3 @@ Here's how you can use colorschemes when creating images with Images.jl. The cod
     end
 
     draw(-0.4 + 0.6im, 1200)
-
-### Saving colorschemes as images ###
-
-Sometimes you want to save a colorscheme, which is usually just a pixel thick, as an image. You can do this with `colorscheme_to_image()`. The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's `save()`:
-
-    (using FileIO, ColorSchemes, Images, Colors)
-
-    img = colorscheme_to_image(ColorSchemes.vermeer, 30, 400)
-    save("/tmp/cs_vermeer-30-300.png", img)
-
-<img src="doc/cs_vermeer-30-300.png" width=400>

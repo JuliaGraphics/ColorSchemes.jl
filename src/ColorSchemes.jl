@@ -118,7 +118,7 @@ function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 1)
     img = load(imfile)
     w, h = size(img)
     neww = round(Int, w/shrink)
-    newh = round(Int, w/shrink)
+    newh = round(Int, h/shrink)
     smaller_image = Images.imresize(img, (neww, newh))
     imdata = convert(Array{Float64}, raw(separate(smaller_image).data))/256
     w, h, numchannels = size(imdata)

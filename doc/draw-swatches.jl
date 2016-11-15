@@ -6,7 +6,6 @@
 using Colors, ColorSchemes, Luxor
 
 "convert color to grayscale using luminance value"
-
 function grayify(col)
     luv = convert(Luv, RGB{U8}(col.r, col.g, col.b))
     t = rescale(luv.l, 0, 100, 0, 1)
@@ -63,22 +62,40 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
     grestore()
 end
 
-function main(fname)
-    imagewidth, imageheight = 1000, 3500
+"""
+    drawallswatches("/tmp/swatches.pdf", 1000, 3500)
+    drawallswatches("/tmp/swatches.pdf", 1000, 1000, "a")
+
+Show all swatches, or show only swatches whose names contain some characters.
+"""
+function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"; font=12)
+    # work out how many rows/columns
+    function howmanyrowscolumns(n)
+        numberofrows = convert(Int, floor(sqrt(n * imageheight/imagewidth)))
+        numberofcols = convert(Int, ceil(n/numberofrows))
+        return numberofrows, numberofcols
+    end
+
+    selectedschemes = filter(nm -> ismatch(Regex(selector), string(nm)), schemes)
+    todo = length(selectedschemes)
+
+    nrows, ncols = howmanyrowscolumns(todo)
+
     Drawing(imagewidth, imageheight, fname)
     background("white")
     origin()
-    tiles = Tiler(imagewidth, imageheight, 55, 6, margin=5)
+
+    tiles = Tiler(imagewidth, imageheight, nrows, ncols, margin=5)
     setline(0.5)
-    fontsize(14)
+    fontsize(font)
     for (pos, n) in tiles
-        if n > length(schemes)
+        if n > todo
             break
         end
-        draw_swatch(schemes[n], pos, tiles.tilewidth, tiles.tileheight)
+        draw_swatch(selectedschemes[n], pos, tiles.tilewidth, tiles.tileheight)
     end
     finish()
     preview()
 end
 
-main("/tmp/swatches.pdf")
+drawallswatches("/tmp/swatches.pdf", 1000, 3500)

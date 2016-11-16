@@ -3,35 +3,42 @@
 using ColorSchemes, Colors
 using Base.Test
 
-# create a colorscheme from image file
+mktempdir() do tmpdir
+     cd(tmpdir)
+     info("running tests in: $(pwd())")
 
-hokusai_test = extract(dirname(@__FILE__) * "/hokusai.jpg")
+     # create a colorscheme from image file
 
-@test length(hokusai_test) == 10
-@test typeof(hokusai_test) == Array{ColorTypes.RGB{Float64},1}
+     hokusai_test = extract(dirname(@__FILE__) * "/hokusai.jpg")
 
-# extract colors and weights from image file located here in the test directory
-c, w =  extract_weighted_colors(dirname(@__FILE__) * "/hokusai.jpg", 10, 10, 0.01; shrink = 4)
+     @test length(hokusai_test) == 10
+     @test typeof(hokusai_test) == Array{ColorTypes.RGB{Float64},1}
 
-@test length(c) == 10
-@test length(w) == 10
+     # extract colors and weights from image file located here in the test directory
+     c, w =  extract_weighted_colors(dirname(@__FILE__) * "/hokusai.jpg", 10, 10, 0.01; shrink = 4)
 
-# load scheme
-hok = ColorSchemes.hokusai
+     @test length(c) == 10
+     @test length(w) == 10
 
-@test length(hok) == 32
-@test typeof(hokusai_test) == Array{ColorTypes.RGB{Float64},1}
+     # load scheme
+     hok = ColorSchemes.hokusai
 
-# test that sampling schemes yield different values
-@test get(hokusai_test, 0.0) != get(hokusai_test, 0.5)
+     @test length(hok) == 32
+     @test typeof(hokusai_test) == Array{ColorTypes.RGB{Float64},1}
 
-# test sort
-@test sortcolorscheme(hokusai_test, rev=true) != sortcolorscheme(hokusai_test)
+     # test that sampling schemes yield different values
+     @test get(hokusai_test, 0.0) != get(hokusai_test, 0.5)
 
-# create weighted palette; there is some unpredictability here...
-csw = colorscheme_weighted(c, w, 37)
-@test 36 <= length(csw) <= 38
+     # test sort
+     @test sortcolorscheme(hokusai_test, rev=true) != sortcolorscheme(hokusai_test)
 
-# default is 50
-csw = colorscheme_weighted(c, w)
-@test length(csw) == 50
+     # create weighted palette; there is some unpredictability here...
+     csw = colorscheme_weighted(c, w, 37)
+     @test 36 <= length(csw) <= 38
+
+     # default is 50
+     csw = colorscheme_weighted(c, w)
+     @test length(csw) == 50
+
+ end
+ 

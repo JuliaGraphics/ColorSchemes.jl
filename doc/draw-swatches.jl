@@ -62,24 +62,39 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
     grestore()
 end
 
+"work out how many rows/columns"
+function howmanyrowscolumns(n)
+    numberofrows = convert(Int, floor(sqrt(n * imageheight/imagewidth)))
+    numberofcols = convert(Int, ceil(n/numberofrows))
+    return numberofrows, numberofcols
+end
+
 """
     drawallswatches("/tmp/swatches.pdf", 1000, 3500)
+    drawallswatches("/tmp/swatches.pdf", 1000, 3500, nrows=80, ncols=5)
     drawallswatches("/tmp/swatches.pdf", 1000, 1000, "a")
+    drawallswatches("/tmp/swatches.pdf", 1000, 3500, "[Pp]astel", ncols=3)
 
 Show all swatches, or show only swatches whose names contain some characters.
+
+You can specify the numbers of rows and columns of the output, although you'll only see
+`nrows * ncols` of the total.
 """
-function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"; font=12)
-    # work out how many rows/columns
-    function howmanyrowscolumns(n)
-        numberofrows = convert(Int, floor(sqrt(n * imageheight/imagewidth)))
-        numberofcols = convert(Int, ceil(n/numberofrows))
-        return numberofrows, numberofcols
-    end
+function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*";
+       font=12,
+       nrows=0,
+       ncols=0)
 
     selectedschemes = filter(nm -> ismatch(Regex(selector), string(nm)), schemes)
     todo = length(selectedschemes)
 
-    nrows, ncols = howmanyrowscolumns(todo)
+    if nrows == ncols == 0
+        nrows, ncols = howmanyrowscolumns(todo)
+    elseif nrows == 0
+        nrows=convert(Int, ceil(length(selectedschemes)/ncols))
+    elseif ncols == 0
+        ncols=convert(Int, ceil(length(selectedschemes)/nrows))
+    end
 
     Drawing(imagewidth, imageheight, fname)
     background("white")
@@ -88,14 +103,18 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
     tiles = Tiler(imagewidth, imageheight, nrows, ncols, margin=5)
     setline(0.5)
     fontsize(font)
+    counter = 0
     for (pos, n) in tiles
         if n > todo
             break
         end
         draw_swatch(selectedschemes[n], pos, tiles.tilewidth, tiles.tileheight)
+        counter += 1
     end
+    sethue("black")
+    text("showing $(counter) of $(length(selectedschemes)) selected from $(length(schemes)) installed", 0, imageheight/2 - 5, halign=:center)
     finish()
     preview()
 end
 
-drawallswatches("/tmp/swatches.pdf", 1000, 3500)
+drawallswatches("/tmp/swatches.pdf", 1000, 3500, ncols=5)

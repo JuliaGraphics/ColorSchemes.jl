@@ -93,7 +93,7 @@ To access one of these built-in colorschemes, use its symbol:
 
 <img src="doc/leo-colorscheme.png" width=600>
 
-By default, the names of the colorschemes aren't imported (there _are_ rather a lot of them). But to avoid using the prefixes, you can import any that you want:
+By default, the names of the colorschemes aren't imported (there _are_ rather a lot of them). But to avoid using the prefixes, you can import the ones that you want:
 
     julia> import ColorSchemes.leonardo
     julia> leonardo
@@ -331,7 +331,7 @@ The colorschemes can be used with the `cmap` keyword in PyPlot:
 
 Sometimes you want to save a colorscheme, which is usually just a pixel thick, as an image. You can do this with `colorscheme_to_image()`. The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's `save()`:
 
-    (using FileIO, ColorSchemes, Images, Colors)
+    using FileIO, ColorSchemes, Images, Colors
 
     img = colorscheme_to_image(ColorSchemes.vermeer, 30, 400)
     save("/tmp/cs_vermeer-30-300.png", img)

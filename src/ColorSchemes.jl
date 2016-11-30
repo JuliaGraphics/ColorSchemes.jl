@@ -61,6 +61,7 @@ end
 # load the installed schemes
 include(dirname(@__FILE__) * "/../data/allcolorschemes.jl")
 include(dirname(@__FILE__) * "/../data/colorbrewerschemes.jl")
+include(dirname(@__FILE__) * "/../data/matplotlib.jl")
 
 # the `schemes` array now contains the names of the readymade ColorSchemes
 

@@ -28,7 +28,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
     swatchwidth = panewidth/schemelength
     for (i, p) in enumerate(cschemevalues)
         sethue(p)
-        box(Point(O.x - panewidth/2 + (i * swatchwidth) - swatchwidth/2, O.y - (paneheight/3)), swatchwidth, paneheight/3 - 2, :fill)
+        box(Point(O.x - panewidth/2 + (i * swatchwidth) - swatchwidth/2, O.y - (paneheight/3)), swatchwidth, paneheight/3 - 2, :fillstroke)
     end
 
     # draw blend
@@ -39,7 +39,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
         c = get(eval(ColorSchemes, cschemename), i)
         sethue(c)
         xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - boxwidth)
-        box(Point(xpos + boxwidth/2, O.y), boxwidth, paneheight/3 - 2, :fill)
+        box(Point(xpos + boxwidth/2, O.y), boxwidth, paneheight/3 - 2, :fillstroke)
     end
 
     # draw a (calculated) luminance graph of this scheme
@@ -70,7 +70,7 @@ function howmanyrowscolumns(n)
 end
 
 """
-    drawallswatches("/tmp/swatches.pdf", 1000, 3500)
+    drawallswatches("/tmp/swatches.png", 1000, 3500)
     drawallswatches("/tmp/swatches.pdf", 1000, 3500, nrows=80, ncols=5)
     drawallswatches("/tmp/swatches.pdf", 1000, 1000, "a")
     drawallswatches("/tmp/swatches.pdf", 1000, 3500, "[Pp]astel", ncols=3)
@@ -86,6 +86,9 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
        ncols=0)
 
     selectedschemes = filter(nm -> ismatch(Regex(selector), string(nm)), schemes)
+
+    sort!(selectedschemes)
+
     todo = length(selectedschemes)
 
     if nrows == ncols == 0
@@ -117,4 +120,4 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
     preview()
 end
 
-drawallswatches("/tmp/swatches.pdf", 1000, 3500, ncols=5)
+drawallswatches("/tmp/colorschemes.png", 1000, 3500, ncols=5)

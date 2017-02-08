@@ -1,6 +1,6 @@
-julia 0.4
-Images
-Colors
+julia 0.5
+Images 0.6
+Colors 0.7.0
 Clustering
 FileIO
 @windows ImageMagick

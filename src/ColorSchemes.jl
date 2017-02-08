@@ -17,31 +17,33 @@ To use one of the built-in colorschemes, use the symbol:
 
     julia> ColorSchemes.picasso
 
-or you can import it:
+or import it:
 
     julia> import ColorSchemes.pigeon
     julia> pigeon
 
 ## Functions:
 
-    extract(file)
-        - extract a new colorscheme from an image file, return a colorscheme
-    extract_weighted_colors(file, n=10, i=10, tolerance=0.01; shrink = 2))
-        - return a colorscheme and weights for each entry
-    get(cscheme, n)
-        - return a single color from a color scheme based on location of n (0-1) in cscheme
-    colorscheme_weighted(cscheme, weights)
-        - return a weighted colorscheme, given a colorscheme and an array of weights for each entry
-    colorscheme_to_image(cscheme, m, h)
-        - make an image of a scheme by repeating each color m times in h rows
-    image_to_swatch(imagefilepath, samples, destinationpath)
-        - extract a colorscheme and save it as a swatch PNG in the destination file
-    savecolorscheme(cscheme, filename, comment)
-        - save a colorscheme in the file with an optional comment
-    schemes
-        - an array of names of all the loaded schemes
-    sortcolorscheme(cscheme)
-        - sort a colorscheme
+`extract(file)`
+    - extract a new colorscheme from an image file, return a colorscheme
+`extract_weighted_colors(file, n=10, i=10, tolerance=0.01; shrink = 2))`
+    - return a colorscheme and weights for each entry
+`get(cscheme, n)`
+    - return a single color from a color scheme based on location of n (0-1) in cscheme
+`colorscheme_weighted(cscheme, weights)`
+    - return a weighted colorscheme, given a colorscheme and an array of weights for each entry
+`colorscheme_to_image(cscheme, m, h)`
+    - make an image of a scheme by repeating each color m times in h rows
+`colorscheme_to_text(cscheme, schemename, filename; comment="")`
+    - export a colorscheme to a text file
+`image_to_swatch(imagefilepath, samples, destinationpath)`
+    - extract a colorscheme and save it as a swatch PNG in the destination file
+`export(cscheme, schemename, filename, comment)`
+    - save a colorscheme in the file with an optional comment
+`schemes`
+    - an array of names of all the loaded schemes as symbols
+`sortcolorscheme(cscheme)`
+    - sort a colorscheme
 """
 
 module ColorSchemes
@@ -50,7 +52,7 @@ using Images, Colors, Clustering, FileIO
 
 const schemes = Symbol[]
 
-"load variable and values, and add variable to list at the same time"
+"load a variable and some values, and add the symbol to the list of schemes"
 macro reg(vname, args)
     quote
         $(esc(push!(schemes, vname)))
@@ -63,33 +65,34 @@ include(dirname(@__FILE__) * "/../data/allcolorschemes.jl")
 include(dirname(@__FILE__) * "/../data/colorbrewerschemes.jl")
 include(dirname(@__FILE__) * "/../data/matplotlib.jl")
 
-# the `schemes` array now contains the names of the readymade ColorSchemes
+# the `schemes` array now contains the names of the built-in ColorSchemes
 
 export
     colorscheme_to_image,
+    colorscheme_to_text,
     colorscheme_weighted,
-    extract_weighted_colors,
     extract,
+    extract_weighted_colors,
     get,
     image_to_swatch,
-    savecolorscheme,
     schemes,
-    sortcolorscheme
+    sortcolorscheme,
+    @reg
 
 # convert a value between oldmin/oldmax to equivalent value between newmin/newmax
 
-remap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin
+remap(value, oldmin, oldmax, newmin, newmax) = 
+    ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin
 
 """
     extract(imfile, n=10, i=10, tolerance=0.01; shrink=n)
 
-`extract()` extracts the most common colors from an image from the image file `imfile` by
-finding `n` dominant colors, using `i` iterations. You can (and probably should) shrink larger images before
-running this function.
+`extract()` extracts the most common colors from an image from the image file `imfile` 
+by finding `n` dominant colors, using `i` iterations. You can (and probably should) 
+shrink larger images before running this function.
 
 Returns a colorscheme (an array of colors)
 """
-
 function extract(imfile, n=10, i=10, tolerance=0.01; kwargs...)
     return extract_weighted_colors(imfile, n, i, tolerance; kwargs...)[1] # throw away the weights
 end
@@ -103,14 +106,14 @@ Example:
 
     pal, wts = extract_weighted_colors(imfile, n, i, tolerance; shrink = 2)
 """
-
-function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 2)
+function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 2.0)
     img = load(imfile)
+    typeof(img) == Void && error("Can't load the image file \"$imfile\"") 
     w, h = size(img)
     neww = round(Int, w/shrink)
     newh = round(Int, h/shrink)
     smaller_image = Images.imresize(img, (neww, newh))
-    imdata = convert(Array{Float64}, raw(separate(smaller_image).data))/256
+    imdata = convert(Array{Float64}, permuteddimsview(channelview(img), (2,3,1)))
     w, h, numchannels = size(imdata)
     d = transpose(reshape(imdata, w*h, numchannels))
     R = kmeans(d, n, maxiter=i, tol=tolerance)
@@ -124,8 +127,8 @@ end
 """
     colorscheme_weighted(colorscheme, weights, length)
 
-Returns a new colorscheme of length `length` (default 50) where the proportion of each color
-in `colorscheme` is represented by the associated weight of each entry.
+Returns a new colorscheme of length `length` (default 50) where the proportion 
+of each color in `colorscheme` is represented by the associated weight of each entry.
 
 Examples:
 
@@ -136,14 +139,14 @@ function colorscheme_weighted{C<:Colorant}(cscheme::Vector{C}, weights, l = 50)
     iweights = map(n -> convert(Integer, round(n * l)), weights)
     #   adjust highest or lowest so that length of result is exact
     while sum(iweights) < l
-        val,ix = findmin(iweights)
+        val, ix = findmin(iweights)
         iweights[ix]=val+1
     end
     while sum(iweights) > l
         val,ix = findmax(iweights)
         iweights[ix]=val-1
     end
-    a = Array(RGB{Float64},0)
+    a = Array(RGB{Float64}, 0)
     for n in 1:length(cscheme)
         a = vcat(a, repmat([cscheme[n]], iweights[n]))
     end
@@ -162,58 +165,28 @@ function compare_colors(color_a, color_b, field = :l)
     else
         fac = 1
     end
-    luv1 = convert(Luv, RGB{U8}(color_a.r/fac, color_a.g/fac, color_a.b/fac))
-    luv2 = convert(Luv, RGB{U8}(color_b.r/fac, color_b.g/fac, color_b.b/fac))
+    luv1 = convert(Luv, RGB(color_a.r/fac, color_a.g/fac, color_a.b/fac))
+    luv2 = convert(Luv, RGB(color_b.r/fac, color_b.g/fac, color_b.b/fac))
     return getfield(luv1, field) < getfield(luv2, field)
 end
 
 """
     sortcolorscheme(colorscheme, field; kwargs...)
 
-Sort a colorscheme using the Luv colorspace, defaults to luminance `:l` but could be `:u` or `:v`.
+Sort (non-destructively) a colorscheme using a field of the LUV colorspace.
+
+The default is to sort by the luminance field `:l` but could be by `:u` or `:v`.
 """
 function sortcolorscheme{C<:Colorant}(colorscheme::Vector{C}, field = :l; kwargs...)
     sort(colorscheme, lt = (x,y) -> compare_colors(x, y, field); kwargs...)
 end
 
-# obsolete in colorschemes0.6
-function readcolorscheme(cs::AbstractString)
-    error("this function is no longer useful in version >= 0.6")
-    if isfile(cs)
-        inputfilename = cs
-    else # not found
-        inputfilename = ""
-    end
-    temp = ColorTypes.RGB{Float64}[]
-    if ! isempty(inputfilename)
-        try
-            colorschemefile = open(inputfilename)
-            for ln in eachline(colorschemefile)
-                if startswith(ln, "#") # comment lines...
-                    # println(chomp(ln))
-                elseif isempty(chomp(ln))
-                    # empty line
-                else
-                    (r, g, b) = map(parse, split(ln, "\t"))
-                    push!(temp, RGB(r, g, b))
-                end
-            end
-            close(colorschemefile)
-        catch err
-            error("$err trying to read colorscheme file $inputfilename")
-        end
-    end
-    if length(temp) == 0
-        warn("empty color scheme")
-    end
-    return temp
-end
-
 import Base.get
+
 """
     get(cscheme, x)
 
-Find the nearest color in `cscheme` corresponding to a point `x` between 0 and 1)
+Find the nearest color in a colorscheme `cscheme` corresponding to a point `x` between 0 and 1)
 
 Returns a single color.
 """
@@ -228,45 +201,41 @@ function get{C<:Colorant}(cscheme::Vector{C}, x)
 end
 
 """
-    savecolorscheme(cscheme, filename, comment)
+    colorscheme_to_text(cscheme, schemename, filename; comment="")
 
-Write a colorscheme to a file.
+Write a colorscheme to a Julia file in a format suitable for `include`ing.
 
 Example:
 
-    savecolorscheme(
+    colorscheme_to_text(
         extract("/tmp/1920px-Great_Wave_off_Kanagawa2.jpg"),
-            "/tmp/hok.txt",
-            "Hokusai Great Wave")
+            "hokusai_1",
+            "/tmp/hok.jl",
+            comment="from Hokusai's Great Wave")
 
-To read a text file in and register it in `schemes`, you can try the `@reg` macro:
+To read a text file created thusly in and register it in `schemes`:
 
-    ColorSchemes.@reg monalisa include("/tmp/mona.txt")
+    julia> include("/tmp/hok.jl")
+    julia> schemes[end]
+    :hokusai_1
+    julia> get(hokusai_1, .4)
+    RGB{Float64}(0.5787354153400166,0.49341844091747,0.22277034922842723)
+
 """
-function savecolorscheme{C<:Colorant}(cs::Vector{C}, file::AbstractString, comment="comment")
+function colorscheme_to_text{C<:Colorant}(cs::Vector{C}, schemename::String, file::String; comment="")
     fhandle = open(file, "w")
     write(fhandle, string("# ", comment, "\n"))
     write(fhandle, string("# created $(now())\n"))
-    write(fhandle, string("[\n", join(cs, ",\n"), "\n]"))
+    write(fhandle, string("@reg $schemename [\n", join(cs, ",\n"), " ]"))
     close(fhandle)
 end
 
-# deprecated in colorschemes 0.6
-function list()
-    # read all filenames from directory
-    files = filter(f -> ismatch(Regex("^[a-z]+\.txt"), f), readdir(Pkg.dir("ColorSchemes", "data")))
-    schemelist = String[]
-    for i in files
-        i_less = replace(i, ".txt", "")
-        push!(schemelist, i_less)
-    end
-    return schemelist
-end
-
 """
-    colorscheme_to_image(cs, m, h)
+    colorscheme_to_image(cs, n=50, h=50)
 
-Make an image from a colorscheme as an image by repeating each color `m` times in `h` rows.
+Make an image from a colorscheme by repeating each color `n` times in `h` rows.
+
+Returns the image as an array.
 
 Examples:
 
@@ -275,32 +244,32 @@ Examples:
     img = colorscheme_to_image(ColorSchemes.leonardo, 50, 200)
     save("/tmp/cs_image.png", img)
 
-    save("/tmp/blackbody.png", colorscheme_to_image(blackbody, 100, 100))
-
+    save("/tmp/blackbody.png", colorscheme_to_image(ColorSchemes.blackbody, 10, 100))
 """
-function colorscheme_to_image{C<:Colorant}(cs::Vector{C}, m, h)
-    a = Array(ColorTypes.RGB{Float64}, m, h)
+function colorscheme_to_image{C<:Colorant}(cs::Vector{C}, n=50, h=50)
+    a = Array(RGB{Float64}, n, h)
     fill!(a, cs[1]) # first color goes here
-    for n in 2:length(cs) # rest here
-        a = vcat(a, repmat([cs[n]], m, h))
+    for i in 2:length(cs) # rest here
+        a = vcat(a, repmat([cs[i]], n, h))
     end
-    return Image(a)
+    return a
 end
 
 """
-    image_to_swatch(imagefilepath, samples, destinationpath)
+    image_to_swatch(imagefilepath, samples, destinationpath; rows=50, repeats=10)
 
 Extract a colorscheme from the image in `imagefilepath` to a swatch image PNG in `destinationpath`.
+This just runs `sortcolorscheme()`, `colorscheme_to_image()`, and `save()` in sequence. 
 
-    image_to_swatch("doc/monalisa.jpg", 50, "/tmp/monalisaswatch")
+Specify the number of colors. You can also specify the number of rows, and how many 
+times each color is repeated in a row.
+
+    image_to_swatch("monalisa.jpg", 10, "/tmp/monalisaswatch.png")
 """
-function image_to_swatch(imagefilepath, samples, destinationpath)
-    temp = sortcolorscheme(extract(imagefilepath, samples))
-    savecolorscheme(temp, string(destinationpath, ".txt"), string(" $(samples) from $(imagefilepath)"))
-    schemename = include(string(destinationpath, ".txt"))
-    img = colorscheme_to_image(schemename, 50, 200)
-    imageoutfilepath = string(destinationpath, ".png")
-    save(imageoutfilepath, img)
+function image_to_swatch(imagefilepath, n::Int64, destinationpath; rows=150, repeats=50)
+    temp = sortcolorscheme(extract(imagefilepath, n))
+    img = colorscheme_to_image(temp, repeats, rows)
+    save(destinationpath, img)
 end
 
 end

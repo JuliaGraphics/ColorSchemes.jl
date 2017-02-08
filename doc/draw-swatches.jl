@@ -7,14 +7,18 @@ using Colors, ColorSchemes, Luxor
 
 "convert color to grayscale using luminance value"
 function grayify(col)
-    luv = convert(Luv, RGB{U8}(col.r, col.g, col.b))
+    luv = convert(Luv, RGB(col.r, col.g, col.b))
     t = rescale(luv.l, 0, 100, 0, 1)
     return (t, t, t)
 end
 
 function draw_swatch(cschemename, pos, tilewidth, tileheight)
-    cschemevalues = eval(ColorSchemes, cschemename)
-    schemelength = length(cschemevalues)
+    if isdefined(ColorSchemes, cschemename)
+        cscheme = eval(ColorSchemes, cschemename)
+    else
+        cscheme = eval(cschemename)
+    end
+    schemelength = length(cscheme)
 
     gsave()
     translate(pos)
@@ -26,7 +30,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
 
     # draw swatch
     swatchwidth = panewidth/schemelength
-    for (i, p) in enumerate(cschemevalues)
+    for (i, p) in enumerate(cscheme)
         sethue(p)
         box(Point(O.x - panewidth/2 + (i * swatchwidth) - swatchwidth/2, O.y - (paneheight/3)), swatchwidth, paneheight/3 - 2, :fillstroke)
     end
@@ -36,7 +40,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
     boxwidth = panewidth * stepping
 
     for i in 0:stepping:1
-        c = get(eval(ColorSchemes, cschemename), i)
+        c = get(cscheme, i)
         sethue(c)
         xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - boxwidth)
         box(Point(xpos + boxwidth/2, O.y), boxwidth, paneheight/3 - 2, :fillstroke)
@@ -46,7 +50,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
     stepping = 0.01
     boxwidth = panewidth * stepping
     for i in 0:stepping:1
-        c = get(eval(ColorSchemes, cschemename), i)
+        c = get(cscheme, i)
         lum = grayify(c)
         sethue(lum...)
         xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - boxwidth)
@@ -87,7 +91,7 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
 
     selectedschemes = filter(nm -> ismatch(Regex(selector), string(nm)), schemes)
 
-    sort!(selectedschemes)
+    sort!(selectedschemes, lt = (a, b) -> lowercase(string(a)) < lowercase(string(b)))
 
     todo = length(selectedschemes)
 

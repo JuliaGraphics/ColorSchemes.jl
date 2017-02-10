@@ -57,11 +57,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Continuous-colors-1",
+    "location": "index.html#Continuous-color-sampling-1",
     "page": "Introduction",
-    "title": "Continuous colors",
+    "title": "Continuous color sampling",
     "category": "section",
-    "text": "You can access the specific colors of a colorscheme by indexing (eg leonardo[2] or leonardo[2:20]). Or you can sample a colorscheme at a point between 0.0 and 1.0 as if it was a continuous range of colors:get(leonardo, 0.5)returnsRGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)The colors in the predefined colorschemes are usually sorted by LUV luminance, so this often makes sense.get"
+    "text": "You can access the specific colors of a colorscheme by indexing (eg leonardo[2] or leonardo[2:20]). Or you can sample a colorscheme at a point between 0.0 and 1.0 as if it was a continuous range of colors:get(leonardo, 0.5)returnsRGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)(Image: \"get example\")The colors in the predefined colorschemes are usually sorted by LUV luminance, so this often makes sense.get"
 },
 
 {
@@ -157,7 +157,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Images",
     "title": "Images",
     "category": "page",
-    "text": "# Images #"
+    "text": "# Images"
 },
 
 {
@@ -169,11 +169,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "images.html#ColorSchemes.image_to_swatch",
+    "page": "Images",
+    "title": "ColorSchemes.image_to_swatch",
+    "category": "Function",
+    "text": "image_to_swatch(imagefilepath, samples, destinationpath; rows=50, repeats=10)\n\nExtract a colorscheme from the image in imagefilepath to a swatch image PNG in destinationpath. This just runs sortcolorscheme(), colorscheme_to_image(), and save() in sequence. \n\nSpecify the number of colors. You can also specify the number of rows, and how many  times each color is repeated in a row.\n\nimage_to_swatch(\"monalisa.jpg\", 10, \"/tmp/monalisaswatch.png\")\n\n\n\n"
+},
+
+{
     "location": "images.html#Saving-colorschemes-as-images-1",
     "page": "Images",
     "title": "Saving colorschemes as images",
     "category": "section",
-    "text": "Sometimes you want to save a colorscheme, which is usually just a pixel thick, as a swatch or image. You can do this with colorscheme_to_image(). The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's save():using FileIO, ColorSchemes, Images, Colors\n\nimg = colorscheme_to_image(ColorSchemes.vermeer, 30, 400)\nsave(\"/tmp/cs_vermeer-30-300.png\", img)(Image: \"vermeer swatch\")colorscheme_to_image"
+    "text": "Sometimes you want to save a colorscheme, which is usually just a pixel thick, as a swatch or image. You can do this with colorscheme_to_image(). The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's save():using FileIO, ColorSchemes, Images, Colors\n\nimg = colorscheme_to_image(ColorSchemes.vermeer, 30, 400)\nsave(\"/tmp/cs_vermeer-30-300.png\", img)(Image: \"vermeer swatch\")The image_to_swatch() function extracts a colorscheme from the image in and saves it as a swatch in a PNG.colorscheme_to_image\nimage_to_swatch"
 },
 
 {
@@ -185,11 +193,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "images.html#ColorSchemes.@reg",
+    "page": "Images",
+    "title": "ColorSchemes.@reg",
+    "category": "Macro",
+    "text": "load a variable and some values, and add the symbol to the list of schemes\n\n\n\n"
+},
+
+{
     "location": "images.html#Colorschemes-to-text-files-1",
     "page": "Images",
     "title": "Colorschemes to text files",
     "category": "section",
-    "text": "You can save a colorscheme as a text file with the imaginatively-titled colorscheme_to_text() function. colorscheme_to_text(ColorSchemes.vermeer, \"the_lost_vermeer\", \"/tmp/the_lost_vermeer.jl\")The file is basically a Julia file with the color values preceded by a valid symbol name and the @reg macro. When this file is loaded into Julia (using include()), the scheme is added to the list of available schemes in schemes.# created 2017-02-07T18:30:38.021\n@reg the_lost_vermeer [\nRGB{Float64}(0.045319841827409044,0.04074539053177987,0.033174030819406126),\nRGB{Float64}(0.06194243196273512,0.05903050212040492,0.05139710689483695),\nRGB{Float64}(0.08816176863597491,0.0835588842566198,0.07360482587419233),\n...\nRGB{Float64}(0.9481923826365111,0.8763149891872409,0.5495049783744819),\nRGB{Float64}(0.9564577470648753,0.8846308778140886,0.7723396650326797),\nRGB{Float64}(0.9689316860465117,0.9673077588593577,0.9478145764119602) ]colorscheme_to_text"
+    "text": "You can save a colorscheme as a text file with the imaginatively-titled colorscheme_to_text() function. colorscheme_to_text(ColorSchemes.vermeer, \"the_lost_vermeer\", \"/tmp/the_lost_vermeer.jl\")The file is basically a Julia file with the color values preceded by a valid symbol name and the @reg macro. When this file is loaded into Julia (using include()), the scheme is added to the list of available schemes in schemes.# created 2017-02-07T18:30:38.021\n@reg the_lost_vermeer [\nRGB{Float64}(0.045319841827409044,0.04074539053177987,0.033174030819406126),\nRGB{Float64}(0.06194243196273512,0.05903050212040492,0.05139710689483695),\nRGB{Float64}(0.08816176863597491,0.0835588842566198,0.07360482587419233),\n...\nRGB{Float64}(0.9481923826365111,0.8763149891872409,0.5495049783744819),\nRGB{Float64}(0.9564577470648753,0.8846308778140886,0.7723396650326797),\nRGB{Float64}(0.9689316860465117,0.9673077588593577,0.9478145764119602) ]colorscheme_to_text\n@reg"
 },
 
 {

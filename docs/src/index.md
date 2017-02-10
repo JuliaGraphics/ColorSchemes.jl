@@ -82,7 +82,7 @@ To access one of these built-in colorschemes, use its symbol:
      RGB{Float64}(0.933027,0.665164,0.198652)
      RGB{Float64}(0.972441,0.790701,0.285136)
 
-!["Images"](assets/figures/leo-colorscheme.png)
+!["leo color scheme"](assets/figures/leo-colorscheme.png)
 
 By default, the names of the colorschemes aren't imported (there _are_ rather a lot of them). But to avoid using the prefixes, you can import the ones that you want:
 
@@ -113,7 +113,7 @@ Or you can 'sample' the scheme at any point between 0 and 1 using `get`:
 
 You can extract a colorscheme from an image. For example, here's an image of a famous painting:
 
-!["Images"](assets/figures/monalisa.jpg)
+!["the mona lisa"](assets/figures/monalisa.jpg)
 
 Use `extract()` to create a colorscheme from the original image:
 
@@ -121,7 +121,7 @@ Use `extract()` to create a colorscheme from the original image:
 
 which in this example creates a 10-color scheme (using 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).
 
-!["Images"](assets/figures/mona-lisa-extract.png)
+!["mona lisa extraction"](assets/figures/mona-lisa-extract.png)
 
     10-element Array{RGB{Float64},1}:
     RGB{Float64}(0.0406901,0.0412985,0.0423865),
@@ -146,7 +146,7 @@ The ColorSchemes module automatically loads a number of predefined schemes, show
 
 It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients.
 
-!["Images"](assets/figures/colorschemes.png)
+!["all schemes"](assets/figures/colorschemes.png)
 
 (You can generate this file using `ColorSchemes/doc/draw-swatches.jl`, after obtaining the Luxor package to draw and label things.)
 
@@ -244,9 +244,9 @@ Or in one go:
 
 Compare the weighted and unweighted versions of schemes extracted from the Hokusai image "The Great Wave":
 
-!["Images"](assets/figures/hok-scheme-unweighted.png)
+!["unweighted"](assets/figures/hok-scheme-unweighted.png)
 
-!["Images"](assets/figures/hok-scheme-weighted.png)
+!["weighted"](assets/figures/hok-scheme-weighted.png)
 
 ```@docs
 extract_weighted_colors

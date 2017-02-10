@@ -59,7 +59,7 @@ function run_minimum_tests()
     @test sortcolorscheme(hok, rev=true) != sortcolorscheme(hok)
 
     # save as text
-    colorscheme_to_text(ColorSchemes.hok, "hokusai_test_version", "hokusai_as_text.jl", comment="a test")
+    colorscheme_to_text(hok, "hokusai_test_version", "hokusai_as_text.jl", comment="a test")
 
     @test filesize("hokusai_as_text.jl") > 2000 
 

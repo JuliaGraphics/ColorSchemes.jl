@@ -1,4 +1,4 @@
-# Images #
+# Images
 
 ## Saving colorschemes as images
 
@@ -11,8 +11,11 @@ Sometimes you want to save a colorscheme, which is usually just a pixel thick, a
 
 !["vermeer swatch"](assets/figures/cs_vermeer-30-300.png)
 
+The `image_to_swatch()` function extracts a colorscheme from the image in and saves it as a swatch in a PNG.
+
 ```@docs
 colorscheme_to_image
+image_to_swatch
 ```
 
 #### Colorschemes to text files ###
@@ -35,6 +38,7 @@ The file is basically a Julia file with the color values preceded by a valid sym
 
 ```@docs
 colorscheme_to_text
+@reg
 ```
 
 ## A Julia Julia set: colorschemes and Images

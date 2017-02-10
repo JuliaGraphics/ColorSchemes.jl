@@ -26,7 +26,7 @@ using ColorSchemes
 
 Original version by [cormullion](https://github.com/cormullion).
 
-### Basics
+## Basics
 
 A colorscheme is an array of colors:
 
@@ -181,7 +181,7 @@ or, slightly longer:
       push!(reds, RGB{Float64}(1, 1-i, 1-i))
     end
 
-## Continuous colors
+## Continuous color sampling
 
 You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[2:20]`). Or you can sample a colorscheme at a point between 0.0 and 1.0 as if it was a continuous range of colors:
 
@@ -190,6 +190,8 @@ You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]
 returns
 
     RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+
+!["get example"](assets/figures/get-example.png)
 
 The colors in the predefined colorschemes are usually sorted by LUV luminance, so this often makes sense.
 

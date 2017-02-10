@@ -5,9 +5,9 @@
 
 Documentation:
 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://github.com/cormullion/ColorSchemes.jl/stable) This describes the most recent released version of the package.
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://cormullion.github.io/ColorSchemes.jl/stable) This describes the most recent released version of the package.
 
-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://github.com/cormullion/ColorSchemes.jl/latest) This refers to the current in-development version of the package.
+[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://cormullion.github.io/ColorSchemes.jl/latest) This refers to the current in-development version of the package.
 
 ## ColorSchemes
 

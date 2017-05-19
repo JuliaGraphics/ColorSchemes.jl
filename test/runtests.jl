@@ -48,11 +48,33 @@ function run_all_tests()
 
 end
 
+function run_minimum_tests()
+
+    # load scheme
+    hok = ColorSchemes.hokusai
+
+    @test length(hok) == 32
+
+    # test sort
+    @test sortcolorscheme(hok, rev=true) != sortcolorscheme(hok)
+
+    # save as text
+    colorscheme_to_text(hok, "hokusai_test_version", "hokusai_as_text.jl", comment="a test")
+
+    @test filesize("hokusai_as_text.jl") > 2000 
+
+    open("hokusai_as_text.jl") do f
+        lines = readlines(f)
+        @test startswith(lines[4], "RGB{Float64}(0.085")
+    end
+
+end
+
 if get(ENV, "COLORSCHEMES_KEEP_TEST_RESULTS", false) == "true"
         cd(mktempdir())
         info("running tests in: $(pwd())")
         info("...Keeping the results")
-        run_all_tests()
+        run_minimum_tests()
         info("Test images saved in: $(pwd())")
 else
     mktempdir() do tmpdir
@@ -60,7 +82,7 @@ else
             info("running tests in: $(pwd())")
             info("but not keeping the results")
             info("because you didn't do: ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
-            run_all_tests()
+            run_minimum_tests()
             info("Test images weren't saved. To see the test images, next time do this before running:")
             info(" ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
         end

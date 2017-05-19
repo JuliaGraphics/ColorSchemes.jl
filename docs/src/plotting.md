@@ -15,7 +15,7 @@ With the `contour()` function, use `cgrad()` to read the colorscheme as a gradie
       end
     contour(x, y, f, fill=true, seriescolor=cgrad(ColorSchemes.leonardo))
 
-!["Images"](assets/figures/plots-contour-1.png)
+!["contour"](assets/figures/plots-contour-1.png)
 
 (You can use `c` as a short cut for `seriescolor`.)
 
@@ -26,7 +26,7 @@ With other plots, use the `palette` keyword:
         background_color=ColorSchemes.vermeer[1],
         palette=ColorSchemes.vermeer)
         
-!["Images"](assets/figures/plots-background.png)
+!["palette"](assets/figures/plots-background.png)
 
 You can list all colorschemes with a set of PyPlot heatmap plots:
 
@@ -36,7 +36,7 @@ You can list all colorschemes with a set of PyPlot heatmap plots:
     cschemes = keys(PlotUtils._gradients)
     plot([heatmap(z,fc=cm,leg=false,title=cm,ticks=nothing, titlefont = font(8)) for cm=cschemes]..., size=(1500,1500))
 
-!["Images"](assets/figures/py_plot_schemes.png)
+!["heatmaps"](assets/figures/py_plot_schemes.png)
 
 ## Gadfly
 
@@ -49,7 +49,7 @@ Here's how you can use ColorSchemes in Gadfly:
         Geom.rectbin,
         Scale.ContinuousColorScale(p -> get(ColorSchemes.sunset, p)))
 
-!["Images"](assets/figures/gadfly-sunset.png)
+!["gadfly"](assets/figures/gadfly-sunset.png)
 
 ## Winston
 
@@ -60,7 +60,7 @@ If you prefer Winston.jl for plotting, you can use colorschemes with `imagesc`:
     Winston.colormap(klimt)
     Winston.imagesc(reshape(1:10000,100,100))
 
-!["Images"](assets/figures/winston.png)
+!["winston klimt"](assets/figures/winston.png)
 
 Sometimes you'll want a smoother gradient with more colors. You can use `get(scheme, n)` to generate a more detailed array of colors, varying `n` from 0 to 1 by 0.001:
 
@@ -69,7 +69,7 @@ Sometimes you'll want a smoother gradient with more colors. You can use `get(sch
     Winston.colormap(brasstonesmooth)
     Winston.imagesc(reshape(1:10000,100,100))
 
-!["Images"](assets/figures/winston1.png)
+!["winston brass tones](assets/figures/winston1.png)
 
 ## PyPlot
 
@@ -101,5 +101,4 @@ Colorschemes can be used with the `cmap` keyword in PyPlot:
         alpha=0.8,
         linewidth=0.25)
 
-!["Images"](assets/figures/pyplot.png)
-
+!["pyplot"](assets/figures/pyplot.png)

@@ -1,15 +1,22 @@
-# Images #
+# Images
 
 ## Saving colorschemes as images
 
-Sometimes you want to save a colorscheme, which is usually just a pixel thick, as an image. You can do this with `colorscheme_to_image()`. The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's `save()`:
+Sometimes you want to save a colorscheme, which is usually just a pixel thick, as a swatch or image. You can do this with `colorscheme_to_image()`. The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's `save()`:
 
     using FileIO, ColorSchemes, Images, Colors
 
     img = colorscheme_to_image(ColorSchemes.vermeer, 30, 400)
     save("/tmp/cs_vermeer-30-300.png", img)
 
-!["Images"](assets/figures/cs_vermeer-30-300.png)
+!["vermeer swatch"](assets/figures/cs_vermeer-30-300.png)
+
+The `image_to_swatch()` function extracts a colorscheme from the image in and saves it as a swatch in a PNG.
+
+```@docs
+colorscheme_to_image
+image_to_swatch
+```
 
 #### Colorschemes to text files ###
 
@@ -29,11 +36,16 @@ The file is basically a Julia file with the color values preceded by a valid sym
     RGB{Float64}(0.9564577470648753,0.8846308778140886,0.7723396650326797),
     RGB{Float64}(0.9689316860465117,0.9673077588593577,0.9478145764119602) ]
 
-## Using colorschemes with Images.jl
+```@docs
+colorscheme_to_text
+@reg
+```
+
+## A Julia Julia set: colorschemes and Images
 
 Here's how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer's painting "Girl with a Pearl Earring".
 
-!["Images"](assets/figures/julia-set-with-girl-pearl-vermeer.jpg)
+!["julia set"](assets/figures/julia-set-with-girl-pearl-vermeer.jpg)
 
     using ColorSchemes, Images
 

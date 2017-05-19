@@ -8,7 +8,7 @@ Please submit issues and pull requests.
 
 ## Current status
 
-ColorSchemes currently runs on Julia version 0.5.
+ColorSchemes requires Julia version 0.6, and makes use of the Images.jl and Clustering.jl packages.
 
 ## Installation and basic usage
 
@@ -148,7 +148,7 @@ It's generally agreed (search the web for "Rainbow colormaps considered harmful"
 
 !["Images"](assets/figures/colorschemes.png)
 
-(You can generate this file using `ColorSchemes/doc/draw-swatches.jl`, after obtaining the Luxor package to draw and label things.)
+(You can generate this file using `ColorSchemes/docs/src/assets/figures/draw-swatches.jl`, after obtaining the Luxor package to draw and label things.)
 
 You can list the names of built-in colorschemes in the `ColorSchemes/data` directory by looking in the `schemes` symbol. Look for matches with `filter()`.
 

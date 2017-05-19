@@ -81,14 +81,14 @@ export
 
 # convert a value between oldmin/oldmax to equivalent value between newmin/newmax
 
-remap(value, oldmin, oldmax, newmin, newmax) = 
+remap(value, oldmin, oldmax, newmin, newmax) =
     ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin
 
 """
     extract(imfile, n=10, i=10, tolerance=0.01; shrink=n)
 
-`extract()` extracts the most common colors from an image from the image file `imfile` 
-by finding `n` dominant colors, using `i` iterations. You can (and probably should) 
+`extract()` extracts the most common colors from an image from the image file `imfile`
+by finding `n` dominant colors, using `i` iterations. You can (and probably should)
 shrink larger images before running this function.
 
 Returns a colorscheme (an array of colors)
@@ -108,17 +108,17 @@ Example:
 """
 function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 2.0)
     img = load(imfile)
-    typeof(img) == Void && error("Can't load the image file \"$imfile\"") 
+    typeof(img) == Void && error("Can't load the image file \"$imfile\"")
     w, h = size(img)
     neww = round(Int, w/shrink)
     newh = round(Int, h/shrink)
     smaller_image = Images.imresize(img, (neww, newh))
-    imdata = convert(Array{Float64}, permuteddimsview(channelview(img), (2,3,1)))
-    w, h, numchannels = size(imdata)
-    d = transpose(reshape(imdata, w*h, numchannels))
+    w, h = size(smaller_image)
+    imdata = convert(Array{Float64}, channelview(smaller_image))
+    d = reshape(imdata, 3, :) # version 0.6 only!
     R = kmeans(d, n, maxiter=i, tol=tolerance)
     colscheme = RGB{Float64}[]
-    for i in 1:numchannels:length(R.centers)
+    for i in 1:3:length(R.centers)
         push!(colscheme, RGB(R.centers[i], R.centers[i+1], R.centers[i+2]))
     end
     return colscheme, R.cweights/sum(R.cweights)
@@ -127,7 +127,7 @@ end
 """
     colorscheme_weighted(colorscheme, weights, length)
 
-Returns a new colorscheme of length `length` (default 50) where the proportion 
+Returns a new colorscheme of length `length` (default 50) where the proportion
 of each color in `colorscheme` is represented by the associated weight of each entry.
 
 Examples:
@@ -146,7 +146,7 @@ function colorscheme_weighted{C<:Colorant}(cscheme::Vector{C}, weights, l = 50)
         val,ix = findmax(iweights)
         iweights[ix]=val-1
     end
-    a = Array(RGB{Float64}, 0)
+    a = Array{RGB{Float64}}(0)
     for n in 1:length(cscheme)
         a = vcat(a, repmat([cscheme[n]], iweights[n]))
     end
@@ -247,7 +247,7 @@ Examples:
     save("/tmp/blackbody.png", colorscheme_to_image(ColorSchemes.blackbody, 10, 100))
 """
 function colorscheme_to_image{C<:Colorant}(cs::Vector{C}, n=50, h=50)
-    a = Array(RGB{Float64}, n, h)
+    a = Array{RGB{Float64}}(n, h)
     fill!(a, cs[1]) # first color goes here
     for i in 2:length(cs) # rest here
         a = vcat(a, repmat([cs[i]], n, h))
@@ -259,9 +259,9 @@ end
     image_to_swatch(imagefilepath, samples, destinationpath; rows=50, repeats=10)
 
 Extract a colorscheme from the image in `imagefilepath` to a swatch image PNG in `destinationpath`.
-This just runs `sortcolorscheme()`, `colorscheme_to_image()`, and `save()` in sequence. 
+This just runs `sortcolorscheme()`, `colorscheme_to_image()`, and `save()` in sequence.
 
-Specify the number of colors. You can also specify the number of rows, and how many 
+Specify the number of colors. You can also specify the number of rows, and how many
 times each color is repeated in a row.
 
     image_to_swatch("monalisa.jpg", 10, "/tmp/monalisaswatch.png")

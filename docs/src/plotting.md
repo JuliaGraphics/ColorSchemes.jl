@@ -25,7 +25,7 @@ With other plots, use the `palette` keyword:
         w=4,
         background_color=ColorSchemes.vermeer[1],
         palette=ColorSchemes.vermeer)
-        
+
 !["palette"](assets/figures/plots-background.png)
 
 You can list all colorschemes with a set of PyPlot heatmap plots:

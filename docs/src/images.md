@@ -1,4 +1,4 @@
-# Images
+# Images
 
 ## Saving colorschemes as images
 
@@ -6,8 +6,8 @@ Sometimes you want to save a colorscheme, which is usually just a pixel thick, a
 
     using FileIO, ColorSchemes, Images, Colors
 
-    img = colorscheme_to_image(ColorSchemes.vermeer, 30, 400)
-    save("/tmp/cs_vermeer-30-300.png", img)
+    img = colorscheme_to_image(ColorSchemes.vermeer, 150, 20)
+    save("/tmp/cs_vermeer-150-20.png", img)
 
 !["vermeer swatch"](assets/figures/cs_vermeer-30-300.png)
 
@@ -20,7 +20,7 @@ image_to_swatch
 
 #### Colorschemes to text files ###
 
-You can save a colorscheme as a text file with the imaginatively-titled `colorscheme_to_text()` function. 
+You can save a colorscheme as a text file with the imaginatively-titled `colorscheme_to_text()` function.
 
     colorscheme_to_text(ColorSchemes.vermeer, "the_lost_vermeer", "/tmp/the_lost_vermeer.jl")
 

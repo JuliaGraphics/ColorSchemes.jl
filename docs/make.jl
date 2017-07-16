@@ -14,7 +14,7 @@ makedocs(
   )
 
 deploydocs(
-    repo = "github.com/cormullion/ColorSchemes.jl.git",
+    repo = "github.com/JuliaGraphics/ColorSchemes.jl.git",
     target = "build",
     julia  = "0.6",
     osname = "osx",

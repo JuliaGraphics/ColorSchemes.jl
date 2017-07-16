@@ -231,9 +231,9 @@ function colorscheme_to_text{C<:Colorant}(cs::Vector{C}, schemename::String, fil
 end
 
 """
-    colorscheme_to_image(cs, n=50, h=50)
+    colorscheme_to_image(cs, nrows=50, tilewidth=5)
 
-Make an image from a colorscheme by repeating each color `n` times in `h` rows.
+Make an image from a colorscheme by repeating the colors in a colorscheme.
 
 Returns the image as an array.
 
@@ -246,29 +246,32 @@ Examples:
 
     save("/tmp/blackbody.png", colorscheme_to_image(ColorSchemes.blackbody, 10, 100))
 """
-function colorscheme_to_image{C<:Colorant}(cs::Vector{C}, n=50, h=50)
-    a = Array{RGB{Float64}}(n, h)
-    fill!(a, cs[1]) # first color goes here
-    for i in 2:length(cs) # rest here
-        a = vcat(a, repmat([cs[i]], n, h))
+function colorscheme_to_image{C<:Colorant}(cs::Vector{C}, nrows=50, tilewidth=5)
+    ncols = tilewidth * length(cs)
+    a = Array{RGB{Float64}}(nrows, ncols)
+    for row in 1:nrows
+        for col in 1:ncols
+            a[row, col] = cs[div(col-1, tilewidth) + 1]
+        end
     end
     return a
 end
 
 """
-    image_to_swatch(imagefilepath, samples, destinationpath; rows=50, repeats=10)
+    image_to_swatch(imagefilepath, samples, destinationpath; nrows=50, tilewidth=5)
 
-Extract a colorscheme from the image in `imagefilepath` to a swatch image PNG in `destinationpath`.
-This just runs `sortcolorscheme()`, `colorscheme_to_image()`, and `save()` in sequence.
+Extract a colorscheme from the image in `imagefilepath` to a swatch image PNG in
+`destinationpath`. This just runs `sortcolorscheme()`, `colorscheme_to_image()`, and
+`save()` in sequence.
 
 Specify the number of colors. You can also specify the number of rows, and how many
-times each color is repeated in a row.
+times each color is repeated.
 
     image_to_swatch("monalisa.jpg", 10, "/tmp/monalisaswatch.png")
 """
-function image_to_swatch(imagefilepath, n::Int64, destinationpath; rows=150, repeats=50)
+function image_to_swatch(imagefilepath, n::Int64, destinationpath; nrows=50, tilewidth=5)
     temp = sortcolorscheme(extract(imagefilepath, n))
-    img = colorscheme_to_image(temp, repeats, rows)
+    img = colorscheme_to_image(temp, nrows, tilewidth)
     save(destinationpath, img)
 end
 

@@ -1,13 +1,13 @@
 [![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_0.5.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=0.5)
 [![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_0.6.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=0.6)
-[![Build Status](https://travis-ci.org/cormullion/ColorSchemes.jl.svg?branch=master)](https://travis-ci.org/cormullion/ColorSchemes.jl)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/cormullion/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/cormullion/ColorSchemes-jl)
+[![Build Status](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl.svg?branch=master)](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/JuliaGraphics/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/JuliaGraphics/ColorSchemes-jl)
 
 Documentation:
 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://cormullion.github.io/ColorSchemes.jl/stable) This describes the most recent released version of the package.
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaGraphics.github.io/ColorSchemes.jl/stable) This describes the most recent released version of the package.
 
-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://cormullion.github.io/ColorSchemes.jl/latest) This refers to the current in-development version of the package.
+[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://JuliaGraphics.github.io/ColorSchemes.jl/latest) This refers to the current in-development version of the package.
 
 ## ColorSchemes
 

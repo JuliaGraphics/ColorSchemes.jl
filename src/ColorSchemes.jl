@@ -24,25 +24,25 @@ or import it:
 
 ## Functions:
 
-`extract(file)`
+`extract(imfile, n=10, i=10, tolerance=0.01; kwargs...)`
     - extract a new colorscheme from an image file, return a colorscheme
-`extract_weighted_colors(file, n=10, i=10, tolerance=0.01; shrink = 2))`
+`extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 2.0)`
     - return a colorscheme and weights for each entry
-`get(cscheme, n)`
-    - return a single color from a color scheme based on location of n (0-1) in cscheme
-`colorscheme_weighted(cscheme, weights)`
+`get(cscheme::Vector{C}, x) where {C <: Colorant}`
+    - return a single color from cscheme based on location of x (0 - 1) in cscheme
+`colorscheme_weighted(cscheme::Vector{C}, weights, l = 50) where {C <: Colorant}`
     - return a weighted colorscheme, given a colorscheme and an array of weights for each entry
-`colorscheme_to_image(cscheme, m, h)`
+`colorscheme_to_image(cs::Vector{C}, nrows=50, tilewidth=5) where {C <: Colorant}`
     - make an image of a scheme by repeating each color m times in h rows
-`colorscheme_to_text(cscheme, schemename, filename; comment="")`
+`compare_colors(color_a, color_b, field = :l)`
+    - compare colors, return true if the specified field of `color_a` is less than `color_b`.
+`colorscheme_to_text(cs::Vector{C}, schemename::String, file::String; comment="") where {C <: Colorant}`
     - export a colorscheme to a text file
-`image_to_swatch(imagefilepath, samples, destinationpath)`
+`image_to_swatch(imagefilepath, n::Int64, destinationpath; nrows=50, tilewidth=5)`
     - extract a colorscheme and save it as a swatch PNG in the destination file
-`export(cscheme, schemename, filename, comment)`
-    - save a colorscheme in the file with an optional comment
 `schemes`
-    - an array of names of all the loaded schemes as symbols
-`sortcolorscheme(cscheme)`
+    - an array of names of all the loaded schemes, as symbols
+`sortcolorscheme(colorscheme::Vector{C}, field = :l; kwargs...) where {C <: Colorant}`
     - sort a colorscheme
 """
 
@@ -157,7 +157,7 @@ end
     compare_colors(color_a, color_b, field = :l)
 
 Compare two colors, using the Luv colorspace. `field` defaults to luminance `:l` but could be `:u`
-or `:v`.
+or `:v`. Return true if the specified field of `color_a` is less than `color_b`.
 """
 function compare_colors(color_a, color_b, field = :l)
     if 1 < color_a.r < 255
@@ -174,6 +174,8 @@ end
     sortcolorscheme(colorscheme, field; kwargs...)
 
 Sort (non-destructively) a colorscheme using a field of the LUV colorspace.
+
+The less than function is `lt = (x,y) -> compare_colors(x, y, field)`.
 
 The default is to sort by the luminance field `:l` but could be by `:u` or `:v`.
 """

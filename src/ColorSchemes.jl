@@ -135,7 +135,7 @@ Examples:
     colorscheme_weighted(extract_weighted_colors("hokusai.jpg")...)
     colorscheme_weighted(extract_weighted_colors("filename00000001.jpg")..., 500)
 """
-function colorscheme_weighted{C<:Colorant}(cscheme::Vector{C}, weights, l = 50)
+function colorscheme_weighted(cscheme::Vector{C}, weights, l = 50) where {C <: Colorant}
     iweights = map(n -> convert(Integer, round(n * l)), weights)
     #   adjust highest or lowest so that length of result is exact
     while sum(iweights) < l
@@ -177,7 +177,7 @@ Sort (non-destructively) a colorscheme using a field of the LUV colorspace.
 
 The default is to sort by the luminance field `:l` but could be by `:u` or `:v`.
 """
-function sortcolorscheme{C<:Colorant}(colorscheme::Vector{C}, field = :l; kwargs...)
+function sortcolorscheme(colorscheme::Vector{C}, field = :l; kwargs...) where {C <: Colorant}
     sort(colorscheme, lt = (x,y) -> compare_colors(x, y, field); kwargs...)
 end
 
@@ -190,7 +190,7 @@ Find the nearest color in a colorscheme `cscheme` corresponding to a point `x` b
 
 Returns a single color.
 """
-function get{C<:Colorant}(cscheme::Vector{C}, x)
+function get(cscheme::Vector{C}, x) where {C <: Colorant}
     x = clamp(x, 0.0, 1.0)
     before_fp = remap(x, 0.0, 1.0, 1, length(cscheme))
     before = convert(Int, round(before_fp, RoundDown))
@@ -222,7 +222,7 @@ To read a text file created thusly in and register it in `schemes`:
     RGB{Float64}(0.5787354153400166,0.49341844091747,0.22277034922842723)
 
 """
-function colorscheme_to_text{C<:Colorant}(cs::Vector{C}, schemename::String, file::String; comment="")
+function colorscheme_to_text(cs::Vector{C}, schemename::String, file::String; comment="") where {C <: Colorant}
     fhandle = open(file, "w")
     write(fhandle, string("# ", comment, "\n"))
     write(fhandle, string("# created $(now())\n"))
@@ -246,7 +246,7 @@ Examples:
 
     save("/tmp/blackbody.png", colorscheme_to_image(ColorSchemes.blackbody, 10, 100))
 """
-function colorscheme_to_image{C<:Colorant}(cs::Vector{C}, nrows=50, tilewidth=5)
+function colorscheme_to_image(cs::Vector{C}, nrows=50, tilewidth=5) where {C <: Colorant}
     ncols = tilewidth * length(cs)
     a = Array{RGB{Float64}}(nrows, ncols)
     for row in 1:nrows

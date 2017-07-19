@@ -77,7 +77,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "ColorSchemes.sortcolorscheme",
     "category": "Function",
-    "text": "sortcolorscheme(colorscheme, field; kwargs...)\n\nSort (non-destructively) a colorscheme using a field of the LUV colorspace.\n\nThe default is to sort by the luminance field :l but could be by :u or :v.\n\n\n\n"
+    "text": "sortcolorscheme(colorscheme, field; kwargs...)\n\nSort (non-destructively) a colorscheme using a field of the LUV colorspace.\n\nThe less than function is lt = (x,y) -> compare_colors(x, y, field).\n\nThe default is to sort by the luminance field :l but could be by :u or :v.\n\n\n\n"
 },
 
 {

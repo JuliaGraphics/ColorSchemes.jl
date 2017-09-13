@@ -46,6 +46,30 @@ function run_all_tests()
         @test startswith(lines[4], "RGB{Float64}(0.085")
     end
 
+    # convert an Array{T,2} to an RGB image
+    tmp = get(ColorSchemes.leonardo, rand(10, 10))
+    @test typeof(tmp) == Array{ColorTypes.RGB{Float64}, 2}
+
+    # test conversion with default clamp
+    x = [0.0 1.0 ; -1.0 2.0]
+    y=get(ColorSchemes.leonardo, x)
+    @test y[1,1] == y[2,1]
+    @test y[1,2] == y[2,2]
+
+    # test conversion with symbol clamp
+    y2=get(ColorSchemes.leonardo, x, :clamp)
+    @test y2 == y
+
+    # test conversion with symbol extrema
+    y2=get(ColorSchemes.leonardo, x, :extrema)
+    @test y2[2,1] == y[1,1]   # Minimum now becomes one edge of ColorScheme
+    @test y2[2,2] == y[1,2]   # Maximum now becomes other edge of ColorScheme
+    @test y2[1,1] !== y2[2,1] # Inbetween values or now different
+
+    # test conversion with manually supplied range
+    y3=get(ColorSchemes.leonardo, x, (-1.0, 2.0))
+    @test y3 == y2
+
 end
 
 function run_minimum_tests()

@@ -271,7 +271,7 @@ function get(cscheme::Vector{C}, x, rangescale) where {C<:Colorant}
 end
 
 function get(cscheme::Vector{C}, x, rangescale :: Tuple{Number, Number}=(0.0, 1.0)) where {C<:Colorant}
-    x = clamp.(x, rangescale)
+    x = clamp.(x, rangescale...)
     before_fp = remap(x, rangescale..., 1, length(cscheme))
     before = round.(Int, before_fp, RoundDown)
     after =  min.(before + 1, length(cscheme))

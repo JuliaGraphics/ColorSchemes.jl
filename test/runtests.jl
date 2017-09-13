@@ -46,6 +46,28 @@ function run_all_tests()
         @test startswith(lines[4], "RGB{Float64}(0.085")
     end
 
+end
+
+function run_minimum_tests()
+
+    # load scheme
+    hok = ColorSchemes.hokusai
+
+    @test length(hok) == 32
+
+    # test sort
+    @test sortcolorscheme(hok, rev=true) != sortcolorscheme(hok)
+
+    # save as text
+    colorscheme_to_text(hok, "hokusai_test_version", "hokusai_as_text.jl", comment="a test")
+
+    @test filesize("hokusai_as_text.jl") > 2000 
+
+    open("hokusai_as_text.jl") do f
+        lines = readlines(f)
+        @test startswith(lines[4], "RGB{Float64}(0.085")
+    end
+
     # convert an Array{T,2} to an RGB image
     tmp = get(ColorSchemes.leonardo, rand(10, 10))
     @test typeof(tmp) == Array{ColorTypes.RGB{Float64}, 2}
@@ -70,27 +92,6 @@ function run_all_tests()
     y3=get(ColorSchemes.leonardo, x, (-1.0, 2.0))
     @test y3 == y2
 
-end
-
-function run_minimum_tests()
-
-    # load scheme
-    hok = ColorSchemes.hokusai
-
-    @test length(hok) == 32
-
-    # test sort
-    @test sortcolorscheme(hok, rev=true) != sortcolorscheme(hok)
-
-    # save as text
-    colorscheme_to_text(hok, "hokusai_test_version", "hokusai_as_text.jl", comment="a test")
-
-    @test filesize("hokusai_as_text.jl") > 2000 
-
-    open("hokusai_as_text.jl") do f
-        lines = readlines(f)
-        @test startswith(lines[4], "RGB{Float64}(0.085")
-    end
 
 end
 

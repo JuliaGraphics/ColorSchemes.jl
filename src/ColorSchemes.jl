@@ -2,8 +2,6 @@
 
 __precompile__()
 
-export invert, convertToScheme
-
 """
 A colorscheme is an array of colors. To use the package:
 
@@ -120,6 +118,8 @@ export
     extract,
     extract_weighted_colors,
     get,
+    getinverse,
+    convert_to_scheme,
     image_to_swatch,
     schemes,
     sortcolorscheme,
@@ -286,22 +286,25 @@ function get(cscheme::Vector{C}, x, rangescale :: Tuple{Number, Number}=(0.0, 1.
 end
 
 """
-    invert(cscheme, c)
+    getinverse(cscheme, c, range=(0.0, 1.0))
 
-Compute the percentage value of the colors in cscheme.
+Computes where the provided Color `c` would fit in cscheme.
+
+This is the inverse of `get` -- it returns the value `x` in the provided `range`
+for which `get(scheme, x)` would most closely match the provided Color `c`.
 
 # Examples
-```julia-repl
-    julia> invert(ColorSchemes.leonardo, RGB(1,0,0))
+```jldoctest
+    julia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))
     0.625…
-    julia> invert([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))
+    julia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))
     0.543…
     julia> cs = linspace(RGB(0,0,0), RGB(1,1,1),5)
-    julia> invert(cs, cs[3])
+    julia> getinverse(cs, cs[3])
     0.500
 ```
 """
-function invert(cscheme::Vector{C}, c, rangescale :: Tuple{Number, Number}=(0.0, 1.0)) where {C<:Colorant}
+function getinverse(cscheme::Vector{C}, c, rangescale :: Tuple{Number, Number}=(0.0, 1.0)) where {C<:Colorant}
     if length(cscheme) <= 1 ; throw(InexactError()) ; end
     cdiffs = map(c_i->colordiff(promote(c,c_i)...), cscheme)
     closest = indmin(cdiffs)
@@ -317,25 +320,24 @@ function invert(cscheme::Vector{C}, c, rangescale :: Tuple{Number, Number}=(0.0,
     v = left
     if cdiffs[left] != cdiffs[right] ;  # Prevents divide by 0.
         v += ( cdiffs[left] / (cdiffs[left] + cdiffs[right]))
-     end
+    end
     return ColorSchemes.remap(v, 1, length(cscheme), rangescale...)
 end
 
 
 """
-    convertToScheme(cscheme, img)
+    convert_to_scheme(cscheme, img)
 
 Converts img from its current color values to use only the colors defined in cscheme.
 
 ```julia
 image = nonTransparentImg
-convertToScheme(ColorSchemes.leonardo, image)
-convertToScheme(ColorSchemes.Paired_12, image)
+convert_to_scheme(ColorSchemes.leonardo, image)
+convert_to_scheme(ColorSchemes.Paired_12, image)
 ```
 """
-convertToScheme(cscheme::Vector{C},img) where {C<:Colorant} =
-    map(c->get(cscheme, invert(cscheme, c)), img)
-end
+convert_to_scheme(cscheme::Vector{C},img) where {C<:Colorant} =
+    map(c->get(cscheme, getinverse(cscheme, c)), img)
 
 """
     colorscheme_to_text(cscheme, schemename, filename; comment="")

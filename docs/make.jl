@@ -5,11 +5,12 @@ makedocs(
   format = :html,
   sitename = "ColorSchemes",
   pages    = Any[
-    "Introduction"   => "index.md",
-    "Basic usage"    => "basics.md",
-    "Plotting"       => "plotting.md",
-    "Images"         => "images.md",
-    "Index"          => "functionindex.md"
+    "Introduction"      => "index.md",
+    "Basic usage"       => "basics.md",
+    "Finding colors"    => "inverse.md",
+    "Plotting"          => "plotting.md",
+    "Images"            => "images.md",
+    "Index"             => "functionindex.md"
     ]
   )
 

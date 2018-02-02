@@ -1,16 +1,16 @@
 # Finding colors in colorschemes
 
-ColorSchemes.jl provides a function, `getinverse(cscheme, c)`, which is the inverse of `get(cscheme, x)`.
+ColorSchemes.jl provides the function `getinverse(cscheme, c)` which is the inverse of `get(cscheme, x)`.
 
-This function places a color within a colorscheme by converting the color to a value representing its position on the colorscheme's axis.
+This function returns a value between 0 and 1 that places a color within a colorscheme by converting the color to a value representing its position on the colorscheme's axis.
 
 !["get inverse"](assets/figures/getinverse.png)
 
 ## Example
 
-One way to use `getinverse()` is to convert a heatmap image into an Array of continuous values, e.g. temperature.
+One example use for `getinverse()` is to convert a heatmap image into an Array of continuous values, e.g. temperature.
 
-In this example, we will convert a heatmap image representing elevation in the United States into an Array of elevation values.
+In this example, we will convert a heatmap image representing elevation in the United States into an Array of elevation values. The image represents global temperature anomalies averaged from 2008 through 2012, with blue as -2 C and Red as +2 C. Higher than normal temperatures are shown in red (red is +2°C) and lower than normal temperatures are shown in blue (blue is -2°C). The global surface temperature in 2012 was +0.55°C. [source](https://svs.gsfc.nasa.gov/cgi-bin/details.cgi?aid=4030).
 
 ```
 using Images, FileIO
@@ -33,16 +33,7 @@ temps = [getinverse(ColorSchemes.temperaturemap, pixel) for pixel in img]
  0.975615  0.975615  0.975615  0.975615  …  0.975615  0.975615  0.975615
  0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
  0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
- 0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
- 0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
- 0.975615  0.975615  0.975615  0.975615  …  0.975615  0.975615  0.975615
- 0.975615  0.975615  0.975615  0.975615     0.975899  0.975899  0.975615
- 0.975615  0.975615  0.975615  0.975615     0.975739  0.975739  0.975899
  ⋮                                       ⋱  ⋮                           
- 0.84482   0.844684  0.84482   0.821402  …  0.845689  0.846855  0.84482
- 0.823358  0.823887  0.823887  0.823536     0.822783  0.823358  0.823358
- 0.822956  0.822359  0.821921  0.82257      0.823536  0.823536  0.823996
- 0.821989  0.822677  0.821949  0.821949     0.823141  0.824371  0.822677
  0.820419  0.820084  0.819388  0.819388     0.819977  0.821949  0.81973
  0.816596  0.816055  0.816055  0.816055  …  0.819388  0.819388  0.818957
  0.813865  0.813247  0.813247  0.813247     0.816055  0.815452  0.813865
@@ -53,12 +44,15 @@ temps = [getinverse(ColorSchemes.temperaturemap, pixel) for pixel in img]
  0.802037  0.798624  0.798624  0.798624     0.802401  0.800252  0.802848
 ```
 
+The data has been converted from its original form to an array of continuous values, which makes it possible to process as data. For example, we can find the places with the greatest anomalies:
+
 ```
-mintemp,maxtemp = ind2sub(temps, indmin(temps)), ind2sub(temps, indmax(temps))
+mintemp, maxtemp = ind2sub(temps, indmin(temps)), ind2sub(temps, indmax(temps))
 
 ((397, 127), (17, 314))
-
 ```
+
+We can display the array of continuous values as a grayscale image, where black is 0.0 and white is 1.0.
 
 ```
 Gray.(temps)
@@ -68,13 +62,14 @@ Gray.(temps)
 
 ## Convert to scheme
 
-
-Using `getinverse()` it's easy to convert an image from one colorscheme to another.
+Using `getinverse()` it's possible to convert an image from one colorscheme to another.
 
 `convert_to_scheme(cscheme, img)` returns a new image in which each pixel from the provided image is mapped to its closest matching color in the provided scheme.
 
+Here, the original image is displayed using the `PuOr_9` scheme.
+
 ```
-convert_to_scheme(vcat(ColorSchemes.coffee, RGB(0,0,0)), img)
+convert_to_scheme(ColorSchemes.PuOr_9), img)
 ```
 
 !["heatmap 2 grey"](assets/figures/heatmap3.png)

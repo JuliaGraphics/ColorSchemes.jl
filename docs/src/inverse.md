@@ -52,6 +52,35 @@ mintemp, maxtemp = ind2sub(temps, indmin(temps)), ind2sub(temps, indmax(temps))
 ((397, 127), (17, 314))
 ```
 
+and the maximum and minimum coordinates can be displayed on the image using, for example, Luxor.jl:
+
+```
+using Luxor
+save("/tmp/img.png", img)
+pngimg = readpng("/tmp/img.png")
+
+w, h = pngimg.width, pngimg.height
+
+import Base.convert
+# coordinates are Tuple(row, column), so row -> y, column -> x
+Base.convert(::Type{Luxor.Point}, pt::Tuple) = Luxor.Point(pt[2], pt[1])
+
+@png begin
+    placeimage(pngimg, O, centered=true)
+    translate(-w/2, -h/2)
+    sethue("cyan")
+    fontsize(20)
+    fontface("Avenir-Black")
+    setopacity(0.75)
+    circle(convert(Point, maxtemp), 5, :fill)
+    label("largest positive anomaly", :E, convert(Point, maxtemp), offset=20)
+    circle(convert(Point, mintemp), 5, :fill)
+    label("largest negative anomaly", :E, convert(Point, mintemp), offset=20)
+end 800 460
+```
+
+!["heatmap min and max"](assets/figures/heatmap4.png)
+
 We can display the array of continuous values as a grayscale image, where black is 0.0 and white is 1.0.
 
 ```

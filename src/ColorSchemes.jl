@@ -89,14 +89,17 @@ sortcolorscheme(colorscheme::Vector{C}, field = :l; kwargs...) where {C <: Color
     - sort a colorscheme
 
 """
-
 module ColorSchemes
 
 using Images, Colors, Clustering, FileIO
 
 const schemes = Symbol[]
 
-"load a variable and some values, and add the symbol to the list of schemes"
+"""
+    reg(vname, args)
+
+load a variable and some values, and add the symbol to the list of schemes
+"""
 macro reg(vname, args)
     quote
         $(esc(push!(schemes, vname)))

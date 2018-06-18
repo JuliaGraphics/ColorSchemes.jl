@@ -13,7 +13,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Introduction",
     "title": "Introduction to ColorSchemes",
     "category": "section",
-    "text": "This package provides tools for working with colorschemes and colormaps. As well as providing many pre-made colormaps and schemes, this package allows you to extract colorschemes from images and use them in other graphics programs.The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi's PerceptualColourMaps package.This package relies on the Colors.jl package and Images.jl."
+    "text": "This package provides tools for working with colorschemes and colormaps. As well as providing many pre-made colormaps and schemes, this package allows you to extract colorschemes from images and use them in other graphics programs.The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi\'s PerceptualColourMaps package.This package relies on the Colors.jl package and Images.jl."
 },
 
 {
@@ -44,7 +44,7 @@ var documenterSearchIndex = {"docs": [
     "location": "basics.html#ColorSchemes.extract",
     "page": "Basic usage",
     "title": "ColorSchemes.extract",
-    "category": "Function",
+    "category": "function",
     "text": "extract(imfile, n=10, i=10, tolerance=0.01; shrink=n)\n\nextract() extracts the most common colors from an image from the image file imfile by finding n dominant colors, using i iterations. You can (and probably should) shrink larger images before running this function.\n\nReturns a colorscheme (an array of colors)\n\n\n\n"
 },
 
@@ -53,14 +53,22 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "Basics",
     "category": "section",
-    "text": "A colorscheme is an array of colors:32-element Array{RGB{Float64},1}:\n    RGB{Float64}(0.0548203,0.016509,0.0193152)\n    RGB{Float64}(0.0750816,0.0341102,0.0397083)\n    RGB{Float64}(0.10885,0.0336675,0.0261204)\n    RGB{Float64}(0.100251,0.0534243,0.0497594)\n    ...\n    RGB{Float64}(0.85004,0.540122,0.136212)\n    RGB{Float64}(0.757552,0.633425,0.251451)\n    RGB{Float64}(0.816472,0.697015,0.322421)\n    RGB{Float64}(0.933027,0.665164,0.198652)\n    RGB{Float64}(0.972441,0.790701,0.285136)The names of the built-in colorschemes are stored in the schemes array:julia> schemes\n336-element Array{Symbol,1}:\n:alpine         \n:aquamarine     \n:army           \n:atlantic       \n:aurora         \n:autumn         \n:avocado        \n:beach          \n:blackbody      \n...\n:PiYG_10        \n:PiYG_11        \n:magma          \n:inferno        \n:plasma         \n:viridisTo access one of these built-in colorschemes, use its symbol:julia> ColorSchemes.leonardo\n\n32-element Array{RGB{Float64},1}:\n RGB{Float64}(0.0548203,0.016509,0.0193152)\n RGB{Float64}(0.0750816,0.0341102,0.0397083)\n RGB{Float64}(0.10885,0.0336675,0.0261204)\n RGB{Float64}(0.100251,0.0534243,0.0497594)\n ...\n RGB{Float64}(0.620187,0.522792,0.216707)\n RGB{Float64}(0.692905,0.56631,0.185515)\n RGB{Float64}(0.681411,0.58149,0.270391)\n RGB{Float64}(0.85004,0.540122,0.136212)\n RGB{Float64}(0.757552,0.633425,0.251451)\n RGB{Float64}(0.816472,0.697015,0.322421)\n RGB{Float64}(0.933027,0.665164,0.198652)\n RGB{Float64}(0.972441,0.790701,0.285136)(Image: \"leo color scheme\")By default, the names of the colorschemes aren't imported (there are rather a lot of them). But to avoid using the prefixes, you can import the ones that you want:julia> import ColorSchemes.leonardo\njulia> leonardo\n32-element Array{RGB{Float64},1}:\n RGB{Float64}(0.0548203,0.016509,0.0193152)\n RGB{Float64}(0.0750816,0.0341102,0.0397083)\n RGB{Float64}(0.10885,0.0336675,0.0261204)\n RGB{Float64}(0.100251,0.0534243,0.0497594)\n ...\n RGB{Float64}(0.757552,0.633425,0.251451)\n RGB{Float64}(0.816472,0.697015,0.322421)\n RGB{Float64}(0.933027,0.665164,0.198652)\n RGB{Float64}(0.972441,0.790701,0.285136)You can reference a single value of a scheme once it's loaded:leonardo[3]\n\n-> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)Or you can 'sample' the scheme at any point between 0 and 1 using get():get(leonardo, 0.5)\n\n-> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)You can extract a colorscheme from an image. For example, here's an image of a famous painting:(Image: \"the mona lisa\")Use extract() to create a colorscheme from the original image:monalisa = extract(\"monalisa.jpg\", 10, 15, 0.01; shrink=2)which in this example creates a 10-color scheme (using 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).(Image: \"mona lisa extraction\")10-element Array{RGB{Float64},1}:\nRGB{Float64}(0.0406901,0.0412985,0.0423865),\nRGB{Float64}(0.823493,0.611246,0.234261),\nRGB{Float64}(0.374688,0.363066,0.182004),\nRGB{Float64}(0.262235,0.239368,0.110915),\nRGB{Float64}(0.614806,0.428448,0.112495),\nRGB{Float64}(0.139384,0.124466,0.0715472),\nRGB{Float64}(0.627381,0.597513,0.340734),\nRGB{Float64}(0.955276,0.775304,0.37135),\nRGB{Float64}(0.497517,0.4913,0.269587),\nRGB{Float64}(0.880421,0.851357,0.538013),\nRGB{Float64}(0.738879,0.709218,0.441082)](Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.)extractThe ColorSchemes module automatically loads a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It's generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"all schemes\")(You can generate this file using ColorSchemes/docs/src/assets/figures/draw-swatches.jl, after obtaining the Luxor package to draw and label things.)You can list the names of built-in colorschemes in the ColorSchemes/data directory by looking in the schemes symbol. Look for matches with filter().julia> filter(x-> contains(string(x), \"temp\"), schemes)\n2-element Array{Symbol,1}:\n :lighttemperaturemap\n :temperaturemap\n\njulia> filter(x-> ismatch(r\"ma.*\", string(x)), schemes)\n5-element Array{Symbol,1}:\n:aquamarine         \n:lighttemperaturemap\n:temperaturemap     \n:magma              \n:plasmaschemesOf course you can easily make your own colorscheme by building an array:grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]or, slightly longer:reds = RGB{Float64}[]\n\nfor i in 0:0.05:1\n  push!(reds, RGB{Float64}(1, 1-i, 1-i))\nend"
+    "text": "A colorscheme is an array of colors:32-element Array{RGB{Float64},1}:\n    RGB{Float64}(0.0548203,0.016509,0.0193152)\n    RGB{Float64}(0.0750816,0.0341102,0.0397083)\n    RGB{Float64}(0.10885,0.0336675,0.0261204)\n    RGB{Float64}(0.100251,0.0534243,0.0497594)\n    ...\n    RGB{Float64}(0.85004,0.540122,0.136212)\n    RGB{Float64}(0.757552,0.633425,0.251451)\n    RGB{Float64}(0.816472,0.697015,0.322421)\n    RGB{Float64}(0.933027,0.665164,0.198652)\n    RGB{Float64}(0.972441,0.790701,0.285136)The names of the built-in colorschemes are stored in the schemes array:julia> schemes\n336-element Array{Symbol,1}:\n:alpine         \n:aquamarine     \n:army           \n:atlantic       \n:aurora         \n:autumn         \n:avocado        \n:beach          \n:blackbody      \n...\n:PiYG_10        \n:PiYG_11        \n:magma          \n:inferno        \n:plasma         \n:viridisTo access one of these built-in colorschemes, use its symbol:julia> ColorSchemes.leonardo\n\n32-element Array{RGB{Float64},1}:\n RGB{Float64}(0.0548203,0.016509,0.0193152)\n RGB{Float64}(0.0750816,0.0341102,0.0397083)\n RGB{Float64}(0.10885,0.0336675,0.0261204)\n RGB{Float64}(0.100251,0.0534243,0.0497594)\n ...\n RGB{Float64}(0.620187,0.522792,0.216707)\n RGB{Float64}(0.692905,0.56631,0.185515)\n RGB{Float64}(0.681411,0.58149,0.270391)\n RGB{Float64}(0.85004,0.540122,0.136212)\n RGB{Float64}(0.757552,0.633425,0.251451)\n RGB{Float64}(0.816472,0.697015,0.322421)\n RGB{Float64}(0.933027,0.665164,0.198652)\n RGB{Float64}(0.972441,0.790701,0.285136)(Image: \"leo color scheme\")By default, the names of the colorschemes aren\'t imported (there are rather a lot of them). But to avoid using the prefixes, you can import the ones that you want:julia> import ColorSchemes.leonardo\njulia> leonardo\n32-element Array{RGB{Float64},1}:\n RGB{Float64}(0.0548203,0.016509,0.0193152)\n RGB{Float64}(0.0750816,0.0341102,0.0397083)\n RGB{Float64}(0.10885,0.0336675,0.0261204)\n RGB{Float64}(0.100251,0.0534243,0.0497594)\n ...\n RGB{Float64}(0.757552,0.633425,0.251451)\n RGB{Float64}(0.816472,0.697015,0.322421)\n RGB{Float64}(0.933027,0.665164,0.198652)\n RGB{Float64}(0.972441,0.790701,0.285136)You can reference a single value of a scheme once it\'s loaded:leonardo[3]\n\n-> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)Or you can \'sample\' the scheme at any point between 0 and 1 using get():get(leonardo, 0.5)\n\n-> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)You can extract a colorscheme from an image. For example, here\'s an image of a famous painting:(Image: \"the mona lisa\")Use extract() to create a colorscheme from the original image:monalisa = extract(\"monalisa.jpg\", 10, 15, 0.01; shrink=2)which in this example creates a 10-color scheme (using 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).(Image: \"mona lisa extraction\")10-element Array{RGB{Float64},1}:\nRGB{Float64}(0.0406901,0.0412985,0.0423865),\nRGB{Float64}(0.823493,0.611246,0.234261),\nRGB{Float64}(0.374688,0.363066,0.182004),\nRGB{Float64}(0.262235,0.239368,0.110915),\nRGB{Float64}(0.614806,0.428448,0.112495),\nRGB{Float64}(0.139384,0.124466,0.0715472),\nRGB{Float64}(0.627381,0.597513,0.340734),\nRGB{Float64}(0.955276,0.775304,0.37135),\nRGB{Float64}(0.497517,0.4913,0.269587),\nRGB{Float64}(0.880421,0.851357,0.538013),\nRGB{Float64}(0.738879,0.709218,0.441082)](Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.)extract"
+},
+
+{
+    "location": "basics.html#Chart-of-all-schemes-1",
+    "page": "Basic usage",
+    "title": "Chart of all schemes",
+    "category": "section",
+    "text": "The ColorSchemes module automatically loads a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It\'s generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"all schemes\")(You can generate this file using ColorSchemes/docs/src/assets/figures/draw-swatches.jl, after obtaining the Luxor package to draw and label things.)You can list the names of built-in colorschemes in the ColorSchemes/data directory by looking in the schemes symbol. Look for matches with filter().julia> filter(x-> contains(string(x), \"temp\"), schemes)\n2-element Array{Symbol,1}:\n :lighttemperaturemap\n :temperaturemap\n\njulia> filter(x-> ismatch(r\"ma.*\", string(x)), schemes)\n5-element Array{Symbol,1}:\n:aquamarine         \n:lighttemperaturemap\n:temperaturemap     \n:magma              \n:plasmaschemesOf course you can easily make your own colorscheme by building an array:grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]or, slightly longer:reds = RGB{Float64}[]\n\nfor i in 0:0.05:1\n  push!(reds, RGB{Float64}(1, 1-i, 1-i))\nend"
 },
 
 {
     "location": "basics.html#Base.get",
     "page": "Basic usage",
     "title": "Base.get",
-    "category": "Function",
+    "category": "function",
     "text": "get(cscheme, x)\n\nFind the nearest color in a colorscheme cscheme corresponding to a point x between 0 and 1.\n\nReturns a single color.\n\n\n\nget(cscheme, inData :: Array{Number, 2}, rangescale=:clamp)\nget(cscheme, inData :: Array{Number, 2}, rangescale=(minVal, maxVal))\n\nReturn an RGB image generated by applying the color scheme to the 2D input data.\n\nIf rangescale is :clamp the ColorScheme is applied to values between 0.0-1.0, and values outside this range get clamped to the ends of the ColorScheme.\n\nElse, if rangescale is :extrema, the ColorScheme is applied to the range minimum(indata)..maximum(indata).\n\nExamples\n\nimg = get(ColorSchemes.leonardo, rand(10,10))\nsave(\"testoutput.png\", img)  # might need FileIO or similar\n\nimg2 = get(ColorSchemes.leonardo, 10.0*rand(10,10), :extrema)\nimg3 = get(ColorSchemes.leonardo, 10.0*rand(10,10), (1.0, 9.0))\n\n# Also works with PerceptualColourMaps\nusing PerceptualColourMaps\nimg4 = get(PerceptualColourMaps.cmap(\"R1\"), rand(10,10))\n\n\n\n"
 },
 
@@ -76,7 +84,7 @@ var documenterSearchIndex = {"docs": [
     "location": "basics.html#ColorSchemes.sortcolorscheme",
     "page": "Basic usage",
     "title": "ColorSchemes.sortcolorscheme",
-    "category": "Function",
+    "category": "function",
     "text": "sortcolorscheme(colorscheme, field; kwargs...)\n\nSort (non-destructively) a colorscheme using a field of the LUV colorspace.\n\nThe less than function is lt = (x,y) -> compare_colors(x, y, field).\n\nThe default is to sort by the luminance field :l but could be by :u or :v.\n\n\n\n"
 },
 
@@ -92,7 +100,7 @@ var documenterSearchIndex = {"docs": [
     "location": "basics.html#ColorSchemes.extract_weighted_colors",
     "page": "Basic usage",
     "title": "ColorSchemes.extract_weighted_colors",
-    "category": "Function",
+    "category": "function",
     "text": "extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 2)\n\nExtract colors and weights of the clusters of colors in an image file.\n\nExample:\n\npal, wts = extract_weighted_colors(imfile, n, i, tolerance; shrink = 2)\n\n\n\n"
 },
 
@@ -100,7 +108,7 @@ var documenterSearchIndex = {"docs": [
     "location": "basics.html#ColorSchemes.colorscheme_weighted",
     "page": "Basic usage",
     "title": "ColorSchemes.colorscheme_weighted",
-    "category": "Function",
+    "category": "function",
     "text": "colorscheme_weighted(colorscheme, weights, length)\n\nReturns a new colorscheme of length length (default 50) where the proportion of each color in colorscheme is represented by the associated weight of each entry.\n\nExamples:\n\ncolorscheme_weighted(extract_weighted_colors(\"hokusai.jpg\")...)\ncolorscheme_weighted(extract_weighted_colors(\"filename00000001.jpg\")..., 500)\n\n\n\n"
 },
 
@@ -125,7 +133,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Finding colors",
     "title": "Finding colors in colorschemes",
     "category": "section",
-    "text": "ColorSchemes.jl provides the function getinverse(cscheme, c) which is the inverse of get(cscheme, x).This function returns a value between 0 and 1 that places a color within a colorscheme by converting the color to a value representing its position on the colorscheme's axis.(Image: \"get inverse\")"
+    "text": "ColorSchemes.jl provides the function getinverse(cscheme, c) which is the inverse of get(cscheme, x).This function returns a value between 0 and 1 that places a color within a colorscheme by converting the color to a value representing its position on the colorscheme\'s axis.(Image: \"get inverse\")"
 },
 
 {
@@ -140,7 +148,7 @@ var documenterSearchIndex = {"docs": [
     "location": "inverse.html#ColorSchemes.getinverse",
     "page": "Finding colors",
     "title": "ColorSchemes.getinverse",
-    "category": "Function",
+    "category": "function",
     "text": "getinverse(cscheme, c, range=(0.0, 1.0))\n\nComputes where the provided Color c would fit in cscheme.\n\nThis is the inverse of get – it returns the value x in the provided range for which get(scheme, x) would most closely match the provided Color c.\n\nExamples\n\n    julia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))\n    0.625…\n    julia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))\n    0.543…\n    julia> cs = linspace(RGB(0,0,0), RGB(1,1,1),5)\n    julia> getinverse(cs, cs[3])\n    0.500\n\n\n\n"
 },
 
@@ -148,7 +156,7 @@ var documenterSearchIndex = {"docs": [
     "location": "inverse.html#ColorSchemes.convert_to_scheme",
     "page": "Finding colors",
     "title": "ColorSchemes.convert_to_scheme",
-    "category": "Function",
+    "category": "function",
     "text": "convert_to_scheme(cscheme, img)\n\nConverts img from its current color values to use only the colors defined in cscheme.\n\nimage = nonTransparentImg\nconvert_to_scheme(ColorSchemes.leonardo, image)\nconvert_to_scheme(ColorSchemes.Paired_12, image)\n\n\n\n"
 },
 
@@ -157,7 +165,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Finding colors",
     "title": "Convert to scheme",
     "category": "section",
-    "text": "Using getinverse() it's possible to convert an image from one colorscheme to another.convert_to_scheme(cscheme, img) returns a new image in which each pixel from the provided image is mapped to its closest matching color in the provided scheme.Here, the original image is displayed using the PuOr_9 scheme.convert_to_scheme(ColorSchemes.PuOr_9), img)(Image: \"heatmap 2 grey\")getinverse\nconvert_to_scheme"
+    "text": "Using getinverse() it\'s possible to convert an image from one colorscheme to another.convert_to_scheme(cscheme, img) returns a new image in which each pixel from the provided image is mapped to its closest matching color in the provided scheme.Here, the original image is displayed using the PuOr_9 scheme.convert_to_scheme(ColorSchemes.PuOr_9), img)(Image: \"heatmap 2 grey\")getinverse\nconvert_to_scheme"
 },
 
 {
@@ -181,7 +189,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Plotting",
     "title": "Plots.jl",
     "category": "section",
-    "text": "Tom Breloff's amazing superplotting package, Plots.jl can use colorschemes.With the contour() function, use cgrad() to read the colorscheme as a gradient. This renaissance-looking plot uses the leonardo scheme:using Plots, Colorschemes\n\nx = 1:0.3:20\ny = x\nf(x,y) = begin\n      sin(x) + cos(y)\n  end\ncontour(x, y, f, fill=true, seriescolor=cgrad(ColorSchemes.leonardo))(Image: \"contour\")(You can use c as a short cut for seriescolor.)With other plots, use the palette keyword:plot(Plots.fakedata(100, 20),\n    w=4,\n    background_color=ColorSchemes.vermeer[1],\n    palette=ColorSchemes.vermeer)(Image: \"palette\")You can list all colorschemes with a set of PyPlot heatmap plots:pyplot()\nz = (1:10)*(1:33)'\nmap(cs -> PlotUtils.register_gradient_colors(Symbol(cs), eval(ColorSchemes, cs)), schemes);\ncschemes = keys(PlotUtils._gradients)\nplot([heatmap(z,fc=cm,leg=false,title=cm,ticks=nothing, titlefont = font(8)) for cm=cschemes]..., size=(1500,1500))(Image: \"heatmaps\")"
+    "text": "Tom Breloff\'s amazing superplotting package, Plots.jl can use colorschemes.With the contour() function, use cgrad() to read the colorscheme as a gradient. This renaissance-looking plot uses the leonardo scheme:using Plots, Colorschemes\n\nx = 1:0.3:20\ny = x\nf(x,y) = begin\n      sin(x) + cos(y)\n  end\ncontour(x, y, f, fill=true, seriescolor=cgrad(ColorSchemes.leonardo))(Image: \"contour\")(You can use c as a short cut for seriescolor.)With other plots, use the palette keyword:plot(Plots.fakedata(100, 20),\n    w=4,\n    background_color=ColorSchemes.vermeer[1],\n    palette=ColorSchemes.vermeer)(Image: \"palette\")You can list all colorschemes with a set of PyPlot heatmap plots:pyplot()\nz = (1:10)*(1:33)\'\nmap(cs -> PlotUtils.register_gradient_colors(Symbol(cs), eval(ColorSchemes, cs)), schemes);\ncschemes = keys(PlotUtils._gradients)\nplot([heatmap(z,fc=cm,leg=false,title=cm,ticks=nothing, titlefont = font(8)) for cm=cschemes]..., size=(1500,1500))(Image: \"heatmaps\")"
 },
 
 {
@@ -189,7 +197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Plotting",
     "title": "Gadfly",
     "category": "section",
-    "text": "Here's how you can use ColorSchemes in Gadfly:x = repeat(collect(1:20), inner=[20])\ny = repeat(collect(1:20), outer=[20])\nplot(x=x, y=y,\n    color=x+y,\n    Geom.rectbin,\n    Scale.ContinuousColorScale(p -> get(ColorSchemes.sunset, p)))(Image: \"gadfly\")"
+    "text": "Here\'s how you can use ColorSchemes in Gadfly:x = repeat(collect(1:20), inner=[20])\ny = repeat(collect(1:20), outer=[20])\nplot(x=x, y=y,\n    color=x+y,\n    Geom.rectbin,\n    Scale.ContinuousColorScale(p -> get(ColorSchemes.sunset, p)))(Image: \"gadfly\")"
 },
 
 {
@@ -197,7 +205,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Plotting",
     "title": "Winston",
     "category": "section",
-    "text": "If you prefer Winston.jl for plotting, you can use colorschemes with imagesc:using Winston\nklimt = ColorSchemes.klimt\nWinston.colormap(klimt)\nWinston.imagesc(reshape(1:10000,100,100))(Image: \"winston klimt\")Sometimes you'll want a smoother gradient with more colors. You can use get(scheme, n) to generate a more detailed array of colors, varying n from 0 to 1 by 0.001:brasstones = ColorSchemes.brass\nbrasstonesmooth = [get(brasstones, i) for i in 0:0.001:1]\nWinston.colormap(brasstonesmooth)\nWinston.imagesc(reshape(1:10000,100,100))(Image: \"winston brass tones)"
+    "text": "If you prefer Winston.jl for plotting, you can use colorschemes with imagesc:using Winston\nklimt = ColorSchemes.klimt\nWinston.colormap(klimt)\nWinston.imagesc(reshape(1:10000,100,100))(Image: \"winston klimt\")Sometimes you\'ll want a smoother gradient with more colors. You can use get(scheme, n) to generate a more detailed array of colors, varying n from 0 to 1 by 0.001:brasstones = ColorSchemes.brass\nbrasstonesmooth = [get(brasstones, i) for i in 0:0.001:1]\nWinston.colormap(brasstonesmooth)\nWinston.imagesc(reshape(1:10000,100,100))(Image: \"winston brass tones)"
 },
 
 {
@@ -205,7 +213,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Plotting",
     "title": "PyPlot",
     "category": "section",
-    "text": "Colorschemes can be used with the cmap keyword in PyPlot:using PyPlot, Distributions\n\nsolar = ColorSchemes.solar\n\nn = 100\nx = linspace(-3, 3, n)\ny = linspace(-3,3,n)\n\nxgrid = repmat(x',n,1)\nygrid = repmat(y,1,n)\nz = zeros(n,n)\n\nfor i in 1:n\n    for j in 1:n\n        z[i:i,j:j] = pdf(MvNormal(eye(2)),[x[i];y[j]])\n    end\nend\n\nfig = PyPlot.figure(\"pyplot_surfaceplot\",figsize=(10,10))\nax = fig[:add_subplot](2,1,1, projection = \"3d\")\nax[:plot_surface](xgrid, ygrid, z, rstride=2,edgecolors=\"k\",\n    cstride=2,\n    cmap=ColorMap(solar),\n    alpha=0.8,\n    linewidth=0.25)(Image: \"pyplot\")"
+    "text": "Colorschemes can be used with the cmap keyword in PyPlot:using PyPlot, Distributions\n\nsolar = ColorSchemes.solar\n\nn = 100\nx = linspace(-3, 3, n)\ny = linspace(-3,3,n)\n\nxgrid = repmat(x\',n,1)\nygrid = repmat(y,1,n)\nz = zeros(n,n)\n\nfor i in 1:n\n    for j in 1:n\n        z[i:i,j:j] = pdf(MvNormal(eye(2)),[x[i];y[j]])\n    end\nend\n\nfig = PyPlot.figure(\"pyplot_surfaceplot\",figsize=(10,10))\nax = fig[:add_subplot](2,1,1, projection = \"3d\")\nax[:plot_surface](xgrid, ygrid, z, rstride=2,edgecolors=\"k\",\n    cstride=2,\n    cmap=ColorMap(solar),\n    alpha=0.8,\n    linewidth=0.25)(Image: \"pyplot\")"
 },
 
 {
@@ -228,7 +236,7 @@ var documenterSearchIndex = {"docs": [
     "location": "images.html#ColorSchemes.colorscheme_to_image",
     "page": "Images",
     "title": "ColorSchemes.colorscheme_to_image",
-    "category": "Function",
+    "category": "function",
     "text": "colorscheme_to_image(cs, nrows=50, tilewidth=5)\n\nMake an image from a colorscheme by repeating the colors in a colorscheme.\n\nReturns the image as an array.\n\nExamples:\n\nusing FileIO\n\nimg = colorscheme_to_image(ColorSchemes.leonardo, 50, 200)\nsave(\"/tmp/cs_image.png\", img)\n\nsave(\"/tmp/blackbody.png\", colorscheme_to_image(ColorSchemes.blackbody, 10, 100))\n\n\n\n"
 },
 
@@ -236,7 +244,7 @@ var documenterSearchIndex = {"docs": [
     "location": "images.html#ColorSchemes.image_to_swatch",
     "page": "Images",
     "title": "ColorSchemes.image_to_swatch",
-    "category": "Function",
+    "category": "function",
     "text": "image_to_swatch(imagefilepath, samples, destinationpath; nrows=50, tilewidth=5)\n\nExtract a colorscheme from the image in imagefilepath to a swatch image PNG in destinationpath. This just runs sortcolorscheme(), colorscheme_to_image(), and save() in sequence.\n\nSpecify the number of colors. You can also specify the number of rows, and how many times each color is repeated.\n\nimage_to_swatch(\"monalisa.jpg\", 10, \"/tmp/monalisaswatch.png\")\n\n\n\n"
 },
 
@@ -245,23 +253,23 @@ var documenterSearchIndex = {"docs": [
     "page": "Images",
     "title": "Saving colorschemes as images",
     "category": "section",
-    "text": "Sometimes you want to save a colorscheme, which is usually just a pixel thick, as a swatch or image. You can do this with colorscheme_to_image(). The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO's save():using FileIO, ColorSchemes, Images, Colors\n\nimg = colorscheme_to_image(ColorSchemes.vermeer, 150, 20)\nsave(\"/tmp/cs_vermeer-150-20.png\", img)(Image: \"vermeer swatch\")The image_to_swatch() function extracts a colorscheme from the image in and saves it as a swatch in a PNG.colorscheme_to_image\nimage_to_swatch"
+    "text": "Sometimes you want to save a colorscheme, which is usually just a pixel thick, as a swatch or image. You can do this with colorscheme_to_image(). The second argument is the number of repetitions of each color in the row, the third is the total number of rows. The function returns an image which you can save using FileIO\'s save():using FileIO, ColorSchemes, Images, Colors\n\nimg = colorscheme_to_image(ColorSchemes.vermeer, 150, 20)\nsave(\"/tmp/cs_vermeer-150-20.png\", img)(Image: \"vermeer swatch\")The image_to_swatch() function extracts a colorscheme from the image in and saves it as a swatch in a PNG.colorscheme_to_image\nimage_to_swatch"
 },
 
 {
     "location": "images.html#ColorSchemes.colorscheme_to_text",
     "page": "Images",
     "title": "ColorSchemes.colorscheme_to_text",
-    "category": "Function",
-    "text": "colorscheme_to_text(cscheme, schemename, filename; comment=\"\")\n\nWrite a colorscheme to a Julia file in a format suitable for includeing.\n\nExample:\n\ncolorscheme_to_text(\n    extract(\"/tmp/1920px-Great_Wave_off_Kanagawa2.jpg\"),\n        \"hokusai_1\",\n        \"/tmp/hok.jl\",\n        comment=\"from Hokusai's Great Wave\")\n\nTo read a text file created thusly in and register it in schemes:\n\njulia> include(\"/tmp/hok.jl\")\njulia> schemes[end]\n:hokusai_1\njulia> get(hokusai_1, .4)\nRGB{Float64}(0.5787354153400166,0.49341844091747,0.22277034922842723)\n\n\n\n"
+    "category": "function",
+    "text": "colorscheme_to_text(cscheme, schemename, filename; comment=\"\")\n\nWrite a colorscheme to a Julia file in a format suitable for includeing.\n\nExample:\n\ncolorscheme_to_text(\n    extract(\"/tmp/1920px-Great_Wave_off_Kanagawa2.jpg\"),\n        \"hokusai_1\",\n        \"/tmp/hok.jl\",\n        comment=\"from Hokusai\'s Great Wave\")\n\nTo read a text file created thusly in and register it in schemes:\n\njulia> include(\"/tmp/hok.jl\")\njulia> schemes[end]\n:hokusai_1\njulia> get(hokusai_1, .4)\nRGB{Float64}(0.5787354153400166,0.49341844091747,0.22277034922842723)\n\n\n\n"
 },
 
 {
     "location": "images.html#ColorSchemes.@reg",
     "page": "Images",
     "title": "ColorSchemes.@reg",
-    "category": "Macro",
-    "text": "load a variable and some values, and add the symbol to the list of schemes\n\n\n\n"
+    "category": "macro",
+    "text": "reg(vname, args)\n\nload a variable and some values, and add the symbol to the list of schemes\n\n\n\n"
 },
 
 {
@@ -277,7 +285,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Images",
     "title": "A Julia Julia set: colorschemes and Images",
     "category": "section",
-    "text": "Here's how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer's painting \"Girl with a Pearl Earring\".(Image: \"julia set\")using ColorSchemes, Images\n\nfunction julia(z, c, maxiter::Int64)\n    for n = 1:maxiter\n        if abs(z) > 2\n            return n\n        end\n        z = z^2 + c\n    end\n    return maxiter\nend\n\n# convert a value between oldmin/oldmax to equivalent value between newmin/newmax\nremap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin\n\nfunction draw(c, imsize;\n      xmin = -2, ymin = -2, xmax  =  2, ymax = 2,\n      filename = \"/tmp/julia-set.png\")\n    imOutput = zeros(RGB{Float32}, imsize, imsize)\n    maxiterations = 200\n    for col = linspace(xmin, xmax, imsize)\n        for row = linspace(ymin, ymax, imsize)\n            pixelcolor = julia(complex(row, col), c, maxiterations) / 256\n            xpos = convert(Int, round(remap(col, xmin, xmax, 1, imsize)))\n            ypos = convert(Int, round(remap(row, ymin, ymax, 1, imsize)))\n            imOutput[xpos, ypos] = get(ColorSchemes.vermeer, pixelcolor)\n        end\n    end\n    FileIO.save(filename, imOutput)\nend\n\ndraw(-0.4 + 0.6im, 1200)"
+    "text": "Here\'s how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer\'s painting \"Girl with a Pearl Earring\".(Image: \"julia set\")using ColorSchemes, Images\n\nfunction julia(z, c, maxiter::Int64)\n    for n = 1:maxiter\n        if abs(z) > 2\n            return n\n        end\n        z = z^2 + c\n    end\n    return maxiter\nend\n\n# convert a value between oldmin/oldmax to equivalent value between newmin/newmax\nremap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin\n\nfunction draw(c, imsize;\n      xmin = -2, ymin = -2, xmax  =  2, ymax = 2,\n      filename = \"/tmp/julia-set.png\")\n    imOutput = zeros(RGB{Float32}, imsize, imsize)\n    maxiterations = 200\n    for col = linspace(xmin, xmax, imsize)\n        for row = linspace(ymin, ymax, imsize)\n            pixelcolor = julia(complex(row, col), c, maxiterations) / 256\n            xpos = convert(Int, round(remap(col, xmin, xmax, 1, imsize)))\n            ypos = convert(Int, round(remap(row, ymin, ymax, 1, imsize)))\n            imOutput[xpos, ypos] = get(ColorSchemes.vermeer, pixelcolor)\n        end\n    end\n    FileIO.save(filename, imOutput)\nend\n\ndraw(-0.4 + 0.6im, 1200)"
 },
 
 {

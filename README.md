@@ -1,6 +1,6 @@
 [![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_0.6.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=0.6)
 [![Build Status](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl.svg?branch=master)](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/cormullion/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/JuliaGraphics/ColorSchemes-jl)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/cormullion/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/cormullion/ColorSchemes-jl)
 
 Documentation:
 

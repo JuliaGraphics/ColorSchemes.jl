@@ -1,6 +1,6 @@
 [![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_0.6.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=0.6)
 [![Build Status](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl.svg?branch=master)](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/JuliaGraphics/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/JuliaGraphics/ColorSchemes-jl)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/cormullion/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/JuliaGraphics/ColorSchemes-jl)
 
 Documentation:
 
@@ -9,6 +9,8 @@ Documentation:
 [![](https://img.shields.io/badge/docs-latest-blue.svg)](https://JuliaGraphics.github.io/ColorSchemes.jl/latest) This refers to the current in-development version of the package.
 
 ## ColorSchemes
+
+v0.7 status: standing on the shoulders of giants, so awaiting Images.jl...
 
 ![big picture](docs/src/assets/figures/snapshot.png)
 

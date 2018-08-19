@@ -1,8 +1,4 @@
-#!/usr/bin/env julia
-
-using Base.Test
-
-using ColorSchemes, Colors
+using Test, ColorSchemes, Colors
 
 function run_all_tests()
     # create a colorscheme from image file

@@ -43,7 +43,7 @@ function run_all_tests()
     end
 
     @testset "getinverse tests" begin
-        cs = linspace(RGB(0,0,0), RGB(1,1,1),5);
+        cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5);
         @test getinverse(cs, cs[3]) == 0.5
 
         # Note that getinverse() takes the first closest match.
@@ -68,8 +68,8 @@ function run_all_tests()
 
     @testset "convert_to_scheme tests" begin
         # Add color to a grayscale image.
-        red_cs = linspace(RGB(0,0,0), RGB(1,0,0),11)
-        gray_img = linspace(RGB(0,0,0), RGB(1,1,0),11)
+        red_cs = range(RGB(0,0,0), stop=RGB(1,0,0), length=11)
+        gray_img = range(RGB(0,0,0), stop=RGB(1,1,0), length=11)
         vs = [getinverse(gray_img, p) for p in red_cs]
         cs = [RGB(v,v,v) for v in vs]
         rcs = [get(red_cs, p) for p in vs]
@@ -79,8 +79,8 @@ function run_all_tests()
 
         # Should be able to uniquely match each increasing color with the next
         # increasing color in the new scale.
-        red_cs = [linspace(RGB(0,0,0), RGB(1,0,0))...]
-        blue_scale_img = [linspace(RGB(0,0,0), RGB(0,0,1))...]
+        red_cs = [range(RGB(0,0,0), stop=RGB(1,0,0), length=50)...]
+        blue_scale_img = [range(RGB(0,0,0), stop=RGB(0,0,1), length=50)...]
         new_img = convert_to_scheme(red_cs, blue_scale_img)
         @test_broken unique(new_img) == new_img
     end

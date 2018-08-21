@@ -160,7 +160,7 @@ Example:
 """
 function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 2.0)
     img = load(imfile)
-    typeof(img) == Void && error("Can't load the image file \"$imfile\"")
+    typeof(img) == Nothing && error("Can't load the image file \"$imfile\"")
     w, h = size(img)
     neww = round(Int, w/shrink)
     newh = round(Int, h/shrink)
@@ -200,7 +200,7 @@ function colorscheme_weighted(cscheme::Vector{C}, weights, l = 50) where {C <: C
         val,ix = findmax(iweights)
         iweights[ix]=val-1
     end
-    a = Array{RGB{Float64}}(0)
+    a = Array{RGB{Float64}}(undef, 0)
     for n in 1:length(cscheme)
         a = vcat(a, repmat([cscheme[n]], iweights[n]))
     end
@@ -306,7 +306,7 @@ julia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))
 0.625…
 julia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))
 0.543…
-julia> cs = linspace(RGB(0,0,0), RGB(1,1,1),5)
+julia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5)
 julia> getinverse(cs, cs[3])
 0.500
 ```
@@ -314,7 +314,7 @@ julia> getinverse(cs, cs[3])
 function getinverse(cscheme::Vector{C}, c, rangescale :: Tuple{Number, Number}=(0.0, 1.0)) where {C<:Colorant}
     if length(cscheme) <= 1 ; throw(InexactError()) ; end
     cdiffs = map(c_i->colordiff(promote(c,c_i)...), cscheme)
-    closest = indmin(cdiffs)
+    closest = argmin(cdiffs)
     left = right = 0;
     if closest == 1 ; left = closest; right = closest + 1;
     elseif closest == length(cscheme) ; left = closest - 1; right = closest;

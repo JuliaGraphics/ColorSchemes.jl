@@ -90,7 +90,7 @@ sortcolorscheme(colorscheme::Vector{C}, field = :l; kwargs...) where {C <: Color
 """
 module ColorSchemes
 
-using Images, Colors, Clustering, FileIO
+using Images, Colors, Clustering, FileIO, Dates
 
 import Base.get
 
@@ -374,7 +374,7 @@ RGB{Float64}(0.5787354153400166,0.49341844091747,0.22277034922842723)
 function colorscheme_to_text(cs::Vector{C}, schemename::String, file::String; comment="") where {C <: Colorant}
     fhandle = open(file, "w")
     write(fhandle, string("# ", comment, "\n"))
-    write(fhandle, string("# created $(now())\n"))
+    write(fhandle, string("# created $(Dates.now())\n"))
     write(fhandle, string("@reg $schemename [\n", join(cs, ",\n"), " ]"))
     close(fhandle)
 end

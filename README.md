@@ -1,4 +1,6 @@
-[![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_0.6.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=0.6)
+[![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_0.7.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=0.7)
+[![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_1.0.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=1.0)
+
 [![Build Status](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl.svg?branch=master)](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/cormullion/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/cormullion/ColorSchemes-jl)
 
@@ -10,7 +12,7 @@ Documentation:
 
 ## ColorSchemes
 
-v0.7 status: standing on the shoulders of giants, so awaiting Images.jl...
+Awaiting Images.jl working on Julia v1.0.
 
 ![big picture](docs/src/assets/figures/snapshot.png)
 

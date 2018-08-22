@@ -10,13 +10,13 @@ julia:
 matrix:
   allow_failures:
     - julia: nightly
-notifications:
-  email: false
 env:
   global:
     - DOCUMENTER_DEBUG=true
 after_success:
- - julia -e 'import Pkg; Pkg.add("Colors"); Pkg.build("Colors")'
- - julia -e 'import Pkg; Pkg.add("Documenter")'
- - julia -e 'import Pkg; import ColorSchemes; include("docs/make.jl")'
- - julia -e 'import Pkg; cd(Pkg.dir("ColorSchemes")); Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
+  - julia -e 'import Pkg; Pkg.add("Colors"); Pkg.build("Colors")'
+  - julia -e 'import Pkg; Pkg.add("ColorSchemes");  Pkg.build("ColorSchemes")'
+  - julia -e 'import Pkg; Pkg.add("Images");  Pkg.build("Images")'
+  - julia -e 'import Pkg; Pkg.add("Documenter")'
+  - julia -e 'import ColorSchemes; include("docs/make.jl")'
+  - julia -e 'import Pkg; cd(Pkg.dir("ColorSchemes")); Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'

@@ -135,19 +135,19 @@ end
 
 if get(ENV, "COLORSCHEMES_KEEP_TEST_RESULTS", false) == "true"
         cd(mktempdir())
-        info("running tests in: $(pwd())")
-        info("...Keeping the results")
+        @info("running tests in: $(pwd())")
+        @info("...Keeping the results")
         run_minimum_tests()
-        info("Test images saved in: $(pwd())")
+        @info("Test images saved in: $(pwd())")
 else
     mktempdir() do tmpdir
         cd(tmpdir) do
-            info("running tests in: $(pwd())")
-            info("but not keeping the results")
-            info("because you didn't do: ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
+            @info("running tests in: $(pwd())")
+            @info("but not keeping the results")
+            @info("because you didn't do: ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
             run_minimum_tests()
-            info("Test images weren't saved. To see the test images, next time do this before running:")
-            info(" ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
+            @info("Test images weren't saved. To see the test images, next time do this before running:")
+            @info(" ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
         end
     end
 end

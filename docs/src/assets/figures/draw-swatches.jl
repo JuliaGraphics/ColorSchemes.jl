@@ -87,7 +87,7 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
        nrows=0,
        ncols=0)
 
-    selectedschemes = filter(nm -> ismatch(Regex(selector), string(nm)), schemes)
+    selectedschemes = filter(nm -> occursin(Regex(selector), string(nm)), schemes)
 
     sort!(selectedschemes, lt = (a, b) -> lowercase(string(a)) < lowercase(string(b)))
 

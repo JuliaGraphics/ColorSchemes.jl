@@ -1,7 +1,5 @@
-#!/usr/bin/env julia
-
 # generate pictures of builtin data
-# usage: julia draw-swatches.jl > somewhere/colorschemes.svg
+# usage: drawallswatches("/tmp/colorschemes.png", 1000, 3500, ncols=5)
 
 using Colors, ColorSchemes, Luxor
 
@@ -89,7 +87,7 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
        nrows=0,
        ncols=0)
 
-    selectedschemes = filter(nm -> ismatch(Regex(selector), string(nm)), schemes)
+    selectedschemes = filter(nm -> occursin(Regex(selector), string(nm)), schemes)
 
     sort!(selectedschemes, lt = (a, b) -> lowercase(string(a)) < lowercase(string(b)))
 

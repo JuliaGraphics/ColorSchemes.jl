@@ -306,7 +306,7 @@ julia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))
 0.625…
 julia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))
 0.543…
-julia> cs = linspace(RGB(0,0,0), RGB(1,1,1),5)
+julia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5)
 julia> getinverse(cs, cs[3])
 0.500
 ```

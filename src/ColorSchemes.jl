@@ -160,14 +160,15 @@ Example:
 """
 function extract_weighted_colors(imfile, n=10, i=10, tolerance=0.01; shrink = 2.0)
     img = load(imfile)
-    typeof(img) == Void && error("Can't load the image file \"$imfile\"")
+    # TODO this is wrong, isn't it?
+    (!@isdefined img) && error("Can't load the image file \"$imfile\"")
     w, h = size(img)
     neww = round(Int, w/shrink)
     newh = round(Int, h/shrink)
     smaller_image = Images.imresize(img, (neww, newh))
     w, h = size(smaller_image)
     imdata = convert(Array{Float64}, channelview(smaller_image))
-    d = reshape(imdata, 3, :) # version 0.6 only!
+    d = reshape(imdata, 3, :)
     R = kmeans(d, n, maxiter=i, tol=tolerance)
     colscheme = RGB{Float64}[]
     for i in 1:3:length(R.centers)
@@ -200,9 +201,9 @@ function colorscheme_weighted(cscheme::Vector{C}, weights, l = 50) where {C <: C
         val,ix = findmax(iweights)
         iweights[ix]=val-1
     end
-    a = Array{RGB{Float64}}(0)
+    a = Array{RGB{Float64}}(undef, 0)
     for n in 1:length(cscheme)
-        a = vcat(a, repmat([cscheme[n]], iweights[n]))
+        a = vcat(a, repeat([cscheme[n]], iweights[n]))
     end
     return a
 end
@@ -281,15 +282,14 @@ using PerceptualColourMaps
 img4 = get(PerceptualColourMaps.cmap("R1"), rand(10,10))
 ```
 """
-
 function get(cscheme::Vector{C}, x, rangescale :: Tuple{Number, Number}=(0.0, 1.0)) where {C<:Colorant}
     x = clamp.(x, rangescale...)
     before_fp = remap(x, rangescale..., 1, length(cscheme))
     before = round.(Int, before_fp, RoundDown)
-    after =  min.(before + 1, length(cscheme))
+    after =  min.(before .+ 1, length(cscheme))
     # blend between the two colors adjacent to the point
     cpt = before_fp - before
-    return weighted_color_mean.(1 - cpt, cscheme[before], cscheme[after])
+    return weighted_color_mean.(1 .- cpt, cscheme[before], cscheme[after])
 end
 
 """
@@ -314,7 +314,7 @@ julia> getinverse(cs, cs[3])
 function getinverse(cscheme::Vector{C}, c, rangescale :: Tuple{Number, Number}=(0.0, 1.0)) where {C<:Colorant}
     if length(cscheme) <= 1 ; throw(InexactError()) ; end
     cdiffs = map(c_i->colordiff(promote(c,c_i)...), cscheme)
-    closest = indmin(cdiffs)
+    closest = argmin(cdiffs)
     left = right = 0;
     if closest == 1 ; left = closest; right = closest + 1;
     elseif closest == length(cscheme) ; left = closest - 1; right = closest;
@@ -399,7 +399,7 @@ save("/tmp/blackbody.png", colorscheme_to_image(ColorSchemes.blackbody, 10, 100)
 """
 function colorscheme_to_image(cs::Vector{C}, nrows=50, tilewidth=5) where {C <: Colorant}
     ncols = tilewidth * length(cs)
-    a = Array{RGB{Float64}}(nrows, ncols)
+    a = Array{RGB{Float64}}(undef, nrows, ncols)
     for row in 1:nrows
         for col in 1:ncols
             a[row, col] = cs[div(col-1, tilewidth) + 1]

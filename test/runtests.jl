@@ -1,4 +1,4 @@
-using Test, ColorSchemes, Colors
+using Test, ColorSchemes, FileIO, Colors
 
 function run_all_tests()
     # create a colorscheme from image file
@@ -43,7 +43,7 @@ function run_all_tests()
     end
 
     @testset "getinverse tests" begin
-        cs = linspace(RGB(0,0,0), RGB(1,1,1),5);
+        cs = range(RGB(0, 0, 0), stop=RGB(1, 1, 1), length=5)
         @test getinverse(cs, cs[3]) == 0.5
 
         # Note that getinverse() takes the first closest match.
@@ -59,17 +59,16 @@ function run_all_tests()
         @test getinverse(cs, cs[1]) == 0
 
         cs = [RGB(0,0,0)];
-        @test_throws InexactError getinverse(cs, cs[1])
+        @test_throws MethodError getinverse(cs, cs[1])
         # (The above line throws for the same reason the below line does.
         #  If this behavior ever changes, so should `getinverse`.)
-        @test_throws InexactError get(cs, 1.0, (1,1))
+        @test_throws InexactError get(cs, 1.0, (1, 1))
     end
-
 
     @testset "convert_to_scheme tests" begin
         # Add color to a grayscale image.
-        red_cs = linspace(RGB(0,0,0), RGB(1,0,0),11)
-        gray_img = linspace(RGB(0,0,0), RGB(1,1,0),11)
+        red_cs = range(RGB(0,0,0), stop=RGB(1,0,0), length=11)
+        gray_img = range(RGB(0,0,0), stop=RGB(1,1,0), length=11)
         vs = [getinverse(gray_img, p) for p in red_cs]
         cs = [RGB(v,v,v) for v in vs]
         rcs = [get(red_cs, p) for p in vs]
@@ -79,8 +78,8 @@ function run_all_tests()
 
         # Should be able to uniquely match each increasing color with the next
         # increasing color in the new scale.
-        red_cs = [linspace(RGB(0,0,0), RGB(1,0,0))...]
-        blue_scale_img = [linspace(RGB(0,0,0), RGB(0,0,1))...]
+        red_cs = range(RGB(0,0,0), stop=RGB(1,1,1))
+        blue_scale_img = range(RGB(0,0,0), stop=RGB(0,0,1))
         new_img = convert_to_scheme(red_cs, blue_scale_img)
         @test_broken unique(new_img) == new_img
     end
@@ -129,8 +128,6 @@ function run_minimum_tests()
     # test conversion with manually supplied range
     y3=get(ColorSchemes.leonardo, x, (-1.0, 2.0))
     @test y3 == y2
-
-
 end
 
 if get(ENV, "COLORSCHEMES_KEEP_TEST_RESULTS", false) == "true"
@@ -148,6 +145,8 @@ else
             run_minimum_tests()
             @info("Test images weren't saved. To see the test images, next time do this before running:")
             @info(" ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
+            @info("These are the very brief tests.")
+            @info("For more extensive testing, call `run_all_tests()`")
         end
     end
 end

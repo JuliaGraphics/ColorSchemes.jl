@@ -12,8 +12,6 @@ Documentation:
 
 ## ColorSchemes
 
-Awaiting Images.jl working on Julia v1.0.
-
 ![big picture](docs/src/assets/figures/snapshot.png)
 
 This package provides tools for working with colorschemes and colormaps. As well as providing many pre-made colormaps and schemes, this package allows you to extract colorschemes from images and use them in plots or other graphics programs.

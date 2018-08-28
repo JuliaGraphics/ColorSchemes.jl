@@ -108,10 +108,11 @@ which in this example creates a 10-color scheme (using 15 iterations and with a 
     RGB{Float64}(0.880421,0.851357,0.538013),
     RGB{Float64}(0.738879,0.709218,0.441082)]
 
-(Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images.)
+(Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images. Use QuartzImageIO on macOS.)
 
 ```@docs
 extract
+get
 ```
 
 ## Chart of all schemes
@@ -126,18 +127,23 @@ It's generally agreed (search the web for "Rainbow colormaps considered harmful"
 
 You can list the names of built-in colorschemes in the `ColorSchemes/data` directory by looking in the `schemes` symbol. Look for matches with `filter()`.
 
-    julia> filter(x-> contains(string(x), "temp"), schemes)
-    2-element Array{Symbol,1}:
-     :lighttemperaturemap
-     :temperaturemap
+```
+julia> filter(x-> occursin("temp", string(x)), schemes)
+3-element Array{Symbol,1}:
+ :lighttemperaturemap
+ :temperaturemap
+ :tempo
 
-    julia> filter(x-> ismatch(r"ma.*", string(x)), schemes)
-    5-element Array{Symbol,1}:
-    :aquamarine         
-    :lighttemperaturemap
-    :temperaturemap     
-    :magma              
-    :plasma       
+julia> filter(x-> occursin(r"ma.*", string(x)), schemes)
+7-element Array{Symbol,1}:
+ :aquamarine
+ :lighttemperaturemap
+ :temperaturemap
+ :magma
+ :plasma
+ :matter
+ :thermal  
+```
 
 ```@docs
 schemes
@@ -145,25 +151,33 @@ schemes
 
 Of course you can easily make your own colorscheme by building an array:
 
-    grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]
+```
+grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]
+```
 
 or, slightly longer:
 
-    reds = RGB{Float64}[]
+```
+reds = RGB{Float64}[]
 
-    for i in 0:0.05:1
-      push!(reds, RGB{Float64}(1, 1-i, 1-i))
-    end
+for i in 0:0.05:1
+  push!(reds, RGB{Float64}(1, 1-i, 1-i))
+end
+```
 
 ## Continuous color sampling
 
 You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[2:20]`). Or you can sample a colorscheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:
 
-    get(leonardo, 0.5)
+```
+get(leonardo, 0.5)
+```
 
 returns
 
-    RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+```
+RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+```
 
 !["get example"](assets/figures/get-example.png)
 
@@ -177,12 +191,16 @@ get
 
 Use `sortcolorscheme()` to sort a scheme non-destructively in the LUV color space:
 
-    sortcolorscheme(ColorSchemes.leonardo)
-    sortcolorscheme(ColorSchemes.leonardo, rev=true)
+```
+sortcolorscheme(ColorSchemes.leonardo)
+sortcolorscheme(ColorSchemes.leonardo, rev=true)
+```
 
 The default is to sort colors by their LUV luminance value, but you could try specifying the `:u` or `:v` LUV fields instead (sorting colors is another problem domain not really addressed in this package...):
 
-    sortcolorscheme(colorscheme, :u)
+```
+sortcolorscheme(colorscheme, :u)
+```
 
 ```@docs
 sortcolorscheme
@@ -192,27 +210,33 @@ sortcolorscheme
 
 Sometimes an image is dominated by some colors with others occurring less frequently. For example, there may be much more brown than yellow in a particular image. A colorscheme derived from this image can reflect this. You can extract both a set of colors and a set of numerical values or weights that indicate the proportions of colors in the image.
 
-    using Images
-    cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2)
+```
+using Images
+cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2)
+```
 
 The colorscheme is now in `cs`, and `wts` holds the various weights of each color:
 
-    wts
-    -> 10-element Array{Float64,1}:
-     0.294055
-     0.0899108
-     0.0808455
-     0.0555576
-     0.142818
-     0.0356599
-     0.0391717
-     0.112667
-     0.0596559
-     0.0896584
+```
+wts
+10-element Array{Float64,1}:
+0.0521126446851636
+0.20025391828582884
+0.08954703056671294
+0.09603605342678319
+0.09507086696018234
+0.119987526821047
+0.08042973071297582
+0.08863381567908292
+0.08599068966285295
+0.09193772319937041
+```
 
 With the colorscheme and the weights, you can make a colorscheme in which the more common colors take up more space in the scheme:
 
-    colorscheme_weighted(cs, wts, len)
+```
+colorscheme_weighted(cs, wts, len)
+```
 
 Or in one go:
 

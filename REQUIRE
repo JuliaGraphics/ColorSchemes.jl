@@ -1,8 +1,7 @@
-julia 0.7
-Images 0.9.1
-Colors 0.7.0
+julia v0.7
+Images
+Colors
 Clustering
 FileIO
-@windows ImageMagick
-@linux ImageMagick
-@osx QuartzImageIO
+ImageMagick
+QuartzImageIO

@@ -5,7 +5,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Introduction",
     "title": "Introduction",
     "category": "page",
-    "text": ""
+    "text": "DocTestSetup = quote\n    using ColorSchemes, Colors\nend"
 },
 
 {
@@ -13,15 +13,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Introduction",
     "title": "Introduction to ColorSchemes",
     "category": "section",
-    "text": "This package provides tools for working with colorschemes and colormaps. As well as providing many pre-made colormaps and schemes, this package allows you to extract colorschemes from images and use them in other graphics programs.The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi\'s PerceptualColourMaps package.This package relies on the Colors.jl package and Images.jl."
-},
-
-{
-    "location": "index.html#Current-status-1",
-    "page": "Introduction",
-    "title": "Current status",
-    "category": "section",
-    "text": "ColorSchemes requires Julia version 0.6, and makes use of the Images.jl and Clustering.jl packages."
+    "text": "This package provides tools for working with colorschemes and colormaps. It provides many pre-made colormaps and schemes:scientifically devised colorschemes from ColorBrewer and CMOcean\npopular old favourites such as viridis, inferno, and magma from MATPlotLib\nold masters\' colorschemes, such as leonardo, vermeer, and picasso\nvariously themed colorschemes such as sunset, coffee, neon, and pearlIn addition, you can extract colorschemes from images, and replace an image colorscheme with another.!!! NoteThe package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi\'s [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package.This package relies on the Colors.jl, Images.jl, and Clustering.jl packages."
 },
 
 {
@@ -29,7 +21,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Introduction",
     "title": "Installation and basic usage",
     "category": "section",
-    "text": "Install the package as follows:Pkg.add(\"ColorSchemes\")and to use it:using ColorSchemesOriginal version by cormullion."
+    "text": "Install the package as follows:] add ColorSchemesand to use it:using ColorSchemesOriginal version by cormullion."
 },
 
 {
@@ -37,7 +29,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "Basic usage",
     "category": "page",
-    "text": ""
+    "text": "DocTestSetup = quote\n    using ColorSchemes, Colors\nend"
 },
 
 {
@@ -65,11 +57,19 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "basics.html#ColorSchemes.schemes",
+    "page": "Basic usage",
+    "title": "ColorSchemes.schemes",
+    "category": "constant",
+    "text": "schemes contains the names of all the available colorschemes.\n\n\n\n\n\n"
+},
+
+{
     "location": "basics.html#Chart-of-all-schemes-1",
     "page": "Basic usage",
     "title": "Chart of all schemes",
     "category": "section",
-    "text": "The ColorSchemes module automatically loads a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It\'s generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"all schemes\")(You can generate this file using ColorSchemes/docs/src/assets/figures/draw-swatches.jl, after obtaining the Luxor package to draw and label things.)You can list the names of built-in colorschemes in the ColorSchemes/data directory by looking in the schemes symbol. Look for matches with filter().julia> filter(x-> occursin(\"temp\", string(x)), schemes)\n3-element Array{Symbol,1}:\n :lighttemperaturemap\n :temperaturemap\n :tempo\n\njulia> filter(x-> occursin(r\"ma.*\", string(x)), schemes)\n7-element Array{Symbol,1}:\n :aquamarine\n :lighttemperaturemap\n :temperaturemap\n :magma\n :plasma\n :matter\n :thermal  schemesOf course you can easily make your own colorscheme by building an array:grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]or, slightly longer:reds = RGB{Float64}[]\n\nfor i in 0:0.05:1\n  push!(reds, RGB{Float64}(1, 1-i, 1-i))\nend"
+    "text": "The ColorSchemes module automatically provides a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It\'s generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"all schemes\")(You can generate this file using ColorSchemes/docs/src/assets/figures/draw-swatches.jl, after obtaining the Luxor package to draw and label things.)You can list the names of built-in colorschemes in the ColorSchemes/data directory by looking in the schemes symbol. Look for matches with filter().julia> filter(x-> occursin(\"temp\", string(x)), schemes)\n3-element Array{Symbol,1}:\n :lighttemperaturemap\n :temperaturemap\n :tempo\n\njulia> filter(x-> occursin(r\"ma.*\", string(x)), schemes)\n7-element Array{Symbol,1}:\n :aquamarine\n :lighttemperaturemap\n :temperaturemap\n :magma\n :plasma\n :matter\n :thermal  schemesOf course you can easily make your own colorscheme by building an array:grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]or, slightly longer:reds = RGB{Float64}[]\n\nfor i in 0:0.05:1\n  push!(reds, RGB{Float64}(1, 1-i, 1-i))\nend"
 },
 
 {
@@ -125,7 +125,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Finding colors",
     "title": "Finding colors",
     "category": "page",
-    "text": ""
+    "text": "DocTestSetup = quote\n    using ColorSchemes, Colors\nend"
 },
 
 {
@@ -149,7 +149,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Finding colors",
     "title": "ColorSchemes.getinverse",
     "category": "function",
-    "text": "getinverse(cscheme, c, range=(0.0, 1.0))\n\nComputes where the provided Color c would fit in cscheme.\n\nThis is the inverse of get() — it returns the value x in the provided range for which get(scheme, x) would most closely match the provided Color c.\n\nExamples\n\njulia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))\n0.625…\njulia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))\n0.543…\njulia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5)\njulia> getinverse(cs, cs[3])\n0.500\n\n\n\n\n\n"
+    "text": "getinverse(cscheme, c, range=(0.0, 1.0))\n\nComputes where the provided Color c would fit in cscheme.\n\nThis is the inverse of get() — it returns the value x in the provided range for which get(scheme, x) would most closely match the provided Color c.\n\nExamples\n\njulia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))\n0.6248997995654847\njulia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))\n0.5432555858022048\njulia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5);\njulia> getinverse(cs, cs[3])\n0.5\n\n\n\n\n\n"
 },
 
 {
@@ -221,7 +221,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Images",
     "title": "Images",
     "category": "page",
-    "text": ""
+    "text": "DocTestSetup = quote\n    using ColorSchemes, Colors\nend"
 },
 
 {
@@ -285,7 +285,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Images",
     "title": "A Julia Julia set: colorschemes and Images",
     "category": "section",
-    "text": "Here\'s how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer\'s painting \"Girl with a Pearl Earring\".(Image: \"julia set\")using ColorSchemes, Images\n\nfunction julia(z, c, maxiter::Int64)\n    for n = 1:maxiter\n        if abs(z) > 2\n            return n\n        end\n        z = z^2 + c\n    end\n    return maxiter\nend\n\n# convert a value between oldmin/oldmax to equivalent value between newmin/newmax\nremap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin\n\nfunction draw(c, imsize;\n      xmin = -2, ymin = -2, xmax  =  2, ymax = 2,\n      filename = \"/tmp/julia-set.png\")\n    imOutput = zeros(RGB{Float32}, imsize, imsize)\n    maxiterations = 200\n    for col = range(xmin, stop=xmax, length=imsize)\n        for row = range(ymin, stop=ymax, length=imsize)\n            pixelcolor = julia(complex(row, col), c, maxiterations) / 256\n            xpos = convert(Int, round(remap(col, xmin, xmax, 1, imsize)))\n            ypos = convert(Int, round(remap(row, ymin, ymax, 1, imsize)))\n            imOutput[xpos, ypos] = get(ColorSchemes.vermeer, pixelcolor)\n        end\n    end\n    FileIO.save(filename, imOutput)\nend\n\ndraw(-0.4 + 0.6im, 1200)"
+    "text": "Here\'s how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer\'s painting \"Girl with a Pearl Earring\" (shown at the right).(Image: \"julia set\")using ColorSchemes, Images\n\nfunction julia(z, c, maxiter::Int64)\n    for n = 1:maxiter\n        if abs(z) > 2\n            return n\n        end\n        z = z^2 + c\n    end\n    return maxiter\nend\n\n# convert a value between oldmin/oldmax to equivalent value between newmin/newmax\nremap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin\n\nfunction draw(c, imsize;\n      xmin = -1, ymin = -1, xmax  =  1, ymax = 1,\n      filename = \"/tmp/julia-set.png\")\n    imOutput = zeros(RGB{Float32}, imsize, imsize)\n    maxiterations = 200\n    for col = range(xmin, stop=xmax, length=imsize)\n        for row = range(ymin, stop=ymax, length=imsize)\n            pixelcolor = julia(complex(row, col), c, maxiterations) / 256\n            xpos = convert(Int, round(remap(col, xmin, xmax, 1, imsize)))\n            ypos = convert(Int, round(remap(row, ymin, ymax, 1, imsize)))\n            imOutput[xpos, ypos] = get(ColorSchemes.vermeer, pixelcolor)\n        end\n    end\n    FileIO.save(filename, imOutput)\nend\n\ndraw(-0.4 + 0.6im, 1200)"
 },
 
 {

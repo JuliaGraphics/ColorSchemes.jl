@@ -12,9 +12,9 @@ end
 
 function draw_swatch(cschemename, pos, tilewidth, tileheight)
     if isdefined(ColorSchemes, cschemename)
-        cscheme = eval(ColorSchemes, cschemename)
+        cscheme = Base.eval(ColorSchemes, cschemename)
     else
-        cscheme = eval(cschemename)
+        cscheme = Base.eval(cschemename)
     end
     schemelength = length(cscheme)
 

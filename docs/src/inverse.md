@@ -1,3 +1,8 @@
+```@meta
+DocTestSetup = quote
+    using ColorSchemes, Colors
+end
+```
 # Finding colors in colorschemes
 
 ColorSchemes.jl provides the function `getinverse(cscheme, c)` which is the inverse of `get(cscheme, x)`.

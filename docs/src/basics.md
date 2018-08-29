@@ -1,3 +1,8 @@
+```@meta
+DocTestSetup = quote
+    using ColorSchemes, Colors
+end
+```
 # Basics
 
 A colorscheme is an array of colors:
@@ -117,9 +122,9 @@ get
 
 ## Chart of all schemes
 
-The ColorSchemes module automatically loads a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
+The ColorSchemes module automatically provides a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
 
-It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients.
+_It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients._
 
 !["all schemes"](assets/figures/colorschemes.png)
 

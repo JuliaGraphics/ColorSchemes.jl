@@ -1,3 +1,8 @@
+```@meta
+DocTestSetup = quote
+    using ColorSchemes, Colors
+end
+```
 # Images
 
 ## Saving colorschemes as images
@@ -47,7 +52,7 @@ colorscheme_to_text
 
 ## A Julia Julia set: colorschemes and Images
 
-Here's how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer's painting "Girl with a Pearl Earring".
+Here's how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer's painting "Girl with a Pearl Earring" (shown at the right).
 
 !["julia set"](assets/figures/julia-set-with-girl-pearl-vermeer.jpg)
 
@@ -68,7 +73,7 @@ end
 remap(value, oldmin, oldmax, newmin, newmax) = ((value - oldmin) / (oldmax - oldmin)) * (newmax - newmin) + newmin
 
 function draw(c, imsize;
-      xmin = -2, ymin = -2, xmax  =  2, ymax = 2,
+      xmin = -1, ymin = -1, xmax  =  1, ymax = 1,
       filename = "/tmp/julia-set.png")
     imOutput = zeros(RGB{Float32}, imsize, imsize)
     maxiterations = 200

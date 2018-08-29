@@ -1,7 +1,5 @@
-#!/usr/bin/env julia
-
 # generate pictures of builtin data
-# usage: julia draw-swatches.jl > somewhere/colorschemes.svg
+# usage: drawallswatches("/tmp/colorschemes.png", 1000, 3500, ncols=5)
 
 using Colors, ColorSchemes, Luxor
 
@@ -14,9 +12,9 @@ end
 
 function draw_swatch(cschemename, pos, tilewidth, tileheight)
     if isdefined(ColorSchemes, cschemename)
-        cscheme = eval(ColorSchemes, cschemename)
+        cscheme = Base.eval(ColorSchemes, cschemename)
     else
-        cscheme = eval(cschemename)
+        cscheme = Base.eval(cschemename)
     end
     schemelength = length(cscheme)
 

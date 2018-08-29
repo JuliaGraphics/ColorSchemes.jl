@@ -108,6 +108,9 @@ schemes,
 sortcolorscheme,
 @reg
 
+"""
+`schemes` contains the names of all the available colorschemes.
+"""
 const schemes = Symbol[]
 
 """
@@ -303,12 +306,12 @@ for which `get(scheme, x)` would most closely match the provided Color `c`.
 # Examples
 ```jldoctest
 julia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))
-0.625…
+0.6248997995654847
 julia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))
-0.543…
-julia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5)
+0.5432555858022048
+julia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5);
 julia> getinverse(cs, cs[3])
-0.500
+0.5
 ```
 """
 function getinverse(cscheme::Vector{C}, c, rangescale :: Tuple{Number, Number}=(0.0, 1.0)) where {C<:Colorant}

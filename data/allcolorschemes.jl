@@ -537,9 +537,7 @@ RGB(0.0905657,0.0995937,0.164406),
     RGB(0.813935, 0.656425, 0.370324),
     RGB(0.91191, 0.830616, 0.618036),
     RGB(0.976303, 0.999222, 0.999207)]
-
-
-    @reg cubehelix [
+@reg cubehelix [
     # Dave Green's cubehelix https://www.mrao.cam.ac.uk/~dag/CUBEHELIX/
         RGB(0.0,0.0,0.0),
         RGB(0.00802,0.00136,0.00662),

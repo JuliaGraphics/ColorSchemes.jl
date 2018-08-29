@@ -19,8 +19,6 @@ This package provides tools for working with colorschemes and colormaps. It prov
 
 In addition, you can extract colorschemes from images, and replace an image colorscheme with another.
 
-!!! Note
-
-    The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package.
+*The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package.*
 
 This package relies on the [Colors.jl](https://github.com/JuliaGraphics/Colors.jl), [Images.jl](https://github.com/JuliaImages/Images.jl), and [Clustering.jl](https://github.com/JuliaStats/Clustering.jl) packages.

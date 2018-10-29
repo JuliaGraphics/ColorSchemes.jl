@@ -63,6 +63,12 @@ colorscheme_to_image(cs::Vector{C}, nrows=50, tilewidth=5) where {C <: Colorant}
     - make an image of a scheme by repeating each color m times in h rows
 
 ```
+convert_to_scheme(cscheme, img)
+```
+
+    - converts img from its current color values to use only the colors defined in cscheme.
+
+```
 compare_colors(color_a, color_b, field = :l)
 ```
     - compare colors, return true if the specified field of `color_a` is less than `color_b`.

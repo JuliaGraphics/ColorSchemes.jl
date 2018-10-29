@@ -17,8 +17,9 @@ makedocs(
 deploydocs(
     repo = "github.com/JuliaGraphics/ColorSchemes.jl.git",
     target = "build",
-    julia  = "0.7",
-    osname = "osx",
     deps = nothing,
     make = nothing,
+    devbranch = "master",
+    devurl = "dev",
+    versions = ["stable" => "v^", "v#.#", devurl => devurl]
 )

@@ -30,4 +30,9 @@ jobs:
       after_success: skip
 
 after_success:
+  - julia -e 'import Pkg; Pkg.add("Colors"); Pkg.build("Colors")'
+  - julia -e 'import Pkg; Pkg.add("ColorSchemes");  Pkg.build("ColorSchemes")'
+  - julia -e 'import Pkg; Pkg.add("Images");  Pkg.build("Images")'
+  - julia -e 'import Pkg; ps=Pkg.PackageSpec(name="Documenter", version="0.19"); Pkg.add(ps); Pkg.pin(ps)'
+  - julia -e 'import ColorSchemes; include("docs/make.jl")'
   - julia -e 'import Pkg; cd(Pkg.dir("ColorSchemes")); Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'

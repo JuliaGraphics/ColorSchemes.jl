@@ -13,7 +13,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Introduction",
     "title": "Introduction to ColorSchemes",
     "category": "section",
-    "text": "This package provides tools for working with colorschemes and colormaps. It provides many pre-made colormaps and schemes:scientifically devised colorschemes from ColorBrewer and CMOcean\npopular old favourites such as viridis, inferno, and magma from MATPlotLib\nold masters\' colorschemes, such as leonardo, vermeer, and picasso\nvariously themed colorschemes such as sunset, coffee, neon, and pearlIn addition, you can extract colorschemes from images, and replace an image colorscheme with another.!!! NoteThe package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi\'s [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package.This package relies on the Colors.jl, Images.jl, and Clustering.jl packages."
+    "text": "This package provides tools for working with colorschemes and colormaps. It provides many pre-made colormaps and schemes:scientifically devised colorschemes from ColorBrewer and CMOcean\npopular old favourites such as viridis, inferno, and magma from MATPlotLib\nold masters\' colorschemes, such as leonardo, vermeer, and picasso\nvariously themed colorschemes such as sunset, coffee, neon, and pearlIn addition, you can extract colorschemes from images, and replace an image colorscheme with another.The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi\'s PerceptualColourMaps package.This package relies on the Colors.jl, Images.jl, and Clustering.jl packages."
 },
 
 {
@@ -61,7 +61,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "ColorSchemes.schemes",
     "category": "constant",
-    "text": "This schemes is a list of symbols representing all the available colorschemes.\n\n\n\n\n\n"
+    "text": "schemes contains the names of all the available colorschemes.\n\n\n\n\n\n"
 },
 
 {
@@ -149,7 +149,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Finding colors",
     "title": "ColorSchemes.getinverse",
     "category": "function",
-    "text": "getinverse(cscheme, c, range=(0.0, 1.0))\n\nComputes where the provided Color c would fit in cscheme.\n\nThis is the inverse of get() — it returns the value x in the provided range for which get(scheme, x) would most closely match the provided Color c.\n\nExamples\n\njulia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))\n0.6248997995654847\njulia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))\n0.5432555858022048\njulia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5)\njulia> getinverse(cs, cs[3])\n0.5\n\n\n\n\n\n"
+    "text": "getinverse(cscheme, c, range=(0.0, 1.0))\n\nComputes where the provided Color c would fit in cscheme.\n\nThis is the inverse of get() — it returns the value x in the provided range for which get(scheme, x) would most closely match the provided Color c.\n\nExamples\n\njulia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))\n0.6248997995654847\njulia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))\n0.5432555858022048\njulia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5);\njulia> getinverse(cs, cs[3])\n0.5\n\n\n\n\n\n"
 },
 
 {

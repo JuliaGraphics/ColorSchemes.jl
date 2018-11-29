@@ -128,6 +128,12 @@ function run_minimum_tests()
     # test conversion with manually supplied range
     y3=get(ColorSchemes.leonardo, x, (-1.0, 2.0))
     @test y3 == y2
+
+    # test with steplen (#17)
+    r  = range(0, stop=5, length=10)
+    y  = get(ColorSchemes.leonardo, r)
+    y2 = get(ColorSchemes.leonardo, collect(r))
+    @test y == y2
 end
 
 if get(ENV, "COLORSCHEMES_KEEP_TEST_RESULTS", false) == "true"

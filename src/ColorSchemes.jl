@@ -276,8 +276,8 @@ img4 = get(PerceptualColourMaps.cmap("R1"), rand(10,10))
 ```
 """
 function get(cscheme::Vector{<:Colorant},
-             x::Union{Array{<:Real}, AbstractRange{<:Real}},
-             rangescale::Union{Symbol, NTuple{2, Real}}=(0.0, 1.0))
+             x::Union{<:Real, Array{<:Real}, AbstractRange{<:Real}},
+             rangescale::Union{Symbol, NTuple{2, <:Real}}=(0.0, 1.0))
 
     # NOTE: the Union type for `x` is needed to avoid ambiguity with Base.get
     # when using ranges

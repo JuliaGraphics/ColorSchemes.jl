@@ -134,6 +134,12 @@ function run_minimum_tests()
     y  = get(ColorSchemes.leonardo, r)
     y2 = get(ColorSchemes.leonardo, collect(r))
     @test y == y2
+
+    # test for specific value
+    val = 0.2
+    y   = get(ColorSchemes.leonardo, [val])
+    y2  = get(ColorSchemes.leonardo, val)
+    @test y2 == y[1]
 end
 
 if get(ENV, "COLORSCHEMES_KEEP_TEST_RESULTS", false) == "true"

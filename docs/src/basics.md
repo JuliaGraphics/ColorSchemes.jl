@@ -188,9 +188,23 @@ RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 
 The colors in the predefined colorschemes are usually sorted by LUV luminance, so this often makes sense.
 
-```@docs
-get
+You can use `get()` with data in arrays, to return arrays of colors:
+
 ```
+julia> get(leonardo, [0.0, 0.5, 1.0])
+3-element Array{RGB{Float64},1} with eltype ColorTypes.RGB{Float64}:
+ RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788)
+ RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)  
+ RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)
+```
+
+```
+julia> simg = get(leonardo, rand(10, 16));
+julia> using FileIO
+julia> save("mosaic.png", simg)
+```
+
+!["get example 1"](assets/figures/get-example-1.png)
 
 ## Sorting color schemes
 

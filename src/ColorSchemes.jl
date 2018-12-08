@@ -313,9 +313,9 @@ for which `get(scheme, x)` would most closely match the provided Color `c`.
 ```jldoctest
 julia> getinverse(ColorSchemes.leonardo, RGB(1,0,0))
 0.6248997995654847
-julia> getinverse([RGB(0,0,0), RGB(1,1,1)], RGB(.5,.5,.5))
+julia> getinverse([Colors.RGB(0,0,0), Colors.RGB(1,1,1)], Colors.RGB(.5,.5,.5))
 0.5432555858022048
-julia> cs = range(RGB(0,0,0), stop=RGB(1,1,1), length=5)
+julia> cs = range(Colors.RGB(0,0,0), stop=Colors.RGB(1,1,1), length=5)
 julia> getinverse(cs, cs[3])
 0.5
 ```

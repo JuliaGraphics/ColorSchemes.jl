@@ -141,6 +141,7 @@ include(dirname(@__FILE__) * "/../data/allcolorschemes.jl")
 include(dirname(@__FILE__) * "/../data/colorbrewerschemes.jl")
 include(dirname(@__FILE__) * "/../data/matplotlib.jl")
 include(dirname(@__FILE__) * "/../data/cmocean.jl")
+include(dirname(@__FILE__) * "/../data/sampledcolorschemes.jl")
 
 # the `schemes` array now contains the names of the built-in ColorSchemes
 

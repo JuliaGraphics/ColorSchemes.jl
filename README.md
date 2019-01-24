@@ -1,6 +1,3 @@
-[![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_0.7.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=0.7)
-<!-- [![ColorSchemes](http://pkg.julialang.org/badges/ColorSchemes_1.0.svg)](http://pkg.julialang.org/?pkg=ColorSchemes&ver=1.0) -->
-
 [![Build Status](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl.svg?branch=master)](https://travis-ci.org/JuliaGraphics/ColorSchemes.jl)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/cormullion/ColorSchemes.jl?branch=master&svg=true)](https://ci.appveyor.com/project/cormullion/ColorSchemes-jl)
 
@@ -8,7 +5,7 @@
 
 ## ColorSchemes
 
-![big picture](docs/src/assets/figures/snapshot.png)
+_Final v2 release. The next release, v3, will move some of the tools to another package._
 
 This package provides tools for working with colorschemes and colormaps. It provides many pre-made colormaps and schemes:
 

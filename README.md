@@ -5,7 +5,6 @@
 
 ## ColorSchemes
 
-![big picture](docs/src/assets/figures/snapshot.png)
 
 This package provides a collection of colorschemes and colormaps:
 

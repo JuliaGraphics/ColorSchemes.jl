@@ -29,11 +29,9 @@ struct ColorScheme
 end
 
 """
-    ColorScheme(colors,
-        category::AbstractString,   # optional
-        notes::AbstractString)      # optional
+    ColorScheme(colors, category, notes)
 
-Create a ColorScheme from a list of colors. You can also name it, assign a
+Create a ColorScheme from an array of colors. You can also name it, assign a
 category to it, and add notes.
 """
 ColorScheme(colors, category::AbstractString) = ColorScheme(colors, category, "")

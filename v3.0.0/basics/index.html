@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Basic usage · ColorSchemes</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../index.html"><img class="logo" src="../assets/logo.png" alt="ColorSchemes logo"/></a><h1>ColorSchemes</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Introduction</a></li><li class="current"><a class="toctext" href>Basic usage</a><ul class="internal"><li><a class="toctext" href="#ColorScheme-objects-1">ColorScheme objects</a></li><li><a class="toctext" href="#The-colorschemes-dictionary-1">The colorschemes dictionary</a></li><li><a class="toctext" href="#Chart-of-all-schemes-1">Chart of all schemes</a></li><li><a class="toctext" href="#Finding-colorschemes-1">Finding colorschemes</a></li><li><a class="toctext" href="#Make-your-own-1">Make your own</a></li><li><a class="toctext" href="#Continuous-color-sampling-1">Continuous color sampling</a></li></ul></li><li><a class="toctext" href="../finding/">Finding colors</a></li><li><a class="toctext" href="../plotting/">Plotting</a></li><li><a class="toctext" href="../images/">Images</a></li><li><a class="toctext" href="../functionindex/">Index</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Basic usage</a></li></ul><a class="edit-page" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/basics.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Basic usage</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Basics-1" href="#Basics-1">Basics</a></h1><h2><a class="nav-anchor" id="ColorScheme-objects-1" href="#ColorScheme-objects-1">ColorScheme objects</a></h2><p>When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes, and stores them in a dictionary, exported and called <code>colorschemes</code>.</p><p>A ColorScheme is a Julia object which contains:</p><ul><li>an array of colors</li><li>a string defining a category</li><li>a string that can contain descriptive notes</li></ul><p>To access one of these built-in colorschemes, use its symbol:</p><pre><code class="language-none">julia&gt; ColorSchemes.leonardo</code></pre><p>If you&#39;re using Juno, the colors in the colorscheme should appear in the Plot window.</p><p><img src="../assets/figures/leo-colorscheme.png" alt="&quot;leo color scheme&quot;"/></p><p>Otherwise, you&#39;ll see the colors listed as RGB values:</p><pre><code class="language-none">32-element Array{RGB{Float64},1}:
+ RGB{Float64}(0.0548203,0.016509,0.0193152)
+ RGB{Float64}(0.0750816,0.0341102,0.0397083)
+ RGB{Float64}(0.10885,0.0336675,0.0261204)
+ RGB{Float64}(0.100251,0.0534243,0.0497594)
+ ...
+ RGB{Float64}(0.620187,0.522792,0.216707)
+ RGB{Float64}(0.692905,0.56631,0.185515)
+ RGB{Float64}(0.681411,0.58149,0.270391)
+ RGB{Float64}(0.85004,0.540122,0.136212)
+ RGB{Float64}(0.757552,0.633425,0.251451)
+ RGB{Float64}(0.816472,0.697015,0.322421)
+ RGB{Float64}(0.933027,0.665164,0.198652)
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can access the colors as:</p><pre><code class="language-none">ColorSchemes.leonardo.colors</code></pre><p>By default, the names of the colorschemes aren&#39;t imported (there <em>are</em> rather a lot of them). But to avoid using the prefixes, you can import the ones that you want:</p><pre><code class="language-none">julia&gt; import ColorSchemes.leonardo
+julia&gt; leonardo
+32-element Array{RGB{Float64},1}:
+ RGB{Float64}(0.0548203,0.016509,0.0193152)
+ RGB{Float64}(0.0750816,0.0341102,0.0397083)
+ RGB{Float64}(0.10885,0.0336675,0.0261204)
+ RGB{Float64}(0.100251,0.0534243,0.0497594)
+ ...
+ RGB{Float64}(0.757552,0.633425,0.251451)
+ RGB{Float64}(0.816472,0.697015,0.322421)
+ RGB{Float64}(0.933027,0.665164,0.198652)
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can reference a single value of a scheme once it&#39;s loaded:</p><pre><code class="language-none">leonardo[3]
+
+-&gt; RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)</code></pre><p>Or you can &#39;sample&#39; the scheme at any point between 0 and 1 using <code>get()</code>:</p><pre><code class="language-none">get(leonardo, 0.5)
+
+-&gt; RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="Base.get" href="#Base.get"><code>Base.get</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">get(cscheme::ColorScheme, x, rangescale)</code></pre><p>Returns a single color from the colorscheme.</p></div></div><div><div><pre><code class="language-none">get(cscheme::ColorScheme, inData :: Array{Number, 2}, rangescale=:clamp)
+get(cscheme::ColorScheme, inData :: Array{Number, 2}, rangescale=(minVal, maxVal))</code></pre><p>Return an RGB array of colors generated by applying the colorscheme to the 2D input data.</p><p>If <code>rangescale</code> is <code>:clamp</code> the colorscheme is applied to values between 0.0-1.0, and values outside this range get clamped to the ends of the colorscheme.</p><p>Else, if <code>rangescale</code> is <code>:extrema</code>, the colorscheme is applied to the range <code>minimum(indata)..maximum(indata)</code>.</p><p><strong>Examples</strong></p><pre><code class="language-none">img = get(colorschemes[:leonardo], rand(10,10)) # displays in Juno Plots window, but
+save(&quot;testoutput.png&quot;, img)      # you&#39;ll need FileIO or similar to do this
+
+img2 = get(colorschemes[:leonardo], 10.0*rand(10,10), :extrema)
+img3 = get(colorschemes[:leonardo], 10.0*rand(10,10), (1.0, 9.0))
+
+# Also works with PerceptualColourMaps
+using PerceptualColourMaps # warning, installs PyPlot, PyCall, LaTeXStrings
+img4 = get(PerceptualColourMaps.cmap(&quot;R1&quot;), rand(10,10))</code></pre></div></div></section><h2><a class="nav-anchor" id="The-colorschemes-dictionary-1" href="#The-colorschemes-dictionary-1">The colorschemes dictionary</a></h2><p>The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in a dictionary, called <code>colorschemes</code>, which is exported.</p><h2><a class="nav-anchor" id="Chart-of-all-schemes-1" href="#Chart-of-all-schemes-1">Chart of all schemes</a></h2><p>The pre-defined schemes shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using <code>get()</code> with values ranging from 0 to 1 (stepping through the range <code>0:0.001:1</code>); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.</p><p><em>It&#39;s generally agreed (search the web for &quot;Rainbow colormaps considered harmful&quot;) that you should choose colormaps with smooth linear luminance gradients.</em></p><p><img src="../assets/figures/colorschemes.png" alt="&quot;all schemes&quot;"/></p><p>(You can generate this image using <code>ColorSchemes/docs/src/assets/figures/draw-swatches.jl</code>, after obtaining the Luxor package to draw and label things.)</p><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ColorSchemes.colorschemes" href="#ColorSchemes.colorschemes"><code>ColorSchemes.colorschemes</code></a> — <span class="docstring-category">Constant</span>.</div><div><div><pre><code class="language-none">colorschemes</code></pre><p>A dictionary of pre-defined colorschemes.</p></div></div></section><h2><a class="nav-anchor" id="Finding-colorschemes-1" href="#Finding-colorschemes-1">Finding colorschemes</a></h2><p>Use the <code>findcolorscheme()</code> function to look through the pre-defined colorschemes. The string you provide can occur in the colorscheme&#39;s name, in the category, or in the notes.</p><pre><code class="language-none">julia&gt; findcolorscheme(&quot;magenta&quot;)
+
+colorschemes containing &quot;magenta&quot;
+
+spring               (notes) sampled color schemes, linearl...
+cool                 (notes) sampled color schemes, linearl...
+hsv                  (notes) sampled color schemes, red-yel...
+
+found 3 results for &quot;magenta&quot;</code></pre><pre><code class="language-none">julia-1.1&gt; findcolorscheme(&quot;cmocean&quot;)
+colorschemes containing &quot;cmocean&quot;
+
+oxy                  (category) cmocean
+matter               (category) cmocean
+dense                (category) cmocean
+balance              (category) cmocean
+thermal              (category) cmocean
+tempo                (category) cmocean
+gray                 (category) cmocean
+speed                (category) cmocean
+turbid               (category) cmocean
+solar                (category) cmocean
+ice                  (category) cmocean
+haline               (category) cmocean
+algae                (category) cmocean
+amp                  (category) cmocean
+deep                 (category) cmocean
+delta                (category) cmocean
+curl                 (category) cmocean
+phase                (category) cmocean
+
+found 18 results for &quot;cmocean&quot;</code></pre><section class="docstring"><div class="docstring-header"><a class="docstring-binding" id="ColorSchemes.findcolorscheme" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span>.</div><div><div><pre><code class="language-none">findcolorscheme(str)</code></pre><p>Find all color schemes matching <code>str</code>. It can be a regular expression.</p><p>To read the notes of built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-none">colorschemes[:cscheme].notes</code></pre></div></div></section><p>If you prefer, you can always &#39;roll your own&#39; search.</p><pre><code class="language-none">[k for (k, v) in colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
+265-element Array{Symbol,1}:
+ :BuPu_6
+ :Spectral_4
+ :RdYlGn_5
+ ⋮
+ :BrBG_8
+ :Oranges_4</code></pre><h2><a class="nav-anchor" id="Make-your-own-1" href="#Make-your-own-1">Make your own</a></h2><p>Of course you can easily make your own ColorScheme objects by building an array:</p><pre><code class="language-none">grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])</code></pre><p>Give it a category or some added notes if you want:</p><pre><code class="language-none">grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+    &quot;my useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>although this won&#39;t end up in the <code>colorschemes</code> dictionary.</p><p>Another way is to use <code>loadcolorscheme()</code> function:</p><pre><code class="language-none">loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+     &quot;useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>and that will be added (temporarily).</p><pre><code class="language-none">julia-1.1&gt; findcolorscheme(&quot;dull&quot;)
+
+colorschemes containing &quot;dull&quot;
+
+mygrays              (notes) just some dull grey shades...
+
+
+found 1 result for &quot;dull&quot;</code></pre><h2><a class="nav-anchor" id="Continuous-color-sampling-1" href="#Continuous-color-sampling-1">Continuous color sampling</a></h2><p>You can access the specific colors of a colorscheme by indexing (eg <code>leonardo[2]</code> or <code>leonardo[2:20]</code>). Or you can sample a colorscheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:</p><pre><code class="language-none">get(leonardo, 0.5)</code></pre><p>returns</p><pre><code class="language-none">RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><p><img src="../assets/figures/get-example.png" alt="&quot;get example&quot;"/></p><p>The colors in the predefined colorschemes are usually sorted by LUV luminance, so this often makes sense.</p><p>You can use <code>get()</code> with data in arrays, to return arrays of colors:</p><pre><code class="language-none">julia&gt; get(leonardo, [0.0, 0.5, 1.0])
+3-element Array{RGB{Float64},1} with eltype ColorTypes.RGB{Float64}:
+ RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788)
+ RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)  
+ RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)</code></pre><p><img src="../assets/figures/get-example-2.png" alt="&quot;get example 2&quot;"/></p><pre><code class="language-none">julia&gt; simg = get(leonardo, rand(10, 16));
+julia&gt; using FileIO
+julia&gt; save(&quot;mosaic.png&quot;, simg)</code></pre><p><img src="../assets/figures/get-example-1.png" alt="&quot;get example 1&quot;"/></p><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Introduction</span></a><a class="next" href="../finding/"><span class="direction">Next</span><span class="title">Finding colors</span></a></footer></article></body></html>

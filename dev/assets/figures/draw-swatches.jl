@@ -11,11 +11,7 @@ function grayify(col)
 end
 
 function draw_swatch(cschemename, pos, tilewidth, tileheight)
-    if isdefined(ColorSchemes, cschemename)
-        cscheme = Base.eval(ColorSchemes, cschemename)
-    else
-        cscheme = Base.eval(cschemename)
-    end
+    cscheme = colorschemes[cschemename]
     schemelength = length(cscheme)
 
     gsave()
@@ -28,7 +24,7 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
 
     # draw swatch
     swatchwidth = panewidth/schemelength
-    for (i, p) in enumerate(cscheme)
+    for (i, p) in enumerate(cscheme.colors)
         sethue(p)
         box(Point(O.x - panewidth/2 + (i * swatchwidth) - swatchwidth/2, O.y - (paneheight/3)), swatchwidth, paneheight/3 - 2, :fillstroke)
     end
@@ -87,18 +83,18 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
        nrows=0,
        ncols=0)
 
-    selectedschemes = filter(nm -> occursin(Regex(selector), string(nm)), schemes)
+    selectedschemes = filter(nm -> occursin(Regex(selector), string(nm)), colorschemes)
 
-    sort!(selectedschemes, lt = (a, b) -> lowercase(string(a)) < lowercase(string(b)))
+    S = sort!(collect(keys(selectedschemes)), lt = (a, b) -> lowercase(string(a)) < lowercase(string(b)))
 
-    todo = length(selectedschemes)
+    todo = length(S)
 
     if nrows == ncols == 0
         nrows, ncols = howmanyrowscolumns(todo)
     elseif nrows == 0
-        nrows=convert(Int, ceil(length(selectedschemes)/ncols))
+        nrows=convert(Int, ceil(todo/ncols))
     elseif ncols == 0
-        ncols=convert(Int, ceil(length(selectedschemes)/nrows))
+        ncols=convert(Int, ceil(todo/nrows))
     end
 
     Drawing(imagewidth, imageheight, fname)
@@ -113,11 +109,11 @@ function drawallswatches(fname, imagewidth=1000, imageheight=1000, selector=".*"
         if n > todo
             break
         end
-        draw_swatch(selectedschemes[n], pos, tiles.tilewidth, tiles.tileheight)
+        draw_swatch(S[n], pos, tiles.tilewidth, tiles.tileheight)
         counter += 1
     end
     sethue("black")
-    text("showing $(counter) of $(length(selectedschemes)) selected from $(length(schemes)) installed", 0, imageheight/2 - 5, halign=:center)
+    text("showing $(counter) of $(length(S)) selected from $(length(S)) installed", 0, imageheight/2 - 5, halign=:center)
     finish()
     preview()
 end

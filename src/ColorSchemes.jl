@@ -218,7 +218,8 @@ julia> getinverse(cs, cs[3])
 ```
 """
 function getinverse(cscheme::ColorScheme, c, rangescale :: Tuple{Number, Number}=(0.0, 1.0))
-    if length(cscheme) <= 1 ; throw(InexactError()) ; end
+    # TODO better error handling please
+    length(cscheme) <= 1 && throw(ErrorException("ColorScheme of length $(length(cscheme)) is not long enough"))
     cdiffs = map(c_i -> colordiff(promote(c, c_i)...), cscheme.colors)
     closest = argmin(cdiffs)
     left = right = 0

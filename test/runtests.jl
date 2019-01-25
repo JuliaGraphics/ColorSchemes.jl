@@ -58,10 +58,9 @@ end
     cs = ColorScheme([RGB(0,0,0), RGB(0,0,0)])
     @test getinverse(cs, cs[1]) == 0
 
+    # TODO revisit this error-handling
     cs = ColorScheme([RGB(0,0,0)])
-    @test_throws MethodError getinverse(cs, cs[1])
-    # (The above line throws for the same reason the below line does.
-    #  If this behavior ever changes, so should `getinverse`.)
+    @test_throws ErrorException getinverse(cs, cs[1])
     @test_throws InexactError get(cs, 1.0, (1, 1))
 end
 

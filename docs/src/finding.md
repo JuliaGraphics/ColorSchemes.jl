@@ -3,15 +3,16 @@ DocTestSetup = quote
     using ColorSchemes, Colors
 end
 ```
+
 # Finding colors in colorschemes
 
-ColorSchemes.jl provides the function `getinverse(cscheme, c)` which is the inverse of `get(cscheme, x)`.
+ColorSchemes.jl provides the function `getinverse(cscheme, c)` which is the _inverse_ of `get(cscheme, x)`.
 
-This function returns a value between 0 and 1 that places a color within a colorscheme by converting the color to a value representing its position on the colorscheme's axis.
+This function returns a value between 0 and 1 that tries to place a color within a colorscheme by converting it to a value representing its position on the colorscheme's axis.
 
 !["get inverse"](assets/figures/getinverse.png)
 
-## Example
+## Example of using getinverse()
 
 One example use for `getinverse()` is to convert a heatmap image into an Array of continuous values, e.g. temperature.
 
@@ -49,15 +50,15 @@ temps = [getinverse(ColorSchemes.temperaturemap, pixel) for pixel in img]
  0.802037  0.798624  0.798624  0.798624     0.802401  0.800252  0.802848
 ```
 
-The data has been converted from its original form to an array of continuous values, which makes it possible to process as data. For example, we can find the places with the greatest anomalies:
+The data has been converted from its original colors to an array of continuous values between 0 and 1, which makes it possible to process as data. For example, we can find the places with the greatest anomalies:
 
 ```
 mintemp, maxtemp = argmin(temps), argmax(temps)
 
-(CartesianIndex(397, 127), CartesianIndex(17, 314))
+ (CartesianIndex(397, 127), CartesianIndex(17, 314))
 ```
 
-and the maximum and minimum coordinates can be displayed on the image using, for example, Luxor.jl:
+and these maximum and minimum 'coordinates' can be displayed on the image using, for example, Luxor.jl (or any other package that allows you to mix images and vector graphics easily):
 
 ```
 save("/tmp/img.png", img)
@@ -72,7 +73,7 @@ minpt = Point(mintemp[2], mintemp[1])
 @png begin
     placeimage(pngimg, O, centered=true)
     translate(-w/2, -h/2)
-    sethue("cyan")
+    sethue("mediumseagreen")
     fontsize(20)
     fontface("Avenir-Black")
     setopacity(0.75)
@@ -93,21 +94,6 @@ Gray.(temps)
 
 !["heatmap 2 grey"](assets/figures/heatmap2.png)
 
-## Convert to scheme
-
-Using `getinverse()` it's possible to convert an image from one colorscheme to another.
-
-`convert_to_scheme(cscheme, img)` returns a new image in which each pixel from the provided image is mapped to its closest matching color in the provided scheme.
-
-Here, the original image is displayed using the `PuOr_9` scheme.
-
-```
-convert_to_scheme(ColorSchemes.PuOr_9, img)
-```
-
-!["heatmap 2 grey"](assets/figures/heatmap3.png)
-
 ```@docs
 getinverse
-convert_to_scheme
 ```

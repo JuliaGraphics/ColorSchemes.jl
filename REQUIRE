@@ -1,7 +1,2 @@
-julia 0.7
-Images
+julia
 Colors
-Clustering
-FileIO
-ImageMagick
-QuartzImageIO

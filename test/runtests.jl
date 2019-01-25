@@ -1,164 +1,106 @@
-using Test, ColorSchemes, FileIO, Colors
+using Test, Colors, ColorSchemes
 
-function run_all_tests()
-    # create a colorscheme from image file
+monalisa = ColorScheme([
+    RGB(0.05482025926320272, 0.016508952654741622, 0.019315160361063788),
+    RGB(0.07508160782698388, 0.034110215845969745, 0.039708343938094984),
+    RGB(0.10884977211887092, 0.033667530751245296, 0.026120424375656533),
+    RGB(0.10025110094110237, 0.05342427394738222, 0.04975936729231899),
+    RGB(0.11004568002009293, 0.06764950003139521, 0.07202128202310687),
+    RGB(0.1520114897984492, 0.06721701384356317, 0.04758612657624729),
+    RGB(0.16121466572057147, 0.10737190368841328, 0.07491505937992286),
+    RGB(0.2272468746270438, 0.09450818887496519, 0.053122482545649836),
+    RGB(0.24275776450376843, 0.14465569383748178, 0.09254885719488251),
+    RGB(0.19832488479851235, 0.16827798680930195, 0.08146721610879516),
+    RGB(0.29030547394827216, 0.1566704731433784, 0.06955958896758961),
+    RGB(0.3486958875330028, 0.14413808439049522, 0.06517845643634491),
+    RGB(0.2631529920611145, 0.22896210929698424, 0.1119250237167965),
+    RGB(0.35775151767110114, 0.23955578484799914, 0.08566681526152695),
+    RGB(0.42895506355552904, 0.19814294026377038, 0.07315576139822164),
+    RGB(0.3359280058835734, 0.30177882691623686, 0.14764230985832),
+    RGB(0.5168174153887967, 0.2588008525490645, 0.07751817567374263),
+    RGB(0.44056726473192726, 0.3387984774995975, 0.10490250831857457),
+    RGB(0.4048595970607235, 0.40823989479512734, 0.2096109034699151),
+    RGB(0.619694338941659, 0.33787470822764315, 0.0871136546089913),
+    RGB(0.5108290351302369, 0.41506713362977327, 0.13590312315603137),
+    RGB(0.5272516131642648, 0.4706039514608196, 0.21392546020040532),
+    RGB(0.5942622209175139, 0.47822315473126586, 0.14678522310513448),
+    RGB(0.735266714513005, 0.4318652289706696, 0.1049661472744881),
+    RGB(0.6201870982552801, 0.5227924127640037, 0.2167074150596878),
+    RGB(0.6929049533440698, 0.5663098519207086, 0.18551505068207655),
+    RGB(0.6814114992549445, 0.5814898147520997, 0.27039081549715527),
+    RGB(0.8500397772474145, 0.5401215248181611, 0.1362117676724628),
+    RGB(0.7575520588269891, 0.6334254649343621, 0.25145144950124687),
+    RGB(0.8164723313500291, 0.6970150665478066, 0.32242062463720045),
+    RGB(0.9330273170314637, 0.6651641943114455, 0.19865164906805746),
+    RGB(0.9724409077178674, 0.7907008712807734, 0.2851364857083522)],
+    "colors from Leonardo da Vinci's Mona Lisa")
 
-    hokusai_test = extract(dirname(@__FILE__) * "/hokusai.jpg")
-
-    @test length(hokusai_test) == 10
-
-    # extract colors and weights from image file located here in the test directory
-    c, w =  extract_weighted_colors(dirname(@__FILE__) * "/hokusai.jpg", 10, 10, 0.01; shrink = 4)
-
-    @test length(c) == 10
-    @test length(w) == 10
-
-    # load scheme
-    hok = ColorSchemes.hokusai
-
-    @test length(hok) == 32
-
+@testset "basic tests" begin
+    @test length(monalisa) == 32
+    @test length(monalisa.colors) == 32
     # test that sampling schemes yield different values
-    @test get(hokusai_test, 0.0) != get(hokusai_test, 0.5)
-
-    # test sort
-    @test sortcolorscheme(hokusai_test, rev=true) != sortcolorscheme(hokusai_test)
-
-    # create weighted palette; there is some unpredictability here...
-    csw = colorscheme_weighted(c, w, 37)
-    @test 36 <= length(csw) <= 38
-
-    # default is 50
-    csw = colorscheme_weighted(c, w)
-    @test length(csw) == 50
-
-    # save as text
-    colorscheme_to_text(ColorSchemes.hokusai, "hokusai_test_version", "hokusai_as_text.jl", comment="a test")
-
-    @test filesize("hokusai_as_text.jl") > 2000 # TODO read it back in, for goodness sake...! :)
-
-    open("hokusai_as_text.jl") do f
-        lines = readlines(f)
-        @test startswith(lines[4], "RGB{Float64}(0.085")
-    end
-
-    @testset "getinverse tests" begin
-        cs = range(RGB(0, 0, 0), stop=RGB(1, 1, 1), length=5)
-        @test getinverse(cs, cs[3]) == 0.5
-
-        # Note that getinverse() takes the first closest match.
-        cs = [RGB(0,0,0), RGB(1,1,1),
-              RGB(0,0,0),
-              RGB(0,0,0), RGB(1,1,1)];
-        @test getinverse(cs, cs[3]) == 0
-
-        # Note that getinverse() takes the left index when two are identical.
-        cs = [RGB(1,1,1), RGB(0,0,0), RGB(0,0,0), RGB(0,1,1), RGB(1,1,0)];
-        @test getinverse(cs, cs[2]) == 0.25
-        cs = [RGB(0,0,0), RGB(0,0,0)];
-        @test getinverse(cs, cs[1]) == 0
-
-        cs = [RGB(0,0,0)];
-        @test_throws MethodError getinverse(cs, cs[1])
-        # (The above line throws for the same reason the below line does.
-        #  If this behavior ever changes, so should `getinverse`.)
-        @test_throws InexactError get(cs, 1.0, (1, 1))
-    end
-
-    @testset "convert_to_scheme tests" begin
-        # Add color to a grayscale image.
-        red_cs = range(RGB(0,0,0), stop=RGB(1,0,0), length=11)
-        gray_img = range(RGB(0,0,0), stop=RGB(1,1,0), length=11)
-        vs = [getinverse(gray_img, p) for p in red_cs]
-        cs = [RGB(v,v,v) for v in vs]
-        rcs = [get(red_cs, p) for p in vs]
-        hcat(promote(red_cs,gray_img,cs,rcs)...)'
-        new_img = convert_to_scheme(red_cs, gray_img)
-        @test all(.≈(new_img, red_cs, atol=0.5))  # This is broken.. It should be way more specific. See next test.
-
-        # Should be able to uniquely match each increasing color with the next
-        # increasing color in the new scale.
-        red_cs = range(RGB(0,0,0), stop=RGB(1,1,1))
-        blue_scale_img = range(RGB(0,0,0), stop=RGB(0,0,1))
-        new_img = convert_to_scheme(red_cs, blue_scale_img)
-        @test_broken unique(new_img) == new_img
-    end
+    @test get(monalisa, 0.0) != get(monalisa, 0.5)
 end
 
-function run_minimum_tests()
+@testset "getinverse tests" begin
+    cs = ColorScheme(range(RGB(0, 0, 0), stop=RGB(1, 1, 1), length=5))
+    @test getinverse(cs, cs[3]) == 0.5
 
-    # load scheme
-    hok = ColorSchemes.hokusai
+    # Note that getinverse() takes the first closest match.
+    cs = ColorScheme([RGB(0,0,0), RGB(1,1,1),
+          RGB(0,0,0),
+          RGB(0,0,0), RGB(1,1,1)])
+    @test getinverse(cs, cs[3]) == 0
 
-    @test length(hok) == 32
+    # Note that getinverse() takes the left index when two are identical.
+    cs = ColorScheme([RGB(1,1,1), RGB(0,0,0), RGB(0,0,0), RGB(0,1,1), RGB(1,1,0)])
+    @test getinverse(cs, cs[2]) == 0.25
+    cs = ColorScheme([RGB(0,0,0), RGB(0,0,0)])
+    @test getinverse(cs, cs[1]) == 0
 
-    # test sort
-    @test sortcolorscheme(hok, rev=true) != sortcolorscheme(hok)
+    cs = ColorScheme([RGB(0,0,0)])
+    @test_throws MethodError getinverse(cs, cs[1])
+    # (The above line throws for the same reason the below line does.
+    #  If this behavior ever changes, so should `getinverse`.)
+    @test_throws InexactError get(cs, 1.0, (1, 1))
+end
 
-    # save as text
-    colorscheme_to_text(hok, "hokusai_test_version", "hokusai_as_text.jl", comment="a test")
-
-    @test filesize("hokusai_as_text.jl") > 2000
-
-    open("hokusai_as_text.jl") do f
-        lines = readlines(f)
-        @test startswith(lines[4], "RGB{Float64}(0.085")
-    end
-
+@testset "conversion tests" begin
     # convert an Array{T,2} to an RGB image
-    tmp = get(ColorSchemes.leonardo, rand(10, 10))
+    tmp = get(monalisa, rand(10, 10))
     @test typeof(tmp) == Array{ColorTypes.RGB{Float64}, 2}
 
     # test conversion with default clamp
     x = [0.0 1.0 ; -1.0 2.0]
-    y=get(ColorSchemes.leonardo, x)
+    y = get(monalisa, x)
     @test y[1,1] == y[2,1]
     @test y[1,2] == y[2,2]
 
     # test conversion with symbol clamp
-    y2=get(ColorSchemes.leonardo, x, :clamp)
+    y2 = get(monalisa, x, :clamp)
     @test y2 == y
 
     # test conversion with symbol extrema
-    y2=get(ColorSchemes.leonardo, x, :extrema)
-    @test y2[2,1] == y[1,1]   # Minimum now becomes one edge of ColorScheme
-    @test y2[2,2] == y[1,2]   # Maximum now becomes other edge of ColorScheme
-    @test y2[1,1] !== y2[2,1] # Inbetween values or now different
+    y2=get(monalisa, x, :extrema)
+    @test y2[2,1] == y[1, 1]   # Minimum now becomes one edge of ColorScheme
+    @test y2[2,2] == y[1, 2]   # Maximum now becomes other edge of ColorScheme
+    @test y2[1,1] !== y2[2, 1] # Inbetween values or now different
 
     # test conversion with manually supplied range
-    y3=get(ColorSchemes.leonardo, x, (-1.0, 2.0))
+    y3=get(monalisa, x, (-1.0, 2.0))
     @test y3 == y2
+end
 
+@testset "misc tests" begin
     # test with steplen (#17)
     r  = range(0, stop=5, length=10)
-    y  = get(ColorSchemes.leonardo, r)
-    y2 = get(ColorSchemes.leonardo, collect(r))
+    y  = get(monalisa, r)
+    y2 = get(monalisa, collect(r))
     @test y == y2
 
     # test for specific value
     val = 0.2
-    y   = get(ColorSchemes.leonardo, [val])
-    y2  = get(ColorSchemes.leonardo, val)
+    y   = get(monalisa, [val])
+    y2  = get(monalisa, val)
     @test y2 == y[1]
-end
-
-if get(ENV, "COLORSCHEMES_KEEP_TEST_RESULTS", false) == "true"
-        cd(mktempdir())
-        @info("running tests in: $(pwd())")
-        @info("...Keeping the results")
-        run_minimum_tests()
-        @info("Test images saved in: $(pwd())")
-else
-    mktempdir() do tmpdir
-        cd(tmpdir) do
-            @info("running tests in: $(pwd())")
-            @info("but not keeping the results")
-            @info("because you didn't do: ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
-            run_minimum_tests()
-            @info("Test images weren't saved. To see the test images, next time do this before running:")
-            @info(" ENV[\"COLORSCHEMES_KEEP_TEST_RESULTS\"] = \"true\"")
-            @info("These are the very brief tests.")
-            @info("For more extensive testing, call `run_all_tests()`")
-        end
-    end
 end

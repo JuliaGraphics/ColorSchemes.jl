@@ -3,171 +3,204 @@ DocTestSetup = quote
     using ColorSchemes, Colors
 end
 ```
+
 # Basics
 
-A colorscheme is an array of colors:
+## ColorScheme objects
 
-    32-element Array{RGB{Float64},1}:
-        RGB{Float64}(0.0548203,0.016509,0.0193152)
-        RGB{Float64}(0.0750816,0.0341102,0.0397083)
-        RGB{Float64}(0.10885,0.0336675,0.0261204)
-        RGB{Float64}(0.100251,0.0534243,0.0497594)
-        ...
-        RGB{Float64}(0.85004,0.540122,0.136212)
-        RGB{Float64}(0.757552,0.633425,0.251451)
-        RGB{Float64}(0.816472,0.697015,0.322421)
-        RGB{Float64}(0.933027,0.665164,0.198652)
-        RGB{Float64}(0.972441,0.790701,0.285136)
+When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes, and stores them in a dictionary, exported and called `colorschemes`.
 
-The names of the built-in colorschemes are stored in the `schemes` array:
+A ColorScheme is a Julia object which contains:
 
-    julia> schemes
-    336-element Array{Symbol,1}:
-    :alpine         
-    :aquamarine     
-    :army           
-    :atlantic       
-    :aurora         
-    :autumn         
-    :avocado        
-    :beach          
-    :blackbody      
-    ...
-    :PiYG_10        
-    :PiYG_11        
-    :magma          
-    :inferno        
-    :plasma         
-    :viridis
+- an array of colors
+- a string defining a category
+- a string that can contain descriptive notes
 
 To access one of these built-in colorschemes, use its symbol:
 
-    julia> ColorSchemes.leonardo
+```
+julia> ColorSchemes.leonardo
+```
 
-    32-element Array{RGB{Float64},1}:
-     RGB{Float64}(0.0548203,0.016509,0.0193152)
-     RGB{Float64}(0.0750816,0.0341102,0.0397083)
-     RGB{Float64}(0.10885,0.0336675,0.0261204)
-     RGB{Float64}(0.100251,0.0534243,0.0497594)
-     ...
-     RGB{Float64}(0.620187,0.522792,0.216707)
-     RGB{Float64}(0.692905,0.56631,0.185515)
-     RGB{Float64}(0.681411,0.58149,0.270391)
-     RGB{Float64}(0.85004,0.540122,0.136212)
-     RGB{Float64}(0.757552,0.633425,0.251451)
-     RGB{Float64}(0.816472,0.697015,0.322421)
-     RGB{Float64}(0.933027,0.665164,0.198652)
-     RGB{Float64}(0.972441,0.790701,0.285136)
+If you're using Juno, the colors in the colorscheme should appear in the Plot window.
 
 !["leo color scheme"](assets/figures/leo-colorscheme.png)
 
+Otherwise, you'll see the colors listed as RGB values:
+
+```
+32-element Array{RGB{Float64},1}:
+ RGB{Float64}(0.0548203,0.016509,0.0193152)
+ RGB{Float64}(0.0750816,0.0341102,0.0397083)
+ RGB{Float64}(0.10885,0.0336675,0.0261204)
+ RGB{Float64}(0.100251,0.0534243,0.0497594)
+ ...
+ RGB{Float64}(0.620187,0.522792,0.216707)
+ RGB{Float64}(0.692905,0.56631,0.185515)
+ RGB{Float64}(0.681411,0.58149,0.270391)
+ RGB{Float64}(0.85004,0.540122,0.136212)
+ RGB{Float64}(0.757552,0.633425,0.251451)
+ RGB{Float64}(0.816472,0.697015,0.322421)
+ RGB{Float64}(0.933027,0.665164,0.198652)
+ RGB{Float64}(0.972441,0.790701,0.285136)
+```
+
+You can access the colors as:
+
+```
+ColorSchemes.leonardo.colors
+```
+
 By default, the names of the colorschemes aren't imported (there *are* rather a lot of them). But to avoid using the prefixes, you can import the ones that you want:
 
-    julia> import ColorSchemes.leonardo
-    julia> leonardo
-    32-element Array{RGB{Float64},1}:
-     RGB{Float64}(0.0548203,0.016509,0.0193152)
-     RGB{Float64}(0.0750816,0.0341102,0.0397083)
-     RGB{Float64}(0.10885,0.0336675,0.0261204)
-     RGB{Float64}(0.100251,0.0534243,0.0497594)
-     ...
-     RGB{Float64}(0.757552,0.633425,0.251451)
-     RGB{Float64}(0.816472,0.697015,0.322421)
-     RGB{Float64}(0.933027,0.665164,0.198652)
-     RGB{Float64}(0.972441,0.790701,0.285136)
+```
+julia> import ColorSchemes.leonardo
+julia> leonardo
+32-element Array{RGB{Float64},1}:
+ RGB{Float64}(0.0548203,0.016509,0.0193152)
+ RGB{Float64}(0.0750816,0.0341102,0.0397083)
+ RGB{Float64}(0.10885,0.0336675,0.0261204)
+ RGB{Float64}(0.100251,0.0534243,0.0497594)
+ ...
+ RGB{Float64}(0.757552,0.633425,0.251451)
+ RGB{Float64}(0.816472,0.697015,0.322421)
+ RGB{Float64}(0.933027,0.665164,0.198652)
+ RGB{Float64}(0.972441,0.790701,0.285136)
+```
 
 You can reference a single value of a scheme once it's loaded:
 
-    leonardo[3]
+```
+leonardo[3]
 
-    -> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
+-> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
+```
 
 Or you can 'sample' the scheme at any point between 0 and 1 using `get()`:
 
-    get(leonardo, 0.5)
+```
+get(leonardo, 0.5)
 
-    -> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
-
-You can extract a colorscheme from an image. For example, here's an image of a famous painting:
-
-!["the mona lisa"](assets/figures/monalisa.jpg)
-
-Use `extract()` to create a colorscheme from the original image:
-
-    monalisa = extract("monalisa.jpg", 10, 15, 0.01; shrink=2)
-
-which in this example creates a 10-color scheme (using 15 iterations and with a tolerance of 0.01; the image can be reduced in size, here by 2, before processing, to save time).
-
-!["mona lisa extraction"](assets/figures/mona-lisa-extract.png)
-
-    10-element Array{RGB{Float64},1}:
-    RGB{Float64}(0.0406901,0.0412985,0.0423865),
-    RGB{Float64}(0.823493,0.611246,0.234261),
-    RGB{Float64}(0.374688,0.363066,0.182004),
-    RGB{Float64}(0.262235,0.239368,0.110915),
-    RGB{Float64}(0.614806,0.428448,0.112495),
-    RGB{Float64}(0.139384,0.124466,0.0715472),
-    RGB{Float64}(0.627381,0.597513,0.340734),
-    RGB{Float64}(0.955276,0.775304,0.37135),
-    RGB{Float64}(0.497517,0.4913,0.269587),
-    RGB{Float64}(0.880421,0.851357,0.538013),
-    RGB{Float64}(0.738879,0.709218,0.441082)]
-
-(Extracting colorschemes from images requires image importing and exporting abilities. These are platform-specific. On Linux/UNIX, ImageMagick can be used for importing and exporting images. Use QuartzImageIO on macOS.)
+-> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+```
 
 ```@docs
-extract
 get
 ```
 
+## The colorschemes dictionary
+
+The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in a dictionary, called `colorschemes`, which is exported.
+
 ## Chart of all schemes
 
-The ColorSchemes module automatically provides a number of predefined schemes, shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
+The pre-defined schemes shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
 
 _It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients._
 
 !["all schemes"](assets/figures/colorschemes.png)
 
-(You can generate this file using `ColorSchemes/docs/src/assets/figures/draw-swatches.jl`, after obtaining the Luxor package to draw and label things.)
+(You can generate this image using `ColorSchemes/docs/src/assets/figures/draw-swatches.jl`, after obtaining the Luxor package to draw and label things.)
 
-You can list the names of built-in colorschemes in the `ColorSchemes/data` directory by looking in the `schemes` symbol. Look for matches with `filter()`.
+```@docs
+colorschemes
+```
+
+## Finding colorschemes
+
+Use the `findcolorscheme()` function to look through the pre-defined colorschemes.
+The string you provide can occur in the colorscheme's name, in the category, or in the notes.
 
 ```
-julia> filter(x-> occursin("temp", string(x)), schemes)
-3-element Array{Symbol,1}:
- :lighttemperaturemap
- :temperaturemap
- :tempo
+julia> findcolorscheme("magenta")
 
-julia> filter(x-> occursin(r"ma.*", string(x)), schemes)
-7-element Array{Symbol,1}:
- :aquamarine
- :lighttemperaturemap
- :temperaturemap
- :magma
- :plasma
- :matter
- :thermal  
+colorschemes containing "magenta"
+
+spring               (notes) sampled color schemes, linearl...
+cool                 (notes) sampled color schemes, linearl...
+hsv                  (notes) sampled color schemes, red-yel...
+
+found 3 results for "magenta"
+```
+
+```
+julia-1.1> findcolorscheme("cmocean")
+colorschemes containing "cmocean"
+
+oxy                  (category) cmocean
+matter               (category) cmocean
+dense                (category) cmocean
+balance              (category) cmocean
+thermal              (category) cmocean
+tempo                (category) cmocean
+gray                 (category) cmocean
+speed                (category) cmocean
+turbid               (category) cmocean
+solar                (category) cmocean
+ice                  (category) cmocean
+haline               (category) cmocean
+algae                (category) cmocean
+amp                  (category) cmocean
+deep                 (category) cmocean
+delta                (category) cmocean
+curl                 (category) cmocean
+phase                (category) cmocean
+
+found 18 results for "cmocean"
 ```
 
 ```@docs
-schemes
+findcolorscheme
 ```
 
-Of course you can easily make your own colorscheme by building an array:
+If you prefer, you can always 'roll your own' search.
 
 ```
-grays = [RGB{Float64}(i, i, i) for i in 0:0.1:1.0]
+[k for (k, v) in colorschemes if occursin(r"colorbrew"i, v.category)]
+265-element Array{Symbol,1}:
+ :BuPu_6
+ :Spectral_4
+ :RdYlGn_5
+ ⋮
+ :BrBG_8
+ :Oranges_4
 ```
 
-or, slightly longer:
+## Make your own
+
+Of course you can easily make your own ColorScheme objects by building an array:
 
 ```
-reds = RGB{Float64}[]
+grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
+```
 
-for i in 0:0.05:1
-  push!(reds, RGB{Float64}(1, 1-i, 1-i))
-end
+Give it a category or some added notes if you want:
+
+```
+grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+    "my useful schemes", "just some dull grey shades")
+```
+
+although this won't end up in the `colorschemes` dictionary.
+
+Another way is to use `loadcolorscheme()` function:
+
+```
+loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+     "useful schemes", "just some dull grey shades")
+```
+
+and that will be added (temporarily).
+
+```
+julia-1.1> findcolorscheme("dull")
+
+colorschemes containing "dull"
+
+mygrays              (notes) just some dull grey shades...
+
+
+found 1 result for "dull"
 ```
 
 ## Continuous color sampling
@@ -198,6 +231,9 @@ julia> get(leonardo, [0.0, 0.5, 1.0])
  RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)
 ```
 
+!["get example 2"](assets/figures/get-example-2.png)
+
+
 ```
 julia> simg = get(leonardo, rand(10, 16));
 julia> using FileIO
@@ -205,69 +241,3 @@ julia> save("mosaic.png", simg)
 ```
 
 !["get example 1"](assets/figures/get-example-1.png)
-
-## Sorting color schemes
-
-Use `sortcolorscheme()` to sort a scheme non-destructively in the LUV color space:
-
-```
-sortcolorscheme(ColorSchemes.leonardo)
-sortcolorscheme(ColorSchemes.leonardo, rev=true)
-```
-
-The default is to sort colors by their LUV luminance value, but you could try specifying the `:u` or `:v` LUV fields instead (sorting colors is another problem domain not really addressed in this package...):
-
-```
-sortcolorscheme(colorscheme, :u)
-```
-
-```@docs
-sortcolorscheme
-```
-
-## Weighted colorschemes
-
-Sometimes an image is dominated by some colors with others occurring less frequently. For example, there may be much more brown than yellow in a particular image. A colorscheme derived from this image can reflect this. You can extract both a set of colors and a set of numerical values or weights that indicate the proportions of colors in the image.
-
-```
-using Images
-cs, wts = extract_weighted_colors("monalisa.jpg", 10, 15, 0.01; shrink=2)
-```
-
-The colorscheme is now in `cs`, and `wts` holds the various weights of each color:
-
-```
-wts
-10-element Array{Float64,1}:
-0.0521126446851636
-0.20025391828582884
-0.08954703056671294
-0.09603605342678319
-0.09507086696018234
-0.119987526821047
-0.08042973071297582
-0.08863381567908292
-0.08599068966285295
-0.09193772319937041
-```
-
-With the colorscheme and the weights, you can make a colorscheme in which the more common colors take up more space in the scheme:
-
-```
-colorscheme_weighted(cs, wts, len)
-```
-
-Or in one go:
-
-    colorscheme_weighted(extract_weighted_colors("monalisa.jpg")...)
-
-Compare the weighted and unweighted versions of schemes extracted from the Hokusai image "The Great Wave":
-
-!["unweighted"](assets/figures/hok-scheme-unweighted.png)
-
-!["weighted"](assets/figures/hok-scheme-weighted.png)
-
-```@docs
-extract_weighted_colors
-colorscheme_weighted
-```

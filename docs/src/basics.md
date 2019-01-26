@@ -124,7 +124,7 @@ found 3 results for "magenta"
 ```
 
 ```
-julia-1.1> findcolorscheme("cmocean")
+julia> findcolorscheme("cmocean")
 colorschemes containing "cmocean"
 
 oxy                  (category) cmocean

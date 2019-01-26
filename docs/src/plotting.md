@@ -2,7 +2,7 @@
 
 ## Plots.jl
 
-To use colorschemes with [Plots.jl](https://github.com/tbreloff/Plots.jl), you can access the colors directly. For example, With the `contour()` function, use `cgrad()` to read the colorscheme as a gradient. This renaissance-looking plot uses the `leonardo` scheme:
+To use colorschemes with [Plots.jl](https://github.com/tbreloff/Plots.jl), you can access the colors directly. For example, with the `contour()` function, use `cgrad()` to read the colorscheme as a gradient. This renaissance-looking plot uses the `leonardo` scheme:
 
 ```
 using Plots, ColorSchemes

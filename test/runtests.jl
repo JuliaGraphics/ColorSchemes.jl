@@ -42,27 +42,7 @@ monalisa = ColorScheme([
     @test get(monalisa, 0.0) != get(monalisa, 0.5)
 end
 
-@testset "getinverse tests" begin
-    cs = ColorScheme(range(RGB(0, 0, 0), stop=RGB(1, 1, 1), length=5))
-    @test getinverse(cs, cs[3]) == 0.5
-
-    # Note that getinverse() takes the first closest match.
-    cs = ColorScheme([RGB(0,0,0), RGB(1,1,1),
-          RGB(0,0,0),
-          RGB(0,0,0), RGB(1,1,1)])
-    @test getinverse(cs, cs[3]) == 0
-
-    # Note that getinverse() takes the left index when two are identical.
-    cs = ColorScheme([RGB(1,1,1), RGB(0,0,0), RGB(0,0,0), RGB(0,1,1), RGB(1,1,0)])
-    @test getinverse(cs, cs[2]) == 0.25
-    cs = ColorScheme([RGB(0,0,0), RGB(0,0,0)])
-    @test getinverse(cs, cs[1]) == 0
-
-    # TODO revisit this error-handling
-    cs = ColorScheme([RGB(0,0,0)])
-    @test_throws ErrorException getinverse(cs, cs[1])
-    @test_throws InexactError get(cs, 1.0, (1, 1))
-end
+# getinverse() tests are noew in ColorSchemes
 
 @testset "conversion tests" begin
     # convert an Array{T,2} to an RGB image

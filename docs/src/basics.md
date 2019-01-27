@@ -241,3 +241,48 @@ julia> save("mosaic.png", simg)
 ```
 
 !["get example 1"](assets/figures/get-example-1.png)
+
+## Matplotlib compatibility
+
+... is a work in progress.
+
+```@example
+using ColorSchemes
+
+# https://matplotlib.org/examples/color/colormaps_reference.html
+
+matplotlibcmaps = Dict(
+   :perceptuallyuniformsequential => [
+      :viridis, :plasma, :inferno, :magma],
+   :sequential => [
+      :Greys_9, :Purples_9, :Blues_9, :Greens_9, :Oranges_9, :Reds_9,
+      :YlOrBr_9, :YlOrRd_9, :OrRd_9, :PuRd_9, :RdPu_9, :BuPu_9,
+      :GnBu_9, :PuBu_9, :YlGnBu_9, :PuBuGn_9, :BuGn_9, :YlGn_9],
+   :sequential2 => [
+      :binary, :gist_yarg, :gist_gray, :gray, :bone, :pink,
+      :spring, :summer, :autumn, :winter, :cool, :Wistia,
+      :hot, :afmhot, :gist_heat, :copper],
+   :diverging => [
+      :PiYG_11, :PRGn_11, :BrBG_11, :PuOr_11, :RdGy_11, :RdBu_11,
+      :RdYlBu_11, :RdYlGn_11, :Spectral_11, :coolwarm, :bwr, :seismic],
+   :qualitative => [
+      :Pastel1_9, :Pastel2_8, :Paired_11, :Accent_8,
+      :Dark2_8, :Set1_9, :Set2_8, :Set3_12,
+      :tab10, :tab20, :tab20b, :tab20c],
+   :miscellaneous => [
+      :flag, :prism, :ocean, :gist_earth, :terrain, :gist_stern,
+      :gnuplot, :gnuplot2, :CMRmap, :cubehelix, :brg, :hsv,
+      :gist_rainbow, :rainbow, :jet, :nipy_spectral, :gist_ncar]
+   )
+
+for (k, v) in matplotlibcmaps
+   println("$(rpad(k, 12)): $(length(v))")
+   for cs in v
+      try
+         c = colorschemes[cs]
+      catch
+         println("\t$(rpad(cs, 12)) not currently in stock")
+      end
+   end
+end
+```

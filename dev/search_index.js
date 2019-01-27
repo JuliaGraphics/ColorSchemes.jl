@@ -113,6 +113,14 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "basics/#Matplotlib-compatibility-1",
+    "page": "Basic usage",
+    "title": "Matplotlib compatibility",
+    "category": "section",
+    "text": "... is a work in progress.using ColorSchemes\n\n# https://matplotlib.org/examples/color/colormaps_reference.html\n\nmatplotlibcmaps = Dict(\n   :perceptuallyuniformsequential => [\n      :viridis, :plasma, :inferno, :magma],\n   :sequential => [\n      :Greys_9, :Purples_9, :Blues_9, :Greens_9, :Oranges_9, :Reds_9,\n      :YlOrBr_9, :YlOrRd_9, :OrRd_9, :PuRd_9, :RdPu_9, :BuPu_9,\n      :GnBu_9, :PuBu_9, :YlGnBu_9, :PuBuGn_9, :BuGn_9, :YlGn_9],\n   :sequential2 => [\n      :binary, :gist_yarg, :gist_gray, :gray, :bone, :pink,\n      :spring, :summer, :autumn, :winter, :cool, :Wistia,\n      :hot, :afmhot, :gist_heat, :copper],\n   :diverging => [\n      :PiYG_11, :PRGn_11, :BrBG_11, :PuOr_11, :RdGy_11, :RdBu_11,\n      :RdYlBu_11, :RdYlGn_11, :Spectral_11, :coolwarm, :bwr, :seismic],\n   :qualitative => [\n      :Pastel1_9, :Pastel2_8, :Paired_11, :Accent_8,\n      :Dark2_8, :Set1_9, :Set2_8, :Set3_12,\n      :tab10, :tab20, :tab20b, :tab20c],\n   :miscellaneous => [\n      :flag, :prism, :ocean, :gist_earth, :terrain, :gist_stern,\n      :gnuplot, :gnuplot2, :CMRmap, :cubehelix, :brg, :hsv,\n      :gist_rainbow, :rainbow, :jet, :nipy_spectral, :gist_ncar]\n   )\n\nfor (k, v) in matplotlibcmaps\n   println(\"$(rpad(k, 12)): $(length(v))\")\n   for cs in v\n      try\n         c = colorschemes[cs]\n      catch\n         println(\"\\t$(rpad(cs, 12)) not currently in stock\")\n      end\n   end\nend"
+},
+
+{
     "location": "finding/#",
     "page": "Finding colors",
     "title": "Finding colors",

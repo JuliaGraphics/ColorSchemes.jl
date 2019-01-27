@@ -5,7 +5,6 @@
 
 ## ColorSchemes
 
-
 This package provides a collection of colorschemes and colormaps:
 
 - scientifically devised colorschemes from ColorBrewer and CMOcean
@@ -14,3 +13,5 @@ This package provides a collection of colorschemes and colormaps:
 - variously themed colorschemes such as _sunset_, _coffee_, _neon_, and _pearl_
 
 *The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package.*
+
+Some tools for working with colorschemes can be found in the ColorSchemeTools.jl package.

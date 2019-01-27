@@ -56,7 +56,7 @@ N = 20
 x = LinRange(-0.3, 1, N)
 y = LinRange(-1, 0.5, N)
 z = x .* y'
-image(x, y, z, colormap = ColorSchemes.leonardo.colors)
+image(x, y, z, colormap = ColorSchemes.picasso.colors)
 ```
 
 !["makie"](assets/figures/makie.png)

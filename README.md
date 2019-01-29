@@ -5,7 +5,7 @@
 
 ## ColorSchemes
 
-This package provides a collection of colorschemes and colormaps:
+This package provides a collection of colorschemes:
 
 - scientifically devised colorschemes from ColorBrewer and CMOcean
 - popular old favourites such as _viridis_, _inferno_, and _magma_ from MATPlotLib

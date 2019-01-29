@@ -22,7 +22,7 @@ To access one of these built-in colorschemes, use its symbol:
 julia> ColorSchemes.leonardo
 ```
 
-If you're using Juno, the colors in the colorscheme should appear in the Plot window.
+If you're using Juno, for example, the colors in the colorscheme should appear in the Plots window.
 
 !["leo color scheme"](assets/figures/leo-colorscheme.png)
 
@@ -45,13 +45,13 @@ Otherwise, you'll see the colors listed as RGB values:
  RGB{Float64}(0.972441,0.790701,0.285136)
 ```
 
-You can access the colors as:
+You can access the array of colors as:
 
 ```
 ColorSchemes.leonardo.colors
 ```
 
-By default, the names of the colorschemes aren't imported (there *are* rather a lot of them). But to avoid using the prefixes, you can import the ones that you want:
+By default, the colorschemes aren't imported. But to avoid using the prefixes, you can import the ones that you want:
 
 ```
 julia> import ColorSchemes.leonardo
@@ -94,7 +94,7 @@ The ColorSchemes module automatically provides a number of predefined schemes. A
 
 ## Chart of all schemes
 
-The pre-defined schemes shown in the following illustration. Each scheme is drawn in three ways: first, showing each color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
+All the pre-defined schemes are shown in the following illustration. Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
 
 _It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients._
 
@@ -108,13 +108,12 @@ colorschemes
 
 ## Finding colorschemes
 
-Use the `findcolorscheme()` function to look through the pre-defined colorschemes.
-The string you provide can occur in the colorscheme's name, in the category, or in the notes.
+Use the `findcolorscheme()` function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme's name, in the category, or in the notes. It's interpreted as a case-insensitive regular expression.
 
 ```
-julia> findcolorscheme("magenta")
+julia> findcolorscheme("magen")
 
-colorschemes containing "magenta"
+colorschemes containing "magen"
 
 spring               (notes) sampled color schemes, linearl...
 cool                 (notes) sampled color schemes, linearl...
@@ -153,7 +152,7 @@ found 18 results for "cmocean"
 findcolorscheme
 ```
 
-If you prefer, you can always 'roll your own' search.
+If you prefer, you can 'roll your own' search.
 
 ```
 [k for (k, v) in colorschemes if occursin(r"colorbrew"i, v.category)]
@@ -166,11 +165,12 @@ If you prefer, you can always 'roll your own' search.
  :Oranges_4
 ```
 
-## Make your own
+## Make your own ColorScheme
 
-Of course you can easily make your own ColorScheme objects by building an array:
+You can easily make your own ColorScheme objects by building an array:
 
 ```
+using Colors
 grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
 ```
 
@@ -193,7 +193,7 @@ loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
 and that will be added (temporarily).
 
 ```
-julia-1.1> findcolorscheme("dull")
+julia> findcolorscheme("dull")
 
 colorschemes containing "dull"
 
@@ -232,7 +232,6 @@ julia> get(leonardo, [0.0, 0.5, 1.0])
 ```
 
 !["get example 2"](assets/figures/get-example-2.png)
-
 
 ```
 julia> simg = get(leonardo, rand(10, 16));

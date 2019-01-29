@@ -61,7 +61,7 @@ image(x, y, z, colormap = ColorSchemes.picasso.colors)
 
 !["makie"](assets/figures/makie.png)
 
-You can display all the colorschemes using Makie by browsing through the dictionary:
+You can display all the colorschemes using Makie by browsing through the `colorschemes` dictionary:
 
 ```
 using Makie, ColorSchemes

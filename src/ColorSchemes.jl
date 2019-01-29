@@ -20,7 +20,7 @@ export ColorScheme,
        findcolorscheme
 
 """
-    ColorScheme struct with members `colors` and `name`.
+    ColorScheme struct with members `colors`, `category`, and `name`.
 """
 struct ColorScheme
     colors::Vector{C} where {C <: Colorant}
@@ -62,6 +62,7 @@ function loadallschemes()
     include(dirname(@__FILE__) * "/../data/matplotlib.jl")
     include(dirname(@__FILE__) * "/../data/cmocean.jl")
     include(dirname(@__FILE__) * "/../data/sampledcolorschemes.jl")
+    include(dirname(@__FILE__) * "/../data/gnu.jl")
     # create them as constants...
     # they're not exported
     for key in keys(colorschemes)

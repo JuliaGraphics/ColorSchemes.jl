@@ -31,26 +31,26 @@ function draw_swatch(cschemename, pos, tilewidth, tileheight)
 
     # draw blend
     stepping = 0.0005
-    boxwidth = panewidth * stepping
+    bxwidth = panewidth * stepping
 
     for i in 0:stepping:1
         c = get(cscheme, i)
         sethue(c)
-        xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - boxwidth)
-        box(Point(xpos + boxwidth/2, O.y), boxwidth, paneheight/3 - 2, :fillstroke)
+        xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - bxwidth)
+        box(Point(xpos + bxwidth/2, O.y), bxwidth, paneheight/3 - 2, :fillstroke)
     end
 
     # draw a (calculated) luminance graph of this scheme
     stepping = 0.01
-    boxwidth = panewidth * stepping
+    bxwidth = panewidth * stepping
     for i in 0:stepping:1
         c = get(cscheme, i)
         lum = grayify(c)
         sethue(lum...)
-        xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - boxwidth)
+        xpos = rescale(i, 0, 1, O.x - panewidth/2, O.x + panewidth/2 - bxwidth)
         doty = lum[1]
-        rect(Point(xpos + boxwidth/2, O.y + paneheight/2 - 2),
-            boxwidth,
+        rect(Point(xpos + bxwidth/2, O.y + paneheight/2 - 2),
+            bxwidth,
             -(doty * (paneheight/3 - 2)),
             :fill)
     end

@@ -20,7 +20,7 @@ N = 20
 x = LinRange(-0.3, 1, N)
 y = LinRange(-1, 0.5, N)
 z = x .* y&#39;
-image(x, y, z, colormap = ColorSchemes.picasso.colors)</code></pre><p><img src="../assets/figures/makie.png" alt="&quot;makie&quot;"/></p><p>You can display all the colorschemes using Makie by browsing through the dictionary:</p><pre><code class="language-none">using Makie, ColorSchemes
+image(x, y, z, colormap = ColorSchemes.picasso.colors)</code></pre><p><img src="../assets/figures/makie.png" alt="&quot;makie&quot;"/></p><p>You can display all the colorschemes using Makie by browsing through the <code>colorschemes</code> dictionary:</p><pre><code class="language-none">using Makie, ColorSchemes
 
 h = 0.0
 offset = 0.1

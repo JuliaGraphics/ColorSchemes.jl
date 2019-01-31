@@ -14,4 +14,4 @@ This package provides a collection of colorschemes:
 
 *The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package.*
 
-Some tools for working with colorschemes can be found in the ColorSchemeTools.jl package.
+Some tools for working with colorschemes can be found in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.

@@ -9,7 +9,7 @@ loadcolorscheme(:alpine, [
     RGB(0.610225, 0.62717, 0.537364),
     RGB(0.735256, 0.728382, 0.656772),
     RGB(0.867237, 0.859925, 0.784232),
-    RGB(1.0, 0.997467, 0.914244)], "", "")
+    RGB(1.0, 0.997467, 0.914244)], "general", "alpine")
 
 loadcolorscheme(:aquamarine, [
     RGB(0.68069, 0.735561, 0.850004),
@@ -92,7 +92,7 @@ loadcolorscheme(:auerbach, [
     RGB(0.827819,0.732186,0.680818),
     RGB(0.884046,0.774829,0.570453),
     RGB(0.888407,0.816291,0.762794),
-    RGB(0.949093,0.911894,0.891501)], "general", "his portrait of Julia")
+    RGB(0.949093,0.911894,0.891501)], "general", "palette of artist Auerbach's portrait of his wife Julia")
 
 loadcolorscheme(:aurora, [
     RGB(0.258824, 0.258824, 0.258824),

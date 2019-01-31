@@ -8,7 +8,7 @@ end
 
 ## ColorScheme objects
 
-When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes, and stores them in a dictionary, exported and called `colorschemes`.
+When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes, and stores them in a dictionary called `colorschemes`.
 
 A ColorScheme is a Julia object which contains:
 
@@ -90,17 +90,23 @@ get
 
 ## The colorschemes dictionary
 
-The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in a dictionary, called `colorschemes`, which is exported.
+The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in a dictionary, called `colorschemes`.
 
-## Chart of all schemes
+## Pre-defined schemes
 
-All the pre-defined schemes are shown in the following illustration. Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
+Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
 
 _It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients._
 
-!["all schemes"](assets/figures/colorschemes.png)
+!["cmocean schemes"](assets/figures/colorschemes-cmocean.png)
 
-(You can generate this image using `ColorSchemes/docs/src/assets/figures/draw-swatches.jl`, after obtaining the Luxor package to draw and label things.)
+!["matplot schemes"](assets/figures/colorschemes-matplot.png)
+
+!["colorbrewer schemes"](assets/figures/colorschemes-colorbrewer.png)
+
+!["gnuplot schemes"](assets/figures/colorschemes-gnuplot.png)
+
+!["general schemes"](assets/figures/colorschemes-general.png)
 
 ```@docs
 colorschemes
@@ -155,7 +161,7 @@ findcolorscheme
 If you prefer, you can 'roll your own' search.
 
 ```
-[k for (k, v) in colorschemes if occursin(r"colorbrew"i, v.category)]
+[k for (k, v) in CcolorSchemes.colorschemes if occursin(r"colorbrew"i, v.category)]
 265-element Array{Symbol,1}:
  :BuPu_6
  :Spectral_4
@@ -203,9 +209,11 @@ mygrays              (notes) just some dull grey shades...
 found 1 result for "dull"
 ```
 
+If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
+
 ## Continuous color sampling
 
-You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[2:20]`). Or you can sample a colorscheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:
+You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[5:end]`). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:
 
 ```
 get(leonardo, 0.5)
@@ -219,9 +227,9 @@ RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 
 !["get example"](assets/figures/get-example.png)
 
-The colors in the predefined colorschemes are usually sorted by LUV luminance, so this often makes sense.
+The colors in the predefined ColorSchemes are usually sorted by LUV luminance, so this often makes sense.
 
-You can use `get()` with data in arrays, to return arrays of colors:
+You can use `get()` with index data in arrays to return arrays of colors:
 
 ```
 julia> get(leonardo, [0.0, 0.5, 1.0])
@@ -243,7 +251,7 @@ julia> save("mosaic.png", simg)
 
 ## Matplotlib compatibility
 
-... is a work in progress.
+Most of the color schemes in Matplotlib are available. The following list gives a general picture.
 
 ```@example
 using ColorSchemes
@@ -278,7 +286,7 @@ for (k, v) in matplotlibcmaps
    println("$(rpad(k, 12)): $(length(v))")
    for cs in v
       try
-         c = colorschemes[cs]
+         c = ColorSchemes.colorschemes[cs]
       catch
          println("\t$(rpad(cs, 12)) not currently in stock")
       end

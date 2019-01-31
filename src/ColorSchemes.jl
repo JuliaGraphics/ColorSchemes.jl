@@ -75,7 +75,7 @@ loadallschemes()
 """
     findcolorscheme(str)
 
-Find all color schemes matching `str`. `str` is interpreted as a regular expression.
+Find all color schemes matching `str`. `str` is interpreted as a regular expression (case-insensitive).
 
 To read the notes of built-in colorscheme `cscheme`:
 

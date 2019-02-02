@@ -77,7 +77,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "Pre-defined schemes",
     "category": "section",
-    "text": "Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It\'s generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"cmocean schemes\")(Image: \"matplot schemes\")(Image: \"colorbrewer schemes\")(Image: \"gnuplot schemes\")(Image: \"general schemes\")colorschemes"
+    "text": "Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It\'s generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"cmocean schemes\")(Image: \"matplot schemes\")(Image: \"colorbrewer schemes\")(Image: \"gnuplot schemes\")(Image: \"colorcet schemes\")(Image: \"general schemes\")colorschemes"
 },
 
 {

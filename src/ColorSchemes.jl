@@ -63,8 +63,8 @@ function loadallschemes()
     include(dirname(@__FILE__) * "/../data/cmocean.jl")
     include(dirname(@__FILE__) * "/../data/sampledcolorschemes.jl")
     include(dirname(@__FILE__) * "/../data/gnu.jl")
+    include(dirname(@__FILE__) * "/../data/colorcetdata.jl")
     # create them as constants...
-    # they're not exported
     for key in keys(colorschemes)
         @eval const $key = colorschemes[$(QuoteNode(key))]
     end

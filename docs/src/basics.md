@@ -106,6 +106,8 @@ _It's generally agreed (search the web for "Rainbow colormaps considered harmful
 
 !["gnuplot schemes"](assets/figures/colorschemes-gnuplot.png)
 
+!["colorcet schemes"](assets/figures/colorschemes-colorcet.png)
+
 !["general schemes"](assets/figures/colorschemes-general.png)
 
 ```@docs

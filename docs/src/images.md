@@ -5,9 +5,9 @@ end
 ```
 # Images
 
-## A Julia Julia set: colorschemes and Images
+## A Julia Julia set: ColorSchemes and Images
 
-Here's an example of how you can use colorschemes when creating images with Images.jl. The code creates a Julia set and uses a colorscheme extracted from Vermeer's painting "Girl with a Pearl Earring" (shown at the right).
+Here's an example of how you can use ColorSchemes when creating images with Images.jl. The code creates a Julia set and uses a pre-defined ColorScheme extracted from Vermeer's painting "Girl with a Pearl Earring" (shown at the right for reference).
 
 !["julia set"](assets/figures/julia-set-with-girl-pearl-vermeer.jpg)
 

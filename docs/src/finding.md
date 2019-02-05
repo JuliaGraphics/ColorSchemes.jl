@@ -6,17 +6,21 @@ end
 
 # Finding colors in colorschemes
 
-ColorSchemes.jl provides the function `getinverse(cscheme, c)` which is the _inverse_ of `get(cscheme, x)`.
+ColorSchemes.jl provides the function `getinverse(cscheme, color)` which is the _inverse_ of `get(cscheme, n)`.
 
-This function returns a value between 0 and 1 that tries to place a color within a colorscheme by converting it to a value representing its position on the colorscheme's axis.
+This function returns a value between 0 and 1 that tries to place a color within a colorscheme by converting it to a value representing its position on the colorscheme's 'axis'.
 
 !["get inverse"](assets/figures/getinverse.png)
+
+```@docs
+getinverse
+```
 
 ## Example of using getinverse()
 
 One example use for `getinverse()` is to convert a heatmap image into an Array of continuous values, e.g. temperature.
 
-In this example, we will convert a heatmap image representing elevation in the United States into an Array of elevation values. The image represents global temperature anomalies averaged from 2008 through 2012, with blue as -2 C and Red as +2 C. Higher than normal temperatures are shown in red (red is +2°C) and lower than normal temperatures are shown in blue (blue is -2°C). The global surface temperature in 2012 was +0.55°C. [source](https://svs.gsfc.nasa.gov/cgi-bin/details.cgi?aid=4030).
+In this example, we will convert a heatmap image representing elevation in the United States into an Array of elevation values. The image represents global temperature anomalies averaged from 2008 through 2012, with blue as -2°C and Red as +2°C. Higher than normal temperatures are shown in red (red is +2°C) and lower than normal temperatures are shown in blue (blue is -2°C). The global surface temperature in 2012 was +0.55°C. [source](https://svs.gsfc.nasa.gov/cgi-bin/details.cgi?aid=4030).
 
 ```
 using Images, FileIO
@@ -50,7 +54,7 @@ temps = [getinverse(ColorSchemes.temperaturemap, pixel) for pixel in img]
  0.802037  0.798624  0.798624  0.798624     0.802401  0.800252  0.802848
 ```
 
-The data has been converted from its original colors to an array of continuous values between 0 and 1, which makes it possible to process as data. For example, we can find the places with the greatest anomalies:
+The image has been converted from its original colors to an array of continuous values between 0 and 1. This makes it possible to process as data. For example, we can find the places with the greatest anomalies:
 
 ```
 mintemp, maxtemp = argmin(temps), argmax(temps)
@@ -58,7 +62,7 @@ mintemp, maxtemp = argmin(temps), argmax(temps)
  (CartesianIndex(397, 127), CartesianIndex(17, 314))
 ```
 
-and these maximum and minimum 'coordinates' can be displayed on the image using, for example, Luxor.jl (or any other package that allows you to mix images and vector graphics easily):
+and these maximum and minimum 'coordinates' can be displayed on the image using another package that allows you to mix images and vector graphics easily (such as Luxor.jl, for example).
 
 ```
 save("/tmp/img.png", img)
@@ -93,7 +97,3 @@ Gray.(temps)
 ```
 
 !["heatmap 2 grey"](assets/figures/heatmap2.png)
-
-```@docs
-getinverse
-```

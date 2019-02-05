@@ -2,7 +2,7 @@
 
 ## Plots.jl
 
-To use colorschemes with [Plots.jl](https://github.com/tbreloff/Plots.jl), you can access the colors directly. For example, with the `contour()` function, use `cgrad()` to read the colorscheme as a gradient. This renaissance-looking plot uses the `leonardo` scheme:
+To use ColorSchemes with [Plots.jl](https://github.com/tbreloff/Plots.jl), you can access the colors directly. For example, with the `contour()` function, use `cgrad()` to read the colors as a gradient. This renaissance-looking plot uses the `leonardo` scheme:
 
 ```
 using Plots, ColorSchemes
@@ -12,7 +12,7 @@ y = x
 f(x, y) = begin
       sin(x) + cos(y)
   end
-contour(x, y, f, fill=true, seriescolor=cgrad(ColorSchemes.leonardo.colors))
+contour(x, y, f, fill=true, seriescolor = cgrad(ColorSchemes.leonardo.colors))
 ```
 
 !["contour"](assets/figures/plots-contour-1.png)
@@ -48,7 +48,7 @@ plot(x=x, y=y,
 
 ## Makie
 
-If you use Makie.jl you can pass the colors in a colorscheme directly to the `colormap` keyword.
+If you use Makie.jl you can pass the colors in a ColorScheme directly to the `colormap` keyword.
 
 ```
 using Makie, ColorSchemes
@@ -61,7 +61,7 @@ image(x, y, z, colormap = ColorSchemes.picasso.colors)
 
 !["makie"](assets/figures/makie.png)
 
-You can display all the colorschemes using Makie by browsing through the `colorschemes` dictionary:
+You can display all the colorschemes using Makie by letting the code browse through the `colorschemes` dictionary:
 
 ```
 using Makie, ColorSchemes
@@ -98,7 +98,7 @@ scene
 
 ## Winston
 
-If you prefer Winston.jl for plotting, you can use colorschemes with `imagesc`:
+If you prefer Winston.jl for plotting, you can use ColorSchemes with `imagesc`:
 
 ```
 using Winston, ColorSchemes
@@ -122,7 +122,7 @@ Winston.imagesc(reshape(1:10000,100,100))
 
 ## PyPlot
 
-Colorschemes can be used with the `cmap` keyword in PyPlot:
+ColorSchemes can be used with the `cmap` keyword in PyPlot:
 
 ```
 # warning: this crashes your Julia session at the moment (2019-01-24)

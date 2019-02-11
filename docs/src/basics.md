@@ -163,7 +163,7 @@ findcolorscheme
 If you prefer, you can 'roll your own' search.
 
 ```
-[k for (k, v) in CcolorSchemes.colorschemes if occursin(r"colorbrew"i, v.category)]
+[k for (k, v) in ColorSchemes.colorschemes if occursin(r"colorbrew"i, v.category)]
 265-element Array{Symbol,1}:
  :BuPu_6
  :Spectral_4

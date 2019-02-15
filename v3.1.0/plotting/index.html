@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Plotting · ColorSchemes</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link href="../assets/documenter.css" rel="stylesheet" type="text/css"/></head><body><nav class="toc"><a href="../index.html"><img class="logo" src="../assets/logo.png" alt="ColorSchemes logo"/></a><h1>ColorSchemes</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../">Introduction</a></li><li><a class="toctext" href="../basics/">Basic usage</a></li><li><a class="toctext" href="../finding/">Finding colors</a></li><li class="current"><a class="toctext" href>Plotting</a><ul class="internal"><li><a class="toctext" href="#Plots.jl-1">Plots.jl</a></li><li><a class="toctext" href="#Gadfly-1">Gadfly</a></li><li><a class="toctext" href="#Makie-1">Makie</a></li><li><a class="toctext" href="#Winston-1">Winston</a></li><li><a class="toctext" href="#PyPlot-1">PyPlot</a></li></ul></li><li><a class="toctext" href="../images/">Images</a></li><li><a class="toctext" href="../functionindex/">Index</a></li></ul></nav><article id="docs"><header><nav><ul><li><a href>Plotting</a></li></ul><a class="edit-page" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/plotting.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Plotting</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Plotting-1" href="#Plotting-1">Plotting</a></h1><h2><a class="nav-anchor" id="Plots.jl-1" href="#Plots.jl-1">Plots.jl</a></h2><p>To use ColorSchemes with <a href="https://github.com/tbreloff/Plots.jl">Plots.jl</a>, you can access the colors directly. For example, with the <code>contour()</code> function, use <code>cgrad()</code> to read the colors as a gradient. This renaissance-looking plot uses the <code>leonardo</code> scheme:</p><pre><code class="language-none">using Plots, ColorSchemes
+
+x = 1:0.3:20
+y = x
+f(x, y) = begin
+      sin(x) + cos(y)
+  end
+contour(x, y, f, fill=true, seriescolor = cgrad(ColorSchemes.leonardo.colors))</code></pre><p><img src="../assets/figures/plots-contour-1.png" alt="&quot;contour&quot;"/></p><p>(You can use <code>c</code> as a short cut for <code>seriescolor</code>.)</p><p>With other plots, use the <code>palette</code> keyword:</p><pre><code class="language-none">plot(Plots.fakedata(100, 20),
+    w=4,
+    background_color=ColorSchemes.vermeer[1],
+    palette=ColorSchemes.vermeer.colors)</code></pre><p><img src="../assets/figures/plots-background.png" alt="&quot;palette&quot;"/></p><h2><a class="nav-anchor" id="Gadfly-1" href="#Gadfly-1">Gadfly</a></h2><p>Here&#39;s how you can use ColorSchemes in Gadfly:</p><pre><code class="language-none">using Gadfly, ColorSchemes
+x = repeat(collect(1:20), inner=[20]);
+y = repeat(collect(1:20), outer=[20]);
+plot(x=x, y=y,
+    color=x+y,
+    Geom.rectbin,
+    Scale.ContinuousColorScale(p -&gt; get(ColorSchemes.sunset, p)))</code></pre><p><img src="../assets/figures/gadfly-sunset.png" alt="&quot;gadfly&quot;"/></p><h2><a class="nav-anchor" id="Makie-1" href="#Makie-1">Makie</a></h2><p>If you use Makie.jl you can pass the colors in a ColorScheme directly to the <code>colormap</code> keyword.</p><pre><code class="language-none">using Makie, ColorSchemes
+N = 20
+x = LinRange(-0.3, 1, N)
+y = LinRange(-1, 0.5, N)
+z = x .* y&#39;
+image(x, y, z, colormap = ColorSchemes.picasso.colors)</code></pre><p><img src="../assets/figures/makie.png" alt="&quot;makie&quot;"/></p><p>You can display all the colorschemes using Makie by letting the code browse through the <code>colorschemes</code> dictionary:</p><pre><code class="language-none">using Makie, ColorSchemes
+
+h = 0.0
+offset = 0.1
+scene = Scene()
+cam2d!(scene)
+plot = map(collect(keys(colorschemes))) do cmap
+     global h
+     c = to_colormap(colorschemes[cmap].colors)
+     cbar = image!(
+         scene,
+         range(0, stop = 10, length = length(c)),
+         range(0, stop = 1, length = length(c)),
+         reshape(c, (length(c), 1)),
+         show_axis = false
+     )[end]
+     text!(
+         scene,
+         string(cmap, &quot;:&quot;),
+         position = Point2f0(-0.1, 0.5 + h),
+         align = (:right, :center),
+         show_axis = false,
+         textsize = 0.4
+     )
+     translate!(cbar, 0, h, 0)
+     h -= (1 + offset)
+end
+scene</code></pre><p><img src="../assets/figures/allschemesmakie.png" alt="&quot;makie all colorschemes&quot;"/></p><h2><a class="nav-anchor" id="Winston-1" href="#Winston-1">Winston</a></h2><p>If you prefer Winston.jl for plotting, you can use ColorSchemes with <code>imagesc</code>:</p><pre><code class="language-none">using Winston, ColorSchemes
+klimt = ColorSchemes.klimt.colors
+Winston.colormap(klimt)
+Winston.imagesc(reshape(1:10000,100,100))</code></pre><p><img src="../assets/figures/winston.png" alt="&quot;winston klimt&quot;"/></p><p>Sometimes you&#39;ll want a smoother gradient with more colors. You can use <code>get(scheme, n)</code> to generate a more detailed array of colors, varying <code>n</code> from 0 to 1 by 0.001:</p><pre><code class="language-none">brasstones = ColorSchemes.brass
+brasstonesmooth = [get(brasstones, i) for i in 0:0.001:1]
+Winston.colormap(brasstonesmooth)
+Winston.imagesc(reshape(1:10000,100,100))</code></pre><p><img src="../assets/figures/winston1.png" alt="&quot;winston brass tones"/></p><h2><a class="nav-anchor" id="PyPlot-1" href="#PyPlot-1">PyPlot</a></h2><p>ColorSchemes can be used with the <code>cmap</code> keyword in PyPlot:</p><pre><code class="language-none"># warning: this crashes your Julia session at the moment (2019-01-24)
+
+using PyPlot, Distributions, ColorSchemes
+
+solar = ColorSchemes.solar.colors
+
+n = 100
+x = range(-3, stop=3, length=n)
+y = range(-3, stop=3, length=n)
+
+xgrid = repeat(x&#39;, n, 1);
+ygrid = repeat(y, 1, n);
+z = zeros(n, n);
+
+for i in 1:n
+    for j in 1:n
+        z[i, j] = 2sin(x[i]) * 2cos(y[j])
+    end
+end
+
+fig = PyPlot.figure(&quot;pyplot_surfaceplot&quot;,figsize=(10,10))
+
+using3D()
+ax = fig[:add_subplot](2, 1, 1, projection = &quot;3d&quot;)
+
+ax[:plot_surface](xgrid, ygrid, z, rstride=2,edgecolors=&quot;k&quot;,
+    cstride=2,
+    cmap=ColorMap(solar),
+    alpha=0.8,
+    linewidth=0.25)</code></pre><p><img src="../assets/figures/pyplot.png" alt="&quot;pyplot&quot;"/></p><footer><hr/><a class="previous" href="../finding/"><span class="direction">Previous</span><span class="title">Finding colors</span></a><a class="next" href="../images/"><span class="direction">Next</span><span class="title">Images</span></a></footer></article></body></html>

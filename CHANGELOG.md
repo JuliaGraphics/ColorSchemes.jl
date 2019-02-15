@@ -1,5 +1,23 @@
 # Changelog
 
+## [v3.1.0] - minor changes - 2019-02-15
+
+### Added
+
+- twilight added
+
+### Changed
+
+-
+
+### Removed
+
+-
+
+### Deprecated
+
+-
+
 ## [v3.0.0] - re-factored - 2019-01-24
 
 ### Added

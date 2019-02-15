@@ -274,6 +274,8 @@ matplotlibcmaps = Dict(
    :diverging => [
       :PiYG_11, :PRGn_11, :BrBG_11, :PuOr_11, :RdGy_11, :RdBu_11,
       :RdYlBu_11, :RdYlGn_11, :Spectral_11, :coolwarm, :bwr, :seismic],
+   :cyclical => [
+        :twilight, :twilight_shifted, :hsv],
    :qualitative => [
       :Pastel1_9, :Pastel2_8, :Paired_11, :Accent_8,
       :Dark2_8, :Set1_9, :Set2_8, :Set3_12,
@@ -285,7 +287,7 @@ matplotlibcmaps = Dict(
    )
 
 for (k, v) in matplotlibcmaps
-   println("$(rpad(k, 12)): $(length(v))")
+   println("$(rpad(k, 12)) $(length(v))")
    for cs in v
       try
          c = ColorSchemes.colorschemes[cs]

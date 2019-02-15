@@ -107,6 +107,8 @@ matplotlibcmaps = Dict(
    :diverging =&gt; [
       :PiYG_11, :PRGn_11, :BrBG_11, :PuOr_11, :RdGy_11, :RdBu_11,
       :RdYlBu_11, :RdYlGn_11, :Spectral_11, :coolwarm, :bwr, :seismic],
+   :cyclical =&gt; [
+        :twilight, :twilight_shifted, :hsv],
    :qualitative =&gt; [
       :Pastel1_9, :Pastel2_8, :Paired_11, :Accent_8,
       :Dark2_8, :Set1_9, :Set2_8, :Set3_12,
@@ -118,7 +120,7 @@ matplotlibcmaps = Dict(
    )
 
 for (k, v) in matplotlibcmaps
-   println(&quot;$(rpad(k, 12)): $(length(v))&quot;)
+   println(&quot;$(rpad(k, 12)) $(length(v))&quot;)
    for cs in v
       try
          c = ColorSchemes.colorschemes[cs]
@@ -126,9 +128,11 @@ for (k, v) in matplotlibcmaps
          println(&quot;\t$(rpad(cs, 12)) not currently in stock&quot;)
       end
    end
-end</code></pre><pre><code class="language-none">sequential  : 18
-qualitative : 12
-sequential2 : 16
-perceptuallyuniformsequential: 4
-diverging   : 12
-miscellaneous: 17</code></pre></div><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Introduction</span></a><a class="next" href="../finding/"><span class="direction">Next</span><span class="title">Finding colors</span></a></footer></article></body></html>
+end</code></pre><pre><code class="language-none">cyclical     3
+	twilight_shifted not currently in stock
+sequential   18
+qualitative  12
+sequential2  16
+perceptuallyuniformsequential 4
+diverging    12
+miscellaneous 17</code></pre></div><footer><hr/><a class="previous" href="../"><span class="direction">Previous</span><span class="title">Introduction</span></a><a class="next" href="../finding/"><span class="direction">Next</span><span class="title">Finding colors</span></a></footer></article></body></html>

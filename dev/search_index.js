@@ -61,7 +61,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "The colorschemes dictionary",
     "category": "section",
-    "text": "The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in a dictionary, called colorschemes."
+    "text": "The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in an exported dictionary, called colorschemes.colorschemes[:summer] |> show\n    ColorScheme(\n        ColorTypes.RGB{Float64}[\n            RGB{Float64}(0.0,0.5,0.4),\n            RGB{Float64}(0.01,0.505,0.4),\n            RGB{Float64}(0.02,0.51,0.4),\n            RGB{Float64}(0.03,0.515,0.4),\n            ...\n            RGB{Float64}(1.0,1.0,0.4)],\n       \"matplotlib\",\n       \"sampled color schemes, sequential linearly-increasing shades of green-yellow\")"
 },
 
 {
@@ -69,7 +69,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "ColorSchemes.colorschemes",
     "category": "constant",
-    "text": "colorschemes\n\nA dictionary of pre-defined colorschemes.\n\n\n\n\n\n"
+    "text": "colorschemes\n\nAn exported dictionary of pre-defined colorschemes:\n\ncolorschemes[:summer] |> show\n   ColorScheme(\n      ColorTypes.RGB{Float64}[\n          RGB{Float64}(0.0,0.5,0.4), RGB{Float64}(0.01,0.505,0.4), RGB{Float64}(0.02,0.51,0.4), RGB{Float64}(0.03,0.515,0.4),\n          ...\n\nTo choose a random ColorScheme:\n\nusing Random\nscheme = first(Random.shuffle!(collect(keys(colorschemes))))\n\n\n\n\n\n"
 },
 
 {
@@ -77,7 +77,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "Pre-defined schemes",
     "category": "section",
-    "text": "Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It\'s generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"cmocean schemes\")(Image: \"matplot schemes\")(Image: \"colorbrewer schemes\")(Image: \"gnuplot schemes\")(Image: \"colorcet schemes\")(Image: \"general schemes\")colorschemes"
+    "text": "Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using get() with values ranging from 0 to 1 (stepping through the range 0:0.001:1); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.It\'s generally agreed (search the web for \"Rainbow colormaps considered harmful\") that you should choose colormaps with smooth linear luminance gradients.(Image: \"cmocean schemes\")(Image: \"matplot schemes\")(Image: \"colorbrewer schemes\")(Image: \"gnuplot schemes\")(Image: \"colorcet schemes\")(Image: \"general schemes\")colorschemesTo choose a random ColorScheme:using Random\nscheme = first(Random.shuffle!(collect(keys(colorschemes))))"
 },
 
 {
@@ -101,7 +101,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Basic usage",
     "title": "Make your own ColorScheme",
     "category": "section",
-    "text": "You can easily make your own ColorScheme objects by building an array:using Colors\ngrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])Give it a category or some added notes if you want:grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],\n    \"my useful schemes\", \"just some dull grey shades\")although this won\'t end up in the colorschemes dictionary.Another way is to use loadcolorscheme() function:loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],\n     \"useful schemes\", \"just some dull grey shades\")and that will be added (temporarily).julia> findcolorscheme(\"dull\")\n\ncolorschemes containing \"dull\"\n\nmygrays              (notes) just some dull grey shades...\n\n\nfound 1 result for \"dull\"If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the make_colorscheme() function in the ColorSchemeTools.jl package."
+    "text": "You can easily make your own ColorScheme objects by building an array:using Colors\ngrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])Give it a category or some added notes if you want:grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],\n    \"my useful schemes\", \"just some dull grey shades\")although this won\'t end up in the colorschemes dictionary.Another example, starting with a two-color scheme, then building a gradient from the first color to the other.myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],\n               \"custom\", \"twotone, red and green\")\nColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])Another way is to use loadcolorscheme() function:loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],\n     \"useful schemes\", \"just some dull grey shades\")and that will be added (temporarily).julia> findcolorscheme(\"dull\")\n\ncolorschemes containing \"dull\"\n\nmygrays              (notes) just some dull grey shades...\n\n\nfound 1 result for \"dull\"If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the make_colorscheme() function in the ColorSchemeTools.jl package."
 },
 
 {

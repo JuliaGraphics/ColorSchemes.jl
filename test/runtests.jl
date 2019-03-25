@@ -83,4 +83,9 @@ end
     y   = get(monalisa, [val])
     y2  = get(monalisa, val)
     @test y2 == y[1]
+
+    col = get(reverse(monalisa), 0.0)
+    @test col.r > 0.9
+    @test col.g > 0.7
+    @test col.b > 0.2
 end

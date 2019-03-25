@@ -33,25 +33,47 @@ end
 
 Create a ColorScheme from an array of colors. You can also name it, assign a
 category to it, and add notes.
+
+```
+myscheme = ColorScheme([Colors.RGB(0.0, 0.0, 0.0), Colors.RGB(1.0, 1.0, 1.0)],
+    "custom", "twotone, black and white")
+```
+
 """
 ColorScheme(colors, category::AbstractString) = ColorScheme(colors, category, "")
 ColorScheme(colors) = ColorScheme(colors, "general", "")
 
 """
-    loadcolorscheme(vname, cscheme, cat="", notes="")
+    loadcolorscheme(vname, colors, cat="", notes="")
 
-Define a ColorScheme and add it to the `colorschemes` dictionary.
+Define a ColorScheme from a symbol and an array of colors, and add it to the `colorschemes` dictionary.
 """
-function loadcolorscheme(vname, cscheme, cat="", notes="")
+function loadcolorscheme(vname, colors, cat="", notes="")
     haskey(colorschemes, vname) && println("$vname overwritten")
-    colorschemes[vname] = ColorSchemes.ColorScheme(cscheme, cat, notes)
+    colorschemes[vname] = ColorSchemes.ColorScheme(colors, cat, notes)
     return colorschemes[vname]
 end
 
 """
     colorschemes
 
-A dictionary of pre-defined colorschemes.
+An exported dictionary of pre-defined colorschemes:
+
+```
+colorschemes[:summer] |> show
+   ColorScheme(
+      ColorTypes.RGB{Float64}[
+          RGB{Float64}(0.0,0.5,0.4), RGB{Float64}(0.01,0.505,0.4), RGB{Float64}(0.02,0.51,0.4), RGB{Float64}(0.03,0.515,0.4),
+          ...
+```
+
+To choose a random ColorScheme:
+
+```
+using Random
+scheme = first(Random.shuffle!(collect(keys(colorschemes))))
+```
+
 """
 const colorschemes = Dict{Symbol, ColorScheme}()
 
@@ -237,5 +259,13 @@ function getinverse(cscheme::ColorScheme, c, rangescale :: Tuple{Number, Number}
     end
     return remap(v, 1, length(cscheme), rangescale...)
 end
+
+"""
+    reverse(cscheme)
+
+Make a new ColorScheme with the same colors as `cscheme` but in reverse order.
+"""
+Base.reverse(cscheme::ColorScheme) =
+    ColorScheme(reverse(cscheme.colors), cscheme.category, cscheme.notes)
 
 end

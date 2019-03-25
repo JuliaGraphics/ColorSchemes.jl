@@ -90,7 +90,21 @@ get
 
 ## The colorschemes dictionary
 
-The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in a dictionary, called `colorschemes`.
+The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in an exported dictionary, called `colorschemes`.
+
+```
+colorschemes[:summer] |> show
+    ColorScheme(
+        ColorTypes.RGB{Float64}[
+            RGB{Float64}(0.0,0.5,0.4),
+            RGB{Float64}(0.01,0.505,0.4),
+            RGB{Float64}(0.02,0.51,0.4),
+            RGB{Float64}(0.03,0.515,0.4),
+            ...
+            RGB{Float64}(1.0,1.0,0.4)],
+       "matplotlib",
+       "sampled color schemes, sequential linearly-increasing shades of green-yellow")
+```
 
 ## Pre-defined schemes
 
@@ -112,6 +126,13 @@ _It's generally agreed (search the web for "Rainbow colormaps considered harmful
 
 ```@docs
 colorschemes
+```
+
+To choose a random ColorScheme:
+
+```
+using Random
+scheme = first(Random.shuffle!(collect(keys(colorschemes))))
 ```
 
 ## Finding colorschemes
@@ -190,6 +211,14 @@ grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
 ```
 
 although this won't end up in the `colorschemes` dictionary.
+
+Another example, starting with a two-color scheme, then building a gradient from the first color to the other.
+
+```
+myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
+               "custom", "twotone, red and green")
+ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])
+```
 
 Another way is to use `loadcolorscheme()` function:
 

@@ -32,3 +32,12 @@ using ColorSchemes
 ```
 
 Original version by [cormullion](https://github.com/cormullion).
+
+## Documentation
+
+This documentation was built using [Documenter.jl](https://github.com/JuliaDocs).
+
+```@example
+using Dates # hide
+println("Documentation built $(Dates.now()) with Julia $(VERSION)") # hide
+```

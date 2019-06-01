@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.3.0] - 2019-06-01
+
+### Added
+
+### Changed
+
+- REQUIRE -> Project.toml
+
+### Removed
+
+### Deprecated
+
 ## [v3.2.0] - minor updates - 2019-03-25
 
 ### Added

@@ -6,7 +6,6 @@ os:
   - osx
 
 julia:
-  - 0.7
   - 1.0
   - nightly
 
@@ -30,4 +29,4 @@ jobs:
       after_success: skip
 
 after_success:
-  - julia -e 'if VERSION >= v"0.7.0-" using Pkg end ; Pkg.add("ColorSchemes"); import ColorSchemes;  cd(joinpath(dirname(pathof(ColorSchemes)), "..")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())';
+  - julia -e 'if VERSION >= v"1.0.0" using Pkg end ; Pkg.add("ColorSchemes"); import ColorSchemes;  cd(joinpath(dirname(pathof(ColorSchemes)), "..")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())';

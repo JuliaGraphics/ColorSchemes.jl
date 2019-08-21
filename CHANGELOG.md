@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.4.0] - 2019-08-21
+
+### Added
+
+- turbo
+
+### Changed
+
+### Removed
+
+### Deprecated
+
 ## [v3.3.0] - 2019-06-01
 
 ### Added

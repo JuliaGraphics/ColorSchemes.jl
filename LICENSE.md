@@ -79,3 +79,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 see https://github.com/matplotlib/cmocean
+
+## turbo colormap
+
+see https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html
+Copyright 2019 Google LLC.
+SPDX-License-Identifier: Apache-2.0

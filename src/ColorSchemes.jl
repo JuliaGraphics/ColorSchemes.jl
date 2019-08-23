@@ -4,13 +4,15 @@ The ColorSchemes module provides simple access to color schemes (arrays of color
 Use `get(cscheme, n)` with n varying from 0 to 1 to find a color at that point
 in the color scheme `cscheme`, where 0 is the leftmost color, and 1 the rightmost.
 
+Access the scheme's colors directly using `cscheme.colors`.
+
 See also `getinverse()`.
 """
 module ColorSchemes
 
 import Base.get
 
-using Colors
+using Colors, ColorTypes, FixedPointNumbers
 
 export ColorScheme,
        get,
@@ -186,8 +188,8 @@ Else, if `rangescale` is `:extrema`, the colorscheme is applied to the range
 img = get(colorschemes[:leonardo], rand(10,10)) # displays in Juno Plots window, but
 save("testoutput.png", img)      # you'll need FileIO or similar to do this
 
-img2 = get(colorschemes[:leonardo], 10.0*rand(10,10), :extrema)
-img3 = get(colorschemes[:leonardo], 10.0*rand(10,10), (1.0, 9.0))
+img2 = get(colorschemes[:leonardo], 10.0 * rand(10, 10), :extrema)
+img3 = get(colorschemes[:leonardo], 10.0 * rand(10, 10), (1.0, 9.0))
 
 # Also works with PerceptualColourMaps
 using PerceptualColourMaps # warning, installs PyPlot, PyCall, LaTeXStrings
@@ -212,6 +214,15 @@ function get(cscheme::ColorScheme,
     # blend between the two colors adjacent to the point
     cpt = before_fp - before
     return weighted_color_mean.(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
+end
+
+"""
+    get(cs::ColorScheme, g::Color{T,1} where T<:Union{Bool, AbstractFloat, FixedPoint})
+
+Return the color in `cs` that corresponds to the gray value `g`.
+"""
+function get(cs::ColorScheme, g::Color{T,1} where T<:Union{Bool, AbstractFloat, FixedPoint})
+    get(cs, ColorTypes.gray(g)) # don't confuse with 'gray' colorscheme
 end
 
 """

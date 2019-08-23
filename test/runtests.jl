@@ -1,4 +1,4 @@
-using Test, Colors, ColorSchemes
+using Test, Colors, ColorSchemes, ColorTypes, FixedPointNumbers
 
 monalisa = ColorScheme([
     RGB(0.05482025926320272, 0.016508952654741622, 0.019315160361063788),
@@ -43,7 +43,7 @@ monalisa = ColorScheme([
     @test get(monalisa, 0.0) != get(monalisa, 0.5)
 end
 
-# getinverse() tests are noew in ColorSchemes
+# getinverse() tests are now in ColorSchemes
 
 @testset "conversion tests" begin
     # convert an Array{T,2} to an RGB image
@@ -69,6 +69,19 @@ end
     # test conversion with manually supplied range
     y3=get(monalisa, x, (-1.0, 2.0))
     @test y3 == y2
+
+    # test gray value #23
+    c = get(monalisa, Gray(N0f16(1.0)))
+    @test typeof(c) == RGB{Float64}
+    @test c.r > 0.95
+    @test c.g > 0.75
+    @test c.b < 0.3
+    c = get(monalisa, Gray24(N0f16(1.0)))
+    @test typeof(c) == RGB{Float64}
+    @test c.r > 0.95
+    # Booleans
+    @test get(monalisa, 0.0) == get(monalisa, false)
+    @test get(monalisa, 1.0) == get(monalisa, true)
 end
 
 @testset "misc tests" begin

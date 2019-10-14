@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.5.0] - future release, Late Aug/Sept 2019
+## [v3.5.0] - October 14
 
 ### Added
 

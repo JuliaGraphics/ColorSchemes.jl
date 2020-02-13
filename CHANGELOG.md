@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.6.0] - forthcoming in Feb/March 2020
+
+### Added
+
+- added scientific color schemes from Fabio Crameri
+
+### Changed
+
+### Removed
+
+### Deprecated
+
 ## [v3.5.0] - October 14
 
 ### Added

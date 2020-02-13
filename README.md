@@ -6,12 +6,17 @@
 
 This package provides a collection of colorschemes:
 
-- scientifically devised colorschemes from ColorBrewer, CMOcean, and ColorCet
+- scientifically devised colorschemes from ColorBrewer, CMOcean, ScientificColorMaps, ColorCet
 - popular old favourites such as _viridis_, _inferno_, and _magma_ from MATPlotLib
 - old masters' colorschemes, such as _leonardo_, _vermeer_, and _picasso_
 - variously themed colorschemes such as _sunset_, _coffee_, _neon_, and _pearl_
 
-*The package is designed for general purpose and informal graphics work. For high quality color maps that have consistent perceptual contrast over their full range, refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package.*
+Note that the schemes contained here are a mixture:
+
+- some are high quality color maps with consistent perceptual contrast over their full range
+- others are designed for general purpose and informal graphics work
+
+Choose colorschemes with care! Refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package, or to Fabio Crameri's [Scientific Colour Maps](http://www.fabiocrameri.ch/colourmaps.php) for more information.
 
 Some tools for working with colorschemes can be found in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
 

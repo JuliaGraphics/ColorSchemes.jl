@@ -108,19 +108,35 @@ colorschemes[:summer] |> show
 
 ## Pre-defined schemes
 
-Each scheme is drawn in three ways: first, showing each defined color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
+The schemes are drawn in three ways: first, showing each defined color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
 
 _It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients._
 
+## cmocean
+
 !["cmocean schemes"](assets/figures/colorschemes-cmocean.png)
+
+## scientific
+
+!["scientific"](assets/figures/colorschemes-scientific.png)
+
+## matplotlib
 
 !["matplot schemes"](assets/figures/colorschemes-matplot.png)
 
+## colorbrewer
+
 !["colorbrewer schemes"](assets/figures/colorschemes-colorbrewer.png)
+
+## gnuplot
 
 !["gnuplot schemes"](assets/figures/colorschemes-gnuplot.png)
 
+## colorcet
+
 !["colorcet schemes"](assets/figures/colorschemes-colorcet.png)
+
+## general and miscellaneous
 
 !["general schemes"](assets/figures/colorschemes-general.png)
 

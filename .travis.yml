@@ -9,9 +9,10 @@ julia:
   - 1.0
   - nightly
 
-matrix:
-  allow_failures:
-    - julia: nightly
+# matrix:
+#   allow_failures:
+#     - julia: nightly
+#
 
 env:
   global:

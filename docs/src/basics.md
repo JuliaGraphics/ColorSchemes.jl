@@ -114,25 +114,37 @@ _It's generally agreed (search the web for "Rainbow colormaps considered harmful
 
 ## cmocean
 
+From "Beautiful colormaps for oceanography": [cmocean](https://matplotlib.org/cmocean/)
+
 !["cmocean schemes"](assets/figures/colorschemes-cmocean.png)
 
 ## scientific
+
+From [Scientific colormaps](http://www.fabiocrameri.ch/colourmaps.php)
 
 !["scientific"](assets/figures/colorschemes-scientific.png)
 
 ## matplotlib
 
+From [matplot](https://matplotlib.org)
+
 !["matplot schemes"](assets/figures/colorschemes-matplot.png)
 
 ## colorbrewer
+
+From [ColorBrewer](http://colorbrewer2.org/)
 
 !["colorbrewer schemes"](assets/figures/colorschemes-colorbrewer.png)
 
 ## gnuplot
 
+From [GNUPlot](http://www.gnuplot.info)
+
 !["gnuplot schemes"](assets/figures/colorschemes-gnuplot.png)
 
 ## colorcet
+
+["collection of perceptually accurate colormaps"](https://colorcet.holoviz.org)
 
 !["colorcet schemes"](assets/figures/colorschemes-colorcet.png)
 

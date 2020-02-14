@@ -1,10 +1,13 @@
 # Changelog
 
-## [v3.6.0] - forthcoming in Feb/March 2020
+## [v3.6.0] - 2020 February 14
 
 ### Added
 
 - added scientific color schemes from Fabio Crameri
+- update travis
+- (slightly) better documents for schemes
+- transparent logo/icon
 
 ### Changed
 

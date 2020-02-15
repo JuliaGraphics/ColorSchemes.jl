@@ -12,7 +12,7 @@ module ColorSchemes
 
 import Base.get
 
-using Colors, ColorTypes, FixedPointNumbers
+using Colors, ColorTypes, FixedPointNumbers, StaticArrays
 
 export ColorScheme,
        get,
@@ -24,8 +24,8 @@ export ColorScheme,
 """
     ColorScheme struct with members `colors`, `category`, and `name`.
 """
-struct ColorScheme
-    colors::Vector{C} where {C <: Colorant}
+struct ColorScheme{V<:AbstractVector{<:Colorant}}
+    colors::V
     category::AbstractString
     notes::AbstractString
 end

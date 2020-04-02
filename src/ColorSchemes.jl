@@ -78,14 +78,15 @@ const colorschemes = Dict{Symbol, ColorScheme}()
 
 function loadallschemes()
     # load the installed schemes
-    include(@__DIR__ * "/../data/allcolorschemes.jl")
-    include(@__DIR__ * "/../data/colorbrewerschemes.jl")
-    include(@__DIR__ * "/../data/matplotlib.jl")
-    include(@__DIR__ * "/../data/cmocean.jl")
-    include(@__DIR__ * "/../data/sampledcolorschemes.jl")
-    include(@__DIR__ * "/../data/gnu.jl")
-    include(@__DIR__ * "/../data/colorcetdata.jl")
-    include(@__DIR__ * "/../data/scicolor.jl")
+    datadir = joinpath(dirname(@__DIR__), "data")
+    include(joinpath(datadir, "allcolorschemes.jl"))
+    include(joinpath(datadir, "colorbrewerschemes.jl"))
+    include(joinpath(datadir, "matplotlib.jl"))
+    include(joinpath(datadir, "cmocean.jl"))
+    include(joinpath(datadir, "sampledcolorschemes.jl"))
+    include(joinpath(datadir, "gnu.jl"))
+    include(joinpath(datadir, "colorcetdata.jl"))
+    include(joinpath(datadir, "scicolor.jl"))
     # create them as constants...
     for key in keys(colorschemes)
         @eval const $key = colorschemes[$(QuoteNode(key))]

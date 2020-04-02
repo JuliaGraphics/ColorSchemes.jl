@@ -42,6 +42,9 @@ struct ColorScheme
     ColorScheme(colors::Vector{<: Colorant}, category::AbstractString = "", notes::AbstractString = "") = new(colors, category, notes)
 end
 
+Base.getindex(cs::ColorScheme, i::AbstractFloat) = get(cs, i)
+Base.getindex(cs::ColorScheme, i::AbstractVector{<: AbstractFloat}) = get(cs, i)
+
 """
     loadcolorscheme(vname, colors, cat="", notes="")
 

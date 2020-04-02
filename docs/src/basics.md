@@ -76,10 +76,14 @@ leonardo[3]
 -> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
 ```
 
-Or you can 'sample' the scheme at any point between 0 and 1 using `get()`:
+Or you can 'sample' the scheme at any point between 0 and 1 using `get` or `getindex`:
 
 ```
 get(leonardo, 0.5)
+
+-> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+
+leonardo[0.5]
 
 -> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 ```

@@ -21,14 +21,6 @@ export ColorScheme,
        loadcolorscheme,
        findcolorscheme
 
-"""
-    ColorScheme struct with members `colors`, `category`, and `name`.
-"""
-struct ColorScheme
-    colors::Vector{C} where {C <: Colorant}
-    category::AbstractString
-    notes::AbstractString
-end
 
 """
     ColorScheme(colors, category, notes)
@@ -36,14 +28,19 @@ end
 Create a ColorScheme from an array of colors. You can also name it, assign a
 category to it, and add notes.
 
-```
+```julia
 myscheme = ColorScheme([Colors.RGB(0.0, 0.0, 0.0), Colors.RGB(1.0, 1.0, 1.0)],
     "custom", "twotone, black and white")
 ```
 
 """
-ColorScheme(colors, category::AbstractString) = ColorScheme(colors, category, "")
-ColorScheme(colors) = ColorScheme(colors, "general", "")
+struct ColorScheme
+    colors::Vector{C} where {C <: Colorant}
+    category::AbstractString
+    notes::AbstractString
+    
+    ColorScheme(colors::Vector{<: Colorant}, category::AbstractString = "", notes::AbstractString = "") = new(colors, category, notes)
+end
 
 """
     loadcolorscheme(vname, colors, cat="", notes="")
@@ -81,14 +78,14 @@ const colorschemes = Dict{Symbol, ColorScheme}()
 
 function loadallschemes()
     # load the installed schemes
-    include(dirname(@__FILE__) * "/../data/allcolorschemes.jl")
-    include(dirname(@__FILE__) * "/../data/colorbrewerschemes.jl")
-    include(dirname(@__FILE__) * "/../data/matplotlib.jl")
-    include(dirname(@__FILE__) * "/../data/cmocean.jl")
-    include(dirname(@__FILE__) * "/../data/sampledcolorschemes.jl")
-    include(dirname(@__FILE__) * "/../data/gnu.jl")
-    include(dirname(@__FILE__) * "/../data/colorcetdata.jl")
-    include(dirname(@__FILE__) * "/../data/scicolor.jl")
+    include(@__DIR__ * "/../data/allcolorschemes.jl")
+    include(@__DIR__ * "/../data/colorbrewerschemes.jl")
+    include(@__DIR__ * "/../data/matplotlib.jl")
+    include(@__DIR__ * "/../data/cmocean.jl")
+    include(@__DIR__ * "/../data/sampledcolorschemes.jl")
+    include(@__DIR__ * "/../data/gnu.jl")
+    include(@__DIR__ * "/../data/colorcetdata.jl")
+    include(@__DIR__ * "/../data/scicolor.jl")
     # create them as constants...
     for key in keys(colorschemes)
         @eval const $key = colorschemes[$(QuoteNode(key))]
@@ -206,7 +203,7 @@ function get(cscheme::ColorScheme,
 
     rangescale == :clamp   && (rangescale = (0.0, 1.0))
     rangescale == :extrema && (rangescale = extrema(x))
-    (rangescale isa NTuple{2, Number}) || error("rangescale ($rangescale) not supported, should be :clamp, :extrema or tuple (minVal, maxVal)")
+    (rangescale isa NTuple{2, Number}) || error("rangescale ($rangescale) not supported, should be :clamp, :extrema or tuple (minVal, maxVal).  Got $(rangescale).")
     x isa AbstractRange && (x = collect(x))
     x = clamp.(x, rangescale...)
     before_fp = remap(x, rangescale..., 1, length(cscheme))

@@ -38,7 +38,7 @@ struct ColorScheme
     colors::Vector{C} where {C <: Colorant}
     category::AbstractString
     notes::AbstractString
-    
+
     ColorScheme(colors::Vector{<: Colorant}, category::AbstractString = "", notes::AbstractString = "") = new(colors, category, notes)
 end
 
@@ -151,6 +151,7 @@ function Base.iterate(cscheme::ColorScheme, s)
     end
     return cscheme[s], s + 1
 end
+Base.lastindex(cscheme::ColorScheme) = lastindex(cscheme.colors)
 
 # utility lerping function to convert a value between oldmin/oldmax to equivalent value between newmin/newmax
 remap(value, oldmin, oldmax, newmin, newmax) =

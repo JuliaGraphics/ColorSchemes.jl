@@ -41,6 +41,7 @@ monalisa = ColorScheme([
     @test length(monalisa.colors) == 32
     # test that sampling schemes yield different values
     @test get(monalisa, 0.0) != get(monalisa, 0.5)
+    @test monalisa[end] == monalisa[1.0]
 end
 
 # getinverse() tests are now in ColorSchemes

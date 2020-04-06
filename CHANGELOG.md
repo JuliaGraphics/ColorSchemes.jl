@@ -1,5 +1,19 @@
 # Changelog
 
+## forthcoming [v3.7.0] - 2020 April/May
+
+### Added
+
+- getindex
+- lastindex
+
+### Changed
+
+### Removed
+
+### Deprecated
+
+
 ## [v3.6.0] - 2020 February 14
 
 ### Added

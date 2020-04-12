@@ -1,6 +1,6 @@
 # Changelog
 
-## forthcoming [v3.7.0] - 2020 April/May
+## [v3.7.0] - 2020 April 23
 
 ### Added
 
@@ -12,7 +12,6 @@
 ### Removed
 
 ### Deprecated
-
 
 ## [v3.6.0] - 2020 February 14
 

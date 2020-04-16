@@ -155,20 +155,11 @@ end
 remap(value, oldmin, oldmax, newmin, newmax) =
     ((value .- oldmin) ./ (oldmax .- oldmin)) .* (newmax .- newmin) .+ newmin
 
-"""
-    get(cscheme::ColorScheme, x, rangescale)
+const AllowedInput = Union{<:Real,AbstractArray{<:Real}}
 
-Returns a single color from the colorscheme.
-"""
-function get(cscheme::ColorScheme, x, rangescale)
-    if rangescale==:clamp
-        get(cscheme.colors, x, (0.0, 1.0))
-    elseif (rangescale==:extrema)
-        get(cscheme.colors, x, extrema(x))
-    else
-        error("rangescale ($rangescale) not supported, should be :clamp, :extrema or tuple (minVal, maxVal)")
-    end
-end
+defaultrange(x::Real) = zero(x), oneunit(x)
+defaultrange(x::AbstractArray) = zero(eltype(x)), oneunit(eltype(x))
+
 
 """
     get(cscheme::ColorScheme, inData :: Array{Number, 2}, rangescale=:clamp)
@@ -197,24 +188,35 @@ using PerceptualColourMaps # warning, installs PyPlot, PyCall, LaTeXStrings
 img4 = get(PerceptualColourMaps.cmap("R1"), rand(10,10))
 ```
 """
-function get(cscheme::ColorScheme,
-             x::Union{<:Real, Array{<:Real}, AbstractRange{<:Real}},
-             rangescale::Union{Symbol, NTuple{2, <:Real}}=(0.0, 1.0))
+function get end
 
-    # NOTE: the Union type for `x` is needed to avoid ambiguity with Base.get
-    # when using ranges
+function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
+    rangescale = if rangemode == :clamp
+        defaultrange(x)
+    elseif rangemode == :extrema
+        extrema(x)
+    else
+        error("rangescale ($rangemode) not supported, should be :clamp, :extrema or tuple (minVal, maxVal)")
+    end
+    get(cscheme, x, rangescale)
+end
 
-    rangescale == :clamp   && (rangescale = (0.0, 1.0))
-    rangescale == :extrema && (rangescale = extrema(x))
-    (rangescale isa NTuple{2, Number}) || error("rangescale ($rangescale) not supported, should be :clamp, :extrema or tuple (minVal, maxVal)")
-    x isa AbstractRange && (x = collect(x))
+function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}=defaultrange(x))
     x = clamp.(x, rangescale...)
     before_fp = remap(x, rangescale..., 1, length(cscheme))
     before = round.(Int, before_fp, RoundDown)
-    after =  min.(before .+ 1, length(cscheme))
+    after = min.(before .+ 1, length(cscheme))
     # blend between the two colors adjacent to the point
     cpt = before_fp - before
-    return weighted_color_mean.(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
+    return weighted_color_mean.(oneunit(cpt) .- cpt, cscheme.colors[before], cscheme.colors[after])
+end
+
+# Boolean just takes the start and end values of the scheme.
+# We also avoid using a branch.
+function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}}, 
+             rangescale::NTuple{2,<:Real}=defaultrange(x))
+    i = x .* (length(cscheme) .- 1) .+ 1
+    return getindex.(Ref(cscheme.colors), i)
 end
 
 """
@@ -252,7 +254,7 @@ julia> getinverse(cs, cs[3])
 0.5
 ```
 """
-function getinverse(cscheme::ColorScheme, c, rangescale :: Tuple{Number, Number}=(0.0, 1.0))
+function getinverse(cscheme::ColorScheme, c, rangescale::Tuple{Number, Number}=(0.0, 1.0))
     # TODO better error handling please
     length(cscheme) <= 1 && throw(ErrorException("ColorScheme of length $(length(cscheme)) is not long enough"))
     cdiffs = map(c_i -> colordiff(promote(c, c_i)...), cscheme.colors)

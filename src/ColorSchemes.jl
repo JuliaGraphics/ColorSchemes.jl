@@ -22,28 +22,27 @@ export ColorScheme,
        findcolorscheme
 
 """
-    ColorScheme struct with members `colors`, `category`, and `name`.
-"""
-struct ColorScheme{V<:AbstractVector{<:Colorant}}
-    colors::V
-    category::AbstractString
-    notes::AbstractString
-end
-
-"""
     ColorScheme(colors, category, notes)
 
 Create a ColorScheme from an array of colors. You can also name it, assign a
 category to it, and add notes.
 
-```
+```julia
 myscheme = ColorScheme([Colors.RGB(0.0, 0.0, 0.0), Colors.RGB(1.0, 1.0, 1.0)],
     "custom", "twotone, black and white")
 ```
 
 """
-ColorScheme(colors, category::AbstractString) = ColorScheme(colors, category, "")
-ColorScheme(colors) = ColorScheme(colors, "general", "")
+struct ColorScheme{V<:AbstractVector{<:Colorant},S1<:AbstractString,S2<:AbstractString}
+    colors::V
+    category::S1
+    notes::S2
+end
+ColorScheme(colors::V, category::S1="", notes::S2="") where {V,S1,S2} =
+    ColorScheme{V,S1,S2}(colors, category, notes)
+
+Base.getindex(cs::ColorScheme, i::AbstractFloat) = get(cs, i)
+Base.getindex(cs::ColorScheme, i::AbstractVector{<: AbstractFloat}) = get(cs, i)
 
 """
     loadcolorscheme(vname, colors, cat="", notes="")
@@ -81,14 +80,15 @@ const colorschemes = Dict{Symbol, ColorScheme}()
 
 function loadallschemes()
     # load the installed schemes
-    include(dirname(@__FILE__) * "/../data/allcolorschemes.jl")
-    include(dirname(@__FILE__) * "/../data/colorbrewerschemes.jl")
-    include(dirname(@__FILE__) * "/../data/matplotlib.jl")
-    include(dirname(@__FILE__) * "/../data/cmocean.jl")
-    include(dirname(@__FILE__) * "/../data/sampledcolorschemes.jl")
-    include(dirname(@__FILE__) * "/../data/gnu.jl")
-    include(dirname(@__FILE__) * "/../data/colorcetdata.jl")
-    include(dirname(@__FILE__) * "/../data/scicolor.jl")
+    datadir = joinpath(dirname(@__DIR__), "data")
+    include(joinpath(datadir, "allcolorschemes.jl"))
+    include(joinpath(datadir, "colorbrewerschemes.jl"))
+    include(joinpath(datadir, "matplotlib.jl"))
+    include(joinpath(datadir, "cmocean.jl"))
+    include(joinpath(datadir, "sampledcolorschemes.jl"))
+    include(joinpath(datadir, "gnu.jl"))
+    include(joinpath(datadir, "colorcetdata.jl"))
+    include(joinpath(datadir, "scicolor.jl"))
     # create them as constants...
     for key in keys(colorschemes)
         @eval const $key = colorschemes[$(QuoteNode(key))]
@@ -150,6 +150,7 @@ function Base.iterate(cscheme::ColorScheme, s)
     end
     return cscheme[s], s + 1
 end
+Base.lastindex(cscheme::ColorScheme) = lastindex(cscheme.colors)
 
 # utility lerping function to convert a value between oldmin/oldmax to equivalent value between newmin/newmax
 remap(value, oldmin, oldmax, newmin, newmax) =
@@ -159,7 +160,6 @@ const AllowedInput = Union{<:Real,AbstractArray{<:Real}}
 
 defaultrange(x::Real) = zero(x), oneunit(x)
 defaultrange(x::AbstractArray) = zero(eltype(x)), oneunit(eltype(x))
-
 
 """
     get(cscheme::ColorScheme, inData :: Array{Number, 2}, rangescale=:clamp)
@@ -188,8 +188,6 @@ using PerceptualColourMaps # warning, installs PyPlot, PyCall, LaTeXStrings
 img4 = get(PerceptualColourMaps.cmap("R1"), rand(10,10))
 ```
 """
-function get end
-
 function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
     rangescale = if rangemode == :clamp
         defaultrange(x)
@@ -200,19 +198,17 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
     end
     get(cscheme, x, rangescale)
 end
-
 function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}=defaultrange(x))
+    x isa AbstractRange && (x = collect(x))
     x = clamp.(x, rangescale...)
     before_fp = remap(x, rangescale..., 1, length(cscheme))
     before = round.(Int, before_fp, RoundDown)
-    after = min.(before .+ 1, length(cscheme))
+    after =  min.(before .+ 1, length(cscheme))
     # blend between the two colors adjacent to the point
     cpt = before_fp - before
-    return weighted_color_mean.(oneunit(cpt) .- cpt, cscheme.colors[before], cscheme.colors[after])
+    return weighted_color_mean.(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
 end
-
-# Boolean just takes the start and end values of the scheme.
-# We also avoid using a branch.
+# Boolean just takes the start and end values of the scheme. Also avoid using a branch.
 function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}}, 
              rangescale::NTuple{2,<:Real}=defaultrange(x))
     i = x .* (length(cscheme) .- 1) .+ 1

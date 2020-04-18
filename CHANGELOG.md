@@ -1,6 +1,19 @@
 # Changelog
 
-## [v3.7.0] - 2020 April 23
+## [v3.8.0] - 2020 April 18
+
+### Added
+
+## Changed
+
+- use StaticArrays
+- performance improvements (thanks rafaqz)
+
+### Removed
+
+### Deprecated
+
+## [v3.7.0] - 2020 April 12
 
 ### Added
 

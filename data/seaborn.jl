@@ -134,7 +134,7 @@ loadcolorscheme(:seaborn_pastel6, SA[
    RGB{Float64}(0.7254901960784313,0.9490196078431372,0.9411764705882353),
   ], "seaborn", "sequential")
 
-loadcolorscheme(:seaborn_rocket_gradient, SA[
+loadcolorscheme(:seaborn_rocket_gradient, [
       RGB{Float64}(0.01060815, 0.01808215, 0.10018654),
                                    RGB{Float64}(0.01428972, 0.02048237, 0.10374486),
                                    RGB{Float64}(0.01831941, 0.0229766, 0.10738511),
@@ -393,7 +393,7 @@ loadcolorscheme(:seaborn_rocket_gradient, SA[
                                    RGB{Float64}(0.98137749, 0.92061729, 0.86536915)]
                                    , "seaborn", "sequential, rocket")
 
-loadcolorscheme(:seaborn_icefire_gradient, SA[
+loadcolorscheme(:seaborn_icefire_gradient, [
      RGB{Float64}(0.73936227, 0.90443867, 0.85757238),
                                     RGB{Float64}(0.72888063, 0.89639109, 0.85488394),
                                     RGB{Float64}(0.71834255, 0.88842162, 0.8521605),

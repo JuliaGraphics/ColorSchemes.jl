@@ -152,6 +152,12 @@ From [GNUPlot](http://www.gnuplot.info)
 
 !["colorcet schemes"](assets/figures/colorschemes-colorcet.png)
 
+## Seaborn
+
+["colorschemes used by Seaborn, a Python data visualization library based on matplotlib."](https://colorcet.holoviz.org)
+
+!["seaborn schemes"](assets/figures/colorschemes-seaborn.svg)
+
 ## general and miscellaneous
 
 !["general schemes"](assets/figures/colorschemes-general.png)

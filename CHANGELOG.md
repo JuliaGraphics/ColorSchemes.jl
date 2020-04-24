@@ -1,5 +1,18 @@
 # Changelog
 
+
+## [v3.89.0] - forthcoming 2020 April
+
+### Added
+
+## Changed
+
+- added Seaborn
+
+### Removed
+
+### Deprecated
+
 ## [v3.8.0] - 2020 April 18
 
 ### Added

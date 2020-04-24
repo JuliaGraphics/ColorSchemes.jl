@@ -89,6 +89,8 @@ function loadallschemes()
     include(joinpath(datadir, "gnu.jl"))
     include(joinpath(datadir, "colorcetdata.jl"))
     include(joinpath(datadir, "scicolor.jl"))
+    include(joinpath(datadir, "seaborn.jl"))
+
     # create them as constants...
     for key in keys(colorschemes)
         @eval const $key = colorschemes[$(QuoteNode(key))]
@@ -209,7 +211,7 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}
     return weighted_color_mean.(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
 end
 # Boolean just takes the start and end values of the scheme. Also avoid using a branch.
-function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}}, 
+function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}},
              rangescale::NTuple{2,<:Real}=defaultrange(x))
     i = x .* (length(cscheme) .- 1) .+ 1
     return getindex.(Ref(cscheme.colors), i)

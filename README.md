@@ -6,7 +6,7 @@
 
 This package provides a collection of colorschemes:
 
-- scientifically devised colorschemes from ColorBrewer, CMOcean, ScientificColorMaps, ColorCet
+- scientifically devised colorschemes from ColorBrewer, CMOcean, ScientificColorMaps, ColorCet, and Seaborn
 - popular old favourites such as _viridis_, _inferno_, and _magma_ from MATPlotLib
 - old masters' colorschemes, such as _leonardo_, _vermeer_, and _picasso_
 - variously themed colorschemes such as _sunset_, _coffee_, _neon_, and _pearl_

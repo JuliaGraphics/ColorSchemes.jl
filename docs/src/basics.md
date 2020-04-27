@@ -1,7 +1,77 @@
 ```@meta
 DocTestSetup = quote
-    using ColorSchemes, Colors
+    using Luxor, Colors, ColorSchemes
 end
+```
+
+```@setup drawschemes
+
+# use a `drawschemes(cschemes)`` function to insert drawings of schemes
+# these look great in SVG
+# however the DOM/namespace/glyph bug applies when more than one
+# Cairo-generated SVG is displayed in an HTML space, so have to use PNGs for now
+
+using Luxor, Colors, ColorSchemes
+
+function drawscheme(scheme, bbox, swatchwidth, swatchheight)
+    cols = colorschemes[scheme].colors
+
+    pos1 = between(boxmiddleleft(bbox), boxmiddleright(bbox),  0.0)
+    pos2 = between(boxmiddleleft(bbox), boxmiddleright(bbox), .45)
+    pos3 = between(boxmiddleleft(bbox), boxmiddleright(bbox), .7)
+
+    l = length(cols)
+    # text
+    fontsize(14)
+    sethue("white")
+    setline(0.1)
+
+    # first position, scheme name
+    text(string(":", scheme), pos1, halign=:left, valign=:middle)
+
+    # second position, the colors
+    @layer begin
+        translate(pos2)
+        t = Tiler(swatchwidth, swatchheight, 1, l)
+        for (i, c) in enumerate(cols)
+            sethue(c)
+            box(first(t[i]), swatchwidth/l, swatchheight,  :fill)
+        end
+    end
+
+    # third position, draw a gradient
+    stepping = 0.01
+    for i in 0:stepping:1
+        c = get(colorschemes[scheme], i)
+        sethue(c)
+        swatchpos = Point(rescale(i, 0, 1, pos3.x - swatchwidth/2, pos3.x + swatchwidth/2), pos3.y)
+        box(swatchpos, swatchwidth * stepping, swatchheight, :fillstroke)
+    end
+
+end
+
+# for each scheme in vector s
+# draw the name, the colors, and a graduated scheme
+function drawschemes(s;
+       filetype=:png)
+    xmargin = 5
+    ymargin = 2
+    swatchwidth = 200
+    swatchheight = 25
+    l = length(s)
+    nrows = l
+    d = Drawing(900, nrows * (2ymargin + swatchheight), filetype)
+    origin()
+    background("grey15")
+    t = Tiler(900, nrows * (2ymargin + swatchheight), nrows, 1, margin=0)
+    for i in 1:l
+        # draw swatches inside bounding box of this row
+        drawscheme(s[i], BoundingBox(box(first(t[i]), 900, swatchheight)), swatchwidth, swatchheight)
+    end
+    finish()
+    return d
+end
+
 ```
 
 # Basics
@@ -112,55 +182,77 @@ colorschemes[:summer] |> show
 
 ## Pre-defined schemes
 
-The schemes are drawn in three ways: first, showing each defined color; next, a continuous blend obtained using `get()` with values ranging from 0 to 1 (stepping through the range `0:0.001:1`); and finally a luminance graph shows how the luminance of the scheme varies as the colors change.
+The left swatch draws the colors in each scheme; the right swatch samples the scheme from 0 to 1 at intervals of 0.01.
 
-_It's generally agreed (search the web for "Rainbow colormaps considered harmful") that you should choose colormaps with smooth linear luminance gradients._
-
-## cmocean
+## ✦ cmocean
 
 From "Beautiful colormaps for oceanography": [cmocean](https://matplotlib.org/cmocean/)
 
-!["cmocean schemes"](assets/figures/colorschemes-cmocean.png)
+```@example drawschemes
+schemes = filter(s -> occursin("cmocean", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
-## scientific
+## ✦ scientific
 
 From [Scientific colormaps](http://www.fabiocrameri.ch/colourmaps.php)
 
-!["scientific"](assets/figures/colorschemes-scientific.png)
+```@example drawschemes
+schemes = filter(s -> occursin("scientific", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
-## matplotlib
+## ✦ matplotlib
 
 From [matplot](https://matplotlib.org)
 
-!["matplot schemes"](assets/figures/colorschemes-matplot.png)
+```@example drawschemes
+schemes = filter(s -> occursin("matplotlib", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
-## colorbrewer
+## ✦ colorbrewer
 
 From [ColorBrewer](http://colorbrewer2.org/)
 
-!["colorbrewer schemes"](assets/figures/colorschemes-colorbrewer.png)
+```@example drawschemes
+schemes = filter(s -> occursin("colorbrewer", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
-## gnuplot
+## ✦ gnuplot
 
 From [GNUPlot](http://www.gnuplot.info)
 
-!["gnuplot schemes"](assets/figures/colorschemes-gnuplot.png)
+```@example drawschemes
+schemes = filter(s -> occursin("gnuplot", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
-## colorcet
+## ✦ colorcet
 
-["collection of perceptually accurate colormaps"](https://colorcet.holoviz.org)
+From ["collection of perceptually accurate colormaps"](https://colorcet.holoviz.org)
 
-!["colorcet schemes"](assets/figures/colorschemes-colorcet.png)
+```@example drawschemes
+schemes = filter(s -> occursin("colorcet", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
-## Seaborn
+## ✦ Seaborn
 
-["colorschemes used by Seaborn, a Python data visualization library based on matplotlib."](https://colorcet.holoviz.org)
+From ["colorschemes used by Seaborn, a Python data visualization library based on matplotlib."](https://colorcet.holoviz.org)
 
-!["seaborn schemes"](assets/figures/colorschemes-seaborn.svg)
+```@example drawschemes
+schemes = filter(s -> occursin("seaborn", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
-## general and miscellaneous
+## ✦ general and miscellaneous
 
-!["general schemes"](assets/figures/colorschemes-general.png)
+```@example drawschemes
+schemes = filter(s -> occursin("general", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
 
 ```@docs
 colorschemes

@@ -2,7 +2,7 @@
 
 ## UnicodePlots.jl
 
-The `heatmap()` function in [UnicodePlots.jl](https://github.com/Evizero/UnicodePlots.jl) can use colorschemes. You have to extract the colors into an array of floating-point numbers first. For example:
+The `heatmap()` function in [UnicodePlots.jl](https://github.com/Evizero/UnicodePlots.jl) can use colorschemes. You have to supply the colors as an array of floating-point numbers first. For example:
 
 ```
 ... colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors]
@@ -19,7 +19,9 @@ heatmap(z::AbstractMatrix; title = "Hot!",
 
 ## Plots.jl
 
-To use ColorSchemes with [Plots.jl](https://github.com/tbreloff/Plots.jl), you can access the colors directly. For example, with the `contour()` function, use `cgrad()` to read the colors as a gradient. This renaissance-looking plot uses the `leonardo` scheme:
+[Plots.jl](https://docs.juliaplots.org/) supports all colorschemes from ColorSchemes.jl. They can be used as a gradient or as a palette and are passed as a symbol holding their name to `cgrad` or `palette`.
+
+This renaissance-looking plot uses the `leonardo` scheme:
 
 ```
 using Plots, ColorSchemes
@@ -29,7 +31,7 @@ y = x
 f(x, y) = begin
       sin(x) + cos(y)
   end
-contour(x, y, f, fill=true, seriescolor = cgrad(ColorSchemes.leonardo.colors))
+contour(x, y, f, fill=true, c = :leonardo)
 ```
 
 !["contour"](assets/figures/plots-contour-1.png)
@@ -39,10 +41,11 @@ contour(x, y, f, fill=true, seriescolor = cgrad(ColorSchemes.leonardo.colors))
 With other plots, use the `palette` keyword:
 
 ```
+using ColorSchemes
 plot(Plots.fakedata(100, 20),
-    w=4,
-    background_color=ColorSchemes.vermeer[1],
-    palette=ColorSchemes.vermeer.colors)
+      w=4,
+      background_color=ColorSchemes.vermeer[1],
+      palette=:vermeer)
 ```
 
 !["palette"](assets/figures/plots-background.png)

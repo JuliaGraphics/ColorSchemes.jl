@@ -614,7 +614,7 @@ loadcolorscheme(:rainbow2, [
 	Colors.RGB{Float64}(1.0,0.06342391965656484,0.031727933498067816),
 	Colors.RGB{Float64}(1.0,0.031727933498067656,0.01586596383480793),
 	Colors.RGB{Float64}(1.0,1.2246467991473532e-16,6.123233995736766e-17),
-], "", "")
+], "gnu", "rainbow")
 
 loadcolorscheme(:prism, [
 	Colors.RGB{Float64}(1.0,0.0,-0.0),

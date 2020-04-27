@@ -1,13 +1,14 @@
 # Changelog
 
 
-## [v3.89.0] - forthcoming 2020 April
+## [v3.9.0] - forthcoming 2020 April
 
 ### Added
 
 ## Changed
 
 - added Seaborn
+- documentation of colorschemes
 
 ### Removed
 

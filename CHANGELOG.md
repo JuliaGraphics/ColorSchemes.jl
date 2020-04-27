@@ -1,7 +1,7 @@
 # Changelog
 
 
-## [v3.9.0] - forthcoming 2020 April
+## [v3.9.0] - 2020 April 27
 
 ### Added
 

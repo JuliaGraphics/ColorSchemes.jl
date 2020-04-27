@@ -2,7 +2,7 @@
 
 ## UnicodePlots.jl
 
-The `heatmap()` function in [UnicodePlots.jl](https://github.com/Evizero/UnicodePlots.jl) can use colorschemes. You have to supply the colors as an array of floating-point numbers first. For example:
+The `heatmap()` function in [UnicodePlots.jl](https://github.com/Evizero/UnicodePlots.jl) can use colorschemes. You have to supply the colors as an array of floating-point numbers first:
 
 ```
 ... colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors]
@@ -12,7 +12,7 @@ For example:
 
 ```
 heatmap(z::AbstractMatrix; title = "Hot!",
-         colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors])
+    colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors])
 ```
 
 !["heatmap"](assets/figures/unicodeplots-heatmap.png)
@@ -24,7 +24,7 @@ heatmap(z::AbstractMatrix; title = "Hot!",
 This renaissance-looking plot uses the `leonardo` scheme:
 
 ```
-using Plots, ColorSchemes
+using Plots
 
 x = 1:0.3:20
 y = x
@@ -42,6 +42,7 @@ With other plots, use the `palette` keyword:
 
 ```
 using ColorSchemes
+
 plot(Plots.fakedata(100, 20),
       w=4,
       background_color=ColorSchemes.vermeer[1],

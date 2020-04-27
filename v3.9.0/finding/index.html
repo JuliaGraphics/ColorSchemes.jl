@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Finding colors · ColorSchemes</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="ColorSchemes logo"/></a><div class="docs-package-name"><span class="docs-autofit">ColorSchemes</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../basics/">Basic usage</a></li><li class="is-active"><a class="tocitem" href>Finding colors</a><ul class="internal"><li><a class="tocitem" href="#Example-of-using-getinverse()-1"><span>Example of using getinverse()</span></a></li></ul></li><li><a class="tocitem" href="../plotting/">Plotting</a></li><li><a class="tocitem" href="../images/">Images</a></li><li><a class="tocitem" href="../functionindex/">Index</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Finding colors</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Finding colors</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/finding.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Finding-colors-in-colorschemes-1"><a class="docs-heading-anchor" href="#Finding-colors-in-colorschemes-1">Finding colors in colorschemes</a><a class="docs-heading-anchor-permalink" href="#Finding-colors-in-colorschemes-1" title="Permalink"></a></h1><p>ColorSchemes.jl provides the function <code>getinverse(cscheme, color)</code> which is the <em>inverse</em> of <code>get(cscheme, n)</code>.</p><p>This function returns a value between 0 and 1 that tries to place a color within a colorscheme by converting it to a value representing its position on the colorscheme&#39;s &#39;axis&#39;.</p><p><img src="../assets/figures/getinverse.png" alt="&quot;get inverse&quot;"/></p><article class="docstring"><header><a class="docstring-binding" id="ColorSchemes.getinverse" href="#ColorSchemes.getinverse"><code>ColorSchemes.getinverse</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia">getinverse(cscheme::ColorScheme, c, range=(0.0, 1.0))</code></pre><p>Computes where the provided Color <code>c</code> would fit in <code>cscheme</code>.</p><p>This is the inverse of <code>get()</code> — it returns the value <code>x</code> in the provided <code>range</code> for which <code>get(scheme, x)</code> would most closely match the provided Color <code>c</code>.</p><p><strong>Examples</strong></p><p>The first example asks: &quot;where in the <code>leonardo</code> colorscheme will I find the nearest color to red?&quot;:</p><pre><code class="language-none">julia&gt; getinverse(colorschemes[:leonardo], RGB(1, 0, 0))
+0.6248997995654847
+
+julia&gt; getinverse(ColorScheme([Colors.RGB(0,0,0), Colors.RGB(1,1,1)]),  Colors.RGB(.5,.5,.5))
+0.5432555858022048
+
+julia&gt; cs = ColorScheme(range(Colors.RGB(0,0,0), stop=Colors.RGB(1,1,1), length=5))
+
+julia&gt; getinverse(cs, cs[3])
+0.5</code></pre></div></section></article><h2 id="Example-of-using-getinverse()-1"><a class="docs-heading-anchor" href="#Example-of-using-getinverse()-1">Example of using getinverse()</a><a class="docs-heading-anchor-permalink" href="#Example-of-using-getinverse()-1" title="Permalink"></a></h2><p>One example use for <code>getinverse()</code> is to convert a heatmap image into an Array of continuous values, e.g. temperature.</p><p>In this example, we will convert a heatmap image representing elevation in the United States into an Array of elevation values. The image represents global temperature anomalies averaged from 2008 through 2012, with blue as -2°C and Red as +2°C. Higher than normal temperatures are shown in red (red is +2°C) and lower than normal temperatures are shown in blue (blue is -2°C). The global surface temperature in 2012 was +0.55°C. <a href="https://svs.gsfc.nasa.gov/cgi-bin/details.cgi?aid=4030">source</a>.</p><pre><code class="language-none">using Images, FileIO
+img = download(&quot;https://www.nasa.gov/images/content/719282main_2008_2012_printdata.1462.jpg&quot;) |&gt; load
+img = imresize(img, Tuple(Int(x) for x in size(img) .* 0.2));
+display(img)</code></pre><p><img src="../assets/figures/heatmap1.png" alt="&quot;heatmap 1&quot;"/></p><pre><code class="language-none">temps = [getinverse(ColorSchemes.temperaturemap, pixel) for pixel in img]
+
+432×768 Array{Float64,2}:
+ 0.975615  0.975615  0.975615  0.975615  …  0.975615  0.975615  0.975615
+ 0.975484  0.975767  0.975615  0.975615     0.975615  0.975615  0.975767
+ 0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
+ 0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
+ 0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
+ 0.975615  0.975615  0.975615  0.975615  …  0.975615  0.975615  0.975615
+ 0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
+ 0.975615  0.975615  0.975615  0.975615     0.975615  0.975615  0.975615
+ ⋮                                       ⋱  ⋮                           
+ 0.820419  0.820084  0.819388  0.819388     0.819977  0.821949  0.81973
+ 0.816596  0.816055  0.816055  0.816055  …  0.819388  0.819388  0.818957
+ 0.813865  0.813247  0.813247  0.813247     0.816055  0.815452  0.813865
+ 0.810015  0.809307  0.809307  0.809307     0.813247  0.812582  0.812582
+ 0.808566  0.805171  0.805171  0.805171     0.810015  0.810015  0.809307
+ 0.804418  0.801045  0.80182   0.801045     0.805171  0.805171  0.805171
+ 0.801045  0.802513  0.802513  0.800252  …  0.804418  0.804308  0.801045
+ 0.802037  0.798624  0.798624  0.798624     0.802401  0.800252  0.802848</code></pre><p>The image has been converted from its original colors to an array of continuous values between 0 and 1. This makes it possible to process as data. For example, we can find the places with the greatest anomalies:</p><pre><code class="language-none">mintemp, maxtemp = argmin(temps), argmax(temps)
+
+ (CartesianIndex(397, 127), CartesianIndex(17, 314))</code></pre><p>and these maximum and minimum &#39;coordinates&#39; can be displayed on the image using another package that allows you to mix images and vector graphics easily (such as Luxor.jl, for example).</p><pre><code class="language-none">save(&quot;/tmp/img.png&quot;, img)
+using Luxor
+pngimg = readpng(&quot;/tmp/img.png&quot;)
+
+w, h = pngimg.width, pngimg.height
+
+maxpt = Point(maxtemp[2], maxtemp[1]) # image and graphics coords need swapping
+minpt = Point(mintemp[2], mintemp[1])
+
+@png begin
+    placeimage(pngimg, O, centered=true)
+    translate(-w/2, -h/2)
+    sethue(&quot;mediumseagreen&quot;)
+    fontsize(20)
+    fontface(&quot;Avenir-Black&quot;)
+    setopacity(0.75)
+    circle(maxpt, 5, :fill)
+    label(&quot;largest positive anomaly&quot;, :E, maxpt, offset=20)
+    circle(minpt, 5, :fill)
+    label(&quot;largest negative anomaly&quot;, :E, minpt, offset=20)
+end 800 460</code></pre><p><img src="../assets/figures/heatmap4.png" alt="&quot;heatmap min and max&quot;"/></p><p>We can display the array of continuous values as a grayscale image, where black is 0.0 and white is 1.0.</p><pre><code class="language-none">Gray.(temps)</code></pre><p><img src="../assets/figures/heatmap2.png" alt="&quot;heatmap 2 grey&quot;"/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../basics/">« Basic usage</a><a class="docs-footer-nextpage" href="../plotting/">Plotting »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 27 April 2020 13:12">Monday 27 April 2020</span>. Using Julia version 1.0.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

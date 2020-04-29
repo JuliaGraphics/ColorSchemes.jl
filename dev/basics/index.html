@@ -73,7 +73,7 @@ dense                (category) cmocean
 balance              (category) cmocean
 thermal              (category) cmocean
 tempo                (category) cmocean
-gray                 (category) cmocean
+grays                (category) cmocean
 speed                (category) cmocean
 turbid               (category) cmocean
 solar                (category) cmocean
@@ -94,7 +94,7 @@ found 18 results for &quot;cmocean&quot;</code></pre><article class="docstring">
  ⋮
  :BrBG_8
  :Oranges_4</code></pre><h2 id="Make-your-own-ColorScheme-1"><a class="docs-heading-anchor" href="#Make-your-own-ColorScheme-1">Make your own ColorScheme</a><a class="docs-heading-anchor-permalink" href="#Make-your-own-ColorScheme-1" title="Permalink"></a></h2><p>You can easily make your own ColorScheme objects by building an array:</p><pre><code class="language-none">using Colors
-grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])</code></pre><p>Give it a category or some added notes if you want:</p><pre><code class="language-none">grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])</code></pre><p>Give it a category or some added notes if you want:</p><pre><code class="language-none">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
     &quot;my useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>although this won&#39;t end up in the <code>colorschemes</code> dictionary.</p><p>Another example, starting with a two-color scheme, then building a gradient from the first color to the other.</p><pre><code class="language-none">myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
                &quot;custom&quot;, &quot;twotone, red and green&quot;)
 ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])</code></pre><p>Another way is to use <code>loadcolorscheme()</code> function:</p><pre><code class="language-none">loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
@@ -158,4 +158,4 @@ sequential2  16
 	gray         not currently in stock
 perceptuallyuniformsequential 4
 diverging    12
-miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../finding/">Finding colors »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 29 April 2020 09:57">Wednesday 29 April 2020</span>. Using Julia version 1.0.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../finding/">Finding colors »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 29 April 2020 19:08">Wednesday 29 April 2020</span>. Using Julia version 1.0.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

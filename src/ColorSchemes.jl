@@ -223,7 +223,7 @@ end
 Return the color in `cs` that corresponds to the gray value `g`.
 """
 function get(cs::ColorScheme, g::Color{T,1} where T<:Union{Bool, AbstractFloat, FixedPoint})
-    get(cs, ColorTypes.gray(g)) # don't confuse with 'gray' colorscheme
+    get(cs, ColorTypes.gray(g)) # don't confuse with the 'grays' colorscheme
 end
 
 """

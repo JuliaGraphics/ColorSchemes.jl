@@ -71,7 +71,7 @@ end
     y3=get(monalisa, x, (-1.0, 2.0))
     @test y3 == y2
 
-    # test gray value #23
+    # test gray value (#23)
     c = get(monalisa, Gray(N0f16(1.0)))
     @test typeof(c) == RGB{Float64}
     @test c.r > 0.95

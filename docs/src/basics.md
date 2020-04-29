@@ -291,7 +291,7 @@ dense                (category) cmocean
 balance              (category) cmocean
 thermal              (category) cmocean
 tempo                (category) cmocean
-gray                 (category) cmocean
+grays                (category) cmocean
 speed                (category) cmocean
 turbid               (category) cmocean
 solar                (category) cmocean
@@ -330,13 +330,13 @@ You can easily make your own ColorScheme objects by building an array:
 
 ```
 using Colors
-grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
+mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
 ```
 
 Give it a category or some added notes if you want:
 
 ```
-grays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
     "my useful schemes", "just some dull grey shades")
 ```
 

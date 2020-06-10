@@ -19,12 +19,20 @@ Note that the schemes contained here are a mixture:
 
 Choose colorschemes with care! Refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package, or to Fabio Crameri's [Scientific Colour Maps](http://www.fabiocrameri.ch/colourmaps.php) for more information.
 
-
 This package relies on the [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package.
+
+If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
 
 ## Installation and basic usage
 
 Install the package as follows:
+
+```
+import Pkg
+Pkg.add("ColorSchemes")
+```
+
+or, at the REPL:
 
 ```
 ] add ColorSchemes

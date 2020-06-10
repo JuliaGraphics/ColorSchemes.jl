@@ -88,15 +88,14 @@ A ColorScheme is a Julia object which contains:
 
 To access one of these built-in colorschemes, use its symbol:
 
+```@example
+using Colors, ColorSchemes # hide
+ColorSchemes.leonardo
 ```
-julia> ColorSchemes.leonardo
-```
 
-If you're using Juno, for example, the colors in the colorscheme should appear in the Plots window.
+The display depends on your working environment. If you’re using Juno, for example, the colors in the colorscheme should appear in the Plots window.
 
-!["leo color scheme"](assets/figures/leo-colorscheme.png)
-
-Otherwise, you'll see the colors listed as RGB values:
+Otherwise, you’ll see the colors listed as RGB values:
 
 ```
 32-element Array{RGB{Float64},1}:
@@ -121,7 +120,7 @@ You can access the array of colors as:
 ColorSchemes.leonardo.colors
 ```
 
-By default, the colorschemes aren't imported. But to avoid using the prefixes, you can import the ones that you want:
+By default, the colorschemes aren’t imported. But to avoid using the prefixes, you can import the ones that you want:
 
 ```
 julia> import ColorSchemes.leonardo
@@ -138,7 +137,7 @@ julia> leonardo
  RGB{Float64}(0.972441,0.790701,0.285136)
 ```
 
-You can reference a single value of a scheme once it's loaded:
+You can reference a single value of a scheme once it’s loaded:
 
 ```
 leonardo[3]
@@ -146,7 +145,7 @@ leonardo[3]
 -> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
 ```
 
-Or you can 'sample' the scheme at any point between 0 and 1 using `get` or `getindex`:
+Or you can ‘sample’ the scheme at any point between 0 and 1 using `get` or `getindex`:
 
 ```
 get(leonardo, 0.5)
@@ -267,7 +266,7 @@ scheme = first(Random.shuffle!(collect(keys(colorschemes))))
 
 ## Finding colorschemes
 
-Use the `findcolorscheme()` function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme's name, in the category, or in the notes. It's interpreted as a case-insensitive regular expression.
+Use the `findcolorscheme()` function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.
 
 ```
 julia> findcolorscheme("magen")
@@ -311,8 +310,7 @@ found 18 results for "cmocean"
 findcolorscheme
 ```
 
-If you prefer, you can 'roll your own' search.
-
+If you prefer, you can ‘roll your own’ search.
 ```
 [k for (k, v) in ColorSchemes.colorschemes if occursin(r"colorbrew"i, v.category)]
 265-element Array{Symbol,1}:
@@ -326,10 +324,22 @@ If you prefer, you can 'roll your own' search.
 
 ## Make your own ColorScheme
 
-You can easily make your own ColorScheme objects by building an array:
+Using Colors.jl, you can quickly define a range of colors and use it to make a ColorScheme:
 
+```@example
+using Colors, ColorSchemes # hide
+cs1 = ColorScheme(range(colorant"red", colorant"green", length=5))
 ```
-using Colors
+
+```@example
+using Colors, ColorSchemes # hide
+cs1 = ColorScheme(reverse(Colors.sequential_palette(300, 100, logscale=true)))
+```
+
+Or you can easily make your own by building an array:
+
+```@example
+using Colors, ColorSchemes # hide
 mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
 ```
 
@@ -340,7 +350,7 @@ mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
     "my useful schemes", "just some dull grey shades")
 ```
 
-although this won't end up in the `colorschemes` dictionary.
+although this won’t end up in the `colorschemes` dictionary.
 
 Another example, starting with a two-color scheme, then building a gradient from the first color to the other.
 

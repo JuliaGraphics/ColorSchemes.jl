@@ -18,7 +18,7 @@ Note that the schemes contained here are a mixture:
 
 Choose colorschemes with care! Refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package, or to Fabio Crameri's [Scientific Colour Maps](http://www.fabiocrameri.ch/colourmaps.php) for more information.
 
-Some tools for working with colorschemes can be found in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
+If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
 
 [docs-stable-img]: https://img.shields.io/badge/docs-stable%20release-blue.svg
 [docs-stable-url]: https://JuliaGraphics.github.io/ColorSchemes.jl/stable/

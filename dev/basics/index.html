@@ -1,5 +1,44 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Basic usage · ColorSchemes</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="ColorSchemes logo"/></a><div class="docs-package-name"><span class="docs-autofit">ColorSchemes</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li class="is-active"><a class="tocitem" href>Basic usage</a><ul class="internal"><li><a class="tocitem" href="#ColorScheme-objects-1"><span>ColorScheme objects</span></a></li><li><a class="tocitem" href="#The-colorschemes-dictionary-1"><span>The colorschemes dictionary</span></a></li><li><a class="tocitem" href="#Pre-defined-schemes-1"><span>Pre-defined schemes</span></a></li><li><a class="tocitem" href="#cmocean-1"><span>✦ cmocean</span></a></li><li><a class="tocitem" href="#scientific-1"><span>✦ scientific</span></a></li><li><a class="tocitem" href="#matplotlib-1"><span>✦ matplotlib</span></a></li><li><a class="tocitem" href="#colorbrewer-1"><span>✦ colorbrewer</span></a></li><li><a class="tocitem" href="#gnuplot-1"><span>✦ gnuplot</span></a></li><li><a class="tocitem" href="#colorcet-1"><span>✦ colorcet</span></a></li><li><a class="tocitem" href="#Seaborn-1"><span>✦ Seaborn</span></a></li><li><a class="tocitem" href="#general-and-miscellaneous-1"><span>✦ general and miscellaneous</span></a></li><li><a class="tocitem" href="#Finding-colorschemes-1"><span>Finding colorschemes</span></a></li><li><a class="tocitem" href="#Make-your-own-ColorScheme-1"><span>Make your own ColorScheme</span></a></li><li><a class="tocitem" href="#Continuous-color-sampling-1"><span>Continuous color sampling</span></a></li><li><a class="tocitem" href="#Matplotlib-compatibility-1"><span>Matplotlib compatibility</span></a></li></ul></li><li><a class="tocitem" href="../finding/">Finding colors</a></li><li><a class="tocitem" href="../plotting/">Plotting</a></li><li><a class="tocitem" href="../images/">Images</a></li><li><a class="tocitem" href="../functionindex/">Index</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Basic usage</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Basic usage</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/basics.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Basics-1"><a class="docs-heading-anchor" href="#Basics-1">Basics</a><a class="docs-heading-anchor-permalink" href="#Basics-1" title="Permalink"></a></h1><h2 id="ColorScheme-objects-1"><a class="docs-heading-anchor" href="#ColorScheme-objects-1">ColorScheme objects</a><a class="docs-heading-anchor-permalink" href="#ColorScheme-objects-1" title="Permalink"></a></h2><p>When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes, and stores them in a dictionary called <code>colorschemes</code>.</p><p>A ColorScheme is a Julia object which contains:</p><ul><li>an array of colors</li><li>a string defining a category</li><li>a string that can contain descriptive notes</li></ul><p>To access one of these built-in colorschemes, use its symbol:</p><pre><code class="language-none">julia&gt; ColorSchemes.leonardo</code></pre><p>If you&#39;re using Juno, for example, the colors in the colorscheme should appear in the Plots window.</p><p><img src="../assets/figures/leo-colorscheme.png" alt="&quot;leo color scheme&quot;"/></p><p>Otherwise, you&#39;ll see the colors listed as RGB values:</p><pre><code class="language-none">32-element Array{RGB{Float64},1}:
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Basic usage · ColorSchemes</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="ColorSchemes logo"/></a><div class="docs-package-name"><span class="docs-autofit">ColorSchemes</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li class="is-active"><a class="tocitem" href>Basic usage</a><ul class="internal"><li><a class="tocitem" href="#ColorScheme-objects-1"><span>ColorScheme objects</span></a></li><li><a class="tocitem" href="#The-colorschemes-dictionary-1"><span>The colorschemes dictionary</span></a></li><li><a class="tocitem" href="#Pre-defined-schemes-1"><span>Pre-defined schemes</span></a></li><li><a class="tocitem" href="#cmocean-1"><span>✦ cmocean</span></a></li><li><a class="tocitem" href="#scientific-1"><span>✦ scientific</span></a></li><li><a class="tocitem" href="#matplotlib-1"><span>✦ matplotlib</span></a></li><li><a class="tocitem" href="#colorbrewer-1"><span>✦ colorbrewer</span></a></li><li><a class="tocitem" href="#gnuplot-1"><span>✦ gnuplot</span></a></li><li><a class="tocitem" href="#colorcet-1"><span>✦ colorcet</span></a></li><li><a class="tocitem" href="#Seaborn-1"><span>✦ Seaborn</span></a></li><li><a class="tocitem" href="#general-and-miscellaneous-1"><span>✦ general and miscellaneous</span></a></li><li><a class="tocitem" href="#Finding-colorschemes-1"><span>Finding colorschemes</span></a></li><li><a class="tocitem" href="#Make-your-own-ColorScheme-1"><span>Make your own ColorScheme</span></a></li><li><a class="tocitem" href="#Continuous-color-sampling-1"><span>Continuous color sampling</span></a></li><li><a class="tocitem" href="#Matplotlib-compatibility-1"><span>Matplotlib compatibility</span></a></li></ul></li><li><a class="tocitem" href="../finding/">Finding colors</a></li><li><a class="tocitem" href="../plotting/">Plotting</a></li><li><a class="tocitem" href="../images/">Images</a></li><li><a class="tocitem" href="../functionindex/">Index</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Basic usage</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Basic usage</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/basics.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Basics-1"><a class="docs-heading-anchor" href="#Basics-1">Basics</a><a class="docs-heading-anchor-permalink" href="#Basics-1" title="Permalink"></a></h1><h2 id="ColorScheme-objects-1"><a class="docs-heading-anchor" href="#ColorScheme-objects-1">ColorScheme objects</a><a class="docs-heading-anchor-permalink" href="#ColorScheme-objects-1" title="Permalink"></a></h2><p>When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes, and stores them in a dictionary called <code>colorschemes</code>.</p><p>A ColorScheme is a Julia object which contains:</p><ul><li>an array of colors</li><li>a string defining a category</li><li>a string that can contain descriptive notes</li></ul><p>To access one of these built-in colorschemes, use its symbol:</p><pre><code class="language-julia">ColorSchemes.leonardo</code></pre><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 32 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".82" height=".96" x="0" y="0" fill="#0E0405" />
+<rect width=".82" height=".96" x="1" y="0" fill="#13090A" />
+<rect width=".82" height=".96" x="2" y="0" fill="#1C0907" />
+<rect width=".82" height=".96" x="3" y="0" fill="#1A0E0D" />
+<rect width=".82" height=".96" x="4" y="0" fill="#1C1112" />
+<rect width=".82" height=".96" x="5" y="0" fill="#27110C" />
+<rect width=".82" height=".96" x="6" y="0" fill="#291B13" />
+<rect width=".82" height=".96" x="7" y="0" fill="#3A180E" />
+<rect width=".82" height=".96" x="8" y="0" fill="#3E2518" />
+<rect width=".82" height=".96" x="9" y="0" fill="#332B15" />
+<rect width=".82" height=".96" x="10" y="0" fill="#4A2812" />
+<rect width=".82" height=".96" x="11" y="0" fill="#592511" />
+<rect width=".82" height=".96" x="12" y="0" fill="#433A1D" />
+<rect width=".82" height=".96" x="13" y="0" fill="#5B3D16" />
+<rect width=".82" height=".96" x="14" y="0" fill="#6D3313" />
+<rect width=".82" height=".96" x="15" y="0" fill="#564D26" />
+<rect width=".82" height=".96" x="16" y="0" fill="#844214" />
+<rect width=".82" height=".96" x="17" y="0" fill="#70561B" />
+<rect width=".82" height=".96" x="18" y="0" fill="#676835" />
+<rect width=".82" height=".96" x="19" y="0" fill="#9E5616" />
+<rect width=".82" height=".96" x="20" y="0" fill="#826A23" />
+<rect width=".82" height=".96" x="21" y="0" fill="#867837" />
+<rect width=".82" height=".96" x="22" y="0" fill="#987A25" />
+<rect width=".82" height=".96" x="23" y="0" fill="#BB6E1B" />
+<rect width=".82" height=".96" x="24" y="0" fill="#9E8537" />
+<rect width=".82" height=".96" x="25" y="0" fill="#B1902F" />
+<rect width=".82" height=".96" x="26" y="0" fill="#AE9445" />
+<rect width=".82" height=".96" x="27" y="0" fill="#D98A23" />
+<rect width=".82" height=".96" x="28" y="0" fill="#C1A240" />
+<rect width=".82" height=".96" x="29" y="0" fill="#D0B252" />
+<rect width=".82" height=".96" x="30" y="0" fill="#EEAA33" />
+<rect width=".82" height=".96" x="31" y="0" fill="#F8CA49" />
+</svg><p>The display depends on your working environment. If you’re using Juno, for example, the colors in the colorscheme should appear in the Plots window.</p><p>Otherwise, you’ll see the colors listed as RGB values:</p><pre><code class="language-none">32-element Array{RGB{Float64},1}:
  RGB{Float64}(0.0548203,0.016509,0.0193152)
  RGB{Float64}(0.0750816,0.0341102,0.0397083)
  RGB{Float64}(0.10885,0.0336675,0.0261204)
@@ -12,7 +51,7 @@
  RGB{Float64}(0.757552,0.633425,0.251451)
  RGB{Float64}(0.816472,0.697015,0.322421)
  RGB{Float64}(0.933027,0.665164,0.198652)
- RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can access the array of colors as:</p><pre><code class="language-none">ColorSchemes.leonardo.colors</code></pre><p>By default, the colorschemes aren&#39;t imported. But to avoid using the prefixes, you can import the ones that you want:</p><pre><code class="language-none">julia&gt; import ColorSchemes.leonardo
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can access the array of colors as:</p><pre><code class="language-none">ColorSchemes.leonardo.colors</code></pre><p>By default, the colorschemes aren’t imported. But to avoid using the prefixes, you can import the ones that you want:</p><pre><code class="language-none">julia&gt; import ColorSchemes.leonardo
 julia&gt; leonardo
 32-element Array{RGB{Float64},1}:
  RGB{Float64}(0.0548203,0.016509,0.0193152)
@@ -23,9 +62,9 @@ julia&gt; leonardo
  RGB{Float64}(0.757552,0.633425,0.251451)
  RGB{Float64}(0.816472,0.697015,0.322421)
  RGB{Float64}(0.933027,0.665164,0.198652)
- RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can reference a single value of a scheme once it&#39;s loaded:</p><pre><code class="language-none">leonardo[3]
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can reference a single value of a scheme once it’s loaded:</p><pre><code class="language-none">leonardo[3]
 
--&gt; RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)</code></pre><p>Or you can &#39;sample&#39; the scheme at any point between 0 and 1 using <code>get</code> or <code>getindex</code>:</p><pre><code class="language-none">get(leonardo, 0.5)
+-&gt; RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)</code></pre><p>Or you can ‘sample’ the scheme at any point between 0 and 1 using <code>get</code> or <code>getindex</code>:</p><pre><code class="language-none">get(leonardo, 0.5)
 
 -&gt; RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 
@@ -56,7 +95,7 @@ img4 = get(PerceptualColourMaps.cmap(&quot;R1&quot;), rand(10,10))</code></pre><
           RGB{Float64}(0.0,0.5,0.4), RGB{Float64}(0.01,0.505,0.4), RGB{Float64}(0.02,0.51,0.4), RGB{Float64}(0.03,0.515,0.4),
           ...</code></pre><p>To choose a random ColorScheme:</p><pre><code class="language-none">using Random
 scheme = first(Random.shuffle!(collect(keys(colorschemes))))</code></pre></div></section></article><p>To choose a random ColorScheme:</p><pre><code class="language-none">using Random
-scheme = first(Random.shuffle!(collect(keys(colorschemes))))</code></pre><h2 id="Finding-colorschemes-1"><a class="docs-heading-anchor" href="#Finding-colorschemes-1">Finding colorschemes</a><a class="docs-heading-anchor-permalink" href="#Finding-colorschemes-1" title="Permalink"></a></h2><p>Use the <code>findcolorscheme()</code> function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme&#39;s name, in the category, or in the notes. It&#39;s interpreted as a case-insensitive regular expression.</p><pre><code class="language-none">julia&gt; findcolorscheme(&quot;magen&quot;)
+scheme = first(Random.shuffle!(collect(keys(colorschemes))))</code></pre><h2 id="Finding-colorschemes-1"><a class="docs-heading-anchor" href="#Finding-colorschemes-1">Finding colorschemes</a><a class="docs-heading-anchor-permalink" href="#Finding-colorschemes-1" title="Permalink"></a></h2><p>Use the <code>findcolorscheme()</code> function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.</p><pre><code class="language-none">julia&gt; findcolorscheme(&quot;magen&quot;)
 
 colorschemes containing &quot;magen&quot;
 
@@ -86,16 +125,141 @@ delta                (category) cmocean
 curl                 (category) cmocean
 phase                (category) cmocean
 
-found 18 results for &quot;cmocean&quot;</code></pre><article class="docstring"><header><a class="docstring-binding" id="ColorSchemes.findcolorscheme" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia">findcolorscheme(str)</code></pre><p>Find all color schemes matching <code>str</code>. <code>str</code> is interpreted as a regular expression (case-insensitive).</p><p>To read the notes of built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-none">colorschemes[:cscheme].notes</code></pre></div></section></article><p>If you prefer, you can &#39;roll your own&#39; search.</p><pre><code class="language-none">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
+found 18 results for &quot;cmocean&quot;</code></pre><article class="docstring"><header><a class="docstring-binding" id="ColorSchemes.findcolorscheme" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia">findcolorscheme(str)</code></pre><p>Find all color schemes matching <code>str</code>. <code>str</code> is interpreted as a regular expression (case-insensitive).</p><p>To read the notes of built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-none">colorschemes[:cscheme].notes</code></pre></div></section></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="language-none">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
 265-element Array{Symbol,1}:
  :BuPu_6
  :Spectral_4
  :RdYlGn_5
  ⋮
  :BrBG_8
- :Oranges_4</code></pre><h2 id="Make-your-own-ColorScheme-1"><a class="docs-heading-anchor" href="#Make-your-own-ColorScheme-1">Make your own ColorScheme</a><a class="docs-heading-anchor-permalink" href="#Make-your-own-ColorScheme-1" title="Permalink"></a></h2><p>You can easily make your own ColorScheme objects by building an array:</p><pre><code class="language-none">using Colors
-mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])</code></pre><p>Give it a category or some added notes if you want:</p><pre><code class="language-none">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
-    &quot;my useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>although this won&#39;t end up in the <code>colorschemes</code> dictionary.</p><p>Another example, starting with a two-color scheme, then building a gradient from the first color to the other.</p><pre><code class="language-none">myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
+ :Oranges_4</code></pre><h2 id="Make-your-own-ColorScheme-1"><a class="docs-heading-anchor" href="#Make-your-own-ColorScheme-1">Make your own ColorScheme</a><a class="docs-heading-anchor-permalink" href="#Make-your-own-ColorScheme-1" title="Permalink"></a></h2><p>Using Colors.jl, you can quickly define a range of colors and use it to make a ColorScheme:</p><pre><code class="language-">using Colors, ColorSchemes # hide
+cs1 = ColorScheme(range(colorant&quot;red&quot;, colorant&quot;green&quot;, length=5))</code></pre><pre><code class="language-julia">cs1 = ColorScheme(reverse(Colors.sequential_palette(300, 100, logscale=true)))</code></pre><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 100 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width="1" height=".96" x="0" y="0" fill="#4A0952" />
+<rect width="1" height=".96" x="1" y="0" fill="#601369" />
+<rect width="1" height=".96" x="2" y="0" fill="#731E7E" />
+<rect width="1" height=".96" x="3" y="0" fill="#85298F" />
+<rect width="1" height=".96" x="4" y="0" fill="#94349F" />
+<rect width="1" height=".96" x="5" y="0" fill="#A23EAC" />
+<rect width="1" height=".96" x="6" y="0" fill="#AE48B7" />
+<rect width="1" height=".96" x="7" y="0" fill="#B952C0" />
+<rect width="1" height=".96" x="8" y="0" fill="#C25CC8" />
+<rect width="1" height=".96" x="9" y="0" fill="#CA65CE" />
+<rect width="1" height=".96" x="10" y="0" fill="#D06ED3" />
+<rect width="1" height=".96" x="11" y="0" fill="#D677D8" />
+<rect width="1" height=".96" x="12" y="0" fill="#DC7EDC" />
+<rect width="1" height=".96" x="13" y="0" fill="#E086DF" />
+<rect width="1" height=".96" x="14" y="0" fill="#E48DE1" />
+<rect width="1" height=".96" x="15" y="0" fill="#E793E4" />
+<rect width="1" height=".96" x="16" y="0" fill="#EA99E6" />
+<rect width="1" height=".96" x="17" y="0" fill="#ED9FE8" />
+<rect width="1" height=".96" x="18" y="0" fill="#EFA4E9" />
+<rect width="1" height=".96" x="19" y="0" fill="#F2A9EB" />
+<rect width="1" height=".96" x="20" y="0" fill="#F3ADEC" />
+<rect width="1" height=".96" x="21" y="0" fill="#F5B2ED" />
+<rect width="1" height=".96" x="22" y="0" fill="#F6B6EE" />
+<rect width="1" height=".96" x="23" y="0" fill="#F8B9EF" />
+<rect width="1" height=".96" x="24" y="0" fill="#F9BDF0" />
+<rect width="1" height=".96" x="25" y="0" fill="#FAC0F1" />
+<rect width="1" height=".96" x="26" y="0" fill="#FAC3F2" />
+<rect width="1" height=".96" x="27" y="0" fill="#FBC6F2" />
+<rect width="1" height=".96" x="28" y="0" fill="#FCC9F3" />
+<rect width="1" height=".96" x="29" y="0" fill="#FCCBF4" />
+<rect width="1" height=".96" x="30" y="0" fill="#FDCEF4" />
+<rect width="1" height=".96" x="31" y="0" fill="#FDD0F5" />
+<rect width="1" height=".96" x="32" y="0" fill="#FED2F5" />
+<rect width="1" height=".96" x="33" y="0" fill="#FED4F6" />
+<rect width="1" height=".96" x="34" y="0" fill="#FED6F6" />
+<rect width="1" height=".96" x="35" y="0" fill="#FFD8F7" />
+<rect width="1" height=".96" x="36" y="0" fill="#FFDAF7" />
+<rect width="1" height=".96" x="37" y="0" fill="#FFDCF7" />
+<rect width="1" height=".96" x="38" y="0" fill="#FFDDF8" />
+<rect width="1" height=".96" x="39" y="0" fill="#FFDEF8" />
+<rect width="1" height=".96" x="40" y="0" fill="#FFE0F8" />
+<rect width="1" height=".96" x="41" y="0" fill="#FFE1F8" />
+<rect width="1" height=".96" x="42" y="0" fill="#FFE2F9" />
+<rect width="1" height=".96" x="43" y="0" fill="#FFE4F9" />
+<rect width="1" height=".96" x="44" y="0" fill="#FFE5F9" />
+<rect width="1" height=".96" x="45" y="0" fill="#FFE6F9" />
+<rect width="1" height=".96" x="46" y="0" fill="#FFE7FA" />
+<rect width="1" height=".96" x="47" y="0" fill="#FFE8FA" />
+<rect width="1" height=".96" x="48" y="0" fill="#FFE9FA" />
+<rect width="1" height=".96" x="49" y="0" fill="#FFE9FA" />
+<rect width="1" height=".96" x="50" y="0" fill="#FFEAFA" />
+<rect width="1" height=".96" x="51" y="0" fill="#FFEBFA" />
+<rect width="1" height=".96" x="52" y="0" fill="#FFECFB" />
+<rect width="1" height=".96" x="53" y="0" fill="#FFECFB" />
+<rect width="1" height=".96" x="54" y="0" fill="#FFEDFB" />
+<rect width="1" height=".96" x="55" y="0" fill="#FFEEFB" />
+<rect width="1" height=".96" x="56" y="0" fill="#FFEEFB" />
+<rect width="1" height=".96" x="57" y="0" fill="#FFEFFB" />
+<rect width="1" height=".96" x="58" y="0" fill="#FFEFFB" />
+<rect width="1" height=".96" x="59" y="0" fill="#FFF0FC" />
+<rect width="1" height=".96" x="60" y="0" fill="#FFF0FC" />
+<rect width="1" height=".96" x="61" y="0" fill="#FFF1FC" />
+<rect width="1" height=".96" x="62" y="0" fill="#FFF1FC" />
+<rect width="1" height=".96" x="63" y="0" fill="#FFF2FC" />
+<rect width="1" height=".96" x="64" y="0" fill="#FFF2FC" />
+<rect width="1" height=".96" x="65" y="0" fill="#FFF2FC" />
+<rect width="1" height=".96" x="66" y="0" fill="#FFF3FC" />
+<rect width="1" height=".96" x="67" y="0" fill="#FFF3FC" />
+<rect width="1" height=".96" x="68" y="0" fill="#FFF3FC" />
+<rect width="1" height=".96" x="69" y="0" fill="#FFF4FC" />
+<rect width="1" height=".96" x="70" y="0" fill="#FFF4FC" />
+<rect width="1" height=".96" x="71" y="0" fill="#FFF4FC" />
+<rect width="1" height=".96" x="72" y="0" fill="#FFF5FD" />
+<rect width="1" height=".96" x="73" y="0" fill="#FFF5FD" />
+<rect width="1" height=".96" x="74" y="0" fill="#FFF5FD" />
+<rect width="1" height=".96" x="75" y="0" fill="#FFF5FD" />
+<rect width="1" height=".96" x="76" y="0" fill="#FFF5FD" />
+<rect width="1" height=".96" x="77" y="0" fill="#FFF6FD" />
+<rect width="1" height=".96" x="78" y="0" fill="#FFF6FD" />
+<rect width="1" height=".96" x="79" y="0" fill="#FFF6FD" />
+<rect width="1" height=".96" x="80" y="0" fill="#FFF6FD" />
+<rect width="1" height=".96" x="81" y="0" fill="#FFF6FD" />
+<rect width="1" height=".96" x="82" y="0" fill="#FFF7FD" />
+<rect width="1" height=".96" x="83" y="0" fill="#FFF7FD" />
+<rect width="1" height=".96" x="84" y="0" fill="#FFF7FD" />
+<rect width="1" height=".96" x="85" y="0" fill="#FFF7FD" />
+<rect width="1" height=".96" x="86" y="0" fill="#FFF7FD" />
+<rect width="1" height=".96" x="87" y="0" fill="#FFF7FD" />
+<rect width="1" height=".96" x="88" y="0" fill="#FFF7FD" />
+<rect width="1" height=".96" x="89" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="90" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="91" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="92" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="93" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="94" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="95" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="96" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="97" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="98" y="0" fill="#FFF8FD" />
+<rect width="1" height=".96" x="99" y="0" fill="#FFF8FD" />
+</svg><p>Or you can easily make your own by building an array:</p><pre><code class="language-julia">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])</code></pre><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 11 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".94" height=".96" x="0" y="0" fill="#000000" />
+<rect width=".94" height=".96" x="1" y="0" fill="#1A1A1A" />
+<rect width=".94" height=".96" x="2" y="0" fill="#333333" />
+<rect width=".94" height=".96" x="3" y="0" fill="#4C4C4C" />
+<rect width=".94" height=".96" x="4" y="0" fill="#666666" />
+<rect width=".94" height=".96" x="5" y="0" fill="#808080" />
+<rect width=".94" height=".96" x="6" y="0" fill="#999999" />
+<rect width=".94" height=".96" x="7" y="0" fill="#B2B2B2" />
+<rect width=".94" height=".96" x="8" y="0" fill="#CCCCCC" />
+<rect width=".94" height=".96" x="9" y="0" fill="#E6E6E6" />
+<rect width=".94" height=".96" x="10" y="0" fill="#FFFFFF" />
+</svg><p>Give it a category or some added notes if you want:</p><pre><code class="language-none">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+    &quot;my useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>although this won’t end up in the <code>colorschemes</code> dictionary.</p><p>Another example, starting with a two-color scheme, then building a gradient from the first color to the other.</p><pre><code class="language-none">myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
                &quot;custom&quot;, &quot;twotone, red and green&quot;)
 ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])</code></pre><p>Another way is to use <code>loadcolorscheme()</code> function:</p><pre><code class="language-none">loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
      &quot;useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>and that will be added (temporarily).</p><pre><code class="language-none">julia&gt; findcolorscheme(&quot;dull&quot;)
@@ -158,4 +322,4 @@ sequential2  16
 	gray         not currently in stock
 perceptuallyuniformsequential 4
 diverging    12
-miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../finding/">Finding colors »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 29 April 2020 19:08">Wednesday 29 April 2020</span>. Using Julia version 1.0.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Introduction</a><a class="docs-footer-nextpage" href="../finding/">Finding colors »</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 10 June 2020 13:42">Wednesday 10 June 2020</span>. Using Julia version 1.0.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

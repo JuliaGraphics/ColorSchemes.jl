@@ -33,7 +33,7 @@ myscheme = ColorScheme([Colors.RGB(0.0, 0.0, 0.0), Colors.RGB(1.0, 1.0, 1.0)],
 ```
 
 """
-struct ColorScheme{V<:AbstractVector{<:Colorant},S1<:AbstractString,S2<:AbstractString}
+struct ColorScheme{V <: AbstractVector{<:Colorant},S1 <: AbstractString,S2 <: AbstractString}
     colors::V
     category::S1
     notes::S2
@@ -76,7 +76,7 @@ scheme = first(Random.shuffle!(collect(keys(colorschemes))))
 ```
 
 """
-const colorschemes = Dict{Symbol, ColorScheme}()
+const colorschemes = Dict{Symbol,ColorScheme}()
 
 function loadallschemes()
     # load the installed schemes
@@ -90,6 +90,7 @@ function loadallschemes()
     include(joinpath(datadir, "colorcetdata.jl"))
     include(joinpath(datadir, "scicolor.jl"))
     include(joinpath(datadir, "seaborn.jl"))
+    include(joinpath(datadir, "tableau.jl"))
 
     # create them as constants...
     for key in keys(colorschemes)
@@ -206,7 +207,7 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}
     before_fp = remap(x, rangescale..., 1, length(cscheme))
     before = round.(Int, before_fp, RoundDown)
     after =  min.(before .+ 1, length(cscheme))
-    # blend between the two colors adjacent to the point
+    #  blend between the two colors adjacent to the point
     cpt = before_fp - before
     return weighted_color_mean.(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
 end
@@ -222,7 +223,7 @@ end
 
 Return the color in `cs` that corresponds to the gray value `g`.
 """
-function get(cs::ColorScheme, g::Color{T,1} where T<:Union{Bool, AbstractFloat, FixedPoint})
+function get(cs::ColorScheme, g::Color{T,1} where T <: Union{Bool,AbstractFloat,FixedPoint})
     get(cs, ColorTypes.gray(g)) # don't confuse with the 'grays' colorscheme
 end
 
@@ -252,7 +253,7 @@ julia> getinverse(cs, cs[3])
 0.5
 ```
 """
-function getinverse(cscheme::ColorScheme, c, rangescale::Tuple{Number, Number}=(0.0, 1.0))
+function getinverse(cscheme::ColorScheme, c, rangescale::Tuple{Number,Number}=(0.0, 1.0))
     # TODO better error handling please
     length(cscheme) <= 1 && throw(ErrorException("ColorScheme of length $(length(cscheme)) is not long enough"))
     cdiffs = map(c_i -> colordiff(promote(c, c_i)...), cscheme.colors)
@@ -261,7 +262,7 @@ function getinverse(cscheme::ColorScheme, c, rangescale::Tuple{Number, Number}=(
     if closest == 1 ; left = closest; right = closest + 1;
     elseif closest == length(cscheme) ; left = closest - 1; right = closest;
     else
-        next_closest = cdiffs[closest-1] < cdiffs[closest+1] ? closest-1 : closest+1
+        next_closest = cdiffs[closest - 1] < cdiffs[closest + 1] ? closest - 1 : closest + 1
         left = min(closest, next_closest)
         right = max(closest, next_closest)
     end

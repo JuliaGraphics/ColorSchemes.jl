@@ -6,13 +6,8 @@ os:
   - osx
 
 julia:
-  - 1.0
+  - 1.5
   - nightly
-
-# matrix:
-#   allow_failures:
-#     - julia: nightly
-#
 
 env:
   global:
@@ -21,7 +16,7 @@ env:
 jobs:
   include:
     - stage: "Documentation"
-      julia: 1.0
+      julia: 1.5
       os: osx
       script:
         - julia --project=docs/ -e 'using Pkg; Pkg.instantiate();

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Plotting · ColorSchemes</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="ColorSchemes logo"/></a><div class="docs-package-name"><span class="docs-autofit">ColorSchemes</span></div><form class="docs-search" action="../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../basics/">Basic usage</a></li><li><a class="tocitem" href="../finding/">Finding colors</a></li><li class="is-active"><a class="tocitem" href>Plotting</a><ul class="internal"><li><a class="tocitem" href="#UnicodePlots.jl"><span>UnicodePlots.jl</span></a></li><li><a class="tocitem" href="#Plots.jl"><span>Plots.jl</span></a></li><li><a class="tocitem" href="#Gadfly"><span>Gadfly</span></a></li><li><a class="tocitem" href="#Makie"><span>Makie</span></a></li><li><a class="tocitem" href="#Winston"><span>Winston</span></a></li><li><a class="tocitem" href="#PyPlot"><span>PyPlot</span></a></li></ul></li><li><a class="tocitem" href="../images/">Images</a></li><li><a class="tocitem" href="../functionindex/">Index</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Plotting</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Plotting</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/plotting.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Plotting"><a class="docs-heading-anchor" href="#Plotting">Plotting</a><a id="Plotting-1"></a><a class="docs-heading-anchor-permalink" href="#Plotting" title="Permalink"></a></h1><h2 id="UnicodePlots.jl"><a class="docs-heading-anchor" href="#UnicodePlots.jl">UnicodePlots.jl</a><a id="UnicodePlots.jl-1"></a><a class="docs-heading-anchor-permalink" href="#UnicodePlots.jl" title="Permalink"></a></h2><p>The <code>heatmap()</code> function in <a href="https://github.com/Evizero/UnicodePlots.jl">UnicodePlots.jl</a> can use colorschemes. You have to supply the colors as an array of floating-point numbers first:</p><pre><code class="language-none">... colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors]</code></pre><p>For example:</p><pre><code class="language-none">heatmap(z::AbstractMatrix; title = &quot;Hot!&quot;,
+    colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors])</code></pre><p><img src="../assets/figures/unicodeplots-heatmap.png" alt="&quot;heatmap&quot;"/></p><h2 id="Plots.jl"><a class="docs-heading-anchor" href="#Plots.jl">Plots.jl</a><a id="Plots.jl-1"></a><a class="docs-heading-anchor-permalink" href="#Plots.jl" title="Permalink"></a></h2><p><a href="https://docs.juliaplots.org/">Plots.jl</a> supports all colorschemes from ColorSchemes.jl. They can be used as a gradient or as a palette and are passed as a symbol holding their name to <code>cgrad</code> or <code>palette</code>.</p><p>This renaissance-looking plot uses the <code>leonardo</code> scheme:</p><pre><code class="language-none">using Plots
+
+x = 1:0.3:20
+y = x
+f(x, y) = begin
+      sin(x) + cos(y)
+  end
+contour(x, y, f, fill=true, c = :leonardo)</code></pre><p><img src="../assets/figures/plots-contour-1.png" alt="&quot;contour&quot;"/></p><p>(You can use <code>c</code> as a short cut for <code>seriescolor</code>.)</p><p>With other plots, use the <code>palette</code> keyword:</p><pre><code class="language-none">using ColorSchemes
+
+plot(Plots.fakedata(100, 20),
+      w=4,
+      background_color=ColorSchemes.vermeer[1],
+      palette=:vermeer)</code></pre><p><img src="../assets/figures/plots-background.png" alt="&quot;palette&quot;"/></p><h2 id="Gadfly"><a class="docs-heading-anchor" href="#Gadfly">Gadfly</a><a id="Gadfly-1"></a><a class="docs-heading-anchor-permalink" href="#Gadfly" title="Permalink"></a></h2><p>Here&#39;s how you can use ColorSchemes in Gadfly:</p><pre><code class="language-none">using Gadfly, ColorSchemes
+x = repeat(collect(1:20), inner=[20]);
+y = repeat(collect(1:20), outer=[20]);
+plot(x=x, y=y,
+    color=x+y,
+    Geom.rectbin,
+    Scale.ContinuousColorScale(p -&gt; get(ColorSchemes.sunset, p)))</code></pre><p><img src="../assets/figures/gadfly-sunset.png" alt="&quot;gadfly&quot;"/></p><h2 id="Makie"><a class="docs-heading-anchor" href="#Makie">Makie</a><a id="Makie-1"></a><a class="docs-heading-anchor-permalink" href="#Makie" title="Permalink"></a></h2><p>If you use Makie.jl you can pass the colors in a ColorScheme directly to the <code>colormap</code> keyword.</p><pre><code class="language-none">using Makie, ColorSchemes
+N = 20
+x = LinRange(-0.3, 1, N)
+y = LinRange(-1, 0.5, N)
+z = x .* y&#39;
+image(x, y, z, colormap = ColorSchemes.picasso.colors)</code></pre><p><img src="../assets/figures/makie.png" alt="&quot;makie&quot;"/></p><p>You can display all the colorschemes using Makie by letting the code browse through the <code>colorschemes</code> dictionary:</p><pre><code class="language-none">using Makie, ColorSchemes
+
+h = 0.0
+offset = 0.1
+scene = Scene()
+cam2d!(scene)
+plot = map(collect(keys(colorschemes))) do cmap
+     global h
+     c = to_colormap(colorschemes[cmap].colors)
+     cbar = image!(
+         scene,
+         range(0, stop = 10, length = length(c)),
+         range(0, stop = 1, length = length(c)),
+         reshape(c, (length(c), 1)),
+         show_axis = false
+     )[end]
+     text!(
+         scene,
+         string(cmap, &quot;:&quot;),
+         position = Point2f0(-0.1, 0.5 + h),
+         align = (:right, :center),
+         show_axis = false,
+         textsize = 0.4
+     )
+     translate!(cbar, 0, h, 0)
+     h -= (1 + offset)
+end
+scene</code></pre><p><img src="../assets/figures/allschemesmakie.png" alt="&quot;makie all colorschemes&quot;"/></p><h2 id="Winston"><a class="docs-heading-anchor" href="#Winston">Winston</a><a id="Winston-1"></a><a class="docs-heading-anchor-permalink" href="#Winston" title="Permalink"></a></h2><p>If you prefer Winston.jl for plotting, you can use ColorSchemes with <code>imagesc</code>:</p><pre><code class="language-none">using Winston, ColorSchemes
+klimt = ColorSchemes.klimt.colors
+Winston.colormap(klimt)
+Winston.imagesc(reshape(1:10000,100,100))</code></pre><p><img src="../assets/figures/winston.png" alt="&quot;winston klimt&quot;"/></p><p>Sometimes you&#39;ll want a smoother gradient with more colors. You can use <code>get(scheme, n)</code> to generate a more detailed array of colors, varying <code>n</code> from 0 to 1 by 0.001:</p><pre><code class="language-none">brasstones = ColorSchemes.brass
+brasstonesmooth = [get(brasstones, i) for i in 0:0.001:1]
+Winston.colormap(brasstonesmooth)
+Winston.imagesc(reshape(1:10000,100,100))</code></pre><p><img src="../assets/figures/winston1.png" alt="&quot;winston brass tones"/></p><h2 id="PyPlot"><a class="docs-heading-anchor" href="#PyPlot">PyPlot</a><a id="PyPlot-1"></a><a class="docs-heading-anchor-permalink" href="#PyPlot" title="Permalink"></a></h2><p>ColorSchemes can be used with the <code>cmap</code> keyword in PyPlot:</p><pre><code class="language-none"># warning: this crashes your Julia session at the moment (2019-01-24)
+
+using PyPlot, Distributions, ColorSchemes
+
+solar = ColorSchemes.solar.colors
+
+n = 100
+x = range(-3, stop=3, length=n)
+y = range(-3, stop=3, length=n)
+
+xgrid = repeat(x&#39;, n, 1);
+ygrid = repeat(y, 1, n);
+z = zeros(n, n);
+
+for i in 1:n
+    for j in 1:n
+        z[i, j] = 2sin(x[i]) * 2cos(y[j])
+    end
+end
+
+fig = PyPlot.figure(&quot;pyplot_surfaceplot&quot;,figsize=(10,10))
+
+using3D()
+ax = fig[:add_subplot](2, 1, 1, projection = &quot;3d&quot;)
+
+ax[:plot_surface](xgrid, ygrid, z, rstride=2,edgecolors=&quot;k&quot;,
+    cstride=2,
+    cmap=ColorMap(solar),
+    alpha=0.8,
+    linewidth=0.25)</code></pre><p><img src="../assets/figures/pyplot.png" alt="&quot;pyplot&quot;"/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../finding/">« Finding colors</a><a class="docs-footer-nextpage" href="../images/">Images »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Saturday 19 September 2020 10:19">Saturday 19 September 2020</span>. Using Julia version 1.5.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

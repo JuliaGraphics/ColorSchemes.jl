@@ -246,6 +246,15 @@ schemes = filter(s -> occursin("seaborn", colorschemes[s].category), collect(key
 drawschemes(sort(schemes), filetype=:png) # hide
 ```
 
+## ✦ ggthemes/tableau
+
+From ["ggthemes tableau palettes"](https://github.com/jrnold/ggthemes)
+
+```@example drawschemes
+schemes = filter(s -> occursin("tableau", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
+
 ## ✦ general and miscellaneous
 
 ```@example drawschemes

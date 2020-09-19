@@ -1,13 +1,15 @@
 # Changelog
 
-
-## [v3.9....] - forthcoming 2020
+## [v3.10.0] - 2020 September 19
 
 ### Added
+
+- ggthemes/tableau scheme added (thanks ohmsweetohm1!)
 
 ## Changed
 
 - renamed cmocean grey -> greys
+- renamed general grays -> grays1
 
 ### Removed
 

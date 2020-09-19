@@ -865,7 +865,7 @@ loadcolorscheme(:fuchsia, SA[
     RGB(0.923313, 0.823714, 0.906672),
     RGB(0.969142, 0.931897, 0.965022)], "general")
 
-loadcolorscheme(:grays, SA[
+loadcolorscheme(:grays1, SA[
     RGB(0.1, 0.1, 0.1),
     RGB(0.225356, 0.246889, 0.268731),
     RGB(0.333565, 0.367922, 0.391532),

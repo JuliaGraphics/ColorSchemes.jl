@@ -9,7 +9,7 @@ loadcolorscheme(:tableau_10, [
     colorant"#FF9DA7", # pink
     colorant"#9C755F", # brown
     colorant"#BAB0AC", # gray
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_20, [
     colorant"#4E79A7", colorant"#A0CBE8", # blue
@@ -22,9 +22,9 @@ loadcolorscheme(:tableau_20, [
     colorant"#D37295", colorant"#FABFD2", # pink
     colorant"#B07AA1", colorant"#D4A6C8", # purple
     colorant"#9D7660", colorant"#D7B5A6", # gray
-], "tableau")
+], "tableau", "sequential")
 
-loadcolorscheme(:tableau_color_blind, [
+loadcolorscheme(:tableau_colorblind, [
     colorant"#1170aa", 
     colorant"#fc7d0b", 
     colorant"#a3acb9",
@@ -35,7 +35,7 @@ loadcolorscheme(:tableau_color_blind, [
     colorant"#a3cce9",
     colorant"#ffbc79",
     colorant"#c8d0d9",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_seattle_grays, [
     colorant"#767f8b", 
@@ -43,7 +43,7 @@ loadcolorscheme(:tableau_seattle_grays, [
     colorant"#5c6068",
     colorant"#d3d3d3", 
     colorant"#989ca3",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_traffic, [
     colorant"#b60a1c", 
@@ -55,7 +55,7 @@ loadcolorscheme(:tableau_traffic, [
     colorant"#ff684c", 
     colorant"#ffda66", 
     colorant"#8ace7e", 
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_miller_stone, [
     colorant"#4f6980", 
@@ -69,7 +69,7 @@ loadcolorscheme(:tableau_miller_stone, [
     colorant"#d7ce9f", 
     colorant"#b9aa97", 
     colorant"#7e756d", 
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_superfishel_stone, [
     colorant"#6388b4",
@@ -82,7 +82,7 @@ loadcolorscheme(:tableau_superfishel_stone, [
     colorant"#baa094",
     colorant"#a9b5ae",
     colorant"#767676",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_nuriel_stone, [
     colorant"#8175aa",
@@ -94,7 +94,7 @@ loadcolorscheme(:tableau_nuriel_stone, [
     colorant"#959c9e",
     colorant"#027b8e",
     colorant"#9f8f12",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_jewel_bright, [
     colorant"#eb1e2c",
@@ -106,7 +106,7 @@ loadcolorscheme(:tableau_jewel_bright, [
     colorant"#91dcea",
     colorant"#a4a4d5",
     colorant"#bbc9e5",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_summer, [
     colorant"#bfb202",
@@ -117,7 +117,7 @@ loadcolorscheme(:tableau_summer, [
     colorant"#97cfd0",
     colorant"#f3a546",
     colorant"#f7c480",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_winter,[
     colorant"#90728f",
@@ -130,7 +130,7 @@ loadcolorscheme(:tableau_winter,[
     colorant"#bab2ae",
     colorant"#aa8780",
     colorant"#dab6af",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_green_orange_teal, [
     colorant"#4e9f50",
@@ -145,7 +145,7 @@ loadcolorscheme(:tableau_green_orange_teal, [
     colorant"#f7d42a",
     colorant"#26897e",
     colorant"#8dbfa8",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_red_blue_brown, [
     colorant"#466f9d",
@@ -160,7 +160,7 @@ loadcolorscheme(:tableau_red_blue_brown, [
     colorant"#39b87f",
     colorant"#c8133b",
     colorant"#ea8783",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_purple_pink_gray, [
     colorant"#8074a8",
@@ -175,7 +175,7 @@ loadcolorscheme(:tableau_purple_pink_gray, [
     colorant"#f498b6",
     colorant"#b173a0",
     colorant"#c799bc",
-], "tableau")
+], "tableau", "sequential")
 
 loadcolorscheme(:tableau_hue_circle, [
     colorant"#1ba3c6",
@@ -197,4 +197,184 @@ loadcolorscheme(:tableau_hue_circle, [
     colorant"#a26dc2",
     colorant"#7873c0",
     colorant"#4f7cba",
-], "tableau")
+], "tableau", "sequential")
+
+loadcolorscheme(:tableau_orange_blue,[
+    colorant"#9e3d22",
+    colorant"#d45b21",
+    colorant"#f69035",
+    colorant"#d9d5c9",
+    colorant"#77acd3",
+    colorant"#4f81af",
+    colorant"#2b5c8a",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_red_green, [
+    colorant"#a3123a",
+    colorant"#e33f43",
+    colorant"#f8816b",
+    colorant"#ced7c3",
+    colorant"#73ba67",
+    colorant"#44914e",
+    colorant"#24693d",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_green_blue,[
+    colorant"#24693d",
+    colorant"#45934d",
+    colorant"#75bc69",
+    colorant"#c9dad2",
+    colorant"#77a9cf",
+    colorant"#4e7fab",
+    colorant"#2a5783",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_red_blue, [
+    colorant"#a90c38",
+    colorant"#e03b42",
+    colorant"#f87f69",
+    colorant"#dfd4d1",
+    colorant"#7eaed3",
+    colorant"#5383af",
+    colorant"#2e5a87",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_red_black, [ 
+    colorant"#ae123a",
+    colorant"#e33e43",
+    colorant"#f8816b",
+    colorant"#d9d9d9",
+    colorant"#a0a7a8",
+    colorant"#707c83",
+    colorant"#49525e",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_gold_purple,[
+    colorant"#ad9024",
+    colorant"#c1a33b",
+    colorant"#d4b95e",
+    colorant"#e3d8cf",
+    colorant"#d4a3c3",
+    colorant"#c189b0",
+    colorant"#ac7299",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_red_green_gold, [
+    colorant"#be2a3e",
+    colorant"#e25f48",
+    colorant"#f88f4d",
+    colorant"#f4d166",
+    colorant"#90b960",
+    colorant"#4b9b5f",
+    colorant"#22763f",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_sunset_sunrise, [
+    colorant"#33608c",
+    colorant"#9768a5",
+    colorant"#e7718a",
+    colorant"#f6ba57",
+    colorant"#ed7846",
+    colorant"#d54c45",
+    colorant"#b81840",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_orange_blue_white, [
+    colorant"#9e3d22",
+    colorant"#e36621",
+    colorant"#fcad52",
+    colorant"#ffffff",
+    colorant"#95c5e1",
+    colorant"#5b8fbc",
+    colorant"#2b5c8a",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_red_green_white, [
+    colorant"#ae123a",
+    colorant"#ee574d",
+    colorant"#fdac9e",
+    colorant"#ffffff",
+    colorant"#91d183",
+    colorant"#539e52",
+    colorant"#24693d",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_green_blue_white, [
+    colorant"#24693d",
+    colorant"#529c51",
+    colorant"#8fd180",
+    colorant"#ffffff",
+    colorant"#95c1dd",
+    colorant"#598ab5",
+    colorant"#2a5783",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_red_blue_white, [
+    colorant"#a90c38",
+    colorant"#ec534b",
+    colorant"#feaa9a",
+    colorant"#ffffff",
+    colorant"#9ac4e1",
+    colorant"#5c8db8",
+    colorant"#2e5a87",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_red_lack_white, [
+    colorant"#ae123a",
+    colorant"#ee574d",
+    colorant"#fdac9d",
+    colorant"#ffffff",
+    colorant"#bdc0bf",
+    colorant"#7d888d",
+    colorant"#49525e",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_orang_blue_light, [
+    colorant"#ffcc9e",
+    colorant"#f9d4b6",
+    colorant"#f0dccd",
+    colorant"#e5e5e5",
+    colorant"#dae1ea",
+    colorant"#cfdcef",
+    colorant"#c4d8f3",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_temperature, [
+    colorant"#529985",
+    colorant"#6c9e6e",
+    colorant"#99b059",
+    colorant"#dbcf47",
+    colorant"#ebc24b",
+    colorant"#e3a14f",
+    colorant"#c26b51",
+], "tableau", "diverging")
+
+loadcolorscheme(:tableau_blue_green, [
+    colorant"#feffd9",
+    colorant"#f2fabf",
+    colorant"#dff3b2",
+    colorant"#c4eab1",
+    colorant"#94d6b7",
+    colorant"#69c5be",
+    colorant"#41b7c4",
+], "tableau", "sequential")
+
+loadcolorscheme(:tableau_blue_light, [
+    colorant"#e5e5e5",
+    colorant"#e0e3e8",
+    colorant"#dbe1ea",
+    colorant"#d5dfec",
+    colorant"#d0dcef",
+    colorant"#cadaf1",
+    colorant"#c4d8f3",
+], "tableau", "sequential")
+
+loadcolorscheme(:tableau_orange_light, [
+    colorant"#e5e5e5",
+    colorant"#ebe1d9",
+    colorant"#f0ddcd",
+    colorant"#f5d9c2",
+    colorant"#f9d4b6",
+    colorant"#fdd0aa",
+    colorant"#ffcc9e",
+], "tableau", "sequential")

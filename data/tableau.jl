@@ -11,17 +11,30 @@ loadcolorscheme(:tableau_10, [
     colorant"#BAB0AC", # gray
 ], "tableau", "sequential")
 
+# loadcolorscheme(:tableau_20, [ # original ordering
+#     colorant"#4E79A7", colorant"#A0CBE8", # blue
+#     colorant"#F28E2B", colorant"#FFBE7D", # orange
+#     colorant"#59A14F", colorant"#8CD17D", # green
+#     colorant"#B6992D", colorant"#F1CE63", # yellow
+#     colorant"#499894", colorant"#86BCB6", # turquoise
+#     colorant"#E15759", colorant"#FF9D9A", # red
+#     colorant"#79706E", colorant"#BAB0AC", # gray
+#     colorant"#D37295", colorant"#FABFD2", # pink
+#     colorant"#B07AA1", colorant"#D4A6C8", # purple
+#     colorant"#9D7660", colorant"#D7B5A6", # gray
+# ], "tableau", "sequential")
+
 loadcolorscheme(:tableau_20, [
     colorant"#4E79A7", colorant"#A0CBE8", # blue
     colorant"#F28E2B", colorant"#FFBE7D", # orange
+    colorant"#E15759", colorant"#FF9D9A", # red
+    colorant"#499894", colorant"#86BCB6", # turquoise
     colorant"#59A14F", colorant"#8CD17D", # green
     colorant"#B6992D", colorant"#F1CE63", # yellow
-    colorant"#499894", colorant"#86BCB6", # turquoise
-    colorant"#E15759", colorant"#FF9D9A", # red
-    colorant"#79706E", colorant"#BAB0AC", # gray
-    colorant"#D37295", colorant"#FABFD2", # pink
     colorant"#B07AA1", colorant"#D4A6C8", # purple
-    colorant"#9D7660", colorant"#D7B5A6", # gray
+    colorant"#D37295", colorant"#FABFD2", # pink
+    colorant"#9D7660", colorant"#D7B5A6", # brown
+    colorant"#79706E", colorant"#BAB0AC", # gray
 ], "tableau", "sequential")
 
 loadcolorscheme(:tableau_colorblind, [

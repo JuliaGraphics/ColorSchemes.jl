@@ -71,6 +71,12 @@ end
     y3=get(monalisa, x, (-1.0, 2.0))
     @test y3 == y2
 
+    # test empty range (#43)
+    y4=get(monalisa, 0.4, (0.0, 0.0))
+    @test 0.3 < y4.r < 0.4
+    @test 0.2 < y4.g < 0.25
+    @test 0.1 < y4.b < 0.15
+
     # test gray value (#23)
     c = get(monalisa, Gray(N0f16(1.0)))
     @test typeof(c) == RGB{Float64}

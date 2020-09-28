@@ -1,5 +1,20 @@
 # Changelog
 
+## [v3.10.1] - 2020
+
+### Added
+
+- more ggthemes/tableau scheme added (thanks ohmsweetohm1!)
+
+## Changed
+
+- fixed empty range (#43)
+
+### Removed
+
+### Deprecated
+
+
 ## [v3.10.0] - 2020 September 19
 
 ### Added

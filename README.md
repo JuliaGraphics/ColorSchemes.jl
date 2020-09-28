@@ -26,8 +26,8 @@ If you want to make more advanced ColorSchemes, use linear-segment dictionaries 
 [docs-latest-img]: https://img.shields.io/badge/docs-in_development-orange.svg
 [docs-latest-url]: https://JuliaGraphics.github.io/ColorSchemes.jl/latest/
 
-[travis-img]: https://travis-ci.org/JuliaGraphics/ColorSchemes.jl.svg?branch=master
-[travis-url]: https://travis-ci.org/JuliaGraphics/ColorSchemes.jl
+[travis-img]: https://travis-ci.com/JuliaGraphics/ColorSchemes.jl.svg?branch=master
+[travis-url]: https://travis-ci.com/JuliaGraphics/ColorSchemes.jl
 
 [appveyor-img]: https://ci.appveyor.com/api/projects/status/59hherf65c713iaw/branch/master?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/cormullion/colorschemetools-jl

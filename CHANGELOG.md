@@ -1,6 +1,18 @@
 # Changelog
 
-## [v3.10.1] - 2020
+## forthcoming release
+
+### Added
+
+- cvd/colorblind friendly schemes added (#51)
+
+## Changed
+
+### Removed
+
+### Deprecated
+
+## [v3.10.1] - 2020 September 28
 
 ### Added
 

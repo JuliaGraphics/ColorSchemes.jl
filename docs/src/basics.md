@@ -255,6 +255,15 @@ schemes = filter(s -> occursin("tableau", colorschemes[s].category), collect(key
 drawschemes(sort(schemes), filetype=:png) # hide
 ```
 
+## ✦ CVD/(ColorBlind)-friendly schemes
+
+Colorschemes designed with color-vision deficient users in mind, by authors such as Paul Tol, Masataka Okabe, Kei Ito, and Martin Krzywinski.
+
+```@example drawschemes
+schemes = filter(s -> occursin("cvd", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
+
 ## ✦ general and miscellaneous
 
 ```@example drawschemes

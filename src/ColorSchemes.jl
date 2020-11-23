@@ -204,8 +204,10 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
 end
 function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}=defaultrange(x))
     x isa AbstractRange && (x = collect(x))
-    # check for empty range (#43)
-    iszero(first(rangescale) - last(rangescale)) && (rangescale=(0.0, 1.0))
+    # check for empty range
+    if iszero(first(rangescale) - last(rangescale)) 
+        rangescale = zero(first(rangescale)), oneunit(last(rangescale))
+    end
     x = clamp.(x, rangescale...)
     before_fp = remap(x, rangescale..., 1, length(cscheme))
     before = round.(Int, before_fp, RoundDown)

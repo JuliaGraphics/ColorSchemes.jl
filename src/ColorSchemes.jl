@@ -217,8 +217,7 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}
     return weighted_color_mean.(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
 end
 # Boolean just takes the start and end values of the scheme. Also avoid using a branch.
-function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}},
-             rangescale::NTuple{2,<:Real}=defaultrange(x))
+function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}})
     i = x .* (length(cscheme) .- 1) .+ 1
     return getindex.(Ref(cscheme.colors), i)
 end

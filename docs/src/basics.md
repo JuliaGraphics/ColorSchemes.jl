@@ -269,11 +269,12 @@ drawschemes(sort(schemes), filetype=:png) # hide
 Colors extracted from flags of different countries and regions, downloaded from
 [Flagpedia](https://flagpedia.net). Intended to represent these regions in
 visualizations, but not necessarily effective. Many flags have similar
-colorschemes.
+colorschemes. The flags are named according to the region's ISO3166 two-letter
+abbreviation (often the same as top-level WWW domain), with any hyphens removed.
 
 ```@example drawschemes
 schemes = filter(s -> occursin("flags", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawchemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
 ```
 
 ## ✦ general and miscellaneous

@@ -92,6 +92,7 @@ function loadallschemes()
     include(joinpath(datadir, "seaborn.jl"))
     include(joinpath(datadir, "tableau.jl"))
     include(joinpath(datadir, "cvd.jl"))
+    include(joinpath(datadir, "flags.jl"))
 
     # create them as constants...
     for key in keys(colorschemes)
@@ -205,7 +206,7 @@ end
 function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}=defaultrange(x))
     x isa AbstractRange && (x = collect(x))
     # check for empty range
-    if iszero(first(rangescale) - last(rangescale)) 
+    if iszero(first(rangescale) - last(rangescale))
         rangescale = zero(first(rangescale)), oneunit(last(rangescale))
     end
     x = clamp.(x, rangescale...)

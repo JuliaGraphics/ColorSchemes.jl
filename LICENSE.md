@@ -85,3 +85,10 @@ see https://github.com/matplotlib/cmocean
 see https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html
 Copyright 2019 Google LLC.
 SPDX-License-Identifier: Apache-2.0
+
+
+## flags
+
+See https://flagpedia.net/about
+
+The flags from which these color schemes were extracted are public domain.

@@ -264,6 +264,19 @@ schemes = filter(s -> occursin("cvd", colorschemes[s].category), collect(keys(co
 drawschemes(sort(schemes), filetype=:png) # hide
 ```
 
+## ✦ Flags
+
+Colors extracted from flags of different countries and regions, downloaded from
+[Flagpedia](https://flagpedia.net). Intended to represent these regions in
+visualizations, but not necessarily effective. Many flags have similar
+colorschemes. The flags are named according to the region's ISO3166 two-letter
+abbreviation (often the same as top-level WWW domain), with any hyphens removed.
+
+```@example drawschemes
+schemes = filter(s -> occursin("flags", colorschemes[s].category), collect(keys(colorschemes))) # hide
+drawschemes(sort(schemes), filetype=:png) # hide
+```
+
 ## ✦ general and miscellaneous
 
 ```@example drawschemes

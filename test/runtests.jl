@@ -40,6 +40,7 @@ monalisa = ColorScheme([
     @test length(monalisa) == 32
     @test length(monalisa.colors) == 32
     # test that sampling schemes yield different values
+    @inferred get(monalisa, 0.0)
     @test get(monalisa, 0.0) != get(monalisa, 0.5)
     @test monalisa[end] == monalisa[1.0]
 end
@@ -48,45 +49,46 @@ end
 
 @testset "conversion tests" begin
     # convert an Array{T,2} to an RGB image
-    tmp = get(monalisa, rand(10, 10))
+    tmp = @inferred get(monalisa, rand(10, 10))
     @test typeof(tmp) == Array{ColorTypes.RGB{Float64}, 2}
 
     # test conversion with default clamp
     x = [0.0 1.0 ; -1.0 2.0]
-    y = get(monalisa, x)
+    y = @inferred get(monalisa, x)
     @test y[1,1] == y[2,1]
     @test y[1,2] == y[2,2]
 
     # test conversion with symbol clamp
-    y2 = get(monalisa, x, :clamp)
+    y2 = @inferred get(monalisa, x, :clamp)
     @test y2 == y
 
     # test conversion with symbol extrema
-    y2=get(monalisa, x, :extrema)
+    y2 = @inferred get(monalisa, x, :extrema)
     @test y2[2,1] == y[1, 1]   # Minimum now becomes one edge of ColorScheme
     @test y2[2,2] == y[1, 2]   # Maximum now becomes other edge of ColorScheme
     @test y2[1,1] !== y2[2, 1] # Inbetween values or now different
 
     # test conversion with manually supplied range
-    y3=get(monalisa, x, (-1.0, 2.0))
+    y3 = @inferred get(monalisa, x, (-1.0, 2.0))
     @test y3 == y2
 
     # test empty range (#43)
-    y4=get(monalisa, 0.4, (0.0, 0.0))
+    y4 = @inferred get(monalisa, 0.4, (0.0, 0.0))
     @test 0.3 < y4.r < 0.4
     @test 0.2 < y4.g < 0.25
     @test 0.1 < y4.b < 0.15
 
     # test gray value (#23)
-    c = get(monalisa, Gray(N0f16(1.0)))
+    c = @inferred get(monalisa, Gray(N0f16(1.0)))
     @test typeof(c) == RGB{Float64}
     @test c.r > 0.95
     @test c.g > 0.75
     @test c.b < 0.3
-    c = get(monalisa, Gray24(N0f16(1.0)))
+    c = @inferred get(monalisa, Gray24(N0f16(1.0)))
     @test typeof(c) == RGB{Float64}
     @test c.r > 0.95
     # Booleans
+    @inferred get(monalisa, false)
     @test get(monalisa, 0.0) == get(monalisa, false)
     @test get(monalisa, 1.0) == get(monalisa, true)
 end
@@ -94,17 +96,17 @@ end
 @testset "misc tests" begin
     # test with steplen (#17)
     r  = range(0, stop=5, length=10)
-    y  = get(monalisa, r)
-    y2 = get(monalisa, collect(r))
+    y  = @inferred get(monalisa, r)
+    y2 = @inferred get(monalisa, collect(r))
     @test y == y2
 
     # test for specific value
     val = 0.2
-    y   = get(monalisa, [val])
-    y2  = get(monalisa, val)
+    y   = @inferred get(monalisa, [val])
+    y2  = @inferred get(monalisa, val)
     @test y2 == y[1]
 
-    col = get(reverse(monalisa), 0.0)
+    col = @inferred get(reverse(monalisa), 0.0)
     @test col.r > 0.9
     @test col.g > 0.7
     @test col.b > 0.2

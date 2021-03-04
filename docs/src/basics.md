@@ -288,13 +288,6 @@ drawschemes(sort(schemes), filetype=:png) # hide
 colorschemes
 ```
 
-To choose a random ColorScheme:
-
-```
-using Random
-scheme = first(Random.shuffle!(collect(keys(colorschemes))))
-```
-
 ## Finding colorschemes
 
 Use the `findcolorscheme()` function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.

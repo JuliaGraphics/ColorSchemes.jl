@@ -71,8 +71,7 @@ colorschemes[:summer] |> show
 To choose a random ColorScheme:
 
 ```
-using Random
-scheme = first(Random.shuffle!(collect(keys(colorschemes))))
+scheme = rand(keys(colorschemes))
 ```
 
 """

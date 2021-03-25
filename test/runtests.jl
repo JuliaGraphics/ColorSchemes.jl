@@ -42,7 +42,7 @@ monalisa = ColorScheme([
     # test that sampling schemes yield different values
     @inferred get(monalisa, 0.0)
     @test get(monalisa, 0.0) != get(monalisa, 0.5)
-    @test monalisa[end] == monalisa[1.0]
+    @test monalisa[end] ≈ monalisa[1.0]
 end
 
 # getinverse() tests are now in ColorSchemes
@@ -55,22 +55,27 @@ end
     # test conversion with default clamp
     x = [0.0 1.0 ; -1.0 2.0]
     y = @inferred get(monalisa, x)
-    @test y[1,1] == y[2,1]
-    @test y[1,2] == y[2,2]
+    @test y[1,1] ≈ y[2,1]
+    @test y[1,2] ≈ y[2,2]
 
     # test conversion with symbol clamp
     y2 = @inferred get(monalisa, x, :clamp)
-    @test y2 == y
+
+    @test y2[1] ≈ y[1]
+    @test y2[2] ≈ y[2]
+    @test y2[end] ≈ y[end]
 
     # test conversion with symbol extrema
     y2 = @inferred get(monalisa, x, :extrema)
-    @test y2[2,1] == y[1, 1]   # Minimum now becomes one edge of ColorScheme
-    @test y2[2,2] == y[1, 2]   # Maximum now becomes other edge of ColorScheme
+    @test y2[2,1] ≈ y[1, 1]   # Minimum now becomes one edge of ColorScheme
+    @test y2[2,2] ≈ y[1, 2]   # Maximum now becomes other edge of ColorScheme
     @test y2[1,1] !== y2[2, 1] # Inbetween values or now different
 
     # test conversion with manually supplied range
     y3 = @inferred get(monalisa, x, (-1.0, 2.0))
-    @test y3 == y2
+    @test y3[1] ≈ y2[1]
+    @test y3[2] ≈ y2[2]
+    @test y3[end] ≈ y2[end]
 
     # test empty range (#43)
     y4 = @inferred get(monalisa, 0.4, (0.0, 0.0))
@@ -89,8 +94,8 @@ end
     @test c.r > 0.95
     # Booleans
     @inferred get(monalisa, false)
-    @test get(monalisa, 0.0) == get(monalisa, false)
-    @test get(monalisa, 1.0) == get(monalisa, true)
+    @test get(monalisa, 0.0) ≈ get(monalisa, false)
+    @test get(monalisa, 1.0) ≈ get(monalisa, true)
 end
 
 @testset "misc tests" begin
@@ -98,16 +103,63 @@ end
     r  = range(0, stop=5, length=10)
     y  = @inferred get(monalisa, r)
     y2 = @inferred get(monalisa, collect(r))
-    @test y == y2
+
+    @test isapprox(y[1], y2[1]) # fixes #61
 
     # test for specific value
     val = 0.2
     y   = @inferred get(monalisa, [val])
     y2  = @inferred get(monalisa, val)
-    @test y2 == y[1]
+    @test isapprox(y[1], y2)
 
     col = @inferred get(reverse(monalisa), 0.0)
     @test col.r > 0.9
     @test col.g > 0.7
     @test col.b > 0.2
+end
+
+@testset "tests with 255-based scheme" begin
+    monalisa1 = deepcopy(monalisa)
+    # set all colors to 255
+    for c in eachindex(monalisa1.colors)
+        monalisa1.colors[c] = RGB(monalisa1.colors[c].r * 255, monalisa1.colors[c].g * 255, monalisa1.colors[c].b * 255)
+    end
+    @test length(monalisa1) ≈ 32
+    @test length(monalisa1.colors) ≈ 32
+
+    @test 12 < monalisa1[1].r < 14
+    @test 3  < monalisa1[1].g < 5
+    @test 3  < monalisa1[1].b < 6
+
+    # test that sampling schemes yield different values
+    @inferred get(monalisa1, 0.0)
+    @test get(monalisa1, 0.0) != get(monalisa1, 0.5)
+    @test monalisa1[end] ≈ monalisa1[1.0]
+    tmp = @inferred get(monalisa1, rand(10, 10))
+    @test typeof(tmp) == Array{ColorTypes.RGB{Float64}, 2}
+
+    # test conversion with default clamp
+    x = [0.0 1.0 ; -1.0 2.0]
+    y = @inferred get(monalisa1, x)
+    @test y[1,1] ≈ y[2,1]
+    @test y[1,2] ≈ y[2,2]
+
+    # test conversion with symbol clamp
+    y2 = @inferred get(monalisa1, x, :clamp)
+
+    @test isapprox(y2[1], y[1])
+    @test isapprox(y2[2], y[2])
+    @test isapprox(y2[end], y[end])
+
+    # test conversion with symbol extrema
+    y2 = @inferred get(monalisa1, x, :extrema)
+    @test y2[2,1] ≈ y[1, 1]   # Minimum now becomes one edge of ColorScheme
+    @test y2[2,2] ≈ y[1, 2]   # Maximum now becomes other edge of ColorScheme
+    @test y2[1,1] !== y2[2, 1] # Inbetween values now different
+
+    # test conversion with manually supplied range
+    y3 = @inferred get(monalisa1, x, (-1.0, 2.0))
+    @test isapprox(y3[1], y2[1])
+    @test isapprox(y3[2], y2[2])
+    @test isapprox(y3[end], y2[end])
 end

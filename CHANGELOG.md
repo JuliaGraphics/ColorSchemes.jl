@@ -1,12 +1,15 @@
 # Changelog
 
-## forthcoming release
+## [v3.11.0] - 2021 March 25
 
 ### Added
 
 - cvd/colorblind friendly schemes added (#51)
 
 ## Changed
+
+- use github rather than Travis
+- fixed test #61
 
 ### Removed
 

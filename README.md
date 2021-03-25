@@ -1,6 +1,7 @@
-| **Documentation**                       | **Build Status**                                                                                |
-|:--------------------------------------- |:----------------------------------------------------------------------------------------------- |
-| [![][docs-stable-img]][docs-stable-url] [![][docs-latest-img]][docs-latest-url] | [![][travis-img]][travis-url] [![][appveyor-img]][appveyor-url] [![][codecov-img]][codecov-url] |
+| **Documentation**                       | **Build Status**                           | **Code Coverage**               |
+|:--------------------------------------- |:-------------------------------------------|:-------------------------------:|
+| [![][docs-stable-img]][docs-stable-url] | [![Build Status][ci-img]][ci-url]          | [![][codecov-img]][codecov-url] |
+| [![][docs-latest-img]][docs-latest-url] | [![][appveyor-img]][appveyor-url]          |                                 |
 
 ## ColorSchemes
 
@@ -34,3 +35,6 @@ If you want to make more advanced ColorSchemes, use linear-segment dictionaries 
 
 [codecov-img]: https://codecov.io/gh/JuliaGraphics/ColorSchemes.jl/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/JuliaGraphics/ColorSchemes.jl
+
+[ci-img]: https://github.com/JuliaGraphics/ColorSchemes.jl/workflows/CI/badge.svg
+[ci-url]: https://github.com/JuliaGraphics/ColorSchemes.jl/actions?query=workflow%3ACI

@@ -44,25 +44,6 @@ ColorScheme(colors::V, category::S1="", notes::S2="") where {V,S1,S2} =
 Base.getindex(cs::ColorScheme, i::AbstractFloat) = get(cs, i)
 Base.getindex(cs::ColorScheme, i::AbstractVector{<: AbstractFloat}) = get(cs, i)
 
-# interfaces, eg iterable
-function Base.iterate(cs::ColorScheme)
-    if length(cs.colors) == 0
-        return nothing
-    end
-    return (first(cs.colors), 1)
-end
-
-function Base.iterate(cs::ColorScheme, state)
-    if state >= length(cs.colors)
-        return nothing
-    else
-        return (cs.colors[state + 1], state + 1)
-    end
-end
-
-function Base.size(cs::ColorScheme)
-    return length(cs.colors)
-end
 
 """
     loadcolorscheme(vname, colors, cat="", notes="")
@@ -181,15 +162,23 @@ Base.length(cscheme::ColorScheme) = length(cscheme.colors)
 Base.getindex(cscheme::ColorScheme, I) = cscheme.colors[I]
 Base.size(cscheme::ColorScheme) = length(cscheme.colors)
 Base.IndexStyle(::Type{<:ColorScheme}) = IndexLinear()
+
+# iterable
 function Base.iterate(cscheme::ColorScheme)
-    return (cscheme.colors, 1)
-end
-function Base.iterate(cscheme::ColorScheme, s)
-    if (s > length(cscheme))
-        return
+    if length(cscheme.colors) == 0
+        return nothing
     end
-    return cscheme[s], s + 1
+    return (first(cscheme.colors), 1)
 end
+
+function Base.iterate(cscheme::ColorScheme, state)
+    if state >= length(cscheme.colors)
+        return nothing
+    else
+        return (cscheme.colors[state + 1], state + 1)
+    end
+end
+
 Base.lastindex(cscheme::ColorScheme) = lastindex(cscheme.colors)
 
 # utility lerping function to convert a value between oldmin/oldmax to equivalent value between newmin/newmax

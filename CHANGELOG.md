@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.12.0] - 2021 forthcoming release
+
+### Added
+
+- iteration - (#63)
+
+## Changed
+
+### Removed
+
+### Deprecated
+
 ## [v3.11.0] - 2021 March 25
 
 ### Added

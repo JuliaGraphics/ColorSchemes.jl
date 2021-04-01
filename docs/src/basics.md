@@ -82,7 +82,7 @@ When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes
 
 A ColorScheme is a Julia object which contains:
 
-- an array of colors
+- an array of colors (eg `RGB(0.1, 0.3, 0.4)`)
 - a string defining a category
 - a string that can contain descriptive notes
 
@@ -93,7 +93,7 @@ using Colors, ColorSchemes # hide
 ColorSchemes.leonardo
 ```
 
-The display depends on your working environment. If you’re using Juno, for example, the colors in the colorscheme should appear in the Plots window.
+The display depends on your working environment. If you’re using a notebook environment, for example, the colors in the colorscheme should appear in the Plots window.
 
 Otherwise, you’ll see the colors listed as RGB values:
 

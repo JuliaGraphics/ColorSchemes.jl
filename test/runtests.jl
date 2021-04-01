@@ -116,8 +116,18 @@ end
     @test col.r > 0.9
     @test col.g > 0.7
     @test col.b > 0.2
+
+    # test iteration of a colorscheme
+    counter = 1
+    for (n, i) in enumerate(monalisa)
+        @test counter == n
+        counter += 1
+    end
+    @test counter == 33
 end
 
+# these won't error but they don't yet work correctly either
+# until `get()` can handle nono-normalized color values
 @testset "tests with 255-based scheme" begin
     monalisa1 = deepcopy(monalisa)
     # set all colors to 255

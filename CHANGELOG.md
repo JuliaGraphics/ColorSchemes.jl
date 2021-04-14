@@ -1,10 +1,11 @@
 # Changelog
 
-## [v3.12.0] - 2021 forthcoming release
+## [v3.12.0] - 2021 April 14
 
 ### Added
 
 - iteration - (#63)
+- missing Colorcet -  (#65)
 
 ## Changed
 

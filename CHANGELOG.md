@@ -4,7 +4,7 @@
 
 ### Added
 
-- iteration - (#63)
+- iteration fix - (#63)
 - missing Colorcet -  (#65)
 
 ## Changed

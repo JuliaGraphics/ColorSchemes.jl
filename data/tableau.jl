@@ -332,7 +332,7 @@ loadcolorscheme(:tableau_red_blue_white, [
     colorant"#2e5a87",
 ], "tableau", "diverging")
 
-loadcolorscheme(:tableau_red_lack_white, [
+loadcolorscheme(:tableau_red_black_white, [
     colorant"#ae123a",
     colorant"#ee574d",
     colorant"#fdac9d",

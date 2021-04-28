@@ -56,9 +56,7 @@ Winston.colormap(klimt)
 Winston.imagesc(reshape(1:10000,100,100))</code></pre><p><img src="../assets/figures/winston.png" alt="&quot;winston klimt&quot;"/></p><p>Sometimes you&#39;ll want a smoother gradient with more colors. You can use <code>get(scheme, n)</code> to generate a more detailed array of colors, varying <code>n</code> from 0 to 1 by 0.001:</p><pre><code class="language-none">brasstones = ColorSchemes.brass
 brasstonesmooth = [get(brasstones, i) for i in 0:0.001:1]
 Winston.colormap(brasstonesmooth)
-Winston.imagesc(reshape(1:10000,100,100))</code></pre><p><img src="../assets/figures/winston1.png" alt="&quot;winston brass tones"/></p><h2 id="PyPlot"><a class="docs-heading-anchor" href="#PyPlot">PyPlot</a><a id="PyPlot-1"></a><a class="docs-heading-anchor-permalink" href="#PyPlot" title="Permalink"></a></h2><p>ColorSchemes can be used with the <code>cmap</code> keyword in PyPlot:</p><pre><code class="language-none"># warning: this crashes your Julia session at the moment (2019-01-24)
-
-using PyPlot, Distributions, ColorSchemes
+Winston.imagesc(reshape(1:10000,100,100))</code></pre><p><img src="../assets/figures/winston1.png" alt="&quot;winston brass tones"/></p><h2 id="PyPlot"><a class="docs-heading-anchor" href="#PyPlot">PyPlot</a><a id="PyPlot-1"></a><a class="docs-heading-anchor-permalink" href="#PyPlot" title="Permalink"></a></h2><p>ColorSchemes can be used with the <code>cmap</code> keyword in PyPlot:</p><pre><code class="language-none">using PyPlot, Distributions, ColorSchemes
 
 solar = ColorSchemes.solar.colors
 
@@ -79,10 +77,12 @@ end
 fig = PyPlot.figure(&quot;pyplot_surfaceplot&quot;,figsize=(10,10))
 
 using3D()
-ax = fig[:add_subplot](2, 1, 1, projection = &quot;3d&quot;)
+ax = fig.add_subplot(2, 1, 1, projection = &quot;3d&quot;)
 
-ax[:plot_surface](xgrid, ygrid, z, rstride=2,edgecolors=&quot;k&quot;,
+ax.plot_surface(xgrid, ygrid, z, rstride=2,edgecolors=&quot;k&quot;,
     cstride=2,
     cmap=ColorMap(solar),
     alpha=0.8,
-    linewidth=0.25)</code></pre><p><img src="../assets/figures/pyplot.png" alt="&quot;pyplot&quot;"/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../finding/">« Finding colors</a><a class="docs-footer-nextpage" href="../images/">Images »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 28 April 2021 10:04">Wednesday 28 April 2021</span>. Using Julia version 1.6.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+    linewidth=0.25)
+
+display(fig)</code></pre><p><img src="../assets/figures/pyplot.png" alt="&quot;pyplot&quot;"/></p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../finding/">« Finding colors</a><a class="docs-footer-nextpage" href="../images/">Images »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 28 April 2021 10:56">Wednesday 28 April 2021</span>. Using Julia version 1.6.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

@@ -93,9 +93,7 @@ using Colors, ColorSchemes # hide
 ColorSchemes.leonardo
 ```
 
-The display depends on your working environment. If you’re using a notebook environment, for example, the colors in the colorscheme should appear in the Plots window.
-
-Otherwise, you’ll see the colors listed as RGB values:
+The display depends on your working environment. If you’re using a notebook or IDE environment, the colors in the colorscheme should appear as a swatch in a cell or in a Plots window. Otherwise, you’ll see the colors listed as RGB values:
 
 ```
 32-element Array{RGB{Float64},1}:
@@ -120,7 +118,7 @@ You can access the array of colors as:
 ColorSchemes.leonardo.colors
 ```
 
-By default, the colorschemes aren’t imported. But to avoid using the prefixes, you can import the ones that you want:
+By default, the colorschemes aren’t imported. To avoid using the prefixes, you can import the ones that you want:
 
 ```
 julia> import ColorSchemes.leonardo
@@ -137,7 +135,7 @@ julia> leonardo
  RGB{Float64}(0.972441,0.790701,0.285136)
 ```
 
-You can reference a single value of a scheme once it’s loaded:
+You can reference a single value of a scheme:
 
 ```
 leonardo[3]
@@ -181,7 +179,7 @@ colorschemes[:summer] |> show
 
 ## Pre-defined schemes
 
-The left swatch draws the colors in each scheme; the right swatch samples the scheme from 0 to 1 at intervals of 0.01.
+In the following images, the left swatch draws the colors in each scheme; the right swatch samples the scheme from 0 to 1 at intervals of 0.01.
 
 ## ✦ cmocean
 
@@ -346,24 +344,24 @@ If you prefer, you can ‘roll your own’ search.
  :Oranges_4
 ```
 
-## Make your own ColorScheme
+## Make your own colorscheme
 
-Using Colors.jl, you can quickly define a range of colors and use it to make a ColorScheme:
+Using Colors.jl, you can quickly define a range of colors and use it to make a colorscheme:
 
 ```@example
-using Colors, ColorSchemes # hide
+using Colors, ColorSchemes
 cs1 = ColorScheme(range(colorant"red", colorant"green", length=5))
 ```
 
 ```@example
-using Colors, ColorSchemes # hide
+using Colors, ColorSchemes
 cs1 = ColorScheme(reverse(Colors.sequential_palette(300, 100, logscale=true)))
 ```
 
 Or you can easily make your own by building an array:
 
 ```@example
-using Colors, ColorSchemes # hide
+using Colors, ColorSchemes
 mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
 ```
 
@@ -374,7 +372,7 @@ mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
     "my useful schemes", "just some dull grey shades")
 ```
 
-although this won’t end up in the `colorschemes` dictionary.
+although this scheme won’t end up in the `colorschemes` dictionary.
 
 Another example, starting with a two-color scheme, then building a gradient from the first color to the other.
 
@@ -446,7 +444,7 @@ julia> save("mosaic.png", simg)
 
 ## Matplotlib compatibility
 
-Most of the color schemes in Matplotlib are available. The following list gives a general picture.
+Most of the color schemes in Matplotlib are available. The following code example gives a general picture.
 
 ```@example
 using ColorSchemes

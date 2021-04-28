@@ -6,9 +6,7 @@ end
 
 # Finding colors in colorschemes
 
-ColorSchemes.jl provides the function `getinverse(cscheme, color)` which is the _inverse_ of `get(cscheme, n)`.
-
-This function returns a value between 0 and 1 that tries to place a color within a colorscheme by converting it to a value representing its position on the colorscheme's 'axis'.
+ColorSchemes.jl provides the function `getinverse(cscheme, color)` which is the _inverse_ of `get(cscheme, n)`. This function returns a number between 0 and 1 that best represents the location of a color on the colorscheme's 'axis'.
 
 !["get inverse"](assets/figures/getinverse.png)
 

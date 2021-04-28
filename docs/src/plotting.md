@@ -146,8 +146,6 @@ Winston.imagesc(reshape(1:10000,100,100))
 ColorSchemes can be used with the `cmap` keyword in PyPlot:
 
 ```
-# warning: this crashes your Julia session at the moment (2019-01-24)
-
 using PyPlot, Distributions, ColorSchemes
 
 solar = ColorSchemes.solar.colors
@@ -169,13 +167,15 @@ end
 fig = PyPlot.figure("pyplot_surfaceplot",figsize=(10,10))
 
 using3D()
-ax = fig[:add_subplot](2, 1, 1, projection = "3d")
+ax = fig.add_subplot(2, 1, 1, projection = "3d")
 
-ax[:plot_surface](xgrid, ygrid, z, rstride=2,edgecolors="k",
+ax.plot_surface(xgrid, ygrid, z, rstride=2,edgecolors="k",
     cstride=2,
     cmap=ColorMap(solar),
     alpha=0.8,
     linewidth=0.25)
+
+display(fig)
 ```
 
 !["pyplot"](assets/figures/pyplot.png)

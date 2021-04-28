@@ -6,7 +6,7 @@ FixedPointNumbers = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
 Luxor = "ae8d54c2-7ccd-5906-9d76-62fc9837b5bc"
 
 [compat]
-ColorTypes = "0.9, 0.10"
+ColorTypes = "0.9, 0.10, 0.11"
 Colors = "0.9, 0.10, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 1.0"
 julia = "1"
 

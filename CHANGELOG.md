@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.12........] - 
+
+### Added
+
+## Changed
+
+- export reverse()
+
+### Removed
+
+### Deprecated
+
 ## [v3.12.0] - 2021 April 14
 
 ### Added

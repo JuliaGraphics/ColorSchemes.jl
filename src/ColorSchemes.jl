@@ -10,7 +10,7 @@ See also `getinverse()`.
 """
 module ColorSchemes
 
-import Base.get
+import Base.get, Base.reverse
 
 using Colors, ColorTypes, FixedPointNumbers, StaticArrays
 

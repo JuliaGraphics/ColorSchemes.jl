@@ -237,7 +237,7 @@ drawschemes(sort(schemes), filetype=:png) # hide
 
 ## ✦ Seaborn
 
-From ["colorschemes used by Seaborn, a Python data visualization library based on matplotlib."](https://colorcet.holoviz.org)
+From ["colorschemes used by Seaborn, a Python data visualization library based on matplotlib."](http://seaborn.pydata.org/tutorial/color_palettes.html)
 
 ```@example drawschemes
 schemes = filter(s -> occursin("seaborn", colorschemes[s].category), collect(keys(colorschemes))) # hide
@@ -284,6 +284,7 @@ drawschemes(sort(schemes), filetype=:png) # hide
 
 ```@docs
 colorschemes
+reverse
 ```
 
 ## Finding colorschemes

@@ -7,57 +7,59 @@ end
 ```@setup drawschemes
 
 # use a `drawschemes(cschemes)`` function to insert drawings of schemes
-# these look great in SVG
-# however the DOM/namespace/glyph bug applies when more than one
-# Cairo-generated SVG is displayed in an HTML space, so have to use PNGs for now
+# use SVG for Documenter.jl >= 0.27
 
 using Luxor, Colors, ColorSchemes
 
+# draw scheme `scheme` inside boundingbox `bbox` with width `swatchwidth`, height `swatchheight`
 function drawscheme(scheme, bbox, swatchwidth, swatchheight)
     cols = colorschemes[scheme].colors
-
-    pos1 = between(boxmiddleleft(bbox), boxmiddleright(bbox),  0.0)
-    pos2 = between(boxmiddleleft(bbox), boxmiddleright(bbox), .45)
-    pos3 = between(boxmiddleleft(bbox), boxmiddleright(bbox), .7)
-
-    l = length(cols)
-    # text
-    fontsize(14)
-    sethue("white")
-    setline(0.1)
-
-    # first position, scheme name
-    text(string(":", scheme), pos1, halign=:left, valign=:middle)
-
-    # second position, the colors
+    setline(0.25)
     @layer begin
-        translate(pos2)
-        t = Tiler(swatchwidth, swatchheight, 1, l)
-        for (i, c) in enumerate(cols)
-            sethue(c)
-            box(first(t[i]), swatchwidth/l, swatchheight,  :fill)
+        translate(boxmiddlecenter(bbox))
+        table = Table(fill(swatchheight/3, 3), [900])        
+        l = length(cols)
+
+        # text
+        fontsize(swatchheight/3)
+        sethue("white")
+        setline(0.1)
+
+        # first position, scheme name
+        text(string(" :", scheme), Point(-swatchwidth/2, -swatchheight/2) + (0, 20), halign=:left)
+
+        # # second position, boxes of colors
+        @layer begin
+            translate(table[2])
+            t = Tiler(swatchwidth, swatchheight/3, 1, l, margin=0)
+            for (i, c) in enumerate(cols)
+                sethue(c)
+                box(first(t[i]), swatchwidth/l, swatchheight/3,  :fill)
+            end
+        end
+
+        # # third position, draw a gradient
+        stepping = 0.01
+        @layer begin
+            translate(table[3])
+            for i in 0:stepping:1
+                c = get(colorschemes[scheme], i)
+                sethue(c)
+                swatchpos = Point(rescale(i, 0, 1, -swatchwidth/2, swatchwidth/2), 0)
+                box(swatchpos, swatchwidth * stepping, swatchheight/6, :fillstroke)
+            end
         end
     end
-
-    # third position, draw a gradient
-    stepping = 0.01
-    for i in 0:stepping:1
-        c = get(colorschemes[scheme], i)
-        sethue(c)
-        swatchpos = Point(rescale(i, 0, 1, pos3.x - swatchwidth/2, pos3.x + swatchwidth/2), pos3.y)
-        box(swatchpos, swatchwidth * stepping, swatchheight, :fillstroke)
-    end
-
 end
 
 # for each scheme in vector s
 # draw the name, the colors, and a graduated scheme
 function drawschemes(s;
-       filetype=:png)
+    filetype=:svg)
     xmargin = 5
     ymargin = 2
-    swatchwidth = 200
-    swatchheight = 25
+    swatchwidth = 900
+    swatchheight = 80
     l = length(s)
     nrows = l
     d = Drawing(900, nrows * (2ymargin + swatchheight), filetype)
@@ -70,6 +72,7 @@ function drawschemes(s;
     end
     finish()
     return d
+
 end
 
 ```
@@ -179,7 +182,7 @@ colorschemes[:summer] |> show
 
 ## Pre-defined schemes
 
-In the following images, the left swatch draws the colors in each scheme; the right swatch samples the scheme from 0 to 1 at intervals of 0.01.
+In the following images, the first swatch draws the colors in the scheme; the lower swatch samples the scheme from 0 to 1 at intervals of 0.01.
 
 ## ✦ cmocean
 
@@ -187,7 +190,7 @@ From "Beautiful colormaps for oceanography": [cmocean](https://matplotlib.org/cm
 
 ```@example drawschemes
 schemes = filter(s -> occursin("cmocean", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ scientific
@@ -196,7 +199,7 @@ From [Scientific colormaps](http://www.fabiocrameri.ch/colourmaps.php)
 
 ```@example drawschemes
 schemes = filter(s -> occursin("scientific", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ matplotlib
@@ -205,7 +208,7 @@ From [matplot](https://matplotlib.org)
 
 ```@example drawschemes
 schemes = filter(s -> occursin("matplotlib", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ colorbrewer
@@ -214,7 +217,7 @@ From [ColorBrewer](http://colorbrewer2.org/)
 
 ```@example drawschemes
 schemes = filter(s -> occursin("colorbrewer", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ gnuplot
@@ -223,7 +226,7 @@ From [GNUPlot](http://www.gnuplot.info)
 
 ```@example drawschemes
 schemes = filter(s -> occursin("gnuplot", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ colorcet
@@ -232,7 +235,7 @@ From ["collection of perceptually accurate colormaps"](https://colorcet.holoviz.
 
 ```@example drawschemes
 schemes = filter(s -> occursin("colorcet", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ Seaborn
@@ -241,7 +244,7 @@ From ["colorschemes used by Seaborn, a Python data visualization library based o
 
 ```@example drawschemes
 schemes = filter(s -> occursin("seaborn", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ ggthemes/tableau
@@ -250,7 +253,7 @@ From ["ggthemes tableau palettes"](https://github.com/jrnold/ggthemes)
 
 ```@example drawschemes
 schemes = filter(s -> occursin("tableau", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ CVD/(ColorBlind)-friendly schemes
@@ -259,7 +262,7 @@ Colorschemes designed with color-vision deficient users in mind, by authors such
 
 ```@example drawschemes
 schemes = filter(s -> occursin("cvd", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ Flags
@@ -272,14 +275,14 @@ abbreviation (often the same as top-level WWW domain), with any hyphens removed.
 
 ```@example drawschemes
 schemes = filter(s -> occursin("flags", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ## ✦ general and miscellaneous
 
 ```@example drawschemes
 schemes = filter(s -> occursin("general", colorschemes[s].category), collect(keys(colorschemes))) # hide
-drawschemes(sort(schemes), filetype=:png) # hide
+drawschemes(sort(schemes), filetype=:svg) # hide
 ```
 
 ```@docs

@@ -1,6 +1,18 @@
 # Changelog
 
-## [v3.12........] - 
+## forthcoming [v3.12.2] - 2021 June ??
+
+### Added
+
+## Changed
+
+- docs: swatches now SVG, after Documenter 0.27 released
+
+### Removed
+
+### Deprecated
+
+## [v3.12.1] - 2021 April 21
 
 ### Added
 

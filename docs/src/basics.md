@@ -180,7 +180,7 @@ colorschemes[:summer] |> show
        "sampled color schemes, sequential linearly-increasing shades of green-yellow")
 ```
 
-## Pre-defined schemes
+# Pre-defined schemes
 
 In the following images, the first swatch draws the colors in the scheme; the lower swatch samples the scheme from 0 to 1 at intervals of 0.01.
 

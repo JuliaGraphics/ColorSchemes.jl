@@ -6,6 +6,7 @@ makedocs(
     format = Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true"),
     pages    = Any[
         "Introduction"      => "index.md",
+        "Gallery"           => "gallery.md",
         "Basic usage"       => "basics.md",
         "Finding colors"    => "finding.md",
         "Plotting"          => "plotting.md",

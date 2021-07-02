@@ -1,0 +1,11 @@
+pre, code {
+    font-variant-ligatures: common-ligatures;
+}
+
+.cell_schemename {
+    font-family: "JuliaMono-Regular";
+}
+
+.cell_swatch {
+
+}

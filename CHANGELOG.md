@@ -1,6 +1,6 @@
 # Changelog
 
-## forthcoming [v3.12.2] - 2021 June ??
+## forthcoming [v3.12.2] - 2021 June/July ??
 
 ### Added
 

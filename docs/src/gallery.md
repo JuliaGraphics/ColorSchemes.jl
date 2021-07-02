@@ -69,7 +69,6 @@ end
 # Gallery
 
 These diagrams show the colorschemes in compact form, so you can quickly find one.
-See [Pre-defined schemes](@ref) for more details, bigger swatchs, and references.
 
 ```@example drawgallery
 drawgallery("cmocean") # hide

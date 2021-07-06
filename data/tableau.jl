@@ -342,7 +342,7 @@ loadcolorscheme(:tableau_red_black_white, [
     colorant"#49525e",
 ], "tableau", "diverging")
 
-loadcolorscheme(:tableau_orang_blue_light, [
+loadcolorscheme(:tableau_orange_blue_light, [
     colorant"#ffcc9e",
     colorant"#f9d4b6",
     colorant"#f0dccd",

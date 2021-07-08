@@ -320,9 +320,4 @@ Make a new ColorScheme with the same colors as `cscheme` but in reverse order.
 Base.reverse(cscheme::ColorScheme) =
     ColorScheme(reverse(cscheme.colors), cscheme.category, cscheme.notes)
 
-struct ColorSchemeSwatch
-    cs::ColorScheme
-    category::String
-end
-
 end

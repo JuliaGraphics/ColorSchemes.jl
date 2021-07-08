@@ -101,7 +101,6 @@ colorschemes[:summer] |> show
        "sampled color schemes, sequential linearly-increasing shades of green-yellow")
 ```
 
-
 ## Finding colorschemes
 
 Use the [`findcolorscheme`](@ref) function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.

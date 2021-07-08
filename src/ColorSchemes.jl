@@ -19,7 +19,8 @@ export ColorScheme,
        getinverse,
        colorschemes,
        loadcolorscheme,
-       findcolorscheme
+       findcolorscheme,
+       ColorSchemeCategory
 
 """
     ColorScheme(colors, category, notes)
@@ -38,12 +39,20 @@ struct ColorScheme{V <: AbstractVector{<:Colorant},S1 <: AbstractString,S2 <: Ab
     category::S1
     notes::S2
 end
+
 ColorScheme(colors::V, category::S1="", notes::S2="") where {V,S1,S2} =
     ColorScheme{V,S1,S2}(colors, category, notes)
 
+# displaying swatches
+Base.show(io::IO, m::MIME"image/svg+xml", cscheme::ColorScheme) = show(io, m, cscheme.colors)
+
+# for making the catalogue pages in the docs
+struct ColorSchemeCategory
+    name :: String
+end
+
 Base.getindex(cs::ColorScheme, i::AbstractFloat) = get(cs, i)
 Base.getindex(cs::ColorScheme, i::AbstractVector{<: AbstractFloat}) = get(cs, i)
-
 
 """
     loadcolorscheme(vname, colors, cat="", notes="")
@@ -153,9 +162,6 @@ function findcolorscheme(str)
         println("\n\nnothing found for \"$str\"")
     return nothing
 end
-
-# displaying swatches
-Base.show(io::IO, m::MIME"image/svg+xml", cscheme::ColorScheme) = show(io, m, cscheme.colors)
 
 # Interfaces
 Base.length(cscheme::ColorScheme) = length(cscheme.colors)
@@ -313,5 +319,10 @@ Make a new ColorScheme with the same colors as `cscheme` but in reverse order.
 """
 Base.reverse(cscheme::ColorScheme) =
     ColorScheme(reverse(cscheme.colors), cscheme.category, cscheme.notes)
+
+struct ColorSchemeSwatch
+    cs::ColorScheme
+    category::String
+end
 
 end

@@ -1,12 +1,13 @@
 # Changelog
 
-## forthcoming [v3.12.2] - 2021 June/July ??
+## forthcoming [v3.13] - 2021 July 8
 
 ### Added
 
 ## Changed
 
 - docs: swatches now SVG, after Documenter 0.27 released
+- docs: catalogue of schemes reworked
 
 ### Removed
 

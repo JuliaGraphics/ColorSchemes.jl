@@ -2,10 +2,14 @@ pre, code {
     font-variant-ligatures: common-ligatures;
 }
 
-.cell_schemename {
-    font-family: "JuliaMono-Regular";
+.schemename {
+    font-family: "JuliaMono";
 }
 
-.cell_swatch {
+.swatch {
 
+}
+
+.category {
+    font-size: 0.8em;
 }

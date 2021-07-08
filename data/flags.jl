@@ -1957,9 +1957,9 @@ loadcolorscheme(:flag_af , [
     ], "flags", "The flag of Afghanistan")
 
 loadcolorscheme(:flag_no , [
-        RGB(0.9372549019607843, 0.16862745098039217, 0.17647058823529413),
+        RGB(0.7294117647058823, 0.047058823529411764, 0.1843137254901961),
         RGB(1.0, 1.0, 1.0),
-        RGB(0.0, 0.1568627450980392, 0.40784313725490196),
+        RGB(0.0, 0.12549019607843137, 0.3568627450980392),
     ], "flags", "The flag of Norway")
 
 loadcolorscheme(:flag_un , [

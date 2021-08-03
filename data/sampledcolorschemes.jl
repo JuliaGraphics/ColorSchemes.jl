@@ -1,6 +1,6 @@
 # schemes from https://github.com/matplotlib/matplotlib/blob/master/lib/matplotlib/_cm.py
 
-loadcolorscheme(:bone, SA[
+loadcolorscheme(:bone, [
 	RGB{Float64}(0.0,0.0,0.0),
 	RGB{Float64}(0.01,0.01,0.01),
 	RGB{Float64}(0.02,0.02,0.02),
@@ -103,7 +103,7 @@ loadcolorscheme(:bone, SA[
 	RGB{Float64}(0.99,0.99,0.99),
 	RGB{Float64}(1.0,1.0,1.0)], "matplotlib", "sampled color schemes, sequential increasing black-white color map with a tinge of blue, to emulate X-ray film")
 
-loadcolorscheme(:binary, SA[
+loadcolorscheme(:binary, [
 	RGB{Float64}(1.0,1.0,1.0),
 	RGB{Float64}(0.99,0.99,0.99),
 	RGB{Float64}(0.98,0.98,0.98),
@@ -206,7 +206,7 @@ loadcolorscheme(:binary, SA[
 	RGB{Float64}(0.01,0.01,0.01),
 	RGB{Float64}(0.0,0.0,0.0)], "matplotlib", "sampled color schemes, starting with white, ending with black")
 
-loadcolorscheme(:autumn1, SA[
+loadcolorscheme(:autumn1, [
 	RGB{Float64}(1.0,0.0,0.0),
 	RGB{Float64}(1.0,0.01,0.0),
 	RGB{Float64}(1.0,0.02,0.0),
@@ -309,7 +309,7 @@ loadcolorscheme(:autumn1, SA[
 	RGB{Float64}(1.0,0.99,0.0),
 	RGB{Float64}(1.0,1.0,0.0)], "matplotlib", "sampled color schemes, duplicate, sequential linearly-increasing shades of red-orange-yellow")
 
-loadcolorscheme(:bone_1, SA[
+loadcolorscheme(:bone_1, [
 	RGB{Float64}(0.0,0.0,0.0),
 	RGB{Float64}(0.0087,0.0087,0.0122),
 	RGB{Float64}(0.0175,0.0175,0.0243),
@@ -412,7 +412,7 @@ loadcolorscheme(:bone_1, SA[
 	RGB{Float64}(0.9863,0.9912,0.9912),
 	RGB{Float64}(1.0,1.0,1.0)], "matplotlib", "sampled color schemes, duplicate")
 
-loadcolorscheme(:cool, SA[
+loadcolorscheme(:cool, [
 	RGB{Float64}(0.0,1.0,1.0),
 	RGB{Float64}(0.01,0.99,1.0),
 	RGB{Float64}(0.02,0.98,1.0),
@@ -515,7 +515,7 @@ loadcolorscheme(:cool, SA[
 	RGB{Float64}(0.99,0.01,1.0),
 	RGB{Float64}(1.0,0.0,1.0)], "matplotlib", "sampled color schemes, linearly-decreasing shades of cyan through to magenta")
 
-loadcolorscheme(:copper, SA[
+loadcolorscheme(:copper, [
 	RGB{Float64}(0.0,0.0,0.0),
 	RGB{Float64}(0.0124,0.0078,0.005),
 	RGB{Float64}(0.0247,0.0156,0.01),
@@ -618,7 +618,7 @@ loadcolorscheme(:copper, SA[
 	RGB{Float64}(1.0,0.7734,0.4925),
 	RGB{Float64}(1.0,0.7812,0.4975)], "matplotlib", "sampled color schemes, sequential increasing shades of black to copper")
 
-loadcolorscheme(:gray1, SA[
+loadcolorscheme(:gray1, [
 	RGB{Float64}(0.0,0.0,0.0),
 	RGB{Float64}(0.01,0.01,0.01),
 	RGB{Float64}(0.02,0.02,0.02),
@@ -721,7 +721,7 @@ loadcolorscheme(:gray1, SA[
 	RGB{Float64}(0.99,0.99,0.99),
 	RGB{Float64}(1.0,1.0,1.0)], "matplotlib", "sampled color schemes, duplicate, sequential linearly-increasing black-to-white grayscale")
 
-loadcolorscheme(:hot, SA[
+loadcolorscheme(:hot, [
 	RGB{Float64}(0.0416,0.0,0.0),
 	RGB{Float64}(0.0679,0.0,0.0),
 	RGB{Float64}(0.0941,0.0,0.0),
@@ -824,7 +824,7 @@ loadcolorscheme(:hot, SA[
 	RGB{Float64}(1.0,1.0,0.9606),
 	RGB{Float64}(1.0,1.0,1.0)], "matplotlib", "sampled color schemes, sequential black-red-yellow-white, to emulate blackbody radiation from an object at increasing hot temperatures")
 
-loadcolorscheme(:hsv, SA[
+loadcolorscheme(:hsv, [
 	RGB{Float64}(1.0,0.0,0.0),
 	RGB{Float64}(1.0,0.0591,0.0),
 	RGB{Float64}(1.0,0.1181,0.0),
@@ -927,7 +927,7 @@ loadcolorscheme(:hsv, SA[
 	RGB{Float64}(1.0,0.0,0.1528),
 	RGB{Float64}(1.0,0.0,0.0938)], "matplotlib", "sampled color schemes, red-yellow-green-cyan-blue-magenta-red, formed by changing the hue component in the HSV color space")
 
-loadcolorscheme(:jet1, SA[
+loadcolorscheme(:jet1, [
 	RGB{Float64}(0.0,0.0,0.5),
 	RGB{Float64}(0.0,0.0,0.5455),
 	RGB{Float64}(0.0,0.0,0.5909),
@@ -1030,7 +1030,7 @@ loadcolorscheme(:jet1, SA[
 	RGB{Float64}(0.5455,0.0,0.0),
 	RGB{Float64}(0.5,0.0,0.0)], "matplotlib", "sampled color schemes, duplicate, a spectral map with dark endpoints, blue-cyan-yellow-red; based on a fluid-jet simulation by NCSA")
 
-loadcolorscheme(:pink, SA[
+loadcolorscheme(:pink, [
 	RGB{Float64}(0.1178,0.0,0.0),
 	RGB{Float64}(0.167,0.0648,0.0648),
 	RGB{Float64}(0.2101,0.1139,0.1139),
@@ -1133,7 +1133,7 @@ loadcolorscheme(:pink, SA[
 	RGB{Float64}(0.9967,0.9967,0.99),
 	RGB{Float64}(1.0,1.0,1.0)], "matplotlib", "sampled color schemes, sequential increasing pastel black-pink-white, meant for sepia tone colorization of photographs")
 
-loadcolorscheme(:spring, SA[
+loadcolorscheme(:spring, [
 	RGB{Float64}(1.0,0.0,1.0),
 	RGB{Float64}(1.0,0.01,0.99),
 	RGB{Float64}(1.0,0.02,0.98),
@@ -1236,7 +1236,7 @@ loadcolorscheme(:spring, SA[
 	RGB{Float64}(1.0,0.99,0.01),
 	RGB{Float64}(1.0,1.0,0.0)], "matplotlib", "sampled color schemes, linearly-increasing shades of magenta-yellow")
 
-loadcolorscheme(:summer, SA[
+loadcolorscheme(:summer, [
 	RGB{Float64}(0.0,0.5,0.4),
 	RGB{Float64}(0.01,0.505,0.4),
 	RGB{Float64}(0.02,0.51,0.4),
@@ -1339,7 +1339,7 @@ loadcolorscheme(:summer, SA[
 	RGB{Float64}(0.99,0.995,0.4),
 	RGB{Float64}(1.0,1.0,0.4)], "matplotlib", "sampled color schemes, sequential linearly-increasing shades of green-yellow")
 
-loadcolorscheme(:winter, SA[
+loadcolorscheme(:winter, [
 	RGB{Float64}(0.0,0.0,1.0),
 	RGB{Float64}(0.0,0.01,0.995),
 	RGB{Float64}(0.0,0.02,0.99),
@@ -1442,7 +1442,7 @@ loadcolorscheme(:winter, SA[
 	RGB{Float64}(0.0,0.99,0.505),
 	RGB{Float64}(0.0,1.0,0.5)], "matplotlib", "sampled color schemes, linearly-increasing shades of blue-green")
 
-loadcolorscheme(:nipy_spectral, SA[
+loadcolorscheme(:nipy_spectral, [
 	RGB{Float64}(0.0,0.0,0.0),
 	RGB{Float64}(0.0933,0.0,0.1067),
 	RGB{Float64}(0.1867,0.0,0.2133),
@@ -1545,7 +1545,7 @@ loadcolorscheme(:nipy_spectral, SA[
 	RGB{Float64}(0.8,0.64,0.64),
 	RGB{Float64}(0.8,0.8,0.8)], "matplotlib", "sampled color schemes, black-purple-blue-green-yellow-red-white spectrum, originally from the Neuroimaging in Python project")
 
-loadcolorscheme(:gist_earth, SA[
+loadcolorscheme(:gist_earth, [
 	RGB{Float64}(0.0,0.0,0.0),
 	RGB{Float64}(0.0067,0.0,0.2448),
 	RGB{Float64}(0.0133,0.0,0.3523),
@@ -1648,7 +1648,7 @@ loadcolorscheme(:gist_earth, SA[
 	RGB{Float64}(0.981,0.9555,0.9542),
 	RGB{Float64}(0.9922,0.9843,0.9843)], "matplotlib", "sampled color schemes, mapmaker's colors from dark blue deep ocean to green lowlands to brown highlands to white mountains")
 
-loadcolorscheme(:gist_ncar, SA[
+loadcolorscheme(:gist_ncar, [
 	RGB{Float64}(0.0,0.0,0.502),
 	RGB{Float64}(0.0,0.073,0.4079),
 	RGB{Float64}(0.0,0.146,0.3138),
@@ -1751,7 +1751,7 @@ loadcolorscheme(:gist_ncar, SA[
 	RGB{Float64}(0.989,0.9262,0.99),
 	RGB{Float64}(0.9961,0.9725,0.9961)], "matplotlib", "sampled color schemes, pseudo-spectral black-blue-green-yellow-red-purple-white colormap from National Center for Atmospheric Research")
 
-loadcolorscheme(:gist_stern, SA[
+loadcolorscheme(:gist_stern, [
 	RGB{Float64}(0.0,0.0,0.0),
 	RGB{Float64}(0.1828,0.01,0.02),
 	RGB{Float64}(0.3656,0.02,0.04),
@@ -1854,7 +1854,7 @@ loadcolorscheme(:gist_stern, SA[
 	RGB{Float64}(0.99,0.99,0.9623),
 	RGB{Float64}(1.0,1.0,1.0)], "matplotlib", "sampled color schemes, Stern special color table from Interactive Data Language software")
 
-loadcolorscheme(:gist_rainbow, SA[
+loadcolorscheme(:gist_rainbow, [
 	RGB{Float64}(1.0,0.0,0.16),
 	RGB{Float64}(1.0,0.0,0.1067),
 	RGB{Float64}(1.0,0.0,0.0533),
@@ -1957,7 +1957,7 @@ loadcolorscheme(:gist_rainbow, SA[
 	RGB{Float64}(1.0,0.0,0.8043),
 	RGB{Float64}(1.0,0.0,0.75)], "matplotlib", "sampled color schemes, runs through the colors in spectral order from red to violet at full saturation (like hsv but not cyclic)")
 
-loadcolorscheme(:seismic, SA[
+loadcolorscheme(:seismic, [
 	RGB{Float64}(0.0,0.0,0.3),
 	RGB{Float64}(0.0,0.0,0.328),
 	RGB{Float64}(0.0,0.0,0.356),
@@ -2060,7 +2060,7 @@ loadcolorscheme(:seismic, SA[
 	RGB{Float64}(0.52,0.0,0.0),
 	RGB{Float64}(0.5,0.0,0.0)], "matplotlib", "sampled color schemes, diverging blue-white-red")
 
-loadcolorscheme(:terrain, SA[
+loadcolorscheme(:terrain, [
 	RGB{Float64}(0.2,0.2,0.6),
 	RGB{Float64}(0.1867,0.2267,0.6267),
 	RGB{Float64}(0.1733,0.2533,0.6533),
@@ -2163,7 +2163,7 @@ loadcolorscheme(:terrain, SA[
 	RGB{Float64}(0.98,0.9744,0.9732),
 	RGB{Float64}(1.0,1.0,1.0)], "matplotlib", "sampled color schemes, mapmaker's colors, blue-green-yellow-brown-white, originally from IGOR Pro")
 
-loadcolorscheme(:tab10, SA[
+loadcolorscheme(:tab10, [
 	RGB{Float64}(0.1216,0.4667,0.7059),
 	RGB{Float64}(1.0,0.498,0.0549),
 	RGB{Float64}(0.1725,0.6275,0.1725),
@@ -2175,7 +2175,7 @@ loadcolorscheme(:tab10, SA[
 	RGB{Float64}(0.7373,0.7412,0.1333),
 	RGB{Float64}(0.0902,0.7451,0.8118)], "matplotlib", "sampled color schemes, qualitative, ")
 
-loadcolorscheme(:tab20, SA[
+loadcolorscheme(:tab20, [
 	RGB{Float64}(0.1216,0.4667,0.7059),
 	RGB{Float64}(0.6824,0.7804,0.9098),
 	RGB{Float64}(1.0,0.498,0.0549),
@@ -2197,7 +2197,7 @@ loadcolorscheme(:tab20, SA[
 	RGB{Float64}(0.0902,0.7451,0.8118),
 	RGB{Float64}(0.6196,0.8549,0.898)], "matplotlib", "sampled color schemes, qualitative, ")
 
-loadcolorscheme(:tab20b, SA[
+loadcolorscheme(:tab20b, [
 	RGB{Float64}(0.2235,0.2314,0.4745),
 	RGB{Float64}(0.3216,0.3294,0.6392),
 	RGB{Float64}(0.4196,0.4314,0.8118),
@@ -2219,7 +2219,7 @@ loadcolorscheme(:tab20b, SA[
 	RGB{Float64}(0.8078,0.4275,0.7412),
 	RGB{Float64}(0.8706,0.6196,0.8392)], "matplotlib", "sampled color schemes, qualitative, ")
 
-loadcolorscheme(:tab20c, SA[
+loadcolorscheme(:tab20c, [
 	RGB{Float64}(0.1922,0.5098,0.7412),
 	RGB{Float64}(0.4196,0.6824,0.8392),
 	RGB{Float64}(0.6196,0.7922,0.8824),
@@ -2241,7 +2241,7 @@ loadcolorscheme(:tab20c, SA[
 	RGB{Float64}(0.7412,0.7412,0.7412),
 	RGB{Float64}(0.851,0.851,0.851)], "matplotlib", "sampled color schemes, qualitative, ")
 
-loadcolorscheme(:Wistia, SA[
+loadcolorscheme(:Wistia, [
 		RGB{Float64}(0.8941176470588236,1.0,0.47843137254901963),
 		RGB{Float64}(0.8983529411764706,0.9963921568627451,0.46337254901960784),
 		RGB{Float64}(0.9025882352941177,0.9927843137254901,0.4483137254901961),

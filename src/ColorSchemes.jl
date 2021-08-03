@@ -12,7 +12,7 @@ module ColorSchemes
 
 import Base.get, Base.reverse
 
-using Colors, ColorTypes, FixedPointNumbers, StaticArrays
+using Colors, ColorTypes, FixedPointNumbers
 
 export ColorScheme,
        get,

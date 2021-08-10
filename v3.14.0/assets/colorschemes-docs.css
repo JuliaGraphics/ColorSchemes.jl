@@ -1,0 +1,15 @@
+pre, code {
+    font-variant-ligatures: common-ligatures;
+}
+
+.schemename {
+    font-family: "JuliaMono";
+}
+
+.swatch {
+
+}
+
+.category {
+    font-size: 0.8em;
+}

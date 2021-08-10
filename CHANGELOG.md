@@ -1,6 +1,21 @@
 # Changelog
 
-## forthcoming [v3.13] - 2021 July 8
+## [v3.14] - 2021 August 10
+
+### Added
+
+- `*` concatenates two colorschemes
+
+## Changed
+
+- dependency on StaticArrays
+- norwegian flag colors
+
+### Removed
+
+### Deprecated
+
+## [v3.13] - 2021 July 8
 
 ### Added
 

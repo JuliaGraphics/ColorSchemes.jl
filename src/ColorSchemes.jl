@@ -325,6 +325,6 @@ Base.reverse(cscheme::ColorScheme) =
 
 Create new colorscheme by concatenating two colorschemes.
 """
-*(cscheme1, cscheme2) = ColorScheme(vcat(cscheme1.colors, cscheme2.colors))
+*(cscheme1::ColorScheme, cscheme2::ColorScheme) = ColorScheme(vcat(cscheme1.colors, cscheme2.colors))
 
 end

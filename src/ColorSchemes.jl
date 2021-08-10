@@ -10,7 +10,7 @@ See also `getinverse()`.
 """
 module ColorSchemes
 
-import Base.get, Base.reverse, Base.:*
+import Base.get, Base.reverse, Base.*
 
 using Colors, ColorTypes, FixedPointNumbers
 

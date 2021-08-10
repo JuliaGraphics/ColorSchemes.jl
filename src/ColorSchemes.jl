@@ -10,7 +10,7 @@ See also `getinverse()`.
 """
 module ColorSchemes
 
-import Base.get, Base.reverse
+import Base.get, Base.reverse, Base.*
 
 using Colors, ColorTypes, FixedPointNumbers
 
@@ -319,5 +319,12 @@ Make a new ColorScheme with the same colors as `cscheme` but in reverse order.
 """
 Base.reverse(cscheme::ColorScheme) =
     ColorScheme(reverse(cscheme.colors), cscheme.category, cscheme.notes)
+
+"""
+    cscheme1 * cscheme2
+
+Create new colorscheme by concatenating two colorschemes.
+"""
+*(cscheme1::ColorScheme, cscheme2::ColorScheme) = ColorScheme(vcat(cscheme1.colors, cscheme2.colors))
 
 end

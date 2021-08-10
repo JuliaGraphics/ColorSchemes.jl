@@ -172,4 +172,9 @@ end
     @test isapprox(y3[1], y2[1])
     @test isapprox(y3[2], y2[2])
     @test isapprox(y3[end], y2[end])
+
+    # tests concatenation
+    l1 = length(monalisa)
+    l2 = length(monalisa * monalisa)
+    @test l2 == 2l1
 end

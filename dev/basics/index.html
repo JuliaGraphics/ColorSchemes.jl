@@ -38,7 +38,7 @@
 <rect width=".82" height=".96" x="29" y="0" fill="%23D0B252" />
 <rect width=".82" height=".96" x="30" y="0" fill="%23EEAA33" />
 <rect width=".82" height=".96" x="31" y="0" fill="%23F8CA49" />
-</svg>'/><p>The display depends on your working environment. If you’re using a notebook or IDE environment, the colors in the colorscheme should appear as a swatch in a cell or in a Plots window. Otherwise, you’ll see the colors listed as RGB values:</p><pre><code class="nohighlight hljs">32-element Array{RGB{Float64},1}:
+</svg>'/><p>The display depends on your working environment. If you’re using a notebook or IDE environment, the colors in the colorscheme should appear as a swatch in a cell or in a Plots window. Otherwise, you’ll see the colors listed as RGB values:</p><pre><code class="language-julia hljs">32-element Array{RGB{Float64},1}:
  RGB{Float64}(0.0548203,0.016509,0.0193152)
  RGB{Float64}(0.0750816,0.0341102,0.0397083)
  RGB{Float64}(0.10885,0.0336675,0.0261204)
@@ -51,7 +51,7 @@
  RGB{Float64}(0.757552,0.633425,0.251451)
  RGB{Float64}(0.816472,0.697015,0.322421)
  RGB{Float64}(0.933027,0.665164,0.198652)
- RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can access the array of colors as:</p><pre><code class="nohighlight hljs">ColorSchemes.leonardo.colors</code></pre><p>By default, the colorschemes aren’t imported. To avoid using the prefixes, you can import the ones that you want:</p><pre><code class="nohighlight hljs">julia&gt; import ColorSchemes.leonardo
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can access the array of colors as:</p><pre><code class="language-julia hljs">ColorSchemes.leonardo.colors</code></pre><p>By default, the colorschemes aren’t imported. To avoid using the prefixes, you can import the ones that you want:</p><pre><code class="language-julia hljs">julia&gt; import ColorSchemes.leonardo
 julia&gt; leonardo
 32-element Array{RGB{Float64},1}:
  RGB{Float64}(0.0548203,0.016509,0.0193152)
@@ -62,9 +62,9 @@ julia&gt; leonardo
  RGB{Float64}(0.757552,0.633425,0.251451)
  RGB{Float64}(0.816472,0.697015,0.322421)
  RGB{Float64}(0.933027,0.665164,0.198652)
- RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can reference a single value of a scheme:</p><pre><code class="nohighlight hljs">leonardo[3]
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can reference a single value of a scheme:</p><pre><code class="language-julia hljs">leonardo[3]
 
--&gt; RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)</code></pre><p>Or you can ‘sample’ the scheme at any point between 0 and 1 using <code>get</code> or <code>getindex</code>:</p><pre><code class="nohighlight hljs">get(leonardo, 0.5)
+-&gt; RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)</code></pre><p>Or you can ‘sample’ the scheme at any point between 0 and 1 using <code>get</code> or <code>getindex</code>:</p><pre><code class="language-julia hljs">get(leonardo, 0.5)
 
 -&gt; RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 
@@ -79,7 +79,7 @@ img3 = get(colorschemes[:leonardo], 10.0 * rand(10, 10), (1.0, 9.0))
 
 # Also works with PerceptualColourMaps
 using PerceptualColourMaps # warning, installs PyPlot, PyCall, LaTeXStrings
-img4 = get(PerceptualColourMaps.cmap(&quot;R1&quot;), rand(10,10))</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/d2601f259afae2297c09880888f30065106cf43e/src/ColorSchemes.jl#L199-L229">source</a></section><section><div><pre><code class="nohighlight hljs">get(cs::ColorScheme, g::Color{T,1} where T&lt;:Union{Bool, AbstractFloat, FixedPoint})</code></pre><p>Return the color in <code>cs</code> that corresponds to the gray value <code>g</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/d2601f259afae2297c09880888f30065106cf43e/src/ColorSchemes.jl#L260-L264">source</a></section></article><h2 id="The-colorschemes-dictionary"><a class="docs-heading-anchor" href="#The-colorschemes-dictionary">The colorschemes dictionary</a><a id="The-colorschemes-dictionary-1"></a><a class="docs-heading-anchor-permalink" href="#The-colorschemes-dictionary" title="Permalink"></a></h2><p>The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in an exported dictionary, called <code>colorschemes</code>.</p><pre><code class="nohighlight hljs">colorschemes[:summer] |&gt; show
+img4 = get(PerceptualColourMaps.cmap(&quot;R1&quot;), rand(10,10))</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/9fc294d7169678f3bec20f1bd6fa2fa4746bfe2e/src/ColorSchemes.jl#L199-L229">source</a></section><section><div><pre><code class="nohighlight hljs">get(cs::ColorScheme, g::Color{T,1} where T&lt;:Union{Bool, AbstractFloat, FixedPoint})</code></pre><p>Return the color in <code>cs</code> that corresponds to the gray value <code>g</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/9fc294d7169678f3bec20f1bd6fa2fa4746bfe2e/src/ColorSchemes.jl#L260-L264">source</a></section></article><h2 id="The-colorschemes-dictionary"><a class="docs-heading-anchor" href="#The-colorschemes-dictionary">The colorschemes dictionary</a><a id="The-colorschemes-dictionary-1"></a><a class="docs-heading-anchor-permalink" href="#The-colorschemes-dictionary" title="Permalink"></a></h2><p>The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in an exported dictionary, called <code>colorschemes</code>.</p><pre><code class="language-julia hljs">colorschemes[:summer] |&gt; show
     ColorScheme(
         ColorTypes.RGB{Float64}[
             RGB{Float64}(0.0,0.5,0.4),
@@ -89,7 +89,7 @@ img4 = get(PerceptualColourMaps.cmap(&quot;R1&quot;), rand(10,10))</code></pre><
             ...
             RGB{Float64}(1.0,1.0,0.4)],
        &quot;matplotlib&quot;,
-       &quot;sampled color schemes, sequential linearly-increasing shades of green-yellow&quot;)</code></pre><h2 id="Finding-colorschemes"><a class="docs-heading-anchor" href="#Finding-colorschemes">Finding colorschemes</a><a id="Finding-colorschemes-1"></a><a class="docs-heading-anchor-permalink" href="#Finding-colorschemes" title="Permalink"></a></h2><p>Use the <a href="#ColorSchemes.findcolorscheme"><code>findcolorscheme</code></a> function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.</p><pre><code class="nohighlight hljs">julia&gt; findcolorscheme(&quot;magen&quot;)
+       &quot;sampled color schemes, sequential linearly-increasing shades of green-yellow&quot;)</code></pre><h2 id="Finding-colorschemes"><a class="docs-heading-anchor" href="#Finding-colorschemes">Finding colorschemes</a><a id="Finding-colorschemes-1"></a><a class="docs-heading-anchor-permalink" href="#Finding-colorschemes" title="Permalink"></a></h2><p>Use the <a href="#ColorSchemes.findcolorscheme"><code>findcolorscheme</code></a> function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.</p><pre><code class="language-julia hljs">julia&gt; findcolorscheme(&quot;magen&quot;)
 
 colorschemes containing &quot;magen&quot;
 
@@ -97,7 +97,7 @@ spring               (notes) sampled color schemes, linearl...
 cool                 (notes) sampled color schemes, linearl...
 hsv                  (notes) sampled color schemes, red-yel...
 
-found 3 results for &quot;magenta&quot;</code></pre><pre><code class="nohighlight hljs">julia&gt; findcolorscheme(&quot;cmocean&quot;)
+found 3 results for &quot;magenta&quot;</code></pre><pre><code class="language-julia hljs">julia&gt; findcolorscheme(&quot;cmocean&quot;)
 colorschemes containing &quot;cmocean&quot;
 
 oxy                  (category) cmocean
@@ -119,7 +119,7 @@ delta                (category) cmocean
 curl                 (category) cmocean
 phase                (category) cmocean
 
-found 18 results for &quot;cmocean&quot;</code></pre><article class="docstring"><header><a class="docstring-binding" id="ColorSchemes.findcolorscheme" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">findcolorscheme(str)</code></pre><p>Find all color schemes matching <code>str</code>. <code>str</code> is interpreted as a regular expression (case-insensitive).</p><p>To read the notes of built-in colorscheme <code>cscheme</code>:</p><pre><code class="nohighlight hljs">colorschemes[:cscheme].notes</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/d2601f259afae2297c09880888f30065106cf43e/src/ColorSchemes.jl#L130-L140">source</a></section></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="nohighlight hljs">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
+found 18 results for &quot;cmocean&quot;</code></pre><article class="docstring"><header><a class="docstring-binding" id="ColorSchemes.findcolorscheme" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">findcolorscheme(str)</code></pre><p>Find all color schemes matching <code>str</code>. <code>str</code> is interpreted as a regular expression (case-insensitive).</p><p>To read the notes of built-in colorscheme <code>cscheme</code>:</p><pre><code class="nohighlight hljs">colorschemes[:cscheme].notes</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/9fc294d7169678f3bec20f1bd6fa2fa4746bfe2e/src/ColorSchemes.jl#L130-L140">source</a></section></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="language-julia hljs">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
 265-element Array{Symbol,1}:
  :BuPu_6
  :Spectral_4
@@ -266,22 +266,22 @@ mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])</code></pre><i
 <rect width=".94" height=".96" x="8" y="0" fill="%23CCCCCC" />
 <rect width=".94" height=".96" x="9" y="0" fill="%23E6E6E6" />
 <rect width=".94" height=".96" x="10" y="0" fill="%23FFFFFF" />
-</svg>'/><p>Give it a category or some added notes if you want:</p><pre><code class="nohighlight hljs">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
-    &quot;my useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>although this scheme won’t end up in the <code>colorschemes</code> dictionary.</p><p>Another example, starting with a two-color scheme, then building a gradient from the first color to the other.</p><pre><code class="nohighlight hljs">myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
+</svg>'/><p>Give it a category or some added notes if you want:</p><pre><code class="language-julia hljs">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+    &quot;my useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>although this scheme won’t end up in the <code>colorschemes</code> dictionary.</p><p>Another example, starting with a two-color scheme, then building a gradient from the first color to the other.</p><pre><code class="language-julia hljs">myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
                &quot;custom&quot;, &quot;twotone, red and green&quot;)
-ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])</code></pre><p>Another way is to use <code>loadcolorscheme()</code> function:</p><pre><code class="nohighlight hljs">loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
-     &quot;useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>and that will be added (temporarily).</p><pre><code class="nohighlight hljs">julia&gt; findcolorscheme(&quot;dull&quot;)
+ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])</code></pre><p>Another way is to use <code>loadcolorscheme()</code> function:</p><pre><code class="language-julia hljs">loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+     &quot;useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>and that will be added (temporarily).</p><pre><code class="language-julia hljs">julia&gt; findcolorscheme(&quot;dull&quot;)
 
 colorschemes containing &quot;dull&quot;
 
 mygrays              (notes) just some dull grey shades...
 
 
-found 1 result for &quot;dull&quot;</code></pre><p>If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the <code>make_colorscheme()</code> function in the <a href="https://github.com/JuliaGraphics/ColorSchemeTools.jl">ColorSchemeTools.jl</a> package.</p><h2 id="Continuous-color-sampling"><a class="docs-heading-anchor" href="#Continuous-color-sampling">Continuous color sampling</a><a id="Continuous-color-sampling-1"></a><a class="docs-heading-anchor-permalink" href="#Continuous-color-sampling" title="Permalink"></a></h2><p>You can access the specific colors of a colorscheme by indexing (eg <code>leonardo[2]</code> or <code>leonardo[5:end]</code>). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:</p><pre><code class="nohighlight hljs">get(leonardo, 0.5)</code></pre><p>returns</p><pre><code class="nohighlight hljs">RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><p><img src="../assets/figures/get-example.png" alt="&quot;get example&quot;"/></p><p>The colors in the predefined ColorSchemes are usually sorted by LUV luminance, so this often makes sense.</p><p>You can use <code>get()</code> with index data in arrays to return arrays of colors:</p><pre><code class="nohighlight hljs">julia&gt; get(leonardo, [0.0, 0.5, 1.0])
+found 1 result for &quot;dull&quot;</code></pre><p>If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the <code>make_colorscheme()</code> function in the <a href="https://github.com/JuliaGraphics/ColorSchemeTools.jl">ColorSchemeTools.jl</a> package.</p><h2 id="Continuous-color-sampling"><a class="docs-heading-anchor" href="#Continuous-color-sampling">Continuous color sampling</a><a id="Continuous-color-sampling-1"></a><a class="docs-heading-anchor-permalink" href="#Continuous-color-sampling" title="Permalink"></a></h2><p>You can access the specific colors of a colorscheme by indexing (eg <code>leonardo[2]</code> or <code>leonardo[5:end]</code>). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:</p><pre><code class="language-julia hljs">get(leonardo, 0.5)</code></pre><p>returns</p><pre><code class="language-julia hljs">RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><p><img src="../assets/figures/get-example.png" alt="&quot;get example&quot;"/></p><p>The colors in the predefined ColorSchemes are usually sorted by LUV luminance, so this often makes sense.</p><p>You can use <code>get()</code> with index data in arrays to return arrays of colors:</p><pre><code class="language-julia hljs">julia&gt; get(leonardo, [0.0, 0.5, 1.0])
 3-element Array{RGB{Float64},1} with eltype ColorTypes.RGB{Float64}:
  RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788)
  RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)  
- RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)</code></pre><p><img src="../assets/figures/get-example-2.png" alt="&quot;get example 2&quot;"/></p><pre><code class="nohighlight hljs">julia&gt; simg = get(leonardo, rand(10, 16));
+ RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)</code></pre><p><img src="../assets/figures/get-example-2.png" alt="&quot;get example 2&quot;"/></p><pre><code class="language-julia hljs">julia&gt; simg = get(leonardo, rand(10, 16));
 julia&gt; using FileIO
 julia&gt; save(&quot;mosaic.png&quot;, simg)</code></pre><p><img src="../assets/figures/get-example-1.png" alt="&quot;get example 1&quot;"/></p><h2 id="Matplotlib-compatibility"><a class="docs-heading-anchor" href="#Matplotlib-compatibility">Matplotlib compatibility</a><a id="Matplotlib-compatibility-1"></a><a class="docs-heading-anchor-permalink" href="#Matplotlib-compatibility" title="Permalink"></a></h2><p>Most of the color schemes in Matplotlib are available. The following code example gives a general picture.</p><pre><code class="language-julia hljs">using ColorSchemes
 
@@ -330,4 +330,4 @@ sequential2  16
 	gray         not currently in stock
 perceptuallyuniformsequential 4
 diverging    12
-miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../catalogue/">« Catalogue</a><a class="docs-footer-nextpage" href="../finding/">Finding colors »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.5 on <span class="colophon-date" title="Tuesday 10 August 2021 11:27">Tuesday 10 August 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../catalogue/">« Catalogue</a><a class="docs-footer-nextpage" href="../finding/">Finding colors »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.6 on <span class="colophon-date" title="Friday 10 September 2021 13:57">Friday 10 September 2021</span>. Using Julia version 1.6.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

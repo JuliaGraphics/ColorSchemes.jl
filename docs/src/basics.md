@@ -19,7 +19,7 @@ ColorSchemes.leonardo
 
 The display depends on your working environment. If you’re using a notebook or IDE environment, the colors in the colorscheme should appear as a swatch in a cell or in a Plots window. Otherwise, you’ll see the colors listed as RGB values:
 
-```
+```julia
 32-element Array{RGB{Float64},1}:
  RGB{Float64}(0.0548203,0.016509,0.0193152)
  RGB{Float64}(0.0750816,0.0341102,0.0397083)
@@ -38,13 +38,13 @@ The display depends on your working environment. If you’re using a notebook or
 
 You can access the array of colors as:
 
-```
+```julia
 ColorSchemes.leonardo.colors
 ```
 
 By default, the colorschemes aren’t imported. To avoid using the prefixes, you can import the ones that you want:
 
-```
+```julia
 julia> import ColorSchemes.leonardo
 julia> leonardo
 32-element Array{RGB{Float64},1}:
@@ -61,7 +61,7 @@ julia> leonardo
 
 You can reference a single value of a scheme:
 
-```
+```julia
 leonardo[3]
 
 -> RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)
@@ -69,7 +69,7 @@ leonardo[3]
 
 Or you can ‘sample’ the scheme at any point between 0 and 1 using `get` or `getindex`:
 
-```
+```julia
 get(leonardo, 0.5)
 
 -> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
@@ -87,7 +87,7 @@ get
 
 The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in an exported dictionary, called `colorschemes`.
 
-```
+```julia
 colorschemes[:summer] |> show
     ColorScheme(
         ColorTypes.RGB{Float64}[
@@ -105,7 +105,7 @@ colorschemes[:summer] |> show
 
 Use the [`findcolorscheme`](@ref) function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.
 
-```
+```julia
 julia> findcolorscheme("magen")
 
 colorschemes containing "magen"
@@ -117,7 +117,7 @@ hsv                  (notes) sampled color schemes, red-yel...
 found 3 results for "magenta"
 ```
 
-```
+```julia
 julia> findcolorscheme("cmocean")
 colorschemes containing "cmocean"
 
@@ -148,7 +148,8 @@ findcolorscheme
 ```
 
 If you prefer, you can ‘roll your own’ search.
-```
+
+```julia
 [k for (k, v) in ColorSchemes.colorschemes if occursin(r"colorbrew"i, v.category)]
 265-element Array{Symbol,1}:
  :BuPu_6
@@ -182,7 +183,7 @@ mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
 
 Give it a category or some added notes if you want:
 
-```
+```julia
 mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
     "my useful schemes", "just some dull grey shades")
 ```
@@ -191,7 +192,7 @@ although this scheme won’t end up in the `colorschemes` dictionary.
 
 Another example, starting with a two-color scheme, then building a gradient from the first color to the other.
 
-```
+```julia
 myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
                "custom", "twotone, red and green")
 ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])
@@ -199,14 +200,14 @@ ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])
 
 Another way is to use `loadcolorscheme()` function:
 
-```
+```julia
 loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
      "useful schemes", "just some dull grey shades")
 ```
 
 and that will be added (temporarily).
 
-```
+```julia
 julia> findcolorscheme("dull")
 
 colorschemes containing "dull"
@@ -223,13 +224,13 @@ If you want to make more advanced ColorSchemes, use linear-segment dictionaries 
 
 You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[5:end]`). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:
 
-```
+```julia
 get(leonardo, 0.5)
 ```
 
 returns
 
-```
+```julia
 RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 ```
 
@@ -239,7 +240,7 @@ The colors in the predefined ColorSchemes are usually sorted by LUV luminance, s
 
 You can use `get()` with index data in arrays to return arrays of colors:
 
-```
+```julia
 julia> get(leonardo, [0.0, 0.5, 1.0])
 3-element Array{RGB{Float64},1} with eltype ColorTypes.RGB{Float64}:
  RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788)
@@ -249,7 +250,7 @@ julia> get(leonardo, [0.0, 0.5, 1.0])
 
 !["get example 2"](assets/figures/get-example-2.png)
 
-```
+```julia
 julia> simg = get(leonardo, rand(10, 16));
 julia> using FileIO
 julia> save("mosaic.png", simg)

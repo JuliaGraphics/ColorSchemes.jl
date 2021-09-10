@@ -3,6 +3,8 @@
 | [![][docs-stable-img]][docs-stable-url] | [![Build Status][ci-img]][ci-url]          | [![][codecov-img]][codecov-url] |
 | [![][docs-latest-img]][docs-latest-url] | [![][appveyor-img]][appveyor-url]          |                                 |
 
+!["colorschemes social media preview"](docs/src/assets/figures/colorschemes-social-media-preview.png)
+
 ## ColorSchemes
 
 This package provides a collection of colorschemes:

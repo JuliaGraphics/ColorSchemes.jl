@@ -27,20 +27,20 @@ If you want to make more advanced ColorSchemes, use linear-segment dictionaries 
 
 Install the package as follows:
 
-```
+```julia
 import Pkg
 Pkg.add("ColorSchemes")
 ```
 
 or, at the REPL:
 
-```
+```julia
 ] add ColorSchemes
 ```
 
 and to use it:
 
-```
+```julia
 using ColorSchemes
 ```
 

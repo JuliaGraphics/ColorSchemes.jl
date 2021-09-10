@@ -4,13 +4,13 @@
 
 The `heatmap()` function in [UnicodePlots.jl](https://github.com/Evizero/UnicodePlots.jl) can use colorschemes. You have to supply the colors as an array of floating-point numbers first:
 
-```
+```julia
 ... colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors]
 ```
 
 For example:
 
-```
+```julia
 heatmap(z::AbstractMatrix; title = "Hot!",
     colormap = [(x.r, x.g, x.b) for x in ColorSchemes.leonardo.colors])
 ```
@@ -23,7 +23,7 @@ heatmap(z::AbstractMatrix; title = "Hot!",
 
 This renaissance-looking plot uses the `leonardo` scheme:
 
-```
+```julia
 using Plots
 
 x = 1:0.3:20
@@ -40,7 +40,7 @@ contour(x, y, f, fill=true, c = :leonardo)
 
 With other plots, use the `palette` keyword:
 
-```
+```julia
 using ColorSchemes
 
 plot(Plots.fakedata(100, 20),
@@ -55,7 +55,7 @@ plot(Plots.fakedata(100, 20),
 
 Here's how you can use ColorSchemes in Gadfly:
 
-```
+```julia
 using Gadfly, ColorSchemes
 x = repeat(collect(1:20), inner=[20]);
 y = repeat(collect(1:20), outer=[20]);
@@ -71,7 +71,7 @@ plot(x=x, y=y,
 
 If you use Makie.jl you can pass the colors in a ColorScheme directly to the `colormap` keyword.
 
-```
+```julia
 using Makie, ColorSchemes
 N = 20
 x = LinRange(-0.3, 1, N)
@@ -84,7 +84,7 @@ image(x, y, z, colormap = ColorSchemes.picasso.colors)
 
 You can display all the colorschemes using Makie by letting the code browse through the `colorschemes` dictionary:
 
-```
+```julia
 using Makie, ColorSchemes
 
 h = 0.0
@@ -121,7 +121,7 @@ scene
 
 If you prefer Winston.jl for plotting, you can use ColorSchemes with `imagesc`:
 
-```
+```julia
 using Winston, ColorSchemes
 klimt = ColorSchemes.klimt.colors
 Winston.colormap(klimt)
@@ -132,7 +132,7 @@ Winston.imagesc(reshape(1:10000,100,100))
 
 Sometimes you'll want a smoother gradient with more colors. You can use `get(scheme, n)` to generate a more detailed array of colors, varying `n` from 0 to 1 by 0.001:
 
-```
+```julia
 brasstones = ColorSchemes.brass
 brasstonesmooth = [get(brasstones, i) for i in 0:0.001:1]
 Winston.colormap(brasstonesmooth)
@@ -145,7 +145,7 @@ Winston.imagesc(reshape(1:10000,100,100))
 
 ColorSchemes can be used with the `cmap` keyword in PyPlot:
 
-```
+```julia
 using PyPlot, Distributions, ColorSchemes
 
 solar = ColorSchemes.solar.colors

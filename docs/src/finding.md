@@ -20,7 +20,7 @@ One example use for `getinverse()` is to convert a heatmap image into an Array o
 
 In this example, we will convert a heatmap image representing elevation in the United States into an Array of elevation values. The image represents global temperature anomalies averaged from 2008 through 2012, with blue as -2°C and Red as +2°C. Higher than normal temperatures are shown in red (red is +2°C) and lower than normal temperatures are shown in blue (blue is -2°C). The global surface temperature in 2012 was +0.55°C. [source](https://svs.gsfc.nasa.gov/cgi-bin/details.cgi?aid=4030).
 
-```
+```julia
 using Images, FileIO
 img = download("https://www.nasa.gov/images/content/719282main_2008_2012_printdata.1462.jpg") |> load
 img = imresize(img, Tuple(Int(x) for x in size(img) .* 0.2));
@@ -29,7 +29,7 @@ display(img)
 
 !["heatmap 1"](assets/figures/heatmap1.png)
 
-```
+```julia
 temps = [getinverse(ColorSchemes.temperaturemap, pixel) for pixel in img]
 
 432×768 Array{Float64,2}:
@@ -54,7 +54,7 @@ temps = [getinverse(ColorSchemes.temperaturemap, pixel) for pixel in img]
 
 The image has been converted from its original colors to an array of continuous values between 0 and 1. This makes it possible to process as data. For example, we can find the places with the greatest anomalies:
 
-```
+```julia
 mintemp, maxtemp = argmin(temps), argmax(temps)
 
  (CartesianIndex(397, 127), CartesianIndex(17, 314))
@@ -62,7 +62,7 @@ mintemp, maxtemp = argmin(temps), argmax(temps)
 
 and these maximum and minimum 'coordinates' can be displayed on the image using another package that allows you to mix images and vector graphics easily (such as Luxor.jl, for example).
 
-```
+```julia
 save("/tmp/img.png", img)
 using Luxor
 pngimg = readpng("/tmp/img.png")
@@ -90,7 +90,7 @@ end 800 460
 
 We can display the array of continuous values as a grayscale image, where black is 0.0 and white is 1.0.
 
-```
+```julia
 Gray.(temps)
 ```
 

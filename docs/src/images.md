@@ -11,7 +11,7 @@ Here's an example of how you can use ColorSchemes when creating images with Imag
 
 !["julia set"](assets/figures/julia-set-with-girl-pearl-vermeer.jpg)
 
-```
+```julia
 using ColorSchemes, Images, FileIO
 # and possibly QuartzImageIO (macOS) and/or ImageMagick (Linux)
 

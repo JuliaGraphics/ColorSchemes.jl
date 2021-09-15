@@ -118,6 +118,7 @@ function loadallschemes()
     include(joinpath(datadir, "tableau.jl"))
     include(joinpath(datadir, "cvd.jl"))
     include(joinpath(datadir, "flags.jl"))
+    include(joinpath(datadir, "websafe.jl"))
 
     # create them as constants...
     for key in keys(colorschemes)
@@ -321,6 +322,7 @@ Base.reverse(cscheme::ColorScheme) =
     ColorScheme(reverse(cscheme.colors), cscheme.category, cscheme.notes)
 
 """
+    *(cscheme1, cscheme2)
     cscheme1 * cscheme2
 
 Create new colorscheme by concatenating two colorschemes.

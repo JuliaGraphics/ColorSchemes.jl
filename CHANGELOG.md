@@ -4,7 +4,9 @@
 
 ### Added
 
-- :dracula and :vanhelsing
+- :websafe (thanks @adrhill!)
+- :dracula
+- :vanhelsing
 
 ## Changed
 

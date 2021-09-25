@@ -103,45 +103,29 @@ colorschemes[:summer] |> show
 
 ## Finding colorschemes
 
-Use the [`findcolorscheme`](@ref) function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or in the notes. It’s interpreted as a case-insensitive regular expression.
+Use the [`findcolorscheme`](@ref) function to search through
+the pre-defined colorschemes. The string you provide can
+occur in the colorscheme’s name, in the category, or
+(optionally) in the notes. It’s interpreted as a
+case-insensitive regular expression.
 
 ```julia
-julia> findcolorscheme("magen")
+julia> findcolorscheme("ice")
 
-colorschemes containing "magen"
+colorschemes containing "ice"
 
-spring               (notes) sampled color schemes, linearl...
-cool                 (notes) sampled color schemes, linearl...
-hsv                  (notes) sampled color schemes, red-yel...
+  seaborn_icefire_gradient
+  seaborn_icefire_gradient  (notes) sequential, ice fire gradient...
+  ice                 
+  flag_is                   (notes) The flag of Iceland...
+  botticelli          
+  botticelli                (notes) palette from artist Sandro Bot...
 
-found 3 results for "magenta"
+
+ ...found 6 results for "ice"
 ```
 
-```julia
-julia> findcolorscheme("cmocean")
-colorschemes containing "cmocean"
-
-oxy                  (category) cmocean
-matter               (category) cmocean
-dense                (category) cmocean
-balance              (category) cmocean
-thermal              (category) cmocean
-tempo                (category) cmocean
-grays                (category) cmocean
-speed                (category) cmocean
-turbid               (category) cmocean
-solar                (category) cmocean
-ice                  (category) cmocean
-haline               (category) cmocean
-algae                (category) cmocean
-amp                  (category) cmocean
-deep                 (category) cmocean
-delta                (category) cmocean
-curl                 (category) cmocean
-phase                (category) cmocean
-
-found 18 results for "cmocean"
-```
+The function returns a list of matching colorscheme names as symbols.
 
 ```@docs
 findcolorscheme
@@ -201,24 +185,100 @@ ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])
 Another way is to use `loadcolorscheme()` function:
 
 ```julia
+using Colors
 loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
      "useful schemes", "just some dull grey shades")
 ```
 
-and that will be added (temporarily).
+and that will be added (temporarily) to the built-in list.
 
 ```julia
 julia> findcolorscheme("dull")
 
 colorschemes containing "dull"
 
-mygrays              (notes) just some dull grey shades...
+  mygrays               (notes) just some dull grey shades...
 
 
-found 1 result for "dull"
+ ...found 1 result for "dull"
 ```
 
 If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
+
+## For CVD (color-vision deficient or "color-blind:) users
+
+This package contains a number of colorschemes that are designed to be helpful for people with some deficiencies in their perception of color:
+
+- deuteranomaly (where green looks more red)
+
+- protanomaly (where red looks more green and less bright)
+
+- tritanomaly (difficult to tell the difference between blue and green, and between yellow and red)
+
+- tritanopia (difficult to tell the difference between blue and green, purple and red, and yellow and pink)
+
+```julia
+findcolorscheme("cvd")
+
+colorschemes containing "cvd"
+
+  tol_light            (category) cvd
+  tol_muted            (category) cvd
+  tol_bright           (category) cvd
+  okabe_ito            (category) cvd
+  mk_8                 (category) cvd
+  mk_12                (category) cvd
+  mk_15                (category) cvd
+```
+
+### :tol_light
+```@example
+using ColorSchemes # hide
+ColorSchemes.tol_light # hide
+```
+
+### :tol_muted
+```@example
+using ColorSchemes # hide
+ColorSchemes.tol_muted # hide
+```
+
+### :tol_bright
+```@example
+using ColorSchemes # hide
+ColorSchemes.tol_bright # hide
+```
+
+### :okabe_ito
+```@example
+using ColorSchemes # hide
+ColorSchemes.okabe_ito # hide
+```
+
+### :mk_8
+```@example
+using ColorSchemes # hide
+ColorSchemes.mk_8 # hide
+```
+
+### :mk_12
+```@example
+using ColorSchemes # hide
+ColorSchemes.mk_12 # hide
+```
+
+### :mk_15
+```@example
+using ColorSchemes # hide
+ColorSchemes.mk_15 # hide
+```
+
+Also, it's possible to generate schemes using `Colors.distinguishable_colors()`:
+
+```@example
+using Colors, ColorSchemes
+ColorScheme(distinguishable_colors(10, transform=protanopic))
+```
 
 ## Continuous color sampling
 

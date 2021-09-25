@@ -66,7 +66,7 @@ speify a category and some notes.
 This is an example (from `ColorsSchemes/data/flags.jl`) of how the supplied colorschemes are
 loaded into the ColorSchemes dictionary.
 
-```
+```julia
 loadcolorscheme(:flag_nu, [
         RGB(0.7843137254901961, 0.06274509803921569, 0.1803921568627451),
         RGB(0.00392156862745098, 0.12941176470588237, 0.4117647058823529),
@@ -86,7 +86,7 @@ end
 
 An exported dictionary of pre-defined colorschemes:
 
-```
+```julia
 colorschemes[:summer] |> show
    ColorScheme(
       ColorTypes.RGB{Float64}[
@@ -96,7 +96,7 @@ colorschemes[:summer] |> show
 
 To choose a random ColorScheme:
 
-```
+```julia
 scheme = rand(keys(colorschemes))
 ```
 
@@ -129,39 +129,73 @@ end
 loadallschemes()
 
 """
-    findcolorscheme(str)
+    findcolorscheme(str;
+        search_notes=true)
 
-Find all color schemes matching `str`. `str` is interpreted as a regular expression (case-insensitive).
+Find all colorschemes matching `str`. `str` is interpreted
+as a regular expression (case-insensitive).
 
-To read the notes of built-in colorscheme `cscheme`:
+This returns an array of symbols which are the names of
+matching schemes in the `colorschemes` dictionary.
 
+```julia
+julia> findcolorscheme("ice")
+
+colorschemes containing "ice"
+
+  seaborn_icefire_gradient
+  seaborn_icefire_gradient  (notes) sequential, ice fire gradient...
+  ice
+  flag_is               (notes) The flag of Iceland...
+  botticelli
+  botticelli            (notes) palette from artist Sandro Bot...
+
+
+ ...found 6 results for "ice"
 ```
+
+To read the notes of a built-in colorscheme `cscheme`:
+
+```julia
 colorschemes[:cscheme].notes
 ```
 """
-function findcolorscheme(str)
+function findcolorscheme(str;
+        search_notes=true)
     println("\ncolorschemes containing \"$str\"\n")
     counter = 0
+    found   = Symbol[]
     for (k, v) in colorschemes
         if occursin(Regex(str, "i"), string(k))
-            printstyled("$(rpad(k, 20))\n", bold=true)
+            # found in name
+            printstyled("  $(rpad(k, 20))\n", bold=true)
             counter += 1
+            push!(found, k)
         elseif occursin(Regex(str, "i"), string(v.category))
-            printstyled("$(rpad(k, 20))", bold=true)
+            # found in category
+            printstyled("  $(rpad(k, 20))", bold=true)
             println(" (category) $(v.category)")
             counter += 1
+            push!(found, k)
         end
-        if occursin(Regex(str, "i"), string(v.notes))
-            printstyled("$(rpad(k, 20))", bold=true)
-            l = min(30, length(v.notes))
-            println(" (notes) $(v.notes[1:l])...")
-            counter += 1
+        if occursin(Regex(str, "i"), string(v.notes)) && search_notes == true
+            # found in notes
+            # avoid duplication
+            if k ∉ found
+                printstyled("  $(rpad(k, 20))", bold=true)
+                l = min(30, length(v.notes))
+                println("  (notes) $(v.notes[1:l])...")
+                counter += 1
+                push!(found, k)
+            end
         end
     end
-    counter > 0 ?
-        println("\n\nfound $counter result$(counter > 1 ? "s" : "") for \"$str\"") :
-        println("\n\nnothing found for \"$str\"")
-    return nothing
+    if counter > 0
+        println("\n\n ...found $counter result$(counter > 1 ? "s" : "") for \"$str\"")
+    else
+        println("\n\n ...nothing found for \"$str\"")
+    end
+    return found
 end
 
 # Interfaces
@@ -216,7 +250,7 @@ RGB [0.0-1.0] values. It should work with more colortypes.
 
 # Examples
 
-```
+```julia
 img = get(colorschemes[:leonardo], rand(10,10)) # displays in Juno Plots window, but
 save("testoutput.png", img)      # you'll need FileIO or similar to do this
 
@@ -280,7 +314,7 @@ for which `get(scheme, x)` would most closely match the provided Color `c`.
 The first example asks: "where in the `leonardo` colorscheme will I find the nearest
 color to red?":
 
-```
+```julia
 julia> getinverse(colorschemes[:leonardo], RGB(1, 0, 0))
 0.6248997995654847
 

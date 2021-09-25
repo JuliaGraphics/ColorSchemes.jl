@@ -124,6 +124,9 @@ end
         counter += 1
     end
     @test counter == 33
+
+    # test findcolorschemes()
+    @test length(findcolorscheme("rainbow")) > 0
 end
 
 # these won't error but they don't yet work correctly either

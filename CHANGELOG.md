@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.15] - 2021 forthcoming
+## [v3.15] - 2021-09-25
 
 ### Added
 
@@ -9,6 +9,8 @@
 - :vanhelsing
 
 ## Changed
+
+- findcolorscheme() returns list of matching scheme names as symbols
 
 ### Removed
 

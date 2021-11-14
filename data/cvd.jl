@@ -41,7 +41,7 @@ loadcolorscheme(:tol_light, [
     colorant"#DDDDDD"
 ], "cvd", "cvd friendly, color blind friendly")
 
-loadcolorscheme(:sunset, [
+loadcolorscheme(:tol_sunset, [
     colorant"#364B9A",
     colorant"#4A7BB7",
     colorant"#6EA6CD",
@@ -80,11 +80,11 @@ loadcolorscheme(:tol_prgn, [
 ], "cvd", "cvd friendly, color blind friendly")
 
 loadcolorscheme(:tol_ylorbr, [
-    colorant"#FFFE5",
+    colorant"#FFFFE5",
     colorant"#FFF7BC",
     colorant"#FEE391",
     colorant"#FEC44F",
-    colorant"#FBA29",
+    colorant"#FB9A29",
     colorant"#EC7014",
     colorant"#CC4C02",
     colorant"#993404",

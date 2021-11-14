@@ -41,6 +41,144 @@ loadcolorscheme(:tol_light, [
     colorant"#DDDDDD"
 ], "cvd", "cvd friendly, color blind friendly")
 
+loadcolorscheme(:tol_sunset, [
+    colorant"#364B9A",
+    colorant"#4A7BB7",
+    colorant"#6EA6CD",
+    colorant"#98CAE1",
+    colorant"#C2E4EF",
+    colorant"#EAECCC",
+    colorant"#FEDA8B",
+    colorant"#FDB366",
+    colorant"#F67E4B",
+    colorant"#DD3D2D",
+    colorant"#A50026",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:tol_bu_rd, [
+    colorant"#2166AC",
+    colorant"#4393C3",
+    colorant"#92C5DE",
+    colorant"#D1E5F0",
+    colorant"#F7F7F7",
+    colorant"#FDDBC7",
+    colorant"#F4A582",
+    colorant"#D6604D",
+    colorant"#B2182B",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:tol_prgn, [
+    colorant"#762A83",
+    colorant"#9970AB",
+    colorant"#C2A5CF",
+    colorant"#E7D4E8",
+    colorant"#F7F7F7",
+    colorant"#D9F0D3",
+    colorant"#ACD39E",
+    colorant"#5AAE61",
+    colorant"#1B7837",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:tol_ylorbr, [
+    colorant"#FFFFE5",
+    colorant"#FFF7BC",
+    colorant"#FEE391",
+    colorant"#FEC44F",
+    colorant"#FB9A29",
+    colorant"#EC7014",
+    colorant"#CC4C02",
+    colorant"#993404",
+    colorant"#662506",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:ground_cover, [
+    colorant"#5566AA",
+    colorant"#117733",
+    colorant"#44AA66",
+    colorant"#55AA22",
+    colorant"#668822",
+    colorant"#99BB55",
+    colorant"#558877",
+    colorant"#88BBAA",
+    colorant"#AADDCC",
+    colorant"#44AA88",
+    colorant"#DDCC66",
+    colorant"#FFDD44",
+    colorant"#FFEE88",
+    colorant"#BB0011",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:tol_YlOrBr, [
+    colorant"#FFFFE5",
+    colorant"#FFF7BC",
+    colorant"#FEE391",
+    colorant"#FEC44F",
+    colorant"#FB9A29",
+    colorant"#EC7014",
+    colorant"#CC4C02",
+    colorant"#993404",
+    colorant"#662506",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:Iridescent, [
+    colorant"#FEFBE9",
+    colorant"#FCF705",
+    colorant"#F5F3C1",
+    colorant"#EAF0B5",
+    colorant"#DDECBF",
+    colorant"#D0E7CA",
+    colorant"#C2E3D2",
+    colorant"#B5DDD8",
+    colorant"#A8D8DC",
+    colorant"#9BD2E1",
+    colorant"#8DCBE4",
+    colorant"#81C4E7",
+    colorant"#7BBCE7",
+    colorant"#7EB2E4",
+    colorant"#88A5DD",
+    colorant"#9398D2",
+    colorant"#9B8AC4",
+    colorant"#9D7DB2",
+    colorant"#9A709E",
+    colorant"#906388",
+    colorant"#805770",
+    colorant"#684957",
+    colorant"#46353A",
+], "cvd", "cvd friendly, color blind friendly")
+
+
+loadcolorscheme(:tol_rainbow, [
+    colorant"#E8ECFB",
+    colorant"#D9CCE3",
+    colorant"#D1BBD7",
+    colorant"#CAACCB",
+    colorant"#BA8BD4",
+    colorant"#AE76A3",
+    colorant"#AA6F9E",
+    colorant"#994F88",
+    colorant"#882E72",
+    colorant"#1965B0",
+    colorant"#437DBF",
+    colorant"#5289C7",
+    colorant"#6195CF",
+    colorant"#7BAFDE",
+    colorant"#4EB265",
+    colorant"#90C987",
+    colorant"#CAE0AB",
+    colorant"#F7F056",
+    colorant"#F7CB45",
+    colorant"#F6C141",
+    colorant"#F4A736",
+    colorant"#F1932D",
+    colorant"#EE8026",
+    colorant"#E8601C",
+    colorant"#E65518",
+    colorant"#DC050C",
+    colorant"#A5170E",
+    colorant"#72190E",
+    colorant"#42150A",
+], "cvd", "cvd friendly, color blind friendly")
+
 #From Color Universal Design (CUD): https://jfly.uni-koeln.de/color/
 loadcolorscheme(:okabe_ito, [
     colorant"#E69F00",

@@ -1,5 +1,19 @@
 # Changelog
 
+## [v3.16] - forthcoming
+
+### Added
+
+- added MetBrewer palettes
+
+## Changed
+
+### Removed
+
+### Deprecated
+
+###################################################################
+
 ## [v3.15] - 2021-09-25
 
 ### Added

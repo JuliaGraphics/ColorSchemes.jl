@@ -147,6 +147,17 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("flags") # hide
 ```
 
+## ✦ MetBrewer
+
+Palettes inspired by works at the Metropolitan Museum of Art
+in New York. See [Blake Mills' github
+repository](https://github.com/BlakeRMills/MetBrewer).
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("MetBrewer") # hide
+```
+
 ## ✦ general and miscellaneous
 
 ```@example catalog

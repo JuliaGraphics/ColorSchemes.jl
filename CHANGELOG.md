@@ -1,10 +1,10 @@
 # Changelog
 
-## [v3.16] - forthcoming
+## [v3.16] - 2022-01-11
 
 ### Added
 
-- added MetBrewer palettes
+- added MetBrewer palettes (thanks @BlakeRMills & @briochemc)
 
 ## Changed
 

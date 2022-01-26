@@ -5,6 +5,16 @@ loadcolorscheme(:julia, [
     colorant"#9259A3", # purple
 ], "julia", "sequential")
 
+
+# Colors from first logo
+loadcolorscheme(:julialegacy, [
+    colorant"#6a82e0", # blue
+    colorant"#d8645f", # red
+    colorant"#69ad57", # green
+    colorant"#ab7ac1", # purple
+], "julia", "sequential")
+
+
 loadcolorscheme(:juliaextended, [
     colorant"#1f83ff", # blue
     colorant"#CA3C32", # red

@@ -14,16 +14,6 @@ loadcolorscheme(:julialegacy, [
     colorant"#ab7ac1", # purple
 ], "julia", "sequential")
 
-
-loadcolorscheme(:juliaextended, [
-    colorant"#1f83ff", # blue
-    colorant"#CA3C32", # red
-    colorant"#399746", # green
-    colorant"#9259A3", # purple
-    colorant"#FFAE00", # yellow
-    colorant"#9ca3af", # gray
-], "julia", "sequential")
-
 loadcolorscheme(:jblue, [
     colorant"#d2e6ff",
     colorant"#a5cdff",
@@ -84,28 +74,4 @@ loadcolorscheme(:jpurple, [
     colorant"#583562",
     colorant"#3a2441",
     colorant"#1d1221",
-], "julia", "sequential")
-
-loadcolorscheme(:jyellow, [
-    colorant"#ffefcc",
-    colorant"#ffdf99",
-    colorant"#ffce66",
-    colorant"#ffbe33",
-    colorant"#ffae00",
-    colorant"#cc8b00",
-    colorant"#996800",
-    colorant"#664600",
-    colorant"#332300",
-], "julia", "sequential")
-
-loadcolorscheme(:jgray, [
-    colorant"#f3f4f6",
-    colorant"#e5e7eb",
-    colorant"#d1d5db",
-    colorant"#9ca3af",
-    colorant"#6b7280",
-    colorant"#4b5563",
-    colorant"#374151",
-    colorant"#1f2937",
-    colorant"#111827",
 ], "julia", "sequential")

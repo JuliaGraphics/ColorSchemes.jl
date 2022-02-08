@@ -1,4 +1,9 @@
 ```@setup catalog
+# this code shows a category of schemes as an SVG
+# use as
+#     using Luxor, ColorSchemes # hide
+#     ColorSchemeCategory("general") # hide
+
 using Luxor, ColorSchemes
 
 function generate_scheme_svg(schemename;
@@ -52,6 +57,12 @@ end
 ```
 
 # Catalogue of ColorSchemes
+
+At the REPL you can search for colorschemes by name:
+
+```julia
+findcolorscheme("julia")
+```
 
 ## ✦ cmocean
 
@@ -163,4 +174,16 @@ ColorSchemeCategory("MetBrewer") # hide
 ```@example catalog
 using Luxor, ColorSchemes # hide
 ColorSchemeCategory("general") # hide
+```
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("nord") # hide
+```
+
+## ✦ Julia logo colorschemes
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("julia") # hide
 ```

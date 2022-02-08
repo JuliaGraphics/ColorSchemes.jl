@@ -1,3 +1,5 @@
+# see license information at https://github.com/JuliaLang/julia-logo-graphics/LICENSE.md
+
 loadcolorscheme(:julia, [
     colorant"#1f83ff", # blue
     colorant"#CA3C32", # red

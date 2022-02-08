@@ -1,5 +1,20 @@
 # Changelog
 
+## [v3.17] - 2022-02-08
+
+### Added
+
+- added misc Julia colors (thanks @davibarreira)
+- added fastie/NDVI (thanks @lazarusA)
+- added nordtheme (thanks Stefano Meschiari)
+
+## Changed
+
+### Removed
+
+### Deprecated
+
+###################################################################
 ## [v3.16] - 2022-01-11
 
 ### Added

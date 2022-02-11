@@ -1,5 +1,18 @@
 # Changelog
 
+## [v3.17.1] - 2022-02-11
+
+### Added
+
+## Changed
+
+### Removed
+
+- unnecessary dependency on Luxor (thanks @fredrikekre)
+
+### Deprecated
+
+###################################################################
 ## [v3.17] - 2022-02-08
 
 ### Added

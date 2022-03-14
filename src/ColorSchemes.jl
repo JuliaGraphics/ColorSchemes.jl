@@ -246,8 +246,11 @@ If `rangescale` is `:clamp` the colorscheme is applied to
 values between 0.0-1.0, and values outside this range get
 clamped to the ends of the colorscheme.
 
-Else, if `rangescale` is `:extrema`, the colorscheme is
+If `rangescale` is `:extrema`, the colorscheme is
 applied to the range `minimum(indata)..maximum(indata)`.
+
+Else, if `rangescale` is `:centered`, the colorscheme is
+applied to the range `-maximum(abs, indata)..maximum(abs, indata)`.
 
 TODO: this function expects the colorscheme to consist of
 RGB [0.0-1.0] values. It should work with more colortypes.
@@ -271,8 +274,10 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
         defaultrange(x)
     elseif rangemode == :extrema
         extrema(x)
+    elseif rangemode == :centered
+        (-1, 1) .* maximum(abs, x)
     else
-        error("rangescale ($rangemode) not supported, should be :clamp, :extrema or tuple (minVal, maxVal)")
+        error("rangescale ($rangemode) not supported, should be :clamp, :extrema, :centered or tuple (minVal, maxVal)")
     end
     get(cscheme, x, rangescale)
 end

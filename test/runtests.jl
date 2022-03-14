@@ -164,6 +164,13 @@ end
     @test isapprox(y2[2], y[2])
     @test isapprox(y2[end], y[end])
 
+    # test conversion with symbol centered
+    y2 = @inferred get(monalisa1, x, :centered)
+    @test y2[2,2] ≈ y[1, 2]   # Maximum now becomes one edge of ColorScheme
+    @test y2[1,1] ≈ get(monalisa1, 0.5) # Zero value is centered
+    @test y2[1,2] ≈ get(monalisa1, 0.75)
+    @test y2[2,1] ≈ get(monalisa1, 0.25)
+
     # test conversion with symbol extrema
     y2 = @inferred get(monalisa1, x, :extrema)
     @test y2[2,1] ≈ y[1, 1]   # Minimum now becomes one edge of ColorScheme

@@ -1537,4 +1537,4 @@ Colors.RGB(0.88485,0.84908,0.87828),
 Colors.RGB(0.88526,0.84956,0.88088),
 Colors.RGB(0.88555,0.84987,0.88336),
 Colors.RGB(0.88571,0.85002,0.88573),
-], "matplotlib", "cyclical starts and ends on the same color, and have two symmetric halves with equal lightness, but diverging color, perceptually uniform and colorblind friendly.")
+], "matplotlib", "cyclical starts and ends on the same color, and have two symmetric halves with equal lightness, but diverging color, perceptually uniform and cvd friendly colorblind friendly.")

@@ -38,50 +38,50 @@ loadcolorscheme(:tableau_20, [
 ], "tableau", "sequential")
 
 loadcolorscheme(:tableau_colorblind, [
-    colorant"#1170aa", 
-    colorant"#fc7d0b", 
+    colorant"#1170aa",
+    colorant"#fc7d0b",
     colorant"#a3acb9",
-    colorant"#57606c", 
+    colorant"#57606c",
     colorant"#5fa2ce",
     colorant"#c85200",
     colorant"#7b848f",
     colorant"#a3cce9",
     colorant"#ffbc79",
     colorant"#c8d0d9",
-], "tableau", "sequential")
+], "tableau", "sequential, cvd friendly color blind friendly")
 
 loadcolorscheme(:tableau_seattle_grays, [
-    colorant"#767f8b", 
-    colorant"#b3b7b8", 
+    colorant"#767f8b",
+    colorant"#b3b7b8",
     colorant"#5c6068",
-    colorant"#d3d3d3", 
+    colorant"#d3d3d3",
     colorant"#989ca3",
 ], "tableau", "sequential")
 
 loadcolorscheme(:tableau_traffic, [
-    colorant"#b60a1c", 
-    colorant"#e39802", 
-    colorant"#309143", 
-    colorant"#e03531", 
-    colorant"#f0bd27", 
-    colorant"#51b364", 
-    colorant"#ff684c", 
-    colorant"#ffda66", 
-    colorant"#8ace7e", 
+    colorant"#b60a1c",
+    colorant"#e39802",
+    colorant"#309143",
+    colorant"#e03531",
+    colorant"#f0bd27",
+    colorant"#51b364",
+    colorant"#ff684c",
+    colorant"#ffda66",
+    colorant"#8ace7e",
 ], "tableau", "sequential")
 
 loadcolorscheme(:tableau_miller_stone, [
-    colorant"#4f6980", 
-    colorant"#849db1", 
-    colorant"#a2ceaa", 
+    colorant"#4f6980",
+    colorant"#849db1",
+    colorant"#a2ceaa",
     colorant"#638b66",
-    colorant"#bfbb60", 
-    colorant"#f47942", 
-    colorant"#fbb04e", 
-    colorant"#b66353", 
-    colorant"#d7ce9f", 
-    colorant"#b9aa97", 
-    colorant"#7e756d", 
+    colorant"#bfbb60",
+    colorant"#f47942",
+    colorant"#fbb04e",
+    colorant"#b66353",
+    colorant"#d7ce9f",
+    colorant"#b9aa97",
+    colorant"#7e756d",
 ], "tableau", "sequential")
 
 loadcolorscheme(:tableau_superfishel_stone, [
@@ -252,7 +252,7 @@ loadcolorscheme(:tableau_red_blue, [
     colorant"#2e5a87",
 ], "tableau", "diverging")
 
-loadcolorscheme(:tableau_red_black, [ 
+loadcolorscheme(:tableau_red_black, [
     colorant"#ae123a",
     colorant"#e33e43",
     colorant"#f8816b",

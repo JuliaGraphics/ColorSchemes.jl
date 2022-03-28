@@ -6,6 +6,10 @@
 
 using Luxor, ColorSchemes
 
+struct ColorSchemeGroup
+    name::String
+end
+
 function generate_scheme_svg(schemename;
         swatchwidth = 800,
         swatchheight = 20)
@@ -51,8 +55,30 @@ function generate_schemes_in_category(category)
     return String(take!(iobuffer))
 end
 
+function generate_schemes_matching_notes_string(str)
+    iobuffer = IOBuffer()
+
+    write(iobuffer, """
+    <div class="category">
+      """)
+
+    schemes = filter(s -> occursin(str, colorschemes[s].notes), collect(keys(colorschemes)))
+    for s in sort(schemes)
+        write(iobuffer, generate_scheme_svg(s))
+    end
+    write(iobuffer, """
+    </div>
+    """)
+
+    return String(take!(iobuffer))
+end
+
 function Base.show(io::IO, m::MIME"text/html", category::ColorSchemeCategory)
      print(io, generate_schemes_in_category(category.name))
+end
+
+function Base.show(io::IO, m::MIME"text/html", group::ColorSchemeGroup)
+     print(io, generate_schemes_matching_notes_string(group.name))
 end
 ```
 
@@ -138,11 +164,12 @@ ColorSchemeCategory("tableau") # hide
 
 ## ✦ Color-Vision Deficient-friendly schemes
 
-Colorschemes designed with color-vision deficient users in mind, by authors such as Paul Tol, Masataka Okabe, Kei Ito, and Martin Krzywinski.
+Colorschemes designed with color-vision deficient users in mind, by authors such as Paul Tol, Masataka Okabe, Kei Ito, and Martin Krzywinski. This list also includes schemes with "cvd" in the Notes field.
 
 ```@example catalog
 using Luxor, ColorSchemes # hide
 ColorSchemeCategory("cvd") # hide
+ColorSchemeGroup("cvd") # hide
 ```
 
 ## ✦ Flags

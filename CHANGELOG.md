@@ -5,6 +5,7 @@
 ### Added
 
 - some more MetBrewer palettes
+- some more ColorBrewer palettes
 
 ## Changed
 

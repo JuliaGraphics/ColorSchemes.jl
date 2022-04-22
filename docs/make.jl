@@ -19,6 +19,7 @@ makedocs(
 )
 
 deploydocs(
+    push_preview = true,
     repo = "github.com/JuliaGraphics/ColorSchemes.jl.git",
     target = "build"
 )

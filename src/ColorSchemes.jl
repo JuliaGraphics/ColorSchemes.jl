@@ -300,7 +300,7 @@ function get(cscheme::ColorScheme, X::AllowedInput, rangescale::NTuple{2,<:Real}
         after =  min(before + 1, length(cscheme))
         cpt = before_fp - before
         #  blend between the two colors adjacent to the point
-        @inbounds fast_weighted_color_mean(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
+        @inbounds fast_weighted_color_mean(1 - cpt, cscheme.colors[before], cscheme.colors[after])
     end
 end
 

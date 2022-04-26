@@ -2510,7 +2510,7 @@ loadcolorscheme(:BrBg, [
     RGB(0.20784313725490197, 0.592156862745098, 0.5607843137254902,)
     RGB(0.00392156862745098, 0.4, 0.3686274509803922,)
     RGB(0.0, 0.23529411764705882, 0.18823529411764706,)
-      ], "colorbrewer", "perceptually uniform sequential")
+      ], "colorbrewer", "perceptually uniform diverging")
 
 loadcolorscheme(:BuGn, [
     RGB(0.9686274509803922, 0.9882352941176471, 0.9921568627450981,)
@@ -2608,7 +2608,7 @@ loadcolorscheme(:PiYG, [
     RGB(0.4980392156862745, 0.7372549019607844, 0.2549019607843137,)
     RGB(0.30196078431372547, 0.5725490196078431, 0.12941176470588237,)
     RGB(0.15294117647058825, 0.39215686274509803, 0.09803921568627451,)
-      ], "colorbrewer", "perceptually uniform sequential")
+      ], "colorbrewer", "perceptually uniform diverging")
 
 loadcolorscheme(:PRGn, [
     RGB(0.25098039215686274, 0.0, 0.29411764705882354,)
@@ -2622,7 +2622,7 @@ loadcolorscheme(:PRGn, [
     RGB(0.35294117647058826, 0.6823529411764706, 0.3803921568627451,)
     RGB(0.10588235294117647, 0.47058823529411764, 0.21568627450980393,)
     RGB(0.0, 0.26666666666666666, 0.10588235294117647,)
-      ], "colorbrewer", "perceptually uniform sequential")
+      ], "colorbrewer", "perceptually uniform diverging")
 
 loadcolorscheme(:PuBu, [
     RGB(1.0, 0.9686274509803922, 0.984313725490196,)
@@ -2660,7 +2660,7 @@ loadcolorscheme(:PuOr, [
     RGB(0.5019607843137255, 0.45098039215686275, 0.6745098039215687,)
     RGB(0.32941176470588235, 0.15294117647058825, 0.5333333333333333,)
     RGB(0.17647058823529413, 0.0, 0.29411764705882354,)
-      ], "colorbrewer", "perceptually uniform sequential")
+      ], "colorbrewer", "perceptually uniform diverging")
 
 loadcolorscheme(:PuRd, [
     RGB(0.9686274509803922, 0.9568627450980393, 0.9764705882352941,)
@@ -2698,7 +2698,7 @@ loadcolorscheme(:RdBu, [
     RGB(0.2627450980392157, 0.5764705882352941, 0.7647058823529411,)
     RGB(0.12941176470588237, 0.4, 0.6745098039215687,)
     RGB(0.0196078431372549, 0.18823529411764706, 0.3803921568627451,)
-      ], "colorbrewer", "perceptually uniform sequential")
+      ], "colorbrewer", "perceptually uniform diverging")
 
 loadcolorscheme(:RdGy, [
     RGB(0.403921568627451, 0.0, 0.12156862745098039,)
@@ -2712,7 +2712,7 @@ loadcolorscheme(:RdGy, [
     RGB(0.5294117647058824, 0.5294117647058824, 0.5294117647058824,)
     RGB(0.30196078431372547, 0.30196078431372547, 0.30196078431372547,)
     RGB(0.10196078431372549, 0.10196078431372549, 0.10196078431372549,)
-      ], "colorbrewer", "perceptually uniform sequential")
+      ], "colorbrewer", "perceptually uniform diverging")
 
 loadcolorscheme(:RdPu, [
     RGB(1.0, 0.9686274509803922, 0.9529411764705882,)

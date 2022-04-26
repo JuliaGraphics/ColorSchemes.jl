@@ -1,6 +1,6 @@
 name = "ColorSchemes"
 uuid = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
-authors = ["cormullion", "rafaqz", "gustaphe", "lwabeke", "NHDaly"]
+authors = ["cormullion", "rafaqz", "gustaphe", "lwabeke", "NHDaly", "stevengj"]
 version = "3.18.0"
 
 [deps]
@@ -12,6 +12,7 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [compat]
 ColorTypes = "0.9, 0.10, 0.11"
+ColorVectorSpace = "0.8, 0.9"
 Colors = "0.9, 0.10, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 1.0"
 FixedPointNumbers = "0.6, 0.7, 0.8"
 julia = "1"

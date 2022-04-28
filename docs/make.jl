@@ -9,17 +9,17 @@ makedocs(
     pages = Any[
         "Introduction"      => "index.md",
         "Catalogue"         => "catalogue.md",
-        # "Gallery"           => "gallery.md",
         "Basic usage"       => "basics.md",
+        "Good practice"     => "goodpractice.md",
         "Finding colors"    => "finding.md",
         "Plotting"          => "plotting.md",
         "Images"            => "images.md",
-        #"References"        => "references.md",
         "Index"             => "functionindex.md"
     ]
 )
 
 deploydocs(
+    push_preview = true,
     repo = "github.com/JuliaGraphics/ColorSchemes.jl.git",
     target = "build"
 )

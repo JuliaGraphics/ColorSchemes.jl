@@ -94,7 +94,8 @@ end
     @test c.r > 0.95
     # Booleans
     @inferred get(monalisa, false)
-    @test get(monalisa, 0.0) ≈ get(monalisa, false)
+
+    @test get(monalisa, 0.0) ≈  get(monalisa, false)
     @test get(monalisa, 1.0) ≈ get(monalisa, true)
 end
 

@@ -5,8 +5,12 @@
 ### Added
 
 - some more MetBrewer palettes
+- some more ColorBrewer palettes
+- dependency on ColorVectorSpaces
 
 ## Changed
+
+- optimized `get()` - #91 - thanks @stevengj !
 
 ### Removed
 

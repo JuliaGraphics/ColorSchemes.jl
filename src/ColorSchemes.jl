@@ -13,6 +13,7 @@ module ColorSchemes
 import Base.get, Base.reverse, Base.*
 
 using Colors, ColorTypes, FixedPointNumbers
+import ColorVectorSpace
 
 export ColorScheme,
        get,
@@ -281,20 +282,28 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
     end
     get(cscheme, x, rangescale)
 end
-function get(cscheme::ColorScheme, x::AllowedInput, rangescale::NTuple{2,<:Real}=defaultrange(x))
-    x isa AbstractRange && (x = collect(x))
-    # check for empty range
-    if iszero(first(rangescale) - last(rangescale))
-        rangescale = zero(first(rangescale)), oneunit(last(rangescale))
+
+# optimized get(colorscheme, data) function #91 stevengj
+# faster weighted_color_mean that assumes w ∈ [0,1] and
+# exploits ColorVectorSpace operations for RGB and Gray types.
+fast_weighted_color_mean(w::Real, c1, c2) = Colors.weighted_color_mean(w, c1, c2)
+fast_weighted_color_mean(w::Real, c1::ColorVectorSpace.MathTypes, c2::ColorVectorSpace.MathTypes) = w*c1 + (1-w)*c2
+
+function get(cscheme::ColorScheme, X::AllowedInput, rangescale::NTuple{2,<:Real}=defaultrange(X))
+    rangemin, rangemax = !iszero(rangescale[2] - rangescale[1]) ?
+        rangescale : (zero(rangescale[1]), oneunit(rangescale[2]))
+    scaleby = (length(cscheme) - 1) / (rangemax - rangemin)
+    return map(X) do x
+        xclamp = clamp(x, rangemin, rangemax)
+        before_fp = (xclamp - rangemin) * scaleby + 1
+        before = round(Int, before_fp, RoundDown)
+        after =  min(before + 1, length(cscheme))
+        cpt = before_fp - before
+        #  blend between the two colors adjacent to the point
+        @inbounds fast_weighted_color_mean(1 - cpt, cscheme.colors[before], cscheme.colors[after])
     end
-    x = clamp.(x, rangescale...)
-    before_fp = remap(x, rangescale..., 1, length(cscheme))
-    before = round.(Int, before_fp, RoundDown)
-    after =  min.(before .+ 1, length(cscheme))
-    #  blend between the two colors adjacent to the point
-    cpt = before_fp - before
-    return weighted_color_mean.(1 .- cpt, cscheme.colors[before], cscheme.colors[after])
 end
+
 # Boolean just takes the start and end values of the scheme. Also avoid using a branch.
 function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}})
     i = x .* (length(cscheme) .- 1) .+ 1

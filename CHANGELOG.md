@@ -1,12 +1,14 @@
 # Changelog
 
-## [v3.18.0] - forthcoming
+## [v3.18.0] - 2022-05-06
 
 ### Added
 
 - some more MetBrewer palettes
+
 - some more ColorBrewer palettes
-- dependency on ColorVectorSpaces
+
+- add dependency on ColorVectorSpaces
 
 ## Changed
 

@@ -13,7 +13,7 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 [compat]
 ColorTypes = "0.9, 0.10, 0.11"
 ColorVectorSpace = "0.8, 0.9"
-Colors = "0.9, 0.10, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 1.0"
+Colors = "0.9, 0.10, 0.11, 0.12"
 FixedPointNumbers = "0.6, 0.7, 0.8"
 julia = "1"
 

@@ -184,6 +184,9 @@ end
     @test isapprox(y3[2], y2[2])
     @test isapprox(y3[end], y2[end])
 
+    # test error on unknown rangescale
+    @test_throws ArgumentError get(monalisa1, x, :foo)
+
     # tests concatenation
     l1 = length(monalisa)
     l2 = length(monalisa * monalisa)

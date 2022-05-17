@@ -278,7 +278,7 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
     elseif rangemode == :centered
         (-1, 1) .* maximum(abs, x)
     else
-        error("rangescale ($rangemode) not supported, should be :clamp, :extrema, :centered or tuple (minVal, maxVal)")
+        throw(ArgumentError("rangescale :$rangemode not supported, should be :clamp, :extrema, :centered or tuple (minVal, maxVal)"))
     end
     get(cscheme, x, rangescale)
 end

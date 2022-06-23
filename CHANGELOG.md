@@ -1,5 +1,21 @@
 # Changelog
 
+## [v3.19.0] - 2022-06-23 10:51
+
+### Added
+
+- cividis - thanks @t-bltg! 
+
+## Changed
+
+error handling - #95 - thanks @adrhill!
+
+### Removed
+
+### Deprecated
+
+###################################################################
+
 ## [v3.18.0] - 2022-05-06
 
 ### Added

@@ -45,9 +45,11 @@ monalisa = ColorScheme([
     @test monalisa[end] ≈ monalisa[1.0]
     
     # indexing tests
-    @test monalisa[begin] == first(monalisa)
-    @test monalisa[1] == first(monalisa)
-    @test monalisa[end] == last(monalisa)
+    if Base.VERSION > v"1.6.0" # begin was only introduce later
+        @test monalisa[begin] == first(monalisa)
+        @test monalisa[1] == first(monalisa)
+        @test monalisa[end] == last(monalisa)
+    end
 end
 
 # getinverse() tests are now in ColorSchemes

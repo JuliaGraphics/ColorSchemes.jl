@@ -225,6 +225,7 @@ function Base.iterate(cscheme::ColorScheme, state)
     end
 end
 
+Base.firstindex(cscheme::ColorScheme) = firstindex(cscheme.colors)
 Base.lastindex(cscheme::ColorScheme) = lastindex(cscheme.colors)
 
 # utility lerping function to convert a value between oldmin/oldmax to equivalent value between newmin/newmax

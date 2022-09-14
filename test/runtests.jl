@@ -45,11 +45,14 @@ monalisa = ColorScheme([
     @test monalisa[end] ≈ monalisa[1.0]
     
     # indexing tests
-    if Base.VERSION > v"1.6.0" # begin was only introduce later
-        eval(@test monalisa[begin] == first(monalisa))
-        @test monalisa[1] == first(monalisa)
-        @test monalisa[end] == last(monalisa)
-    end
+    #=
+    @test monalisa[begin] == first(monalisa) 
+    TODO uncomment this test once ColorSchemes drops support for Julia versions <= 1.3.
+    Use of "begin" in arrays is only supported in later versions of Julia, and throws 
+    ERROR: LoadError: syntax: unexpected "]" (revealed through CI testing) in Julia 1.3.
+    =#
+    @test monalisa[1] == first(monalisa)
+    @test monalisa[end] == last(monalisa)
 end
 
 # getinverse() tests are now in ColorSchemes

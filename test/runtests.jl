@@ -46,7 +46,7 @@ monalisa = ColorScheme([
     
     # indexing tests
     if Base.VERSION > v"1.6.0" # begin was only introduce later
-        @test monalisa[begin] == first(monalisa)
+        eval(@test monalisa[begin] == first(monalisa))
         @test monalisa[1] == first(monalisa)
         @test monalisa[end] == last(monalisa)
     end

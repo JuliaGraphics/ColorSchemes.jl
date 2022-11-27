@@ -7,37 +7,61 @@
 
 #From Paul Tol: https://personal.sron.nl/~pault/
 loadcolorscheme(:tol_bright, [
+    colorant"#4477AA",
     colorant"#EE6677",
     colorant"#228833",
-    colorant"#4477AA",
     colorant"#CCBB44",
     colorant"#66CCEE",
     colorant"#AA3377",
     colorant"#BBBBBB"
 ], "cvd", "cvd friendly, color blind friendly")
 
+loadcolorscheme(:tol_highcontrast, [
+    colorant"#004488",
+    colorant"#DDAA33",
+    colorant"#BB5566",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:tol_vibrant, [
+    colorant"#EE7733",
+    colorant"#0077BB",
+    colorant"#33BBEE",
+    colorant"#EE3377",
+    colorant"#CC3311",
+    colorant"#009988",
+    colorant"#BBBBBB",
+], "cvd", "cvd friendly, color blind friendly")
+
 loadcolorscheme(:tol_muted, [
+    colorant"#332288",
     colorant"#88CCEE",
     colorant"#44AA99",
     colorant"#117733",
-    colorant"#332288",
-    colorant"#DDCC77",
     colorant"#999933",
+    colorant"#DDCC77",
     colorant"#CC6677",
     colorant"#882255",
     colorant"#AA4499",
-    colorant"#DDDDDD"
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:tol_medcontrast, [
+    colorant"#6699CC",
+    colorant"#004488",
+    colorant"#EECC66",
+    colorant"#994455",
+    colorant"#997700",
+    colorant"#EE99AA",
 ], "cvd", "cvd friendly, color blind friendly")
 
 loadcolorscheme(:tol_light, [
-    colorant"#BBCC33",
-    colorant"#AAAA00",
     colorant"#77AADD",
     colorant"#EE8866",
     colorant"#EEDD88",
     colorant"#FFAABB",
     colorant"#99DDFF",
     colorant"#44BB99",
+    colorant"#BBCC33",
+    colorant"#AAAA00",
     colorant"#DDDDDD"
 ], "cvd", "cvd friendly, color blind friendly")
 
@@ -55,7 +79,7 @@ loadcolorscheme(:tol_sunset, [
     colorant"#A50026",
 ], "cvd", "cvd friendly, color blind friendly")
 
-loadcolorscheme(:tol_bu_rd, [
+loadcolorscheme(:tol_BuRd, [
     colorant"#2166AC",
     colorant"#4393C3",
     colorant"#92C5DE",
@@ -67,7 +91,9 @@ loadcolorscheme(:tol_bu_rd, [
     colorant"#B2182B",
 ], "cvd", "cvd friendly, color blind friendly")
 
-loadcolorscheme(:tol_prgn, [
+colorschemes[:tol_bu_rd] = colorschemes[:tol_BuRd] # For compat.
+
+loadcolorscheme(:tol_PRGn, [
     colorant"#762A83",
     colorant"#9970AB",
     colorant"#C2A5CF",
@@ -79,19 +105,29 @@ loadcolorscheme(:tol_prgn, [
     colorant"#1B7837",
 ], "cvd", "cvd friendly, color blind friendly")
 
-loadcolorscheme(:tol_ylorbr, [
-    colorant"#FFFFE5",
-    colorant"#FFF7BC",
-    colorant"#FEE391",
-    colorant"#FEC44F",
-    colorant"#FB9A29",
-    colorant"#EC7014",
-    colorant"#CC4C02",
-    colorant"#993404",
-    colorant"#662506",
-], "cvd", "cvd friendly, color blind friendly")
+colorschemes[:tol_prgn] = colorschemes[:tol_PRGn] # For compat.
 
-loadcolorscheme(:ground_cover, [
+loadcolorscheme(:tol_nightfall, [
+    colorant"#125A56",
+    colorant"#00767B",
+    colorant"#238F9D",
+    colorant"#42A7C6",
+    colorant"#60BCE9",
+    colorant"#9DCCEF",
+    colorant"#C6DBED",
+    colorant"#DEE6E7",
+    colorant"#ECEADA",
+    colorant"#F0E6B2",
+    colorant"#F9D576",
+    colorant"#FFB954",
+    colorant"#FD9A44",
+    colorant"#F57634",
+    colorant"#E94C1F",
+    colorant"#D11807",
+    colorant"#A01813"],
+    "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:tol_land_cover, [
     colorant"#5566AA",
     colorant"#117733",
     colorant"#44AA66",
@@ -108,6 +144,8 @@ loadcolorscheme(:ground_cover, [
     colorant"#BB0011",
 ], "cvd", "cvd friendly, color blind friendly")
 
+colorschemes[:ground_cover] = colorschemes[:tol_land_cover] # For compat.
+
 loadcolorscheme(:tol_YlOrBr, [
     colorant"#FFFFE5",
     colorant"#FFF7BC",
@@ -120,9 +158,11 @@ loadcolorscheme(:tol_YlOrBr, [
     colorant"#662506",
 ], "cvd", "cvd friendly, color blind friendly")
 
-loadcolorscheme(:Iridescent, [
+colorschemes[:tol_ylorbr] = colorschemes[:tol_YlOrBr]
+
+loadcolorscheme(:tol_iridescent, [
     colorant"#FEFBE9",
-    colorant"#FCF705",
+    colorant"#FCF7D5",
     colorant"#F5F3C1",
     colorant"#EAF0B5",
     colorant"#DDECBF",
@@ -146,6 +186,21 @@ loadcolorscheme(:Iridescent, [
     colorant"#46353A",
 ], "cvd", "cvd friendly, color blind friendly")
 
+colorschemes[:Iridescent] = colorschemes[:tol_iridescent] # For compat.
+
+loadcolorscheme(:tol_incandescent, [
+     colorant"#CEFFFF",
+     colorant"#C6F7D6",
+     colorant"#A2F49B",
+     colorant"#BBE453",
+     colorant"#D5CE04",
+     colorant"#E7B503",
+     colorant"#F19903",
+     colorant"#F6790B",
+     colorant"#F94902",
+     colorant"#E40515",
+     colorant"#A80003"
+], "cvd", "cvd friendly, color blind friendly")
 
 loadcolorscheme(:tol_rainbow, [
     colorant"#E8ECFB",

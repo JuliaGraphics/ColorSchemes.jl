@@ -2311,3 +2311,17 @@ loadcolorscheme(:cividis, [
     RGB(1.0000, 0.9094, 0.2634),
     RGB(1.0000, 0.9131, 0.2680),
     RGB(1.0000, 0.9169, 0.2731)], "general", "Cividis color scale for R")
+
+loadcolorscheme(:twelvebitrainbow, [
+    RGB(0.533,0.067,0.467),
+    RGB(0.667,0.2,0.333),
+    RGB(0.8,0.4,0.4),
+    RGB(0.933,0.6,0.267),
+    RGB(0.933,0.867,0.0),
+    RGB(0.6,0.867,0.333),
+    RGB(0.267,0.867,0.533),
+    RGB(0.133,0.8,0.733),
+    RGB(0.0,0.733,0.8),
+    RGB(0.0,0.6,0.8),
+    RGB(0.2,0.4,0.733),
+    RGB(0.4,0.2,0.6)], "general", "12bitrainbow, https://iamkate.com/data/12-bit-rainbow/")

@@ -1,5 +1,20 @@
 # Changelog
 
+## [v3.20.0] - forthcoming
+
+### Added
+
+- SnoopPrecompile
+- twelvebitrainbow
+
+## Changed
+
+### Removed
+
+### Deprecated
+
+###################################################################
+
 ## [v3.19.0] - 2022-06-23 10:51
 
 ### Added

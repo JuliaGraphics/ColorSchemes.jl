@@ -38,10 +38,31 @@ or, at the REPL:
 ] add ColorSchemes
 ```
 
-and to use it:
+Usage:
 
 ```julia
 using ColorSchemes
+
+ColorSchemes.Purples_5 
+# => a ColorScheme 
+
+colorschemes[:Purples_5]
+# => a ColorScheme 
+
+ColorSchemes.Purples_5.colors
+# => array of five RGB colors
+
+ColorSchemes.Purples_5.colors[3]
+# => the third color in the colorscheme
+
+get(ColorSchemes.Purples_5, 0.5)
+# => the midway point of the colorscheme 
+
+colorschemes
+# => Dict{Symbol, ColorScheme} with 983 entries
+
+findcolorscheme("purple")
+# => display list of matching schemes
 ```
 
 Original version by [cormullion](https://github.com/cormullion).

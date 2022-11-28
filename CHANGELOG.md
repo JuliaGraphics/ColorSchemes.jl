@@ -1,10 +1,11 @@
 # Changelog
 
-## [v3.20.0] - forthcoming
+## [v3.20.0] - 2022-11-28 09:53
 
 ### Added
 
-- SnoopPrecompile
+- we took Paul Tol seriously (#102) (thanks @tecosaur!)
+- SnoopPrecompile dep
 - twelvebitrainbow
 
 ## Changed

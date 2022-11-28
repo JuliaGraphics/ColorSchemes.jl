@@ -23,6 +23,35 @@ Choose colorschemes with care! Refer to Peter Kovesi's [PerceptualColourMaps](ht
 
 If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
 
+## Basic usage
+
+```julia
+] add ColorSchemes
+
+using ColorSchemes
+
+ColorSchemes.Purples_5 
+# => a ColorScheme 
+
+colorschemes[:Purples_5]
+# => a ColorScheme 
+
+ColorSchemes.Purples_5.colors
+# => array of five RGB colors
+
+ColorSchemes.Purples_5.colors[3]
+# => the third color in the colorscheme
+
+get(ColorSchemes.Purples_5, 0.5)
+# => the midway point of the colorscheme
+
+colorschemes
+# => Dict{Symbol, ColorScheme} with 983 entries
+
+findcolorscheme("purple")
+# => display list of matching schemes
+```
+
 [docs-stable-img]: https://img.shields.io/badge/docs-stable%20release-blue.svg
 [docs-stable-url]: https://JuliaGraphics.github.io/ColorSchemes.jl/stable/
 

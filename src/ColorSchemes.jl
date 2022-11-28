@@ -41,7 +41,7 @@ struct ColorScheme{V <: AbstractVector{<:Colorant},S1 <: AbstractString,S2 <: Ab
     notes::S2
 end
 
-ColorScheme(colors::V, category::S1="", notes::S2="") where {V,S1,S2} =
+ColorScheme(colors::V, category::S1 = "", notes::S2 = "") where {V,S1,S2} =
     ColorScheme{V,S1,S2}(colors, category, notes)
 
 # displaying swatches
@@ -76,7 +76,7 @@ loadcolorscheme(:flag_nu, [
     ], "flags", "The flag of Niue")
 ```
 """
-function loadcolorscheme(vname, colors, cat="", notes="")
+function loadcolorscheme(vname, colors, cat = "", notes = "")
     haskey(colorschemes, vname) && println("$vname overwritten")
     colorschemes[vname] = ColorSchemes.ColorScheme(colors, cat, notes)
     return colorschemes[vname]
@@ -166,19 +166,19 @@ colorschemes[:cscheme].notes
 ```
 """
 function findcolorscheme(str;
-        search_notes=true)
+    search_notes = true)
     println("\ncolorschemes containing \"$str\"\n")
     counter = 0
     found   = Symbol[]
     for (k, v) in colorschemes
         if occursin(Regex(str, "i"), string(k))
             # found in name
-            printstyled("  $(rpad(k, 20))\n", bold=true)
+            printstyled("  $(rpad(k, 20))\n", bold = true)
             counter += 1
             push!(found, k)
         elseif occursin(Regex(str, "i"), string(v.category))
             # found in category
-            printstyled("  $(rpad(k, 20))", bold=true)
+            printstyled("  $(rpad(k, 20))", bold = true)
             println(" (category) $(v.category)")
             counter += 1
             push!(found, k)
@@ -187,7 +187,7 @@ function findcolorscheme(str;
             # found in notes
             # avoid duplication
             if k ∉ found
-                printstyled("  $(rpad(k, 20))", bold=true)
+                printstyled("  $(rpad(k, 20))", bold = true)
                 l = min(30, length(v.notes))
                 println("  (notes) $(v.notes[1:l])...")
                 counter += 1
@@ -281,7 +281,7 @@ function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
     else
         throw(ArgumentError("rangescale :$rangemode not supported, should be :clamp, :extrema, :centered or tuple (minVal, maxVal)"))
     end
-    get(cscheme, x, rangescale)
+    return get(cscheme, x, rangescale)
 end
 
 # optimized get(colorscheme, data) function #91 stevengj
@@ -290,15 +290,15 @@ end
 fast_weighted_color_mean(w::Real, c1, c2) = Colors.weighted_color_mean(w, c1, c2)
 fast_weighted_color_mean(w::Real, c1::ColorVectorSpace.MathTypes, c2::ColorVectorSpace.MathTypes) = w*c1 + (1-w)*c2
 
-function get(cscheme::ColorScheme, X::AllowedInput, rangescale::NTuple{2,<:Real}=defaultrange(X))
+function get(cscheme::ColorScheme, X::AllowedInput, rangescale::NTuple{2, <:Real} = defaultrange(X))
     rangemin, rangemax = !iszero(rangescale[2] - rangescale[1]) ?
-        rangescale : (zero(rangescale[1]), oneunit(rangescale[2]))
+                         rangescale : (zero(rangescale[1]), oneunit(rangescale[2]))
     scaleby = (length(cscheme) - 1) / (rangemax - rangemin)
     return map(X) do x
         xclamp = clamp(x, rangemin, rangemax)
         before_fp = (xclamp - rangemin) * scaleby + 1
         before = round(Int, before_fp, RoundDown)
-        after =  min(before + 1, length(cscheme))
+        after = min(before + 1, length(cscheme))
         cpt = before_fp - before
         #  blend between the two colors adjacent to the point
         @inbounds fast_weighted_color_mean(1 - cpt, cscheme.colors[before], cscheme.colors[after])
@@ -306,7 +306,7 @@ function get(cscheme::ColorScheme, X::AllowedInput, rangescale::NTuple{2,<:Real}
 end
 
 # Boolean just takes the start and end values of the scheme. Also avoid using a branch.
-function get(cscheme::ColorScheme, x::Union{Bool,AbstractArray{Bool}})
+function get(cscheme::ColorScheme, x::Union{Bool, AbstractArray{Bool}})
     i = x .* (length(cscheme) .- 1) .+ 1
     return getindex.(Ref(cscheme.colors), i)
 end
@@ -316,8 +316,8 @@ end
 
 Return the color in `cs` that corresponds to the gray value `g`.
 """
-function get(cs::ColorScheme, g::Color{T,1} where T <: Union{Bool,AbstractFloat,FixedPoint})
-    get(cs, ColorTypes.gray(g)) # don't confuse with the 'grays' colorscheme
+function get(cs::ColorScheme, g::Color{T, 1} where {T <: Union{Bool, AbstractFloat, FixedPoint}})
+    return get(cs, ColorTypes.gray(g)) # don't confuse with the 'grays' colorscheme
 end
 
 """
@@ -346,14 +346,18 @@ julia> getinverse(cs, cs[3])
 0.5
 ```
 """
-function getinverse(cscheme::ColorScheme, c, rangescale::Tuple{Number,Number}=(0.0, 1.0))
+function getinverse(cscheme::ColorScheme, c, rangescale::Tuple{Number, Number} = (0.0, 1.0))
     # TODO better error handling please
     length(cscheme) <= 1 && throw(ErrorException("ColorScheme of length $(length(cscheme)) is not long enough"))
     cdiffs = map(c_i -> colordiff(promote(c, c_i)...), cscheme.colors)
     closest = argmin(cdiffs)
     left = right = 0
-    if closest == 1 ; left = closest; right = closest + 1;
-    elseif closest == length(cscheme) ; left = closest - 1; right = closest;
+    if closest == 1
+        left = closest
+        right = closest + 1
+    elseif closest == length(cscheme)
+        left = closest - 1
+        right = closest
     else
         next_closest = cdiffs[closest - 1] < cdiffs[closest + 1] ? closest - 1 : closest + 1
         left = min(closest, next_closest)
@@ -361,7 +365,7 @@ function getinverse(cscheme::ColorScheme, c, rangescale::Tuple{Number,Number}=(0
     end
     v = left
     if cdiffs[left] != cdiffs[right] # prevents divide by zero
-        v += ( cdiffs[left] / (cdiffs[left] + cdiffs[right]))
+        v += (cdiffs[left] / (cdiffs[left] + cdiffs[right]))
     end
     return remap(v, 1, length(cscheme), rangescale...)
 end

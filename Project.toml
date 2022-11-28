@@ -1,6 +1,6 @@
 name = "ColorSchemes"
 uuid = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
-authors = ["cormullion", "rafaqz", "gustaphe", "lwabeke", "NHDaly", "stevengj", "asinghvi17", "davibarreira", "adrhill"]
+authors = ["cormullion", "rafaqz", "gustaphe", "lwabeke", "NHDaly", "stevengj", "asinghvi17", "davibarreira", "adrhill", "tecosaur"]
 version = "3.20.0"
 
 [deps]

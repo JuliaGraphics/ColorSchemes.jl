@@ -1,7 +1,7 @@
 | **Documentation**                       | **Build Status**                           | **Code Coverage**               |
 |:--------------------------------------- |:-------------------------------------------|:-------------------------------:|
 | [![][docs-stable-img]][docs-stable-url] | [![Build Status][ci-img]][ci-url]          | [![][codecov-img]][codecov-url] |
-| [![][docs-latest-img]][docs-latest-url] | [![][appveyor-img]][appveyor-url]          |                                 |
+| [![][docs-latest-img]][docs-latest-url] |                                            |                                 |
 
 !["colorschemes social media preview"](docs/src/assets/figures/colorschemes-social-media-preview.png)
 
@@ -57,12 +57,6 @@ findcolorscheme("purple")
 
 [docs-latest-img]: https://img.shields.io/badge/docs-in_development-orange.svg
 [docs-latest-url]: https://JuliaGraphics.github.io/ColorSchemes.jl/latest/
-
-[travis-img]: https://travis-ci.com/JuliaGraphics/ColorSchemes.jl.svg?branch=master
-[travis-url]: https://travis-ci.com/JuliaGraphics/ColorSchemes.jl
-
-[appveyor-img]: https://ci.appveyor.com/api/projects/status/59hherf65c713iaw/branch/master?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/cormullion/colorschemetools-jl
 
 [codecov-img]: https://codecov.io/gh/JuliaGraphics/ColorSchemes.jl/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/JuliaGraphics/ColorSchemes.jl

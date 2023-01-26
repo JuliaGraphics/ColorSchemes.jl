@@ -272,11 +272,11 @@ img4 = get(PerceptualColourMaps.cmap("R1"), rand(10,10))
 ```
 """
 function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)
-    rangescale = if rangemode == :clamp
+    rangescale = if rangemode === :clamp
         defaultrange(x)
-    elseif rangemode == :extrema
+    elseif rangemode === :extrema
         extrema(x)
-    elseif rangemode == :centered
+    elseif rangemode === :centered
         (-1, 1) .* maximum(abs, x)
     else
         throw(ArgumentError("rangescale :$rangemode not supported, should be :clamp, :extrema, :centered or tuple (minVal, maxVal)"))

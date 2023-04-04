@@ -23,6 +23,13 @@ export ColorScheme,
        findcolorscheme,
        ColorSchemeCategory
 
+# Aliases       
+const ColourScheme = ColorScheme
+const colourschemes = colorschemes
+const loadcolourscheme = loadcolorscheme
+const findcolourscheme = findcolorscheme
+const ColourSchemeCategory = ColorSchemeCategory
+
 """
     ColorScheme(colors, category, notes)
 
@@ -60,7 +67,7 @@ Base.getindex(cs::ColorScheme, i::AbstractVector{<: AbstractFloat}) = get(cs, i)
 
 Define a ColorScheme from a symbol and an array of colors,
 and add it to the `colorschemes` dictionary. Optionally
-speify a category and some notes.
+specify a category and some notes.
 
 ### Example
 

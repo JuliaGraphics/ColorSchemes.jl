@@ -21,14 +21,12 @@ export ColorScheme,
        colorschemes,
        loadcolorscheme,
        findcolorscheme,
-       ColorSchemeCategory
-
-# Aliases       
-const ColourScheme = ColorScheme
-const colourschemes = colorschemes
-const loadcolourscheme = loadcolorscheme
-const findcolourscheme = findcolorscheme
-const ColourSchemeCategory = ColorSchemeCategory
+       ColorSchemeCategory,
+       ColourScheme,
+       colourschemes,
+       loadcolourscheme,
+       findcolourscheme,
+       ColourSchemeCategory
 
 """
     ColorScheme(colors, category, notes)
@@ -394,5 +392,12 @@ Create new colorscheme by concatenating two colorschemes.
 *(cscheme1::ColorScheme, cscheme2::ColorScheme) = ColorScheme(vcat(cscheme1.colors, cscheme2.colors))
 
 #include("precompile.jl")
+
+# Aliases - Oxford spelling       
+const ColourScheme = ColorScheme
+const colourschemes = colorschemes
+const loadcolourscheme = loadcolorscheme
+const findcolourscheme = findcolorscheme
+const ColourSchemeCategory = ColorSchemeCategory
 
 end

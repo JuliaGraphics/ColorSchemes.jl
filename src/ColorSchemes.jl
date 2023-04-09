@@ -21,7 +21,12 @@ export ColorScheme,
        colorschemes,
        loadcolorscheme,
        findcolorscheme,
-       ColorSchemeCategory
+       ColorSchemeCategory,
+       ColourScheme,
+       colourschemes,
+       loadcolourscheme,
+       findcolourscheme,
+       ColourSchemeCategory
 
 """
     ColorScheme(colors, category, notes)
@@ -60,7 +65,7 @@ Base.getindex(cs::ColorScheme, i::AbstractVector{<: AbstractFloat}) = get(cs, i)
 
 Define a ColorScheme from a symbol and an array of colors,
 and add it to the `colorschemes` dictionary. Optionally
-speify a category and some notes.
+specify a category and some notes.
 
 ### Example
 
@@ -387,5 +392,12 @@ Create new colorscheme by concatenating two colorschemes.
 *(cscheme1::ColorScheme, cscheme2::ColorScheme) = ColorScheme(vcat(cscheme1.colors, cscheme2.colors))
 
 #include("precompile.jl")
+
+# Aliases - Oxford spelling       
+const ColourScheme = ColorScheme
+const colourschemes = colorschemes
+const loadcolourscheme = loadcolorscheme
+const findcolourscheme = findcolorscheme
+const ColourSchemeCategory = ColorSchemeCategory
 
 end

@@ -1,5 +1,21 @@
 # Changelog
 
+## [v3.21.0] - 
+
+### Added
+
+## Changed
+
+- use `===` for symbols (thanks @t-bltg)
+
+- updated Scientific ColorMaps (thanks @jarredclloyd)
+
+### Removed
+
+### Deprecated
+
+###################################################################
+
 ## [v3.20.0] - 2022-11-28 09:53
 
 ### Added

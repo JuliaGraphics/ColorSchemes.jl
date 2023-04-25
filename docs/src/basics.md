@@ -364,3 +364,16 @@ for (k, v) in matplotlibcmaps
    end
 end
 ```
+
+## Alpha transparency
+
+To convert a colorscheme to one with transparency, you could use a function like this:
+
+```julia
+function colorscheme_alpha(cscheme::ColorScheme, alpha::T = 0.5; 
+        ncolors=12) where T<:Real
+    return ColorScheme([RGBA(get(cscheme, k), alpha) for k in range(0, 1, length=ncolors)])
+end
+
+colors = colorscheme_alpha(ColorSchemes.ice, ncolors=12)
+```

@@ -1,6 +1,6 @@
-import SnoopPrecompile
+import PrecompileTools
 
-SnoopPrecompile.@precompile_all_calls begin
+PrecompileTools.@compile_workload begin
     get(ColorSchemes.leonardo, 0.5)
     get(ColorSchemes.leonardo, [0.0 1.0; -1.0 2.0])
     loadcolorscheme(:flag_blank, [

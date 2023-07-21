@@ -391,7 +391,7 @@ Create new colorscheme by concatenating two colorschemes.
 """
 *(cscheme1::ColorScheme, cscheme2::ColorScheme) = ColorScheme(vcat(cscheme1.colors, cscheme2.colors))
 
-#include("precompile.jl")
+include("precompile.jl")
 
 # Aliases - Oxford spelling       
 const ColourScheme = ColorScheme

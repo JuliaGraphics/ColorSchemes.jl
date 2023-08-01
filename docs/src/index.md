@@ -75,3 +75,37 @@ This documentation was built using [Documenter.jl](https://github.com/JuliaDocs)
 using Dates # hide
 println("Documentation built $(Dates.now()) with Julia $(VERSION)") # hide
 ```
+
+## Contributing a new colorscheme
+
+If you feel a new colorscheme would be a great addition for you and for Julians everywhere, you could contribute it as follows:
+
+1 Add a file to the `data/` directory. The file should be a Julia file, with a `.jl` suffix.
+
+2 Inside the file, define a colorscheme in this format:
+
+```julia
+loadcolorscheme(:mynewcolorscheme, [
+    RGB(0.0, 0.0, 0.0),
+    RGB(0.5, 0.5, 0.5),
+    RGB(1.0, 1.0, 1.0),
+    ], 
+    "my new schemes", # the category
+    "black, white, and grey" # some descriptive keywords
+    )
+```
+
+The new name - here `mynewcolorscheme` - should be a valid Julia variable name.
+
+3 If you're adding the new colorscheme to an existing category, it will appear in the catalog document automatically.
+
+4 Otherwise, to add a new category to the catalog (which will add all the colorschemes in that category), add this code to `catalogue.md`:
+
+```markdown
+    ```@example catalog
+    using Luxor, ColorSchemes # hide
+    ColorSchemeCategory("all_my_new_colorschemes") # hide
+    ```
+```
+
+5 If there's a license file, add it to `data/` as well.

@@ -1,8 +1,11 @@
 ```@setup catalog
-# this code shows a category of schemes as an SVG
-# use as
+# this code will display all the schemes in a category, as an SVG
+# use in this docs/src/catalogue.md file as
+#  ```@example catalog
 #     using Luxor, ColorSchemes # hide
-#     ColorSchemeCategory("general") # hide
+#     ColorSchemeCategory("cmocean") # hide
+#  ```
+# which displays the "cmocean" category
 
 using Luxor, ColorSchemes
 
@@ -206,6 +209,11 @@ ColorSchemeCategory("general") # hide
 ```@example catalog
 using Luxor, ColorSchemes # hide
 ColorSchemeCategory("nord") # hide
+```
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("kindlmann") # hide
 ```
 
 ## ✦ Julia logo colorschemes

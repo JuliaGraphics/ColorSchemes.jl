@@ -1,12 +1,14 @@
 # Changelog
 
-## [v3.23.0] - 2023-08-01 16:24:01
+## [v3.23.0] - 2023-08-08
 
 ### Added
 
 - kindlmann 
 
 ## Changed
+
+- CompatHelper.yml
 
 ### Removed
 

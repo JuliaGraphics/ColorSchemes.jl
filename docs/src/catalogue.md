@@ -16,7 +16,6 @@ end
 function generate_scheme_svg(schemename;
         swatchwidth = 800,
         swatchheight = 20)
-
     # create swatch
     cols = colorschemes[schemename].colors
     l = length(cols)

@@ -1,5 +1,19 @@
 # Changelog
 
+## [v3.24.0] - forthcoming
+
+### Added
+
+## Changed
+
+- updated ScientificColorSchemes to version 8.0.0. Note that some schemes (grayC bilbao lajolla acton bamako batlowK tokyo) have changed since their 7.0 release - see their version history for details.
+
+### Removed
+
+### Deprecated
+
+###################################################################
+
 ## [v3.23.0] - 2023-08-08
 
 ### Added

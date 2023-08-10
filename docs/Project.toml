@@ -10,7 +10,7 @@ ColorVectorSpace = "c3611d14-8923-5661-9e6a-0046d554d3a4"
 [compat]
 ColorTypes = "0.9, 0.10, 0.11"
 Colors = "0.9, 0.10, 0.11, 0.12, 0.13"
-ColorVectorSpace = "0.9"
+ColorVectorSpace = "0.9, 0.10"
 Documenter = "0.27.3"
 FixedPointNumbers = "0.6, 0.7, 0.8"
 Luxor = "2, 3"

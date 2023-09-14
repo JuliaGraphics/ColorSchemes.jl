@@ -198,6 +198,26 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("MetBrewer") # hide
 ```
 
+## ✦ Pacific North West
+
+The colors of Washington State and the Pacific Northwest of the USA. See [Jake Lawlor's github
+repository](https://github.com/jakelawlor/PNWColors).
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("PNW Pacific North West") # hide
+```
+
+## ✦ Wes Anderson
+
+Palettes derived from the films of Wes Anderson. See [Karthik's github
+repository](https://github.com/karthik/wesanderson).
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("Wes Anderson") # hide
+```
+
 ## ✦ general and miscellaneous
 
 ```@example catalog

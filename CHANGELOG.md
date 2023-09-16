@@ -11,6 +11,7 @@
 ## Changed
 
 - updated ScientificColorSchemes to version 8.0.0. Note that some schemes (grayC bilbao lajolla acton bamako batlowK tokyo) have changed since their 7.0 release - see their version history for details.
+- use Documenter v1
 
 ### Removed
 

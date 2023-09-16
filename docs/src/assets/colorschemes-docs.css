@@ -1,3 +1,53 @@
+/* change BulmaDark's color */
+
+html.theme--documenter-dark body, 
+html.theme--documenter-dark #documenter .docs-sidebar {
+	background-color: hsl(237, 20%, 10%);
+}
+
+html.theme--documenter-dark .content pre, 
+html.theme--documenter-dark pre,
+html.theme--documenter-dark .documenter-example-output,
+html.theme--documenter-dark #documenter .docs-main header.docs-navbar {
+	background-color: hsl(237, 20%, 12%);
+	border: 0.5px solid hsla(237, 20%, 10%, 0.3) !important;
+}
+
+html.theme--documenter-dark .docstring {
+	background-color: hsl(237, 20%, 18%);
+}
+html.theme--documenter-dark .docstring>header {
+	background-color: hsl(237, 20%, 18%);
+}
+
+html.theme--documenter-dark .modal-card-body ,
+html.theme--documenter-dark .modal-card-head ,
+html.theme--documenter-dark .modal-card-foot {
+	background-color: hsl(237, 20%, 10%);
+}
+
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu {
+	background-color: hsl(237, 20%, 10%);
+}
+
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu li.is-active {
+	background-color: hsl(237, 20%, 10%);
+}
+
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu .tocitem,
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu .tocitem:hover,
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu li.is-active .tocitem,
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu li.is-active .tocitem:hover {
+	background-color: hsl(237, 20%, 10%);
+}
+
+html.theme--documenter-dark body {
+	color: #eff;
+	font-size: 1.1em;
+	font-weight: 400;
+	line-height: 1.8rem;
+}
+
 p > a:after {
     content: "→";
     font-size: 50%;

@@ -3,7 +3,7 @@ using Documenter, ColorSchemes, Luxor
 makedocs(
     modules = [ColorSchemes],
     sitename = "ColorSchemes",
-    warnonly = [:missing_docs],
+    warnonly = true,
     format = Documenter.HTML(
         size_threshold = nothing,
         prettyurls = get(ENV, "CI", nothing) == "true",

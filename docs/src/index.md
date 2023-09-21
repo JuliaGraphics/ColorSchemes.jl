@@ -8,16 +8,16 @@ end
 This package provides a collection of colorschemes:
 
 - scientifically devised colorschemes from ColorBrewer, CMOcean, ScientificColorMaps, ColorCet, and Seaborn
-- popular old favourites such as _viridis_, _inferno_, and _magma_ from MATPlotLib
-- old masters' colorschemes, such as _leonardo_, _vermeer_, and _picasso_
+- popular favourites such as _viridis_, _inferno_, and _magma_ from MATPlotLib
 - variously themed colorschemes such as _sunset_, _coffee_, _neon_, and _pearl_
+- artistic colorschemes, such as _leonardo_, _vermeer_, _picasso_, _Degas_, _Hiroshige_,  
 
 Note that the schemes contained here are a mixture:
 
 - some are high quality color maps with consistent perceptual contrast over their full range
 - others are designed for general purpose and informal graphics work
 
-Choose colorschemes with care! Refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package, or to Fabio Crameri's [Scientific Colour Maps](http://www.fabiocrameri.ch/colourmaps.php) for more information.
+Choose colorschemes with care! See the [Good practice](@ref) section, and also refer to Peter Kovesi's [PerceptualColourMaps](https://github.com/peterkovesi/PerceptualColourMaps.jl) package, or to Fabio Crameri's [Scientific Colour Maps](http://www.fabiocrameri.ch/colourmaps.php) for technical information.
 
 This package relies on the [Colors.jl](https://github.com/JuliaGraphics/Colors.jl) package.
 
@@ -59,7 +59,7 @@ get(ColorSchemes.Purples_5, 0.5)
 # => the midway point of the colorscheme 
 
 colorschemes
-# => Dict{Symbol, ColorScheme} with 983 entries
+# => Dict{Symbol, ColorScheme} with 1150 entries
 
 findcolorscheme("purple")
 # => display list of matching schemes
@@ -67,18 +67,9 @@ findcolorscheme("purple")
 
 Original version by [cormullion](https://github.com/cormullion).
 
-## Documentation
-
-This documentation was built using [Documenter.jl](https://github.com/JuliaDocs).
-
-```@example
-using Dates # hide
-println("Documentation built $(Dates.now()) with Julia $(VERSION)") # hide
-```
-
 ## Contributing a new colorscheme
 
-If you feel a new colorscheme would be a great addition for you and for Julians everywhere, you could contribute it as follows:
+If you think a new colorscheme would be a great addition for you and for Julians everywhere, you can contribute it as follows:
 
 1 Add a file to the `data/` directory. The file should be a Julia file, with a `.jl` suffix.
 
@@ -109,3 +100,12 @@ The new name - here `mynewcolorscheme` - should be a valid Julia variable name.
 ```
 
 5 If there's a license file, add it to `data/` as well.
+
+## Documentation
+
+This documentation was built using [Documenter.jl](https://github.com/JuliaDocs).
+
+```@example
+using Dates # hide
+println("Documentation built $(Dates.now()) with Julia $(VERSION)") # hide
+```

@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.24.0] - forthcoming
+## [v3.24.0] - 2023-09-21 09:04:58
 
 ### Added
 
@@ -10,7 +10,12 @@
 
 ## Changed
 
-- updated ScientificColorSchemes to version 8.0.0. Note that some schemes (grayC bilbao lajolla acton bamako batlowK tokyo) have changed since their 7.0 release - see their version history for details.
+- updated ScientificColorSchemes to version 8.0.0. Note that some schemes (grayC
+  bilbao lajolla acton bamako batlowK tokyo) have been changed (or reversed)
+  slightly since their 7.0 release - see [version history
+  (PDF)](https://www.fabiocrameri.ch/ws/media-library/d799f7fecb4e439998e43597cd397a6c/readme_scientificcolourmaps.pdf)
+  for details.
+
 - use Documenter v1
 
 ### Removed

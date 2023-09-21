@@ -2,7 +2,7 @@
 
 ## ColorScheme objects
 
-When you start using ColorSchemes.jl, it loads a set of pre-defined ColorSchemes, and stores them in a dictionary called `colorschemes`.
+When you start `using ColorSchemes`, it loads a set of pre-defined ColorSchemes in a dictionary called `colorschemes`.
 
 A ColorScheme is a Julia object which contains:
 
@@ -14,7 +14,7 @@ To access one of these built-in colorschemes, use its symbol:
 
 ```@example
 using Colors, ColorSchemes # hide
-ColorSchemes.leonardo
+ColorSchemes.leonardo # or colorschemes[:leonardo]
 ```
 
 The display depends on your working environment. If you’re using a notebook or IDE environment, the colors in the colorscheme should appear as a swatch in a cell or in a Plots window. Otherwise, you’ll see the colors listed as RGB values:
@@ -42,7 +42,7 @@ You can access the array of colors as:
 ColorSchemes.leonardo.colors
 ```
 
-By default, the colorschemes aren’t imported. To avoid using the prefixes, you can import the ones that you want:
+By default, the colorscheme names aren’t imported. To avoid using the prefixes, you can import the ones that you want:
 
 ```julia
 julia> import ColorSchemes.leonardo

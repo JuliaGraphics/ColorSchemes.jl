@@ -293,3 +293,13 @@ loadcolorscheme(:mk_15, [
     colorant"#00E307",
     colorant"#FFDC3D",
 ], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:ibm_cvd, [
+    colorant"#648fff",
+    colorant"#785ef0",
+    colorant"#dc267f",
+    colorant"#fe6100",
+    colorant"#ffb000",
+    colorant"#000000",
+    colorant"#ffffff",
+], "cvd", "cvd friendly, color blind friendly")

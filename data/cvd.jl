@@ -301,5 +301,4 @@ loadcolorscheme(:ibm_cvd, [
     colorant"#fe6100",
     colorant"#ffb000",
     colorant"#000000",
-    colorant"#ffffff",
 ], "cvd", "cvd friendly, color blind friendly")

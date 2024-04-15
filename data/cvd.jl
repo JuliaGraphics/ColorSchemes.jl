@@ -302,3 +302,39 @@ loadcolorscheme(:ibm_cvd, [
     colorant"#ffb000",
     colorant"#000000",
 ], "cvd", "cvd friendly, color blind friendly")
+
+# https://arxiv.org/pdf/2107.02270.pdf
+# https://github.com/mpetroff/accessible-color-cycles
+# Matthew A. Petroff
+loadcolorscheme(:mpetroff_6, [
+    colorant"#5790fc",
+    colorant"#f89c20",
+    colorant"#e42536",
+    colorant"#964a8b",
+    colorant"#9c9ca1",
+    colorant"#7a21dd",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:mpetroff_8, [
+    colorant"#1845fb",
+    colorant"#ff5e02",
+    colorant"#c91f16",
+    colorant"#c849a9",
+    colorant"#adad7d",
+    colorant"#86c8dd",
+    colorant"#578dff",
+    colorant"#656364",
+], "cvd", "cvd friendly, color blind friendly")
+
+loadcolorscheme(:mpetroff_10, [
+    colorant"#3f90da",
+    colorant"#ffa90e",
+    colorant"#bd1f01",
+    colorant"#94a4a2",
+    colorant"#832db6",
+    colorant"#a96b59",
+    colorant"#e76300",
+    colorant"#b9ac70",
+    colorant"#717581",
+    colorant"#92dadd",
+], "cvd", "cvd friendly, color blind friendly")

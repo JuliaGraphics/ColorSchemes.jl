@@ -205,7 +205,7 @@ colorschemes containing "dull"
 
 If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
 
-## For CVD (color-vision deficient or "color-blind:) users
+## For CVD (color-vision deficient or "color-blind") users
 
 This package contains a number of colorschemes that are designed to be helpful for people with some deficiencies in their perception of color:
 

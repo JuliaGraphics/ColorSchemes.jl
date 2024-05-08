@@ -218,6 +218,16 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Wes Anderson") # hide
 ```
 
+## ✦ Ghibli
+
+Palettes derived from the films of Studio Ghibli. See [Ewenme's github
+repository](https://github.com/ewenme/ghibli).
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("Ghibli") # hide
+```
+
 ## ✦ general and miscellaneous
 
 ```@example catalog

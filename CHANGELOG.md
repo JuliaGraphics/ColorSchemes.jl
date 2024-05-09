@@ -8,6 +8,8 @@
 
 - Pacific North West palettes (https://github.com/jakelawlor/PNWColors)
 
+- Studio Ghibli palettes (https://github.com/ewenme/ghibli)
+
 ## Changed
 
 - updated ScientificColorSchemes to version 8.0.0. Note that some schemes (grayC

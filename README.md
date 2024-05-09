@@ -1,6 +1,6 @@
 | **Documentation**                       | **Build Status**                           | **Code Coverage**               |
 |:--------------------------------------- |:-------------------------------------------|:-------------------------------:|
-| [![][docs-current-img]][docs-latest-url]| [![Build Status][ci-img]][ci-url]          | [![][codecov-img]][codecov-url] |
+|[![][docs-current-img]][docs-current-url]| [![Build Status][ci-img]][ci-url]          | [![][codecov-img]][codecov-url] |
 
 !["colorschemes social media preview"](docs/src/assets/figures/colorschemes-social-media-preview.png)
 

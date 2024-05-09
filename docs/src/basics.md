@@ -182,7 +182,7 @@ myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
 ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])
 ```
 
-Another way is to use `loadcolorscheme()` function:
+Another way is to use the [`loadcolorscheme`](@ref) function:
 
 ```julia
 using Colors

@@ -1,5 +1,21 @@
 # Changelog
 
+## [v3.25.0] - 2024-05-09 10:20:34
+
+### Added
+
+- mpetroff's accessible-color-cycles (https://github.com/mpetroff/accessible-color-cycles)
+
+- Studio Ghibli palettes (https://github.com/ewenme/ghibli)
+
+- ibm_cvd (Color Blind Safe Palette of IBM Design Language v1 Color Names: Ultramarine 40, Indigo 50, Magenta 50 , Orange 40, Gold 20, Black 100)
+
+### Removed
+
+### Deprecated
+
+###################################################################
+
 ## [v3.24.0] - 2023-09-21 09:04:58
 
 ### Added
@@ -7,8 +23,6 @@
 - Wes Anderson palettes (https://github.com/karthik/wesanderson)
 
 - Pacific North West palettes (https://github.com/jakelawlor/PNWColors)
-
-- Studio Ghibli palettes (https://github.com/ewenme/ghibli)
 
 ## Changed
 

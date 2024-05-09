@@ -73,7 +73,7 @@ If you think a new colorscheme would be a great addition for you and for Julians
 
 1 Add a file to the `data/` directory. The file should be a Julia file, with a `.jl` suffix.
 
-2 Inside the file, define a colorscheme in this format:
+2 Inside the file, define a colorscheme in this format, which calls [`loadcolorscheme`](@ref):
 
 ```julia
 loadcolorscheme(:mynewcolorscheme, [

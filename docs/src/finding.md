@@ -18,11 +18,13 @@ getinverse
 
 One example use for `getinverse()` is to convert a heatmap image into an Array of continuous values, e.g. temperature.
 
-In this example, we will convert a heatmap image representing elevation in the United States into an Array of elevation values. The image represents global temperature anomalies averaged from 2008 through 2012, with blue as -2°C and Red as +2°C. Higher than normal temperatures are shown in red (red is +2°C) and lower than normal temperatures are shown in blue (blue is -2°C). The global surface temperature in 2012 was +0.55°C. [source](https://svs.gsfc.nasa.gov/cgi-bin/details.cgi?aid=4030).
+In this example, we will convert a heatmap image representing temperature into an array of elevation values. The image represents global temperature anomalies averaged from 2008 through 2012, with blue as -2°C and Red as +2°C. Higher than normal temperatures are shown in red (red is +2°C) and lower than normal temperatures are shown in blue (blue is -2°C). The global surface temperature in 2012 was +0.55°C. 
+
+[NASA archive source](https://www.giss.nasa.gov/research/news/archive/20130115/).
 
 ```julia
-using Images, FileIO
-img = download("https://www.nasa.gov/images/content/719282main_2008_2012_printdata.1462.jpg") |> load
+using Images, FileIO, Downloads, ColorSchemes
+img = Downloads.download("https://www.giss.nasa.gov/research/news/archive/20130115/719282main_2008_2012_printdata.1462.jpg") |> load
 img = imresize(img, Tuple(Int(x) for x in size(img) .* 0.2));
 display(img)
 ```
@@ -60,10 +62,11 @@ mintemp, maxtemp = argmin(temps), argmax(temps)
  (CartesianIndex(397, 127), CartesianIndex(17, 314))
 ```
 
-and these maximum and minimum 'coordinates' can be displayed on the image using another package that allows you to mix images and vector graphics easily (such as Luxor.jl, for example).
+and these maximum and minimum 'coordinates' can be displayed on the image using another package that allows you to mix images, text, and vector graphics easily (such as Luxor.jl, for example).
 
 ```julia
 save("/tmp/img.png", img)
+
 using Luxor
 pngimg = readpng("/tmp/img.png")
 

@@ -1,4 +1,4 @@
-# Studio Ghibli Colour Palettes
+# Australian bird inspired color schemes
 
 # Sourced from <https://github.com/shandiya/feathers>
 

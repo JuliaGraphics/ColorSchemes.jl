@@ -1,0 +1,137 @@
+# Australian bird inspired color schemes
+
+# Sourced from <https://github.com/shandiya/feathers>
+
+loadcolorscheme(:spotted_pardalote, [
+        colorant"#feca00",
+        colorant"#d36328",
+        colorant"#cb0300",
+        colorant"#b4b9b3",
+        colorant"#424847",
+        colorant"#000100",
+    ],
+    "Feathers",
+    "Theme derived from the Spotted Pardalote (Pardalotus punctatus)")
+
+loadcolorscheme(:plains_wanderer, [
+        colorant"#edd8c5",
+        colorant"#d09a5e",
+        colorant"#e7aa01", 
+        colorant"#ac570f", 
+        colorant"#73481b",
+        colorant"#442c0e",
+        colorant"#0d0403",
+    ],
+    "Feathers",
+    "Theme derived from the Plains Wanderer (Pedionomus torquatus)")
+
+loadcolorscheme(:bee_eater, [
+        colorant"#00346E",
+        colorant"#007CBF",
+        colorant"#06ABDF",
+        colorant"#EDD03E",
+        colorant"#F5A200",
+        colorant"#6D8600",
+        colorant"#424D0C",
+    ],
+    "Feathers",
+    "Theme derived from the Bee Eater (Merops ornatus)")
+
+loadcolorscheme(:rose_crowned_fruit_dove, [
+        colorant"#BD338F",
+        colorant"#EB8252",
+        colorant"#F5DC83",
+        colorant"#CDD4DC",
+        colorant"#8098A2",
+        colorant"#8FA33F",
+        colorant"#5F7929",
+        colorant"#014820",
+    ],
+    "Feathers",
+    "Theme derived from the Rose-crowned Fruit Dove (Ptilinopus regina)")
+
+loadcolorscheme(:eastern_rosella, [
+        colorant"#cd3122",
+        colorant"#f4c623",
+        colorant"#bee183",
+        colorant"#6c905e",
+        colorant"#2f533c",
+        colorant"#b8c9dc",
+        colorant"#2f7ab9",
+    ],
+    "Feathers",
+    "Theme derived from the Eastern Rosella (Platycercus eximius)")
+
+loadcolorscheme(:oriole, [
+        colorant"#8a3223",
+        colorant"#bb5645",
+        colorant"#d97878",
+        colorant"#e2aba0",
+        colorant"#d0cfe9",
+        colorant"#a29eb8",
+        colorant"#6c6b75",
+        colorant"#b8a53f",
+        colorant"#93862a",
+        colorant"#4d4019",
+    ],
+    "Feathers",
+    "Theme derived from the Oriole (Oriolus sagittatus)")
+
+loadcolorscheme(:princess_parrot, [
+        colorant"#7090c9",
+        colorant"#8cb3de",
+        colorant"#afbe9f",
+        colorant"#616020",
+        colorant"#6eb245",
+        colorant"#214917",
+        colorant"#cf2236",
+        colorant"#d683ad",
+    ],
+    "Feathers",
+    "Theme derived from the Princess Parrot (Polytelis alexandrae)")
+
+loadcolorscheme(:superb_fairy_wren, [
+        colorant"#4F3321",
+        colorant"#AA7853",
+        colorant"#D9C4A7",
+        colorant"#B03F05",
+        colorant"#020503",
+    ],
+    "Feathers",
+    "Theme derived from the Superb Fairy Wren (Malurus cyaneus)")
+
+loadcolorscheme(:cassowary, [
+        colorant"#BDA14D",
+        colorant"#3EBCB6",
+        colorant"#0169C4",
+        colorant"#153460",
+        colorant"#D5114E",
+        colorant"#A56EB6",
+        colorant"#4B1C57",
+        colorant"#09090C",
+    ],
+    "Feathers",
+    "Theme derived from the Cassowary (Casuarius casuarius)")
+
+loadcolorscheme(:yellow_robin, [
+        colorant"#E19E00",
+        colorant"#FBEB5B",
+        colorant"#85773A",
+        colorant"#979EB9",
+        colorant"#727B98",
+        colorant"#454B56",
+        colorant"#201B1E",
+    ],
+    "Feathers",
+    "Theme derived from the Yellow Robin (Eopsaltria australis)")
+
+loadcolorscheme(:galah, [
+        colorant"#FFD2CF",
+        colorant"#E9A7BB",
+        colorant"#D05478",
+        colorant"#AAB9CC",
+        colorant"#8390A2",
+        colorant"#4C5766",
+    ],
+    "Feathers",
+    "Theme derived from the Galah (Eolophus roseicapilla)")

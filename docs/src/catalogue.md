@@ -234,7 +234,7 @@ repository](https://github.com/shandiya/feathers).
 
 ```@example catalog
 using Luxor, ColorSchemes # hide
-ColorSchemeCateogry("Feathers") # hide
+ColorSchemeCategory("Feathers") # hide
 ```
 
 ## ✦ general and miscellaneous

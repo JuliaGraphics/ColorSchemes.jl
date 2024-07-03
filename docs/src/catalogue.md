@@ -228,6 +228,15 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Ghibli") # hide
 ```
 
+## + Feathers
+Palattes derived from the plumage of Australian birds. See [Shandiya's github 
+repository](https://github.com/shandiya/feathers).
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("Feathers") # hide
+```
+
 ## ✦ general and miscellaneous
 
 ```@example catalog

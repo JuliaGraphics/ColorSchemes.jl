@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.26.0] - forthcoming
+
+### Added
+
+- Pride palettes (https://github.com/ewenme/ghibli)
+
+### Removed
+
+### Deprecated
+
+###################################################################
+
 ## [v3.25.0] - 2024-05-09
 
 ### Added

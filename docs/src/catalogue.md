@@ -251,3 +251,10 @@ ColorSchemeCategory("kindlmann") # hide
 using Luxor, ColorSchemes # hide
 ColorSchemeCategory("julia") # hide
 ```
+
+## ✦ Pride colorschemes
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("pride") # hide
+```

@@ -1,4 +1,4 @@
-using Documenter, ColorSchemes, Luxor
+using Documenter, Luxor
 
 makedocs(
     modules = [ColorSchemes],

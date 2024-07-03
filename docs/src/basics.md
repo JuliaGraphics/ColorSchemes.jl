@@ -103,7 +103,7 @@ colorschemes[:summer] |> show
 
 ## Finding colorschemes
 
-Use the [`findcolorscheme`](@ref) function to search through
+Use the [findcolorscheme](@ref) function to search through
 the pre-defined colorschemes. The string you provide can
 occur in the colorscheme’s name, in the category, or
 (optionally) in the notes. It’s interpreted as a
@@ -182,7 +182,7 @@ myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
 ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])
 ```
 
-Another way is to use the [`loadcolorscheme`](@ref) function:
+Another way is to use the [loadcolorscheme](@ref) function:
 
 ```julia
 using Colors

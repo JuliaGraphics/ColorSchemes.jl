@@ -4,7 +4,7 @@
 
 ### Added
 
-- Pride palettes (https://github.com/ewenme/ghibli)
+- Pride palette
 
 ### Removed
 

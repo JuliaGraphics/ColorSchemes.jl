@@ -6,6 +6,7 @@
 
 - Pride palette
 - ScientificColorSchemes v8.0 now includes Categorical palettes
+- Australian bird feathers (thanks @agchesebro!)
 
 ### Removed
 

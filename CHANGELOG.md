@@ -4,7 +4,7 @@
 
 ### Added
 
-- Pride palettes (https://github.com/ewenme/ghibli)
+- Pride palette
 - ScientificColorSchemes v8.0 now includes Categorical palettes
 
 ### Removed

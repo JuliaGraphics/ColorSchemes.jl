@@ -33,7 +33,11 @@ function generate_scheme_svg(schemename;
 
     # fill the template
     schemetemplate = """
-    <div class="schemename">:$(schemename)</div>
+    <span class="hovertext" data-hover=
+        "category: $(colorschemes[schemename].category),
+         notes: $(colorschemes[schemename].notes)">
+        <div class="schemename">:$(schemename)</div>
+    </span>
     <div class="swatch">$(swatch)</div>
     """
     return schemetemplate
@@ -47,7 +51,7 @@ function generate_schemes_in_category(category)
       """)
 
     schemes = filter(s -> occursin(category, colorschemes[s].category), collect(keys(colorschemes)))
-    for s in sort(schemes)
+    for s in sort(schemes, lt = (s1, s2) -> lowercase(string(s1)) < lowercase(string(s2)))
         write(iobuffer, generate_scheme_svg(s))
     end
     write(iobuffer, """
@@ -65,7 +69,7 @@ function generate_schemes_matching_notes_string(str)
       """)
 
     schemes = filter(s -> occursin(str, colorschemes[s].notes), collect(keys(colorschemes)))
-    for s in sort(schemes)
+    for s in sort(schemes, lt = (s1, s2) -> lowercase(string(s1)) < lowercase(string(s2)))
         write(iobuffer, generate_scheme_svg(s))
     end
     write(iobuffer, """

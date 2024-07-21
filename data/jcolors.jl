@@ -14,7 +14,7 @@ loadcolorscheme(:julialegacy, [
     colorant"#d8645f", # red
     colorant"#69ad57", # green
     colorant"#ab7ac1", # purple
-], "julia", "sequential")
+    ], "julia", "sequential. The Julia logo was duo-tone (with both light and dark versions of the four colors) from 2010 up to 2019, release v1.2. Since then, only the darker colors are used.")
 
 loadcolorscheme(:jblue, [
     colorant"#d2e6ff",

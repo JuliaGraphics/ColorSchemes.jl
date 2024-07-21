@@ -11,7 +11,7 @@ loadcolorscheme(:Starfish, [
    RGB(0.902,0.608,0.6),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Shuksan, [
    RGB(0.2,0.153,0.118),
@@ -24,7 +24,7 @@ loadcolorscheme(:Shuksan, [
    RGB(0.996,0.984,0.914),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Bay, [
    RGB(0.0,0.286,0.435),
@@ -34,7 +34,7 @@ loadcolorscheme(:Bay, [
    RGB(0.867,0.255,0.141),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Winter, [
    RGB(0.176,0.161,0.149),
@@ -44,7 +44,7 @@ loadcolorscheme(:Winter, [
    RGB(0.925,0.925,0.925),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Lake, [
    RGB(0.212,0.161,0.016),
@@ -57,7 +57,7 @@ loadcolorscheme(:Lake, [
    RGB(0.933,0.953,1.0),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Sunset, [
    RGB(0.255,0.278,0.42),
@@ -69,7 +69,7 @@ loadcolorscheme(:Sunset, [
    RGB(0.984,0.875,0.635),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Shuksan2, [
    RGB(0.365,0.455,0.647),
@@ -79,7 +79,7 @@ loadcolorscheme(:Shuksan2, [
    RGB(0.659,0.333,0.306),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Cascades, [
    RGB(0.176,0.251,0.188),
@@ -90,7 +90,7 @@ loadcolorscheme(:Cascades, [
    RGB(0.533,0.635,0.725),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Sailboat, [
    RGB(0.431,0.486,0.725),
@@ -101,7 +101,7 @@ loadcolorscheme(:Sailboat, [
    RGB(0.824,0.518,0.553),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Moth, [
    RGB(0.29,0.227,0.231),
@@ -111,7 +111,7 @@ loadcolorscheme(:Moth, [
    RGB(0.941,0.941,0.894),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Spring, [
    RGB(0.847,0.682,0.867),
@@ -122,7 +122,7 @@ loadcolorscheme(:Spring, [
    RGB(0.984,0.894,0.776),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Mushroom, [
    RGB(0.31,0.255,0.169),
@@ -133,7 +133,7 @@ loadcolorscheme(:Mushroom, [
    RGB(1.0,0.984,0.855),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Sunset2, [
    RGB(0.114,0.271,0.498),
@@ -143,7 +143,7 @@ loadcolorscheme(:Sunset2, [
    RGB(0.949,0.686,0.29),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")
 
 loadcolorscheme(:Anemone, [
    RGB(0.0,0.58,0.455),
@@ -155,4 +155,4 @@ loadcolorscheme(:Anemone, [
    RGB(0.69,0.596,0.424),
         ],
     "PNW Pacific North West",
-    "Washington State, Pacific Northwest")
+    "Washington State, Pacific Northwest, Jake Lawlor")

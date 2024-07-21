@@ -19,4 +19,4 @@ loadcolorscheme(:nord, [
     RGB(0.91796875, 0.79296875, 0.54296875), # nord13
     RGB(0.63671875, 0.7421875, 0.546875),    # nord14
     RGB(0.703125, 0.5546875, 0.67578125),    # nord15
-], "nord", "the Nord theme, Polar Night, Snow Storm, Frost, Aurora")
+    ], "nord", "the Nord theme, Polar Night, Snow Storm, Frost, Aurora, www.nordtheme.com")

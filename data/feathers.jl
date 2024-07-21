@@ -11,7 +11,7 @@ loadcolorscheme(:spotted_pardalote, [
         colorant"#000100",
     ],
     "Feathers",
-    "Theme derived from the Spotted Pardalote (Pardalotus punctatus)")
+    "bird, Spotted Pardalote (Pardalotus punctatus)")
 
 loadcolorscheme(:plains_wanderer, [
         colorant"#edd8c5",
@@ -23,7 +23,7 @@ loadcolorscheme(:plains_wanderer, [
         colorant"#0d0403",
     ],
     "Feathers",
-    "Theme derived from the Plains Wanderer (Pedionomus torquatus)")
+    "bird, Plains Wanderer (Pedionomus torquatus)")
 
 loadcolorscheme(:bee_eater, [
         colorant"#00346E",
@@ -35,7 +35,7 @@ loadcolorscheme(:bee_eater, [
         colorant"#424D0C",
     ],
     "Feathers",
-    "Theme derived from the Bee Eater (Merops ornatus)")
+    "bird, Bee Eater (Merops ornatus)")
 
 loadcolorscheme(:rose_crowned_fruit_dove, [
         colorant"#BD338F",
@@ -48,7 +48,7 @@ loadcolorscheme(:rose_crowned_fruit_dove, [
         colorant"#014820",
     ],
     "Feathers",
-    "Theme derived from the Rose-crowned Fruit Dove (Ptilinopus regina)")
+    "bird, Rose-crowned Fruit Dove (Ptilinopus regina)")
 
 loadcolorscheme(:eastern_rosella, [
         colorant"#cd3122",
@@ -60,7 +60,7 @@ loadcolorscheme(:eastern_rosella, [
         colorant"#2f7ab9",
     ],
     "Feathers",
-    "Theme derived from the Eastern Rosella (Platycercus eximius)")
+    "bird, Eastern Rosella (Platycercus eximius)")
 
 loadcolorscheme(:oriole, [
         colorant"#8a3223",
@@ -75,7 +75,7 @@ loadcolorscheme(:oriole, [
         colorant"#4d4019",
     ],
     "Feathers",
-    "Theme derived from the Oriole (Oriolus sagittatus)")
+    "bird, Oriole (Oriolus sagittatus)")
 
 loadcolorscheme(:princess_parrot, [
         colorant"#7090c9",
@@ -88,7 +88,7 @@ loadcolorscheme(:princess_parrot, [
         colorant"#d683ad",
     ],
     "Feathers",
-    "Theme derived from the Princess Parrot (Polytelis alexandrae)")
+    "bird, Princess Parrot (Polytelis alexandrae)")
 
 loadcolorscheme(:superb_fairy_wren, [
         colorant"#4F3321",
@@ -98,7 +98,7 @@ loadcolorscheme(:superb_fairy_wren, [
         colorant"#020503",
     ],
     "Feathers",
-    "Theme derived from the Superb Fairy Wren (Malurus cyaneus)")
+    "bird, Superb Fairy Wren (Malurus cyaneus)")
 
 loadcolorscheme(:cassowary, [
         colorant"#BDA14D",
@@ -111,7 +111,7 @@ loadcolorscheme(:cassowary, [
         colorant"#09090C",
     ],
     "Feathers",
-    "Theme derived from the Cassowary (Casuarius casuarius)")
+    "bird, Cassowary (Casuarius casuarius)")
 
 loadcolorscheme(:yellow_robin, [
         colorant"#E19E00",
@@ -123,7 +123,7 @@ loadcolorscheme(:yellow_robin, [
         colorant"#201B1E",
     ],
     "Feathers",
-    "Theme derived from the Yellow Robin (Eopsaltria australis)")
+    "bird, Yellow Robin (Eopsaltria australis)")
 
 loadcolorscheme(:galah, [
         colorant"#FFD2CF",
@@ -134,4 +134,4 @@ loadcolorscheme(:galah, [
         colorant"#4C5766",
     ],
     "Feathers",
-    "Theme derived from the Galah (Eolophus roseicapilla)")
+    "bird, Galah (Eolophus roseicapilla)")

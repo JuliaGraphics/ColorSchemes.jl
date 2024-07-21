@@ -1033,4 +1033,4 @@ loadcolorscheme(:kindlmann, [
 
 ],
 "kindlmann",
-"luminance matching, perceptual, rainbow")
+"luminance matching, perceptual, rainbow, G. Kindlmann; E. Reinhard; S. Creem")

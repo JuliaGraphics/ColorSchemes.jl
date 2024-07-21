@@ -11,7 +11,7 @@ loadcolorscheme(:BottleRocket1, [
         RGB{N0f8}(0.047, 0.09, 0.027),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, 1996")
 
 loadcolorscheme(:BottleRocket2, [
         RGB{N0f8}(0.98, 0.835, 0.063),
@@ -21,7 +21,7 @@ loadcolorscheme(:BottleRocket2, [
         RGB{N0f8}(0.118, 0.118, 0.118),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, 1996")
 
 loadcolorscheme(:Rushmore1, [
         RGB{N0f8}(0.882, 0.741, 0.427),
@@ -31,7 +31,7 @@ loadcolorscheme(:Rushmore1, [
         RGB{N0f8}(0.949, 0.188, 0.059),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, 1998")
 
 loadcolorscheme(:Rushmore, [
         RGB{N0f8}(0.882, 0.741, 0.427),
@@ -41,7 +41,7 @@ loadcolorscheme(:Rushmore, [
         RGB{N0f8}(0.949, 0.188, 0.059),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, 1998")
 
 loadcolorscheme(:Royal1, [
         RGB{N0f8}(0.537, 0.616, 0.643),
@@ -50,7 +50,7 @@ loadcolorscheme(:Royal1, [
         RGB{N0f8}(0.863, 0.525, 0.231),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Royal Tenenbaums (2001)")
 
 loadcolorscheme(:Royal2, [
         RGB{N0f8}(0.604, 0.533, 0.133),
@@ -60,7 +60,7 @@ loadcolorscheme(:Royal2, [
         RGB{N0f8}(0.455, 0.627, 0.537),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Andersonhe, Royal Tenenbaums (2001)")
 
 loadcolorscheme(:Zissou1, [
         RGB{N0f8}(0.231, 0.604, 0.698),
@@ -70,7 +70,7 @@ loadcolorscheme(:Zissou1, [
         RGB{N0f8}(0.949, 0.102, 0.0),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Life Aquatic with Steve Zissou (2004)")
 
 loadcolorscheme(:Zissou1Continuous, [
         RGB{N0f8}(0.227, 0.604, 0.698),
@@ -86,7 +86,7 @@ loadcolorscheme(:Zissou1Continuous, [
         RGB{N0f8}(0.945, 0.106, 0.0),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Life Aquatic with Steve Zissou (2004)")
 
 loadcolorscheme(:Darjeeling1, [
         RGB{N0f8}(1.0, 0.0, 0.0),
@@ -96,7 +96,7 @@ loadcolorscheme(:Darjeeling1, [
         RGB{N0f8}(0.357, 0.737, 0.839),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Darjeeling Limited (2007)")
 
 loadcolorscheme(:Darjeeling2, [
         RGB{N0f8}(0.925, 0.796, 0.682),
@@ -106,7 +106,7 @@ loadcolorscheme(:Darjeeling2, [
         RGB{N0f8}(0.0, 0.0, 0.0),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Darjeeling Limited (2007)")
 
 loadcolorscheme(:Chevalier1, [
         RGB{N0f8}(0.267, 0.392, 0.333),
@@ -115,7 +115,7 @@ loadcolorscheme(:Chevalier1, [
         RGB{N0f8}(0.78, 0.694, 0.612),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Hotel Chevalier (2007)")
 
 loadcolorscheme(:FantasticFox1, [
         RGB{N0f8}(0.867, 0.553, 0.161),
@@ -125,7 +125,7 @@ loadcolorscheme(:FantasticFox1, [
         RGB{N0f8}(0.706, 0.059, 0.125),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Fantastic Mr. Fox (2009)")
 
 loadcolorscheme(:Moonrise1, [
         RGB{N0f8}(0.953, 0.875, 0.424),
@@ -143,7 +143,7 @@ loadcolorscheme(:Moonrise2, [
         RGB{N0f8}(0.161, 0.129, 0.122),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Moonrise Kingdom (2012)")
 
 loadcolorscheme(:Moonrise3, [
         RGB{N0f8}(0.522, 0.831, 0.89),
@@ -153,7 +153,7 @@ loadcolorscheme(:Moonrise3, [
         RGB{N0f8}(0.98, 0.843, 0.482),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Moonrise Kingdom (2012)")
 
 loadcolorscheme(:Cavalcanti1, [
         RGB{N0f8}(0.847, 0.718, 0.039),
@@ -163,7 +163,7 @@ loadcolorscheme(:Cavalcanti1, [
         RGB{N0f8}(0.592, 0.176, 0.082),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Castello Cavalcanti (2013)")
 
 loadcolorscheme(:GrandBudapest1, [
         RGB{N0f8}(0.945, 0.733, 0.482),
@@ -172,7 +172,7 @@ loadcolorscheme(:GrandBudapest1, [
         RGB{N0f8}(0.839, 0.447, 0.212),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Grand Budapest Hotel (2014)")
 
 loadcolorscheme(:GrandBudapest2, [
         RGB{N0f8}(0.902, 0.627, 0.769),
@@ -181,7 +181,7 @@ loadcolorscheme(:GrandBudapest2, [
         RGB{N0f8}(0.447, 0.58, 0.831),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Grand Budapest Hotel (2014)")
 
 loadcolorscheme(:IsleofDogs1, [
         RGB{N0f8}(0.6, 0.525, 0.647),
@@ -192,7 +192,7 @@ loadcolorscheme(:IsleofDogs1, [
         RGB{N0f8}(0.553, 0.525, 0.502),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Isle of Dogs (2018)")
 
 loadcolorscheme(:IsleofDogs2, [
         RGB{N0f8}(0.918, 0.827, 0.749),
@@ -202,7 +202,7 @@ loadcolorscheme(:IsleofDogs2, [
         RGB{N0f8}(0.11, 0.09, 0.094),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The Isle of Dogs (2018)")
 
 loadcolorscheme(:FrenchDispatch, [
         RGB{N0f8}(0.565, 0.831, 0.8),
@@ -212,7 +212,7 @@ loadcolorscheme(:FrenchDispatch, [
         RGB{N0f8}(0.616, 0.612, 0.522),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, The French Distpatch (2021)")
 
 loadcolorscheme(:AsteroidCity1, [
         RGB{N0f8}(0.039, 0.624, 0.616),
@@ -222,7 +222,7 @@ loadcolorscheme(:AsteroidCity1, [
         RGB{N0f8}(0.757, 0.529, 0.282),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Asteroid City (2023)")
 
 loadcolorscheme(:AsteroidCity2, [
         RGB{N0f8}(0.773, 0.18, 0.098),
@@ -233,7 +233,7 @@ loadcolorscheme(:AsteroidCity2, [
         RGB{N0f8}(0.686, 0.306, 0.141),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Asteroid City (2023)")
 
 loadcolorscheme(:AsteroidCity3, [
         RGB{N0f8}(0.984, 0.655, 0.165),
@@ -242,4 +242,4 @@ loadcolorscheme(:AsteroidCity3, [
         RGB{N0f8}(0.341, 0.522, 0.757),
     ],
     "Wes Anderson",
-    "Wes Anderson")
+    "Wes Anderson, Asteroid City (2023)")

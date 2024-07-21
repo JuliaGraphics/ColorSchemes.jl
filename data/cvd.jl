@@ -14,13 +14,13 @@ loadcolorscheme(:tol_bright, [
     colorant"#66CCEE",
     colorant"#AA3377",
     colorant"#BBBBBB"
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_highcontrast, [
     colorant"#004488",
     colorant"#DDAA33",
     colorant"#BB5566",
-], "cvd", "cvd friendly, color blind friendly")
+    ], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_vibrant, [
     colorant"#EE7733",
@@ -30,7 +30,7 @@ loadcolorscheme(:tol_vibrant, [
     colorant"#CC3311",
     colorant"#009988",
     colorant"#BBBBBB",
-], "cvd", "cvd friendly, color blind friendly")
+    ], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_muted, [
     colorant"#332288",
@@ -42,7 +42,7 @@ loadcolorscheme(:tol_muted, [
     colorant"#CC6677",
     colorant"#882255",
     colorant"#AA4499",
-], "cvd", "cvd friendly, color blind friendly")
+    ], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_medcontrast, [
     colorant"#6699CC",
@@ -51,7 +51,7 @@ loadcolorscheme(:tol_medcontrast, [
     colorant"#994455",
     colorant"#997700",
     colorant"#EE99AA",
-], "cvd", "cvd friendly, color blind friendly")
+    ], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_light, [
     colorant"#77AADD",
@@ -63,7 +63,7 @@ loadcolorscheme(:tol_light, [
     colorant"#BBCC33",
     colorant"#AAAA00",
     colorant"#DDDDDD"
-], "cvd", "cvd friendly, color blind friendly")
+    ], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_sunset, [
     colorant"#364B9A",
@@ -77,7 +77,7 @@ loadcolorscheme(:tol_sunset, [
     colorant"#F67E4B",
     colorant"#DD3D2D",
     colorant"#A50026",
-], "cvd", "cvd friendly, color blind friendly")
+    ], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_BuRd, [
     colorant"#2166AC",
@@ -89,7 +89,7 @@ loadcolorscheme(:tol_BuRd, [
     colorant"#F4A582",
     colorant"#D6604D",
     colorant"#B2182B",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 colorschemes[:tol_bu_rd] = colorschemes[:tol_BuRd] # For compat.
 
@@ -125,7 +125,7 @@ loadcolorscheme(:tol_nightfall, [
     colorant"#E94C1F",
     colorant"#D11807",
     colorant"#A01813"],
-    "cvd", "cvd friendly, color blind friendly")
+    "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_land_cover, [
     colorant"#5566AA",
@@ -142,7 +142,7 @@ loadcolorscheme(:tol_land_cover, [
     colorant"#FFDD44",
     colorant"#FFEE88",
     colorant"#BB0011",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 colorschemes[:ground_cover] = colorschemes[:tol_land_cover] # For compat.
 
@@ -156,7 +156,7 @@ loadcolorscheme(:tol_YlOrBr, [
     colorant"#CC4C02",
     colorant"#993404",
     colorant"#662506",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 colorschemes[:tol_ylorbr] = colorschemes[:tol_YlOrBr]
 
@@ -184,7 +184,7 @@ loadcolorscheme(:tol_iridescent, [
     colorant"#805770",
     colorant"#684957",
     colorant"#46353A",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 colorschemes[:Iridescent] = colorschemes[:tol_iridescent] # For compat.
 
@@ -200,7 +200,7 @@ loadcolorscheme(:tol_incandescent, [
      colorant"#F94902",
      colorant"#E40515",
      colorant"#A80003"
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 loadcolorscheme(:tol_rainbow, [
     colorant"#E8ECFB",
@@ -232,7 +232,7 @@ loadcolorscheme(:tol_rainbow, [
     colorant"#A5170E",
     colorant"#72190E",
     colorant"#42150A",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Paul Tol")
 
 #From Color Universal Design (CUD): https://jfly.uni-koeln.de/color/
 loadcolorscheme(:okabe_ito, [
@@ -244,7 +244,7 @@ loadcolorscheme(:okabe_ito, [
     colorant"#D55E00",
     colorant"#CC79A7",
     colorant"#000000"
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Color Universal Design (CUD): https://jfly.uni-koeln.de/color/")
 
 # 8, 12, and 15 color palettes for deuteranopia color blindness
 # Martin Krzywinski martink@bcgsc.ca
@@ -259,7 +259,7 @@ loadcolorscheme(:mk_8, [
     colorant"#d55e00",
     colorant"#e69f00",
     colorant"#f0e442",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Martin Krzywinski")
 
 loadcolorscheme(:mk_12, [
     colorant"#9F0162",
@@ -274,7 +274,7 @@ loadcolorscheme(:mk_12, [
     colorant"#E20134",
     colorant"#FF6E3A",
     colorant"#FFC33B",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Martin Krzywinski")
 
 loadcolorscheme(:mk_15, [
     colorant"#68023F",
@@ -292,7 +292,7 @@ loadcolorscheme(:mk_15, [
     colorant"#F60239",
     colorant"#00E307",
     colorant"#FFDC3D",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Martin Krzywinski")
 
 loadcolorscheme(:ibm_cvd, [
     colorant"#648fff",
@@ -301,7 +301,7 @@ loadcolorscheme(:ibm_cvd, [
     colorant"#fe6100",
     colorant"#ffb000",
     colorant"#000000",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, IBM")
 
 # https://arxiv.org/pdf/2107.02270.pdf
 # https://github.com/mpetroff/accessible-color-cycles
@@ -313,7 +313,7 @@ loadcolorscheme(:mpetroff_6, [
     colorant"#964a8b",
     colorant"#9c9ca1",
     colorant"#7a21dd",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Matthew A. Petroff")
 
 loadcolorscheme(:mpetroff_8, [
     colorant"#1845fb",
@@ -324,7 +324,7 @@ loadcolorscheme(:mpetroff_8, [
     colorant"#86c8dd",
     colorant"#578dff",
     colorant"#656364",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Matthew A. Petroff")
 
 loadcolorscheme(:mpetroff_10, [
     colorant"#3f90da",
@@ -337,4 +337,4 @@ loadcolorscheme(:mpetroff_10, [
     colorant"#b9ac70",
     colorant"#717581",
     colorant"#92dadd",
-], "cvd", "cvd friendly, color blind friendly")
+], "cvd", "cvd friendly, color blind friendly, Matthew A. Petroff")

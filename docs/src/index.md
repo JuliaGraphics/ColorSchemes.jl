@@ -73,7 +73,7 @@ If you think a new colorscheme would be a great addition for you and for Julians
 
 1 Add a file to the `data/` directory. The file should be a Julia file, with a `.jl` suffix.
 
-2 Inside the file, define a colorscheme in this format, which calls [`loadcolorscheme`](@ref):
+2 Inside the file, define a colorscheme in this format, which calls [loadcolorscheme](@ref):
 
 ```julia
 loadcolorscheme(:mynewcolorscheme, [
@@ -81,7 +81,7 @@ loadcolorscheme(:mynewcolorscheme, [
     RGB(0.5, 0.5, 0.5),
     RGB(1.0, 1.0, 1.0),
     ], 
-    "my new schemes", # the category
+    "category for my new scheme", # the category
     "black, white, and grey" # some descriptive keywords
     )
 ```
@@ -95,7 +95,7 @@ The new name - here `mynewcolorscheme` - should be a valid Julia variable name.
 ```markdown
     ```@example catalog
     using Luxor, ColorSchemes # hide
-    ColorSchemeCategory("all_my_new_colorschemes") # hide
+    ColorSchemeCategory("category for my new scheme") # hide
     ```
 ```
 

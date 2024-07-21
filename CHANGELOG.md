@@ -1,10 +1,11 @@
 # Changelog
 
-## [v3.26.0] - forthcoming
+## [v3.26.0] - 2024-07-21
 
 ### Added
 
 - Pride palettes (https://github.com/ewenme/ghibli)
+- ScientificColorSchemes v8.0 now includes Categorical palettes
 
 ### Removed
 

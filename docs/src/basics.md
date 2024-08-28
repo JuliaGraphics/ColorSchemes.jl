@@ -6,15 +6,22 @@ When you start `using ColorSchemes`, it loads a set of pre-defined ColorSchemes 
 
 A ColorScheme is a Julia object which contains:
 
-- an array of colors (eg `RGB(0.1, 0.3, 0.4)`)
+- an ordered array of colors (see Colors.jl)
 - a string defining a category
-- a string that can contain descriptive notes
+- a string containing descriptive notes
 
-To access one of these built-in colorschemes, use its symbol:
+To access one of the built-in colorschemes, use its symbol:
 
 ```@example
 using Colors, ColorSchemes # hide
-ColorSchemes.leonardo # or colorschemes[:leonardo]
+ColorSchemes.leonardo 
+```
+
+or
+
+```@example
+using Colors, ColorSchemes # hide
+colorschemes[:leonardo]
 ```
 
 The display depends on your working environment. If you’re using a notebook or IDE environment, the colors in the colorscheme should appear as a swatch in a cell or in a Plots window. Otherwise, you’ll see the colors listed as RGB values:
@@ -42,7 +49,7 @@ You can access the array of colors as:
 ColorSchemes.leonardo.colors
 ```
 
-By default, the colorscheme names aren’t imported. To avoid using the prefixes, you can import the ones that you want:
+By default, the names of the built-in colorschemes aren’t imported. You can import the ones that you want:
 
 ```julia
 julia> import ColorSchemes.leonardo
@@ -59,7 +66,7 @@ julia> leonardo
  RGB{Float64}(0.972441,0.790701,0.285136)
 ```
 
-You can reference a single value of a scheme:
+You can reference a single color in a scheme:
 
 ```julia
 leonardo[3]
@@ -79,9 +86,29 @@ leonardo[0.5]
 -> RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
 ```
 
-```@docs
-get
+With `get` you can resample an existing colorscheme, by passing a range:
+
+```julia
+get(ColorSchemes.darkrainbow, range(0.0, 1.0, length=14))
+
+-> RGB{Float64}[
+      RGB{Float64}(0.237736, 0.340215, 0.575113), 
+      RGB{Float64}(0.249978, 0.343813, 0.5620657), 
+      RGB{Float64}(0.259452, 0.386963, 0.464862), 
+      RGB{Float64}(0.272746, 0.439684, 0.3499807), 
+      ...
+      RGB{Float64}(0.72987,0.239399,0.230961), 
+      RGB{Float64}(0.72987,0.239399,0.230961)]
 ```
+
+and you can make a new scheme from this:
+
+```@example
+using ColorSchemes, Colors # hide
+ndr = ColorScheme(get(ColorSchemes.darkrainbow, range(0.0, 1.0, length=14)))
+```
+
+See below for more possibilities.
 
 ## The colorschemes dictionary
 
@@ -146,23 +173,41 @@ If you prefer, you can ‘roll your own’ search.
 
 ## Make your own colorscheme
 
-Using Colors.jl, you can quickly define a range of colors and use it to make a colorscheme:
+Using Colors.jl, you can use the `ColorScheme` constructor to make a range of colors into a colorscheme.
+
+Using Colors.jl's `range()`:
 
 ```@example
-using Colors, ColorSchemes
+using Colors, ColorSchemes # hide
 cs1 = ColorScheme(range(colorant"red", colorant"green", length=5))
 ```
 
+Using `get()`:
+
 ```@example
-using Colors, ColorSchemes
+using Colors, ColorSchemes # hide
+cs1 = ColorScheme(get(ColorSchemes.darkrainbow, range(0.3, 0.7, length=10)))
+```
+
+Converting from a sequential palette:
+
+```@example
+using Colors, ColorSchemes # hide
 cs1 = ColorScheme(reverse(Colors.sequential_palette(300, 100, logscale=true)))
 ```
 
-Or you can easily make your own by building an array:
+From an array comprehension:
 
 ```@example
-using Colors, ColorSchemes
+using Colors, ColorSchemes # hide
 mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])
+```
+
+A logarithmic scheme:
+
+```@example
+using Colors, ColorSchemes # hide
+ColorScheme(get(ColorSchemes.darkrainbow, 10 .^ range(-2, stop=0, length=50)))
 ```
 
 Give it a category or some added notes if you want:
@@ -172,9 +217,9 @@ mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
     "my useful schemes", "just some dull grey shades")
 ```
 
-although this scheme won’t end up in the `colorschemes` dictionary.
+although this scheme won’t be stored in the supplied `colorschemes` dictionary.
 
-Another example, starting with a two-color scheme, then building a gradient from the first color to the other.
+Another example: start with a two-color scheme, then building a gradient from the first color to the other.
 
 ```julia
 myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
@@ -182,15 +227,15 @@ myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
 ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])
 ```
 
-Another way is to use the [loadcolorscheme](@ref) function:
+Another way is to use the [loadcolorscheme](@ref) function used to build the colorschemes dictionary when the package is loaded:
 
 ```julia
-using Colors
+using Colors, ColorSchemes
 loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
      "useful schemes", "just some dull grey shades")
 ```
 
-and that will be added (temporarily) to the built-in list.
+and that will be added (temporarily) to the built-in dictionary.
 
 ```julia
 julia> findcolorscheme("dull")
@@ -203,19 +248,21 @@ colorschemes containing "dull"
  ...found 1 result for "dull"
 ```
 
-If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
+!!! note
+
+    If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the `make_colorscheme()` function in the [ColorSchemeTools.jl](https://github.com/JuliaGraphics/ColorSchemeTools.jl) package.
 
 ## For CVD (color-vision deficient or "color-blind") users
 
 This package contains a number of colorschemes that are designed to be helpful for people with some deficiencies in their perception of color:
 
-- deuteranomaly (where green looks more red)
+- *deuteranomaly* (where green looks more red)
 
-- protanomaly (where red looks more green and less bright)
+- *protanomaly* (where red looks more green and less bright)
 
-- tritanomaly (difficult to tell the difference between blue and green, and between yellow and red)
+- *tritanomaly* (difficult to tell the difference between blue and green, and between yellow and red)
 
-- tritanopia (difficult to tell the difference between blue and green, purple and red, and yellow and pink)
+- *tritanopia* (difficult to tell the difference between blue and green, purple and red, and yellow and pink)
 
 ```julia
 findcolorscheme("cvd")
@@ -280,7 +327,7 @@ using Colors, ColorSchemes
 ColorScheme(distinguishable_colors(10, transform=protanopic))
 ```
 
-## Continuous color sampling
+## More about color sampling
 
 You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[5:end]`). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:
 

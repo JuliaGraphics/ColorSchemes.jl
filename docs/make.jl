@@ -16,7 +16,7 @@ makedocs(
         "Finding colors"    => "finding.md",
         "Plotting"          => "plotting.md",
         "Images"            => "images.md",
-        "Index"             => "functionindex.md"
+        "Functions"         => "functionindex.md"
     ]
 )
 

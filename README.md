@@ -49,6 +49,12 @@ colorschemes
 
 findcolorscheme("purple")
 # => display list of matching schemes
+
+ColorScheme([colorant"red", colorant"green", colorant"blue"])
+# new colorscheme from Colors.jl named colors
+
+get(ColorSchemes.darkrainbow, range(0.0, 1.0, length=20)) |> ColorScheme
+# new colorscheme by resampling existing
 ```
 
 [docs-current-img]: https://img.shields.io/badge/docs-current-blue.svg

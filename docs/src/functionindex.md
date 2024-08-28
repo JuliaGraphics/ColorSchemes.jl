@@ -1,4 +1,4 @@
-# Index
+# Function index
 
 ```@index
 ```

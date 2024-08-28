@@ -109,6 +109,11 @@ scheme = rand(keys(colorschemes))
 """
 const colorschemes = Dict{Symbol,ColorScheme}()
 
+"""
+    loadallschemes()
+
+Load all colorschemes from data files. Not exported.
+"""
 function loadallschemes()
     # load the installed schemes
     datadir = joinpath(dirname(@__DIR__), "data")
@@ -280,6 +285,9 @@ img3 = get(colorschemes[:leonardo], 10.0 * rand(10, 10), (1.0, 9.0))
 # Also works with PerceptualColourMaps
 using PerceptualColourMaps # warning, installs PyPlot, PyCall, LaTeXStrings
 img4 = get(PerceptualColourMaps.cmap("R1"), rand(10,10))
+
+# resample an existing scheme to make a new one
+get(ColorSchemes.darkrainbow, range(0.0, 1.0, length=13)) |> ColorScheme
 ```
 """
 function get(cscheme::ColorScheme, x::AllowedInput, rangemode::Symbol)

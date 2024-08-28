@@ -1,6 +1,6 @@
 ```@setup catalog
-# this code will display all the schemes in a category, as an SVG
-# use in this docs/src/catalogue.md file as
+# this code will display all the schemes in a category, as an SVG.
+# Use in this docs/src/catalogue.md file as
 #  ```@example catalog
 #     using Luxor, ColorSchemes # hide
 #     ColorSchemeCategory("cmocean") # hide
@@ -20,9 +20,9 @@ function generate_scheme_svg(schemename;
     cols = colorschemes[schemename].colors
     l = length(cols)
     Drawing(swatchwidth, swatchheight, :svg)
-    setline(0.5)
     origin()
     t = Tiler(swatchwidth, swatchheight, 1, l, margin=0)
+    setline(0.5)
     for (i, c) in enumerate(cols)
         sethue(c)
         box(t, i, :fillstroke)

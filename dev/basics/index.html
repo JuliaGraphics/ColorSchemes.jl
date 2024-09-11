@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Basic usage · ColorSchemes</title><meta name="title" content="Basic usage · ColorSchemes"/><meta property="og:title" content="Basic usage · ColorSchemes"/><meta property="twitter:title" content="Basic usage · ColorSchemes"/><meta name="description" content="Documentation for ColorSchemes."/><meta property="og:description" content="Documentation for ColorSchemes."/><meta property="twitter:description" content="Documentation for ColorSchemes."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/colorschemes-docs.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.svg" alt="ColorSchemes logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../">ColorSchemes</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../catalogue/">Catalogue</a></li><li class="is-active"><a class="tocitem" href>Basic usage</a><ul class="internal"><li><a class="tocitem" href="#ColorScheme-objects"><span>ColorScheme objects</span></a></li><li><a class="tocitem" href="#The-colorschemes-dictionary"><span>The colorschemes dictionary</span></a></li><li><a class="tocitem" href="#Finding-colorschemes"><span>Finding colorschemes</span></a></li><li><a class="tocitem" href="#Make-your-own-colorscheme"><span>Make your own colorscheme</span></a></li><li><a class="tocitem" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users"><span>For CVD (color-vision deficient or &quot;color-blind&quot;) users</span></a></li><li><a class="tocitem" href="#More-about-color-sampling"><span>More about color sampling</span></a></li><li><a class="tocitem" href="#Matplotlib-compatibility"><span>Matplotlib compatibility</span></a></li><li><a class="tocitem" href="#Alpha-transparency"><span>Alpha transparency</span></a></li></ul></li><li><a class="tocitem" href="../goodpractice/">Good practice</a></li><li><a class="tocitem" href="../finding/">Finding colors</a></li><li><a class="tocitem" href="../plotting/">Plotting</a></li><li><a class="tocitem" href="../images/">Images</a></li><li><a class="tocitem" href="../functionindex/">Functions</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Basic usage</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Basic usage</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/basics.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Basics"><a class="docs-heading-anchor" href="#Basics">Basics</a><a id="Basics-1"></a><a class="docs-heading-anchor-permalink" href="#Basics" title="Permalink"></a></h1><h2 id="ColorScheme-objects"><a class="docs-heading-anchor" href="#ColorScheme-objects">ColorScheme objects</a><a id="ColorScheme-objects-1"></a><a class="docs-heading-anchor-permalink" href="#ColorScheme-objects" title="Permalink"></a></h2><p>When you start <code>using ColorSchemes</code>, it loads a set of pre-defined ColorSchemes in a dictionary called <code>colorschemes</code>.</p><p>A ColorScheme is a Julia object which contains:</p><ul><li>an ordered array of colors (see Colors.jl)</li><li>a string defining a category</li><li>a string containing descriptive notes</li></ul><p>To access one of the built-in colorschemes, use its symbol:</p><pre><code class="language-julia hljs">ColorSchemes.leonardo</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Basic usage · ColorSchemes</title><meta name="title" content="Basic usage · ColorSchemes"/><meta property="og:title" content="Basic usage · ColorSchemes"/><meta property="twitter:title" content="Basic usage · ColorSchemes"/><meta name="description" content="Documentation for ColorSchemes."/><meta property="og:description" content="Documentation for ColorSchemes."/><meta property="twitter:description" content="Documentation for ColorSchemes."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/colorschemes-docs.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.svg" alt="ColorSchemes logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../">ColorSchemes</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../catalogue/">Catalogue</a></li><li class="is-active"><a class="tocitem" href>Basic usage</a><ul class="internal"><li><a class="tocitem" href="#ColorScheme-objects"><span>ColorScheme objects</span></a></li><li><a class="tocitem" href="#The-colorschemes-dictionary"><span>The colorschemes dictionary</span></a></li><li><a class="tocitem" href="#Finding-colorschemes"><span>Finding colorschemes</span></a></li><li><a class="tocitem" href="#Make-your-own-colorscheme"><span>Make your own colorscheme</span></a></li><li><a class="tocitem" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users"><span>For CVD (color-vision deficient or &quot;color-blind&quot;) users</span></a></li><li><a class="tocitem" href="#The-resample()-function"><span>The <code>resample()</code> function</span></a></li><li><a class="tocitem" href="#More-about-color-sampling"><span>More about color sampling</span></a></li><li><a class="tocitem" href="#Matplotlib-compatibility"><span>Matplotlib compatibility</span></a></li></ul></li><li><a class="tocitem" href="../goodpractice/">Good practice</a></li><li><a class="tocitem" href="../finding/">Finding colors</a></li><li><a class="tocitem" href="../plotting/">Plotting</a></li><li><a class="tocitem" href="../images/">Images</a></li><li><a class="tocitem" href="../functionindex/">Functions</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Basic usage</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Basic usage</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/basics.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Basics"><a class="docs-heading-anchor" href="#Basics">Basics</a><a id="Basics-1"></a><a class="docs-heading-anchor-permalink" href="#Basics" title="Permalink"></a></h1><h2 id="ColorScheme-objects"><a class="docs-heading-anchor" href="#ColorScheme-objects">ColorScheme objects</a><a id="ColorScheme-objects-1"></a><a class="docs-heading-anchor-permalink" href="#ColorScheme-objects" title="Permalink"></a></h2><p>When you start <code>using ColorSchemes</code>, it loads a set of pre-defined ColorSchemes in a dictionary called <code>colorschemes</code>.</p><p>A ColorScheme is a Julia object which contains:</p><ul><li>an ordered array of colors (see Colors.jl)</li><li>a string defining a category</li><li>a string containing descriptive notes</li></ul><p>To access one of the built-in colorschemes, use its symbol:</p><pre><code class="language-julia hljs">ColorSchemes.leonardo</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -174,7 +174,7 @@ colorschemes containing &quot;ice&quot;
   botticelli            (notes) palette from artist Sandro Bot...
 
 
- ...found 6 results for &quot;ice&quot;</code></pre><p>To read the notes of a built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-julia hljs">colorschemes[:cscheme].notes</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/d801a9f7a9e647d4b8f663507e6866c0b73b6751/src/ColorSchemes.jl#L152-L183">source</a></section></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="language-julia hljs">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
+ ...found 6 results for &quot;ice&quot;</code></pre><p>To read the notes of a built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-julia hljs">colorschemes[:cscheme].notes</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/f7dc4cd02c59fc2433e9deed0c7d4f47600564c9/src/ColorSchemes.jl#L153-L184">source</a></section></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="language-julia hljs">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
 265-element Array{Symbol,1}:
  :BuPu_6
  :Spectral_4
@@ -549,7 +549,127 @@ ColorScheme(distinguishable_colors(10, transform=protanopic))</code></pre><img s
 <rect width=".94" height=".96" x="7" y="0" fill="%2300004C" />
 <rect width=".94" height=".96" x="8" y="0" fill="%23003400" />
 <rect width=".94" height=".96" x="9" y="0" fill="%236BAD26" />
-</svg>'/><h2 id="More-about-color-sampling"><a class="docs-heading-anchor" href="#More-about-color-sampling">More about color sampling</a><a id="More-about-color-sampling-1"></a><a class="docs-heading-anchor-permalink" href="#More-about-color-sampling" title="Permalink"></a></h2><p>You can access the specific colors of a colorscheme by indexing (eg <code>leonardo[2]</code> or <code>leonardo[5:end]</code>). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:</p><pre><code class="language-julia hljs">get(leonardo, 0.5)</code></pre><p>returns</p><pre><code class="language-julia hljs">RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><p><img src="../assets/figures/get-example.png" alt="&quot;get example&quot;"/></p><p>The colors in the predefined ColorSchemes are usually sorted by LUV luminance, so this often makes sense.</p><p>You can use <code>get()</code> with index data in arrays to return arrays of colors:</p><pre><code class="language-julia hljs">julia&gt; get(leonardo, [0.0, 0.5, 1.0])
+</svg>'/><h2 id="The-resample()-function"><a class="docs-heading-anchor" href="#The-resample()-function">The <code>resample()</code> function</a><a id="The-resample()-function-1"></a><a class="docs-heading-anchor-permalink" href="#The-resample()-function" title="Permalink"></a></h2><p>Use <code>resample()</code> to make a new colorscheme by resampling an existing one:</p><pre><code class="language-julia hljs">ColorSchemes.turbo</code></pre><img src="275ab45f.svg" alt="Example block output"/><pre><code class="language-julia hljs">resample(ColorSchemes.turbo, 9)</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 9 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".95" height=".96" x="0" y="0" fill="%2330123B" />
+<rect width=".95" height=".96" x="1" y="0" fill="%23466BE3" />
+<rect width=".95" height=".96" x="2" y="0" fill="%2329BBEC" />
+<rect width=".95" height=".96" x="3" y="0" fill="%2331F299" />
+<rect width=".95" height=".96" x="4" y="0" fill="%23A3FD3C" />
+<rect width=".95" height=".96" x="5" y="0" fill="%23EDD03A" />
+<rect width=".95" height=".96" x="6" y="0" fill="%23FB8022" />
+<rect width=".95" height=".96" x="7" y="0" fill="%23D23105" />
+<rect width=".95" height=".96" x="8" y="0" fill="%237A0403" />
+</svg>'/><p>You can pass a function to <code>resample()</code> to control the alpha opacity of each color in the color scheme.</p><pre><code class="language-julia hljs">resample(ColorSchemes.turbo, 9, (alpha) -&gt; 0.5)</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm" viewBox="0 0 9 1" stroke="none"
+     preserveAspectRatio="none" shape-rendering="crispEdges">
+<defs>
+    <pattern id="pat_4eS1oU" width=".2" height=".2"
+             patternUnits="userSpaceOnUse" patternTransform="scale(1.25,1)" >
+        <path d="M.1,0h.1v.1h-.2v.1h.1z" fill="%23999" opacity=".5" />
+    </pattern>
+</defs>
+<rect width="9" height="1" fill="url(%23pat_4eS1oU)" />
+<path d="M1,.1V1h-1V.9z" fill="%2330123B" />
+<path d="M0,0h1v1h-1z" fill="%2330123B" fill-opacity=".5" />
+<path d="M2,.1V1h-1V.9z" fill="%23466BE3" />
+<path d="M1,0h1v1h-1z" fill="%23466BE3" fill-opacity=".5" />
+<path d="M3,.1V1h-1V.9z" fill="%2329BBEC" />
+<path d="M2,0h1v1h-1z" fill="%2329BBEC" fill-opacity=".5" />
+<path d="M4,.1V1h-1V.9z" fill="%2331F299" />
+<path d="M3,0h1v1h-1z" fill="%2331F299" fill-opacity=".5" />
+<path d="M5,.1V1h-1V.9z" fill="%23A3FD3C" />
+<path d="M4,0h1v1h-1z" fill="%23A3FD3C" fill-opacity=".5" />
+<path d="M6,.1V1h-1V.9z" fill="%23EDD03A" />
+<path d="M5,0h1v1h-1z" fill="%23EDD03A" fill-opacity=".5" />
+<path d="M7,.1V1h-1V.9z" fill="%23FB8022" />
+<path d="M6,0h1v1h-1z" fill="%23FB8022" fill-opacity=".5" />
+<path d="M8,.1V1h-1V.9z" fill="%23D23105" />
+<path d="M7,0h1v1h-1z" fill="%23D23105" fill-opacity=".5" />
+<path d="M9,.1V1h-1V.9z" fill="%237A0403" />
+<path d="M8,0h1v1h-1z" fill="%237A0403" fill-opacity=".5" />
+</svg>'/><p>This sets the alpha value of every color to 0.5.</p><pre><code class="language-julia hljs">resample(ColorSchemes.turbo, 30, (alpha) -&gt; sin(alpha * π))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm" viewBox="0 0 30 1" stroke="none"
+     preserveAspectRatio="none" shape-rendering="crispEdges">
+<defs>
+    <pattern id="pat_1ImvdG" width=".2" height=".2"
+             patternUnits="userSpaceOnUse" patternTransform="scale(4.167,1)" >
+        <path d="M.1,0h.1v.1h-.2v.1h.1z" fill="%23999" opacity=".5" />
+    </pattern>
+</defs>
+<rect width="30" height="1" fill="url(%23pat_1ImvdG)" />
+<path d="M1,.38V1h-1V.62z" fill="%2330123B" />
+<path d="M0,0h1v1h-1z" fill="%2330123B" fill-opacity="0" />
+<path d="M2,.38V1h-1V.62z" fill="%233A2C78" />
+<path d="M1,0h1v1h-1z" fill="%233A2C78" fill-opacity=".1081" />
+<path d="M3,.38V1h-1V.62z" fill="%234145AA" />
+<path d="M2,0h1v1h-1z" fill="%234145AA" fill-opacity=".215" />
+<path d="M4,.38V1h-1V.62z" fill="%23455DD0" />
+<path d="M3,0h1v1h-1z" fill="%23455DD0" fill-opacity=".3193" />
+<path d="M5,.38V1h-1V.62z" fill="%234774EC" />
+<path d="M4,0h1v1h-1z" fill="%234774EC" fill-opacity=".4199" />
+<path d="M6,.38V1h-1V.62z" fill="%23458AFC" />
+<path d="M5,0h1v1h-1z" fill="%23458AFC" fill-opacity=".5156" />
+<path d="M7,.38V1h-1V.62z" fill="%233CA0FD" />
+<path d="M6,0h1v1h-1z" fill="%233CA0FD" fill-opacity=".6052" />
+<path d="M8,.38V1h-1V.62z" fill="%232DB6F1" />
+<path d="M7,0h1v1h-1z" fill="%232DB6F1" fill-opacity=".6877" />
+<path d="M9,.38V1h-1V.62z" fill="%231FCADC" />
+<path d="M8,0h1v1h-1z" fill="%231FCADC" fill-opacity=".7622" />
+<path d="M10,.38V1h-1V.62z" fill="%2318DBC5" />
+<path d="M9,0h1v1h-1z" fill="%2318DBC5" fill-opacity=".8277" />
+<path d="M11,.38V1h-1V.62z" fill="%231FE8AF" />
+<path d="M10,0h1v1h-1z" fill="%231FE8AF" fill-opacity=".8835" />
+<path d="M12,.38V1h-1V.62z" fill="%2334F395" />
+<path d="M11,0h1v1h-1z" fill="%2334F395" fill-opacity=".929" />
+<path d="M13,.38V1h-1V.62z" fill="%2354FA78" />
+<path d="M12,0h1v1h-1z" fill="%2354FA78" fill-opacity=".9635" />
+<path d="M14,.38V1h-1V.62z" fill="%2376FE5B" />
+<path d="M13,0h1v1h-1z" fill="%2376FE5B" fill-opacity=".9868" />
+<path d="M15,.38V1h-1V.62z" fill="%2396FE44" />
+<path d="M14,0h1v1h-1z" fill="%2396FE44" fill-opacity=".9985" />
+<path d="M16,.38V1h-1V.62z" fill="%23AEFA37" />
+<path d="M15,0h1v1h-1z" fill="%23AEFA37" fill-opacity=".9985" />
+<path d="M17,.38V1h-1V.62z" fill="%23C5F034" />
+<path d="M16,0h1v1h-1z" fill="%23C5F034" fill-opacity=".9868" />
+<path d="M18,.38V1h-1V.62z" fill="%23DAE336" />
+<path d="M17,0h1v1h-1z" fill="%23DAE336" fill-opacity=".9635" />
+<path d="M19,.38V1h-1V.62z" fill="%23EBD339" />
+<path d="M18,0h1v1h-1z" fill="%23EBD339" fill-opacity=".929" />
+<path d="M20,.38V1h-1V.62z" fill="%23F7C03A" />
+<path d="M19,0h1v1h-1z" fill="%23F7C03A" fill-opacity=".8835" />
+<path d="M21,.38V1h-1V.62z" fill="%23FDAC34" />
+<path d="M20,0h1v1h-1z" fill="%23FDAC34" fill-opacity=".8277" />
+<path d="M22,.38V1h-1V.62z" fill="%23FE942A" />
+<path d="M21,0h1v1h-1z" fill="%23FE942A" fill-opacity=".7622" />
+<path d="M23,.38V1h-1V.62z" fill="%23FA791F" />
+<path d="M22,0h1v1h-1z" fill="%23FA791F" fill-opacity=".6877" />
+<path d="M24,.38V1h-1V.62z" fill="%23F26014" />
+<path d="M23,0h1v1h-1z" fill="%23F26014" fill-opacity=".6052" />
+<path d="M25,.38V1h-1V.62z" fill="%23E7490B" />
+<path d="M24,0h1v1h-1z" fill="%23E7490B" fill-opacity=".5156" />
+<path d="M26,.38V1h-1V.62z" fill="%23D83706" />
+<path d="M25,0h1v1h-1z" fill="%23D83706" fill-opacity=".4199" />
+<path d="M27,.38V1h-1V.62z" fill="%23C62703" />
+<path d="M26,0h1v1h-1z" fill="%23C62703" fill-opacity=".3193" />
+<path d="M28,.38V1h-1V.62z" fill="%23B11901" />
+<path d="M27,0h1v1h-1z" fill="%23B11901" fill-opacity=".215" />
+<path d="M29,.38V1h-1V.62z" fill="%23970E01" />
+<path d="M28,0h1v1h-1z" fill="%23970E01" fill-opacity=".1081" />
+<path d="M30,.38V1h-1V.62z" fill="%237A0403" />
+<path d="M29,0h1v1h-1z" fill="%237A0403" fill-opacity="0" />
+</svg>'/><p>This example varies the alpha from 0 (at 0.0), 1 (at 0.5), and 0 (at 1.0). </p><h2 id="More-about-color-sampling"><a class="docs-heading-anchor" href="#More-about-color-sampling">More about color sampling</a><a id="More-about-color-sampling-1"></a><a class="docs-heading-anchor-permalink" href="#More-about-color-sampling" title="Permalink"></a></h2><p>You can access the specific colors of a colorscheme by indexing (eg <code>leonardo[2]</code> or <code>leonardo[5:end]</code>). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:</p><pre><code class="language-julia hljs">get(leonardo, 0.5)</code></pre><p>returns</p><pre><code class="language-julia hljs">RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><p><img src="../assets/figures/get-example.png" alt="&quot;get example&quot;"/></p><p>The colors in the predefined ColorSchemes are usually sorted by LUV luminance, so this often makes sense.</p><p>You can use <code>get()</code> with index data in arrays to return arrays of colors:</p><pre><code class="language-julia hljs">julia&gt; get(leonardo, [0.0, 0.5, 1.0])
 3-element Array{RGB{Float64},1} with eltype ColorTypes.RGB{Float64}:
  RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788)
  RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)  
@@ -602,9 +722,4 @@ sequential2  16
 	gray         not currently in stock
 perceptuallyuniformsequential 4
 diverging    12
-miscellaneous 17</code></pre><h2 id="Alpha-transparency"><a class="docs-heading-anchor" href="#Alpha-transparency">Alpha transparency</a><a id="Alpha-transparency-1"></a><a class="docs-heading-anchor-permalink" href="#Alpha-transparency" title="Permalink"></a></h2><p>To convert a colorscheme to one with transparency, you could use a function like this:</p><pre><code class="language-julia hljs">function colorscheme_alpha(cscheme::ColorScheme, alpha::T = 0.5; 
-        ncolors=12) where T&lt;:Real
-    return ColorScheme([RGBA(get(cscheme, k), alpha) for k in range(0, 1, length=ncolors)])
-end
-
-colors = colorscheme_alpha(ColorSchemes.ice, ncolors=12)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../catalogue/">« Catalogue</a><a class="docs-footer-nextpage" href="../goodpractice/">Good practice »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.6.0 on <span class="colophon-date" title="Wednesday 28 August 2024 09:27">Wednesday 28 August 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../catalogue/">« Catalogue</a><a class="docs-footer-nextpage" href="../goodpractice/">Good practice »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.7.0 on <span class="colophon-date" title="Wednesday 11 September 2024 15:39">Wednesday 11 September 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

@@ -69,6 +69,9 @@ ColorScheme([colorant"red", colorant"green", colorant"blue"])
 
 get(ColorSchemes.darkrainbow, range(0.0, 1.0, length=20)) |> ColorScheme
 # new colorscheme by resampling existing
+
+resample(ColorSchemes.darkrainbow, 20)
+# new colorscheme by resampling using `resample()` 
 ```
 
 Original version by [cormullion](https://github.com/cormullion).

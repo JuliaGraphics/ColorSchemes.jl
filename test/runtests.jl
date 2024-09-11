@@ -138,6 +138,13 @@ end
 
     # test findcolorschemes()
     @test length(findcolorscheme("rainbow")) > 0
+
+    # test resample
+    csa = resample(ColorSchemes.turbo, 20)
+    @test length(csa) == 20
+
+    csa = resample(ColorSchemes.turbo, 20, (α) -> 0.5)
+    @test csa[1].alpha == 0.5
 end
 
 # these won't error but they don't yet work correctly either

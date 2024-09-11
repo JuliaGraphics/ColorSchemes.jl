@@ -26,6 +26,7 @@ export ColorScheme,
        colourschemes,
        loadcolourscheme,
        findcolourscheme,
+       resample,
        ColourSchemeCategory
 
 """
@@ -404,6 +405,48 @@ Base.reverse(cscheme::ColorScheme) =
 Create new colorscheme by concatenating two colorschemes.
 """
 *(cscheme1::ColorScheme, cscheme2::ColorScheme) = ColorScheme(vcat(cscheme1.colors, cscheme2.colors))
+
+"""
+    resample(cs::colorscheme, n=10)
+
+Create a new colorscheme that samples an existing colorscheme `cs` `n` times.
+
+```julia
+resample(ColorSchemes.turbo)
+resample(ColorSchemes.turbo, 5)
+```
+"""
+function resample(cs::ColorScheme, n=10)
+    return ColorScheme(
+        [get(cs, i) for i in range(0, 1, length=max(n, 2))],
+        cs.category,
+        cs.notes * " resampled $n")
+end
+
+"""
+    resample(cs::colorscheme, n, alphafunction)
+
+Create a new colorscheme with RGBA colors that samples an existing colorscheme
+`cs` `n` times and applies the single argument `alphafunction` at each sampling
+point to set the alpha opacity value.
+
+```julia
+# set all 20 colors in scheme to alpha  0.5
+resample(ColorSchemes.turbo, 20, (α) -> 0.5)
+
+# set first 10 of 20 colors in scheme to alpha = 1
+resample(ColorSchemes.turbo, 20, (alpha) -> alpha > 0.5 ? 1 : 0.0)
+
+# set alpha value to sine; values around 0.5 are opaque 
+resample(ColorSchemes.leonardo, 10, (alpha) -> sin(alpha * π))
+```
+"""
+function resample(cs::ColorScheme, n, alpha::Function)
+    return ColorScheme(
+        [ColorSchemes.RGBA(get(cs, i), alpha(i)) for i in range(0, 1, length=max(n, 2))],
+        cs.category,
+        cs.notes * " resampled $n with alpha")
+end
 
 include("precompile.jl")
 

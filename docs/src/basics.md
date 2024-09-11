@@ -327,6 +327,35 @@ using Colors, ColorSchemes
 ColorScheme(distinguishable_colors(10, transform=protanopic))
 ```
 
+## The `resample()` function
+
+Use `resample()` to make a new colorscheme by resampling an existing one:
+
+```@example
+using Colors, ColorSchemes # hide
+ColorSchemes.turbo
+```
+```@example
+using Colors, ColorSchemes # hide
+resample(ColorSchemes.turbo, 9) 
+```
+
+You can pass a function to `resample()` to control the alpha opacity of each color in the color scheme.
+
+```@example
+using Colors, ColorSchemes # hide
+resample(ColorSchemes.turbo, 9, (alpha) -> 0.5) 
+```
+
+This sets the alpha value of every color to 0.5.
+
+```@example
+using Colors, ColorSchemes # hide
+resample(ColorSchemes.turbo, 30, (alpha) -> sin(alpha * π)) 
+```
+
+This example varies the alpha from 0 (at 0.0), 1 (at 0.5), and 0 (at 1.0). 
+
 ## More about color sampling
 
 You can access the specific colors of a colorscheme by indexing (eg `leonardo[2]` or `leonardo[5:end]`). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:
@@ -410,17 +439,4 @@ for (k, v) in matplotlibcmaps
       end
    end
 end
-```
-
-## Alpha transparency
-
-To convert a colorscheme to one with transparency, you could use a function like this:
-
-```julia
-function colorscheme_alpha(cscheme::ColorScheme, alpha::T = 0.5; 
-        ncolors=12) where T<:Real
-    return ColorScheme([RGBA(get(cscheme, k), alpha) for k in range(0, 1, length=ncolors)])
-end
-
-colors = colorscheme_alpha(ColorSchemes.ice, ncolors=12)
 ```

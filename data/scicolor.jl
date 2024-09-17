@@ -1,8 +1,8 @@
 # Crameri, F. (2018). Scientific colour-maps. Zenodo. http://doi.org/10.5281/zenodo.1243862
 # http://www.fabiocrameri.ch/colourmaps.php
 # version 8.0.0
-# This file generated 2024-07-21T09:17:05.559
 loadcolorscheme(:acton10, [
+    RGB{Float64}(0.1494, 0.0496, 0.2492),
     RGB{Float64}(0.2422, 0.1797, 0.3672),
     RGB{Float64}(0.3281, 0.3008, 0.4805),
     RGB{Float64}(0.4414, 0.3789, 0.5469),
@@ -12,10 +12,11 @@ loadcolorscheme(:acton10, [
     RGB{Float64}(0.8711, 0.668, 0.7852),
     RGB{Float64}(0.9102, 0.8047, 0.8906),
     RGB{Float64}(0.9375, 0.9141, 0.9766),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:acton25, [
+    RGB{Float64}(0.1494, 0.0496, 0.2492),
     RGB{Float64}(0.1875, 0.1055, 0.2969),
     RGB{Float64}(0.2188, 0.1484, 0.3398),
     RGB{Float64}(0.2539, 0.1992, 0.3828),
@@ -40,10 +41,11 @@ loadcolorscheme(:acton25, [
     RGB{Float64}(0.918, 0.8359, 0.9141),
     RGB{Float64}(0.9258, 0.875, 0.9453),
     RGB{Float64}(0.9375, 0.9141, 0.9766),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:acton50, [
+    RGB{Float64}(0.1494, 0.0496, 0.2492),
     RGB{Float64}(0.168, 0.0742, 0.2695),
     RGB{Float64}(0.1836, 0.0977, 0.293),
     RGB{Float64}(0.2031, 0.1289, 0.3203),
@@ -93,10 +95,11 @@ loadcolorscheme(:acton50, [
     RGB{Float64}(0.9258, 0.8789, 0.9492),
     RGB{Float64}(0.9336, 0.8984, 0.9609),
     RGB{Float64}(0.9375, 0.9141, 0.9766),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:acton100, [
+    RGB{Float64}(0.1494, 0.0496, 0.2492),
     RGB{Float64}(0.1602, 0.0664, 0.2617),
     RGB{Float64}(0.168, 0.0742, 0.2695),
     RGB{Float64}(0.1758, 0.0898, 0.2852),
@@ -196,9 +199,9 @@ loadcolorscheme(:acton100, [
     RGB{Float64}(0.9336, 0.8984, 0.9609),
     RGB{Float64}(0.9336, 0.9062, 0.9688),
     RGB{Float64}(0.9375, 0.9141, 0.9766),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:actonS, [
     RGB{Float64}(0.1494, 0.0496, 0.2492),
     RGB{Float64}(0.9399, 0.9192, 0.9794),
@@ -300,7 +303,7 @@ loadcolorscheme(:actonS, [
     RGB{Float64}(0.9199, 0.8383, 0.9186),
     RGB{Float64}(0.8466, 0.5657, 0.7022),
     RGB{Float64}(0.9318, 0.8863, 0.9547),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:acton, [
@@ -560,11 +563,11 @@ loadcolorscheme(:acton, [
     RGB{Float64}(0.9381, 0.912, 0.974),
     RGB{Float64}(0.939, 0.9156, 0.9767),
     RGB{Float64}(0.9399, 0.9192, 0.9794),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:bam10, [
+    RGB{Float64}(0.3962, 0.0081, 0.296),
     RGB{Float64}(0.6172, 0.2344, 0.5195),
     RGB{Float64}(0.7852, 0.4375, 0.6953),
     RGB{Float64}(0.8906, 0.6797, 0.8359),
@@ -574,10 +577,11 @@ loadcolorscheme(:bam10, [
     RGB{Float64}(0.4844, 0.6562, 0.3359),
     RGB{Float64}(0.2695, 0.4805, 0.1641),
     RGB{Float64}(0.0508, 0.2969, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:bam25, [
+    RGB{Float64}(0.3962, 0.0081, 0.296),
     RGB{Float64}(0.4883, 0.1133, 0.3867),
     RGB{Float64}(0.5703, 0.1875, 0.4688),
     RGB{Float64}(0.6445, 0.2617, 0.5469),
@@ -602,10 +606,11 @@ loadcolorscheme(:bam25, [
     RGB{Float64}(0.2227, 0.4375, 0.1289),
     RGB{Float64}(0.1484, 0.3711, 0.0703),
     RGB{Float64}(0.0508, 0.2969, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:bam50, [
+    RGB{Float64}(0.3962, 0.0081, 0.296),
     RGB{Float64}(0.4375, 0.0625, 0.3398),
     RGB{Float64}(0.4805, 0.1055, 0.3789),
     RGB{Float64}(0.5312, 0.1523, 0.4297),
@@ -655,10 +660,11 @@ loadcolorscheme(:bam50, [
     RGB{Float64}(0.1406, 0.3633, 0.0625),
     RGB{Float64}(0.0977, 0.332, 0.0273),
     RGB{Float64}(0.0508, 0.2969, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:bam100, [
+    RGB{Float64}(0.3962, 0.0081, 0.296),
     RGB{Float64}(0.4219, 0.0391, 0.3203),
     RGB{Float64}(0.4375, 0.0625, 0.3398),
     RGB{Float64}(0.4648, 0.0898, 0.3633),
@@ -758,7 +764,7 @@ loadcolorscheme(:bam100, [
     RGB{Float64}(0.0977, 0.332, 0.0273),
     RGB{Float64}(0.082, 0.3164, 0.0156),
     RGB{Float64}(0.0508, 0.2969, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:bam, [
@@ -1018,11 +1024,11 @@ loadcolorscheme(:bam, [
     RGB{Float64}(0.0705, 0.3109, 0.0102),
     RGB{Float64}(0.0601, 0.3038, 0.0051),
     RGB{Float64}(0.0491, 0.2967, 0.0),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:bamako10, [
+    RGB{Float64}(0.0, 0.23, 0.28),
     RGB{Float64}(0.0547, 0.2617, 0.2461),
     RGB{Float64}(0.125, 0.3086, 0.2031),
     RGB{Float64}(0.2109, 0.3672, 0.1484),
@@ -1032,10 +1038,11 @@ loadcolorscheme(:bamako10, [
     RGB{Float64}(0.7422, 0.6562, 0.1797),
     RGB{Float64}(0.8828, 0.7812, 0.4297),
     RGB{Float64}(0.9961, 0.8945, 0.6758),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bamako25, [
+    RGB{Float64}(0.0, 0.23, 0.28),
     RGB{Float64}(0.0195, 0.2422, 0.2656),
     RGB{Float64}(0.0391, 0.2539, 0.2539),
     RGB{Float64}(0.0625, 0.2695, 0.2422),
@@ -1060,10 +1067,11 @@ loadcolorscheme(:bamako25, [
     RGB{Float64}(0.9102, 0.8125, 0.4922),
     RGB{Float64}(0.9531, 0.8516, 0.582),
     RGB{Float64}(0.9961, 0.8945, 0.6758),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bamako50, [
+    RGB{Float64}(0.0, 0.23, 0.28),
     RGB{Float64}(0.0078, 0.2344, 0.2734),
     RGB{Float64}(0.0195, 0.2422, 0.2695),
     RGB{Float64}(0.0312, 0.2461, 0.2617),
@@ -1113,10 +1121,11 @@ loadcolorscheme(:bamako50, [
     RGB{Float64}(0.957, 0.8555, 0.5898),
     RGB{Float64}(0.9766, 0.875, 0.6367),
     RGB{Float64}(0.9961, 0.8945, 0.6758),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bamako100, [
+    RGB{Float64}(0.0, 0.23, 0.28),
     RGB{Float64}(0.0039, 0.2344, 0.2773),
     RGB{Float64}(0.0078, 0.2344, 0.2734),
     RGB{Float64}(0.0156, 0.2383, 0.2695),
@@ -1216,9 +1225,9 @@ loadcolorscheme(:bamako100, [
     RGB{Float64}(0.9766, 0.875, 0.6367),
     RGB{Float64}(0.9844, 0.8828, 0.6523),
     RGB{Float64}(0.9961, 0.8945, 0.6758),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bamakoS, [
     RGB{Float64}(0.0, 0.23, 0.28),
     RGB{Float64}(0.9999, 0.8999, 0.6797),
@@ -1320,7 +1329,7 @@ loadcolorscheme(:bamakoS, [
     RGB{Float64}(0.8757, 0.7754, 0.4127),
     RGB{Float64}(0.0665, 0.2722, 0.2393),
     RGB{Float64}(0.2614, 0.3983, 0.1182),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:bamako, [
@@ -1580,11 +1589,11 @@ loadcolorscheme(:bamako, [
     RGB{Float64}(0.9921, 0.892, 0.6629),
     RGB{Float64}(0.996, 0.8959, 0.6713),
     RGB{Float64}(0.9999, 0.8999, 0.6797),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:bamO10, [
+    RGB{Float64}(0.3095, 0.1864, 0.2637),
     RGB{Float64}(0.5273, 0.2852, 0.4727),
     RGB{Float64}(0.7188, 0.4648, 0.6523),
     RGB{Float64}(0.8398, 0.6875, 0.7852),
@@ -1594,10 +1603,11 @@ loadcolorscheme(:bamO10, [
     RGB{Float64}(0.3789, 0.3945, 0.2812),
     RGB{Float64}(0.2969, 0.2578, 0.2305),
     RGB{Float64}(0.3047, 0.1875, 0.2578),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, diverging, discrete, cvd")
 loadcolorscheme(:bamO25, [
+    RGB{Float64}(0.3095, 0.1864, 0.2637),
     RGB{Float64}(0.3828, 0.2031, 0.3398),
     RGB{Float64}(0.4727, 0.2461, 0.418),
     RGB{Float64}(0.5586, 0.3086, 0.5),
@@ -1622,10 +1632,11 @@ loadcolorscheme(:bamO25, [
     RGB{Float64}(0.2891, 0.2344, 0.2266),
     RGB{Float64}(0.2812, 0.207, 0.2305),
     RGB{Float64}(0.3047, 0.1875, 0.2578),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, diverging, discrete, cvd")
 loadcolorscheme(:bamO50, [
+    RGB{Float64}(0.3095, 0.1864, 0.2637),
     RGB{Float64}(0.3359, 0.1875, 0.293),
     RGB{Float64}(0.375, 0.1992, 0.3281),
     RGB{Float64}(0.4258, 0.2227, 0.3789),
@@ -1675,10 +1686,11 @@ loadcolorscheme(:bamO50, [
     RGB{Float64}(0.2852, 0.2031, 0.2305),
     RGB{Float64}(0.2891, 0.1914, 0.2422),
     RGB{Float64}(0.3047, 0.1875, 0.2578),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, diverging, discrete, cvd")
 loadcolorscheme(:bamO100, [
+    RGB{Float64}(0.3095, 0.1864, 0.2637),
     RGB{Float64}(0.3242, 0.1875, 0.2773),
     RGB{Float64}(0.3359, 0.1875, 0.293),
     RGB{Float64}(0.3594, 0.1953, 0.3125),
@@ -1778,7 +1790,7 @@ loadcolorscheme(:bamO100, [
     RGB{Float64}(0.2891, 0.1914, 0.2422),
     RGB{Float64}(0.293, 0.1914, 0.2461),
     RGB{Float64}(0.3047, 0.1875, 0.2578),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, diverging, discrete, cvd")
 loadcolorscheme(:bamO, [
@@ -2038,11 +2050,11 @@ loadcolorscheme(:bamO, [
     RGB{Float64}(0.2981, 0.189, 0.2511),
     RGB{Float64}(0.3014, 0.1878, 0.2549),
     RGB{Float64}(0.3052, 0.1869, 0.2591),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, diverging, cvd")
-
 loadcolorscheme(:batlow10, [
+    RGB{Float64}(0.0052, 0.0982, 0.3498),
     RGB{Float64}(0.0625, 0.2461, 0.375),
     RGB{Float64}(0.1094, 0.3516, 0.3828),
     RGB{Float64}(0.2344, 0.4258, 0.3359),
@@ -2052,10 +2064,11 @@ loadcolorscheme(:batlow10, [
     RGB{Float64}(0.9688, 0.6289, 0.4805),
     RGB{Float64}(0.9883, 0.7148, 0.7344),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlow25, [
+    RGB{Float64}(0.0052, 0.0982, 0.3498),
     RGB{Float64}(0.0391, 0.1641, 0.3594),
     RGB{Float64}(0.0547, 0.2148, 0.3672),
     RGB{Float64}(0.0664, 0.2617, 0.375),
@@ -2080,10 +2093,11 @@ loadcolorscheme(:batlow25, [
     RGB{Float64}(0.9883, 0.7344, 0.793),
     RGB{Float64}(0.9844, 0.7617, 0.8789),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlow50, [
+    RGB{Float64}(0.0052, 0.0982, 0.3498),
     RGB{Float64}(0.0234, 0.1289, 0.3555),
     RGB{Float64}(0.0391, 0.1562, 0.3594),
     RGB{Float64}(0.0508, 0.1914, 0.3633),
@@ -2133,10 +2147,11 @@ loadcolorscheme(:batlow50, [
     RGB{Float64}(0.9844, 0.7656, 0.8867),
     RGB{Float64}(0.9805, 0.7812, 0.9336),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlow100, [
+    RGB{Float64}(0.0052, 0.0982, 0.3498),
     RGB{Float64}(0.0156, 0.1172, 0.3516),
     RGB{Float64}(0.0234, 0.1289, 0.3555),
     RGB{Float64}(0.0312, 0.1445, 0.3555),
@@ -2236,7 +2251,7 @@ loadcolorscheme(:batlow100, [
     RGB{Float64}(0.9805, 0.7812, 0.9336),
     RGB{Float64}(0.9805, 0.7891, 0.9492),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowS, [
@@ -2340,7 +2355,7 @@ loadcolorscheme(:batlowS, [
     RGB{Float64}(0.0649, 0.2553, 0.3764),
     RGB{Float64}(0.1983, 0.4128, 0.3548),
     RGB{Float64}(0.9897, 0.745, 0.8208),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, categorical, cvd")
 loadcolorscheme(:batlow, [
@@ -2600,11 +2615,11 @@ loadcolorscheme(:batlow, [
     RGB{Float64}(0.9827, 0.7941, 0.9629),
     RGB{Float64}(0.982, 0.7972, 0.9721),
     RGB{Float64}(0.9814, 0.8004, 0.9813),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, cvd")
-
 loadcolorscheme(:batlowK10, [
+    RGB{Float64}(0.0167, 0.0208, 0.0409),
     RGB{Float64}(0.1016, 0.1719, 0.2539),
     RGB{Float64}(0.2109, 0.3242, 0.3711),
     RGB{Float64}(0.3086, 0.3984, 0.3398),
@@ -2614,10 +2629,11 @@ loadcolorscheme(:batlowK10, [
     RGB{Float64}(0.9609, 0.6602, 0.5234),
     RGB{Float64}(0.9883, 0.7227, 0.7461),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowK25, [
+    RGB{Float64}(0.0167, 0.0208, 0.0409),
     RGB{Float64}(0.0586, 0.082, 0.1211),
     RGB{Float64}(0.082, 0.1328, 0.1992),
     RGB{Float64}(0.1133, 0.1953, 0.2812),
@@ -2642,10 +2658,11 @@ loadcolorscheme(:batlowK25, [
     RGB{Float64}(0.9883, 0.7383, 0.8008),
     RGB{Float64}(0.9844, 0.7656, 0.8828),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowK50, [
+    RGB{Float64}(0.0167, 0.0208, 0.0409),
     RGB{Float64}(0.0391, 0.0508, 0.082),
     RGB{Float64}(0.0586, 0.0781, 0.1172),
     RGB{Float64}(0.0703, 0.1055, 0.1602),
@@ -2695,10 +2712,11 @@ loadcolorscheme(:batlowK50, [
     RGB{Float64}(0.9844, 0.7695, 0.8906),
     RGB{Float64}(0.9805, 0.7812, 0.9336),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowK100, [
+    RGB{Float64}(0.0167, 0.0208, 0.0409),
     RGB{Float64}(0.0273, 0.0391, 0.0664),
     RGB{Float64}(0.0391, 0.0508, 0.082),
     RGB{Float64}(0.0508, 0.0664, 0.1016),
@@ -2798,7 +2816,7 @@ loadcolorscheme(:batlowK100, [
     RGB{Float64}(0.9805, 0.7812, 0.9336),
     RGB{Float64}(0.9805, 0.7891, 0.9531),
     RGB{Float64}(0.9766, 0.7969, 0.9766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowKS, [
@@ -2902,7 +2920,7 @@ loadcolorscheme(:batlowKS, [
     RGB{Float64}(0.1139, 0.197, 0.283),
     RGB{Float64}(0.3854, 0.4426, 0.2985),
     RGB{Float64}(0.9933, 0.729, 0.7656),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, categorical, cvd")
 loadcolorscheme(:batlowK, [
@@ -3162,11 +3180,11 @@ loadcolorscheme(:batlowK, [
     RGB{Float64}(0.9836, 0.7948, 0.9642),
     RGB{Float64}(0.9827, 0.7977, 0.9728),
     RGB{Float64}(0.9817, 0.8006, 0.9815),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, cvd")
-
 loadcolorscheme(:batlowW10, [
+    RGB{Float64}(0.0046, 0.0983, 0.3498),
     RGB{Float64}(0.0625, 0.2461, 0.375),
     RGB{Float64}(0.1055, 0.3477, 0.3828),
     RGB{Float64}(0.2227, 0.4297, 0.3477),
@@ -3176,10 +3194,11 @@ loadcolorscheme(:batlowW10, [
     RGB{Float64}(0.9297, 0.6836, 0.5664),
     RGB{Float64}(0.9922, 0.8438, 0.8359),
     RGB{Float64}(0.9961, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowW25, [
+    RGB{Float64}(0.0046, 0.0983, 0.3498),
     RGB{Float64}(0.0391, 0.1641, 0.3594),
     RGB{Float64}(0.0547, 0.2148, 0.3672),
     RGB{Float64}(0.0664, 0.2617, 0.375),
@@ -3204,10 +3223,11 @@ loadcolorscheme(:batlowW25, [
     RGB{Float64}(0.9961, 0.8867, 0.8828),
     RGB{Float64}(0.9961, 0.9414, 0.9414),
     RGB{Float64}(0.9961, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowW50, [
+    RGB{Float64}(0.0046, 0.0983, 0.3498),
     RGB{Float64}(0.0234, 0.1289, 0.3555),
     RGB{Float64}(0.0391, 0.1562, 0.3594),
     RGB{Float64}(0.0508, 0.1914, 0.3633),
@@ -3257,10 +3277,11 @@ loadcolorscheme(:batlowW50, [
     RGB{Float64}(0.9961, 0.9453, 0.9453),
     RGB{Float64}(0.9961, 0.9688, 0.9688),
     RGB{Float64}(0.9961, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowW100, [
+    RGB{Float64}(0.0046, 0.0983, 0.3498),
     RGB{Float64}(0.0156, 0.1172, 0.3516),
     RGB{Float64}(0.0234, 0.1289, 0.3555),
     RGB{Float64}(0.0312, 0.1445, 0.3555),
@@ -3360,7 +3381,7 @@ loadcolorscheme(:batlowW100, [
     RGB{Float64}(0.9961, 0.9688, 0.9688),
     RGB{Float64}(0.9961, 0.9805, 0.9805),
     RGB{Float64}(0.9961, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, discrete, cvd")
 loadcolorscheme(:batlowWS, [
@@ -3464,7 +3485,7 @@ loadcolorscheme(:batlowWS, [
     RGB{Float64}(0.0523, 0.2018, 0.3676),
     RGB{Float64}(0.9863, 0.7779, 0.7483),
     RGB{Float64}(0.9776, 0.7518, 0.7082),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, categorical, cvd")
 loadcolorscheme(:batlowW, [
@@ -3724,11 +3745,11 @@ loadcolorscheme(:batlowW, [
     RGB{Float64}(1.0, 0.9873, 0.987),
     RGB{Float64}(1.0, 0.9915, 0.9913),
     RGB{Float64}(1.0, 0.9958, 0.9956),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential, scientific rainbow, cvd")
-
 loadcolorscheme(:berlin10, [
+    RGB{Float64}(0.6211, 0.6902, 0.9995),
     RGB{Float64}(0.3555, 0.6406, 0.8555),
     RGB{Float64}(0.1758, 0.457, 0.5898),
     RGB{Float64}(0.1016, 0.2578, 0.3359),
@@ -3738,10 +3759,11 @@ loadcolorscheme(:berlin10, [
     RGB{Float64}(0.5391, 0.2461, 0.1641),
     RGB{Float64}(0.7656, 0.457, 0.4141),
     RGB{Float64}(0.9961, 0.6758, 0.6758),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:berlin25, [
+    RGB{Float64}(0.6211, 0.6902, 0.9995),
     RGB{Float64}(0.5195, 0.6758, 0.9492),
     RGB{Float64}(0.4219, 0.6602, 0.8984),
     RGB{Float64}(0.3164, 0.6211, 0.8242),
@@ -3766,10 +3788,11 @@ loadcolorscheme(:berlin25, [
     RGB{Float64}(0.8203, 0.5117, 0.4766),
     RGB{Float64}(0.9023, 0.5898, 0.5703),
     RGB{Float64}(0.9961, 0.6758, 0.6758),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:berlin50, [
+    RGB{Float64}(0.6211, 0.6902, 0.9995),
     RGB{Float64}(0.5742, 0.6836, 0.9766),
     RGB{Float64}(0.5273, 0.6758, 0.9531),
     RGB{Float64}(0.4727, 0.668, 0.9258),
@@ -3819,10 +3842,11 @@ loadcolorscheme(:berlin50, [
     RGB{Float64}(0.9141, 0.5977, 0.582),
     RGB{Float64}(0.9531, 0.6367, 0.6289),
     RGB{Float64}(0.9961, 0.6758, 0.6758),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:berlin100, [
+    RGB{Float64}(0.6211, 0.6902, 0.9995),
     RGB{Float64}(0.5938, 0.6836, 0.9844),
     RGB{Float64}(0.5742, 0.6836, 0.9766),
     RGB{Float64}(0.5469, 0.6797, 0.9609),
@@ -3922,7 +3946,7 @@ loadcolorscheme(:berlin100, [
     RGB{Float64}(0.9531, 0.6367, 0.6289),
     RGB{Float64}(0.9727, 0.6523, 0.6484),
     RGB{Float64}(0.9961, 0.6758, 0.6758),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:berlin, [
@@ -4182,11 +4206,11 @@ loadcolorscheme(:berlin, [
     RGB{Float64}(0.983, 0.6638, 0.6605),
     RGB{Float64}(0.9914, 0.6719, 0.6702),
     RGB{Float64}(0.9999, 0.6801, 0.68),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:bilbao10, [
+    RGB{Float64}(0.2991, 0.0003, 0.003),
     RGB{Float64}(0.4492, 0.1445, 0.1602),
     RGB{Float64}(0.5781, 0.2734, 0.293),
     RGB{Float64}(0.625, 0.3828, 0.3398),
@@ -4196,10 +4220,11 @@ loadcolorscheme(:bilbao10, [
     RGB{Float64}(0.7578, 0.7344, 0.6367),
     RGB{Float64}(0.8203, 0.8203, 0.8047),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bilbao25, [
+    RGB{Float64}(0.2991, 0.0003, 0.003),
     RGB{Float64}(0.3633, 0.0625, 0.0781),
     RGB{Float64}(0.418, 0.1133, 0.125),
     RGB{Float64}(0.4688, 0.1602, 0.1836),
@@ -4224,10 +4249,11 @@ loadcolorscheme(:bilbao25, [
     RGB{Float64}(0.8555, 0.8555, 0.8516),
     RGB{Float64}(0.918, 0.918, 0.918),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bilbao50, [
+    RGB{Float64}(0.2991, 0.0003, 0.003),
     RGB{Float64}(0.3281, 0.0273, 0.043),
     RGB{Float64}(0.3555, 0.0547, 0.0742),
     RGB{Float64}(0.3906, 0.0859, 0.1016),
@@ -4277,10 +4303,11 @@ loadcolorscheme(:bilbao50, [
     RGB{Float64}(0.9258, 0.9258, 0.9258),
     RGB{Float64}(0.9609, 0.9609, 0.9609),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bilbao100, [
+    RGB{Float64}(0.2991, 0.0003, 0.003),
     RGB{Float64}(0.3164, 0.0156, 0.0273),
     RGB{Float64}(0.3281, 0.0273, 0.043),
     RGB{Float64}(0.3438, 0.043, 0.0625),
@@ -4380,9 +4407,9 @@ loadcolorscheme(:bilbao100, [
     RGB{Float64}(0.9609, 0.9609, 0.9609),
     RGB{Float64}(0.9766, 0.9766, 0.9766),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:bilbaoS, [
     RGB{Float64}(0.2991, 0.0003, 0.003),
     RGB{Float64}(0.9715, 0.9715, 0.9714),
@@ -4484,7 +4511,7 @@ loadcolorscheme(:bilbaoS, [
     RGB{Float64}(0.735, 0.6996, 0.5369),
     RGB{Float64}(0.4382, 0.1303, 0.1474),
     RGB{Float64}(0.8782, 0.8774, 0.8738),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:bilbao, [
@@ -4744,11 +4771,11 @@ loadcolorscheme(:bilbao, [
     RGB{Float64}(0.9858, 0.9858, 0.9857),
     RGB{Float64}(0.993, 0.993, 0.9929),
     RGB{Float64}(1.0, 1.0, 1.0),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:broc10, [
+    RGB{Float64}(0.1708, 0.1003, 0.2998),
     RGB{Float64}(0.1562, 0.2656, 0.4648),
     RGB{Float64}(0.293, 0.4609, 0.625),
     RGB{Float64}(0.543, 0.6523, 0.7578),
@@ -4758,10 +4785,11 @@ loadcolorscheme(:broc10, [
     RGB{Float64}(0.5508, 0.5508, 0.3359),
     RGB{Float64}(0.332, 0.332, 0.1523),
     RGB{Float64}(0.1484, 0.1484, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:broc25, [
+    RGB{Float64}(0.1708, 0.1003, 0.2998),
     RGB{Float64}(0.168, 0.1641, 0.3633),
     RGB{Float64}(0.1602, 0.2227, 0.4219),
     RGB{Float64}(0.1602, 0.293, 0.4883),
@@ -4786,10 +4814,11 @@ loadcolorscheme(:broc25, [
     RGB{Float64}(0.2852, 0.2852, 0.1133),
     RGB{Float64}(0.2148, 0.2188, 0.0625),
     RGB{Float64}(0.1484, 0.1484, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:broc50, [
+    RGB{Float64}(0.1708, 0.1003, 0.2998),
     RGB{Float64}(0.168, 0.1289, 0.3281),
     RGB{Float64}(0.168, 0.1602, 0.3555),
     RGB{Float64}(0.1641, 0.1914, 0.3906),
@@ -4839,10 +4868,11 @@ loadcolorscheme(:broc50, [
     RGB{Float64}(0.2109, 0.2109, 0.0586),
     RGB{Float64}(0.1797, 0.1797, 0.0312),
     RGB{Float64}(0.1484, 0.1484, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:broc100, [
+    RGB{Float64}(0.1708, 0.1003, 0.2998),
     RGB{Float64}(0.168, 0.1172, 0.3164),
     RGB{Float64}(0.168, 0.1289, 0.3281),
     RGB{Float64}(0.168, 0.1484, 0.3438),
@@ -4942,7 +4972,7 @@ loadcolorscheme(:broc100, [
     RGB{Float64}(0.1797, 0.1797, 0.0312),
     RGB{Float64}(0.168, 0.168, 0.0195),
     RGB{Float64}(0.1484, 0.1484, 0.0),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:broc, [
@@ -5202,11 +5232,11 @@ loadcolorscheme(:broc, [
     RGB{Float64}(0.1612, 0.1624, 0.0142),
     RGB{Float64}(0.1555, 0.1565, 0.008),
     RGB{Float64}(0.15, 0.1506, 0.0019),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:brocO10, [
+    RGB{Float64}(0.2143, 0.1847, 0.2182),
     RGB{Float64}(0.2188, 0.2539, 0.3906),
     RGB{Float64}(0.332, 0.4453, 0.6016),
     RGB{Float64}(0.5391, 0.6367, 0.7461),
@@ -5216,10 +5246,11 @@ loadcolorscheme(:brocO10, [
     RGB{Float64}(0.418, 0.4102, 0.2383),
     RGB{Float64}(0.2656, 0.2461, 0.1602),
     RGB{Float64}(0.2148, 0.1836, 0.2148),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:brocO25, [
+    RGB{Float64}(0.2143, 0.1847, 0.2182),
     RGB{Float64}(0.2109, 0.1953, 0.2734),
     RGB{Float64}(0.2109, 0.2227, 0.3398),
     RGB{Float64}(0.2266, 0.2773, 0.4219),
@@ -5244,10 +5275,11 @@ loadcolorscheme(:brocO25, [
     RGB{Float64}(0.2461, 0.2188, 0.1602),
     RGB{Float64}(0.2266, 0.1953, 0.1797),
     RGB{Float64}(0.2148, 0.1836, 0.2148),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:brocO50, [
+    RGB{Float64}(0.2143, 0.1847, 0.2182),
     RGB{Float64}(0.2109, 0.1875, 0.2383),
     RGB{Float64}(0.2109, 0.1914, 0.2656),
     RGB{Float64}(0.2109, 0.207, 0.3047),
@@ -5297,10 +5329,11 @@ loadcolorscheme(:brocO50, [
     RGB{Float64}(0.2227, 0.1953, 0.1797),
     RGB{Float64}(0.2188, 0.1875, 0.1953),
     RGB{Float64}(0.2148, 0.1836, 0.2148),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:brocO100, [
+    RGB{Float64}(0.2143, 0.1847, 0.2182),
     RGB{Float64}(0.2109, 0.1836, 0.2305),
     RGB{Float64}(0.2109, 0.1875, 0.2383),
     RGB{Float64}(0.2109, 0.1875, 0.2539),
@@ -5400,7 +5433,7 @@ loadcolorscheme(:brocO100, [
     RGB{Float64}(0.2188, 0.1875, 0.1953),
     RGB{Float64}(0.2148, 0.1836, 0.2031),
     RGB{Float64}(0.2148, 0.1836, 0.2148),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:brocO, [
@@ -5660,11 +5693,11 @@ loadcolorscheme(:brocO, [
     RGB{Float64}(0.2164, 0.1856, 0.2064),
     RGB{Float64}(0.2156, 0.1851, 0.2102),
     RGB{Float64}(0.2149, 0.1848, 0.2141),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, cvd")
-
 loadcolorscheme(:buda10, [
+    RGB{Float64}(0.7002, 0.0027, 0.7006),
     RGB{Float64}(0.6992, 0.168, 0.6172),
     RGB{Float64}(0.7227, 0.2812, 0.5703),
     RGB{Float64}(0.7578, 0.3789, 0.5391),
@@ -5674,10 +5707,11 @@ loadcolorscheme(:buda10, [
     RGB{Float64}(0.8633, 0.7617, 0.4336),
     RGB{Float64}(0.8945, 0.8711, 0.4062),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:buda25, [
+    RGB{Float64}(0.7002, 0.0027, 0.7006),
     RGB{Float64}(0.6992, 0.0859, 0.6602),
     RGB{Float64}(0.6992, 0.1367, 0.6328),
     RGB{Float64}(0.6992, 0.1836, 0.6094),
@@ -5702,10 +5736,11 @@ loadcolorscheme(:buda25, [
     RGB{Float64}(0.9102, 0.8984, 0.4023),
     RGB{Float64}(0.9453, 0.9453, 0.3984),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:buda50, [
+    RGB{Float64}(0.7002, 0.0027, 0.7006),
     RGB{Float64}(0.6992, 0.043, 0.6797),
     RGB{Float64}(0.6992, 0.0781, 0.6641),
     RGB{Float64}(0.6992, 0.1094, 0.6484),
@@ -5755,10 +5790,11 @@ loadcolorscheme(:buda50, [
     RGB{Float64}(0.9492, 0.9492, 0.3984),
     RGB{Float64}(0.9727, 0.9727, 0.3984),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:buda100, [
+    RGB{Float64}(0.7002, 0.0027, 0.7006),
     RGB{Float64}(0.6992, 0.0273, 0.6875),
     RGB{Float64}(0.6992, 0.043, 0.6797),
     RGB{Float64}(0.6992, 0.0664, 0.6719),
@@ -5858,9 +5894,9 @@ loadcolorscheme(:buda100, [
     RGB{Float64}(0.9727, 0.9727, 0.3984),
     RGB{Float64}(0.9805, 0.9805, 0.3984),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:budaS, [
     RGB{Float64}(0.7002, 0.0027, 0.7006),
     RGB{Float64}(1.0, 1.0, 0.4002),
@@ -5962,7 +5998,7 @@ loadcolorscheme(:budaS, [
     RGB{Float64}(0.7332, 0.2997, 0.5673),
     RGB{Float64}(0.7101, 0.2242, 0.5941),
     RGB{Float64}(0.7013, 0.1581, 0.6246),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:buda, [
@@ -6222,11 +6258,11 @@ loadcolorscheme(:buda, [
     RGB{Float64}(0.9907, 0.9904, 0.4003),
     RGB{Float64}(0.9954, 0.9952, 0.4003),
     RGB{Float64}(1.0, 1.0, 0.4002),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:bukavu10, [
+    RGB{Float64}(0.1002, 0.2, 0.2001),
     RGB{Float64}(0.1328, 0.3164, 0.4688),
     RGB{Float64}(0.2031, 0.5195, 0.7578),
     RGB{Float64}(0.3984, 0.707, 0.7891),
@@ -6236,10 +6272,11 @@ loadcolorscheme(:bukavu10, [
     RGB{Float64}(0.6641, 0.5156, 0.3086),
     RGB{Float64}(0.8242, 0.7578, 0.6641),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:bukavu25, [
+    RGB{Float64}(0.1002, 0.2, 0.2001),
     RGB{Float64}(0.1094, 0.2383, 0.2852),
     RGB{Float64}(0.1211, 0.2773, 0.3828),
     RGB{Float64}(0.1367, 0.3398, 0.5234),
@@ -6264,10 +6301,11 @@ loadcolorscheme(:bukavu25, [
     RGB{Float64}(0.8516, 0.8086, 0.7539),
     RGB{Float64}(0.8867, 0.8672, 0.8633),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:bukavu50, [
+    RGB{Float64}(0.1002, 0.2, 0.2001),
     RGB{Float64}(0.1055, 0.2148, 0.2383),
     RGB{Float64}(0.1094, 0.2344, 0.2773),
     RGB{Float64}(0.1172, 0.2578, 0.332),
@@ -6317,10 +6355,11 @@ loadcolorscheme(:bukavu50, [
     RGB{Float64}(0.8906, 0.8711, 0.875),
     RGB{Float64}(0.9102, 0.8984, 0.9258),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:bukavu100, [
+    RGB{Float64}(0.1002, 0.2, 0.2001),
     RGB{Float64}(0.1016, 0.207, 0.2227),
     RGB{Float64}(0.1055, 0.2148, 0.2383),
     RGB{Float64}(0.1055, 0.2266, 0.2617),
@@ -6420,9 +6459,9 @@ loadcolorscheme(:bukavu100, [
     RGB{Float64}(0.9102, 0.8984, 0.9258),
     RGB{Float64}(0.9141, 0.9102, 0.9492),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:bukavu, [
     RGB{Float64}(0.1002, 0.2, 0.2001),
     RGB{Float64}(0.1012, 0.2033, 0.2076),
@@ -6680,11 +6719,11 @@ loadcolorscheme(:bukavu, [
     RGB{Float64}(0.9226, 0.9179, 0.965),
     RGB{Float64}(0.9262, 0.9236, 0.9768),
     RGB{Float64}(0.9299, 0.9294, 0.9887),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , cvd")
-
 loadcolorscheme(:cork10, [
+    RGB{Float64}(0.1709, 0.0993, 0.2989),
     RGB{Float64}(0.1562, 0.2695, 0.4688),
     RGB{Float64}(0.2852, 0.4531, 0.6211),
     RGB{Float64}(0.5117, 0.6289, 0.7422),
@@ -6694,10 +6733,11 @@ loadcolorscheme(:cork10, [
     RGB{Float64}(0.3086, 0.5352, 0.3047),
     RGB{Float64}(0.1094, 0.3555, 0.0977),
     RGB{Float64}(0.0586, 0.1602, 0.0117),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:cork25, [
+    RGB{Float64}(0.1709, 0.0993, 0.2989),
     RGB{Float64}(0.1641, 0.168, 0.3672),
     RGB{Float64}(0.1602, 0.2266, 0.4258),
     RGB{Float64}(0.1562, 0.293, 0.4922),
@@ -6722,10 +6762,11 @@ loadcolorscheme(:cork25, [
     RGB{Float64}(0.0898, 0.3047, 0.0703),
     RGB{Float64}(0.0703, 0.2344, 0.043),
     RGB{Float64}(0.0586, 0.1602, 0.0117),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:cork50, [
+    RGB{Float64}(0.1709, 0.0993, 0.2989),
     RGB{Float64}(0.168, 0.1328, 0.3281),
     RGB{Float64}(0.168, 0.1602, 0.3594),
     RGB{Float64}(0.1641, 0.1953, 0.3945),
@@ -6775,10 +6816,11 @@ loadcolorscheme(:cork50, [
     RGB{Float64}(0.0703, 0.2266, 0.0391),
     RGB{Float64}(0.0625, 0.1914, 0.0273),
     RGB{Float64}(0.0586, 0.1602, 0.0117),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:cork100, [
+    RGB{Float64}(0.1709, 0.0993, 0.2989),
     RGB{Float64}(0.168, 0.1172, 0.3164),
     RGB{Float64}(0.168, 0.1328, 0.3281),
     RGB{Float64}(0.168, 0.1484, 0.3477),
@@ -6878,7 +6920,7 @@ loadcolorscheme(:cork100, [
     RGB{Float64}(0.0625, 0.1914, 0.0273),
     RGB{Float64}(0.0625, 0.1797, 0.0195),
     RGB{Float64}(0.0586, 0.1602, 0.0117),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:cork, [
@@ -7138,11 +7180,11 @@ loadcolorscheme(:cork, [
     RGB{Float64}(0.0613, 0.1738, 0.0182),
     RGB{Float64}(0.0605, 0.1673, 0.015),
     RGB{Float64}(0.0597, 0.1608, 0.0118),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:corkO10, [
+    RGB{Float64}(0.2465, 0.2435, 0.2292),
     RGB{Float64}(0.2422, 0.2656, 0.3633),
     RGB{Float64}(0.3281, 0.4297, 0.5781),
     RGB{Float64}(0.5156, 0.6172, 0.7266),
@@ -7152,10 +7194,11 @@ loadcolorscheme(:corkO10, [
     RGB{Float64}(0.3086, 0.4492, 0.2305),
     RGB{Float64}(0.2617, 0.3086, 0.1719),
     RGB{Float64}(0.2461, 0.2422, 0.2266),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:corkO25, [
+    RGB{Float64}(0.2465, 0.2435, 0.2292),
     RGB{Float64}(0.2422, 0.2383, 0.2695),
     RGB{Float64}(0.2422, 0.2461, 0.3203),
     RGB{Float64}(0.2461, 0.2812, 0.3906),
@@ -7180,10 +7223,11 @@ loadcolorscheme(:corkO25, [
     RGB{Float64}(0.2578, 0.2852, 0.1797),
     RGB{Float64}(0.25, 0.2617, 0.1992),
     RGB{Float64}(0.2461, 0.2422, 0.2266),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:corkO50, [
+    RGB{Float64}(0.2465, 0.2435, 0.2292),
     RGB{Float64}(0.2422, 0.2383, 0.2461),
     RGB{Float64}(0.2422, 0.2383, 0.2656),
     RGB{Float64}(0.2422, 0.2383, 0.293),
@@ -7233,10 +7277,11 @@ loadcolorscheme(:corkO50, [
     RGB{Float64}(0.25, 0.2617, 0.1992),
     RGB{Float64}(0.25, 0.25, 0.2109),
     RGB{Float64}(0.2461, 0.2422, 0.2266),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:corkO100, [
+    RGB{Float64}(0.2465, 0.2435, 0.2292),
     RGB{Float64}(0.2461, 0.2383, 0.2383),
     RGB{Float64}(0.2422, 0.2383, 0.2461),
     RGB{Float64}(0.2422, 0.2383, 0.2578),
@@ -7336,7 +7381,7 @@ loadcolorscheme(:corkO100, [
     RGB{Float64}(0.25, 0.25, 0.2109),
     RGB{Float64}(0.2461, 0.2461, 0.2188),
     RGB{Float64}(0.2461, 0.2422, 0.2266),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:corkO, [
@@ -7596,11 +7641,11 @@ loadcolorscheme(:corkO, [
     RGB{Float64}(0.2479, 0.2473, 0.2204),
     RGB{Float64}(0.2474, 0.246, 0.2233),
     RGB{Float64}(0.247, 0.2447, 0.2262),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, cvd")
-
 loadcolorscheme(:davos10, [
+    RGB{Float64}(0.0, 0.0197, 0.292),
     RGB{Float64}(0.0664, 0.1719, 0.4414),
     RGB{Float64}(0.1602, 0.3203, 0.5664),
     RGB{Float64}(0.2617, 0.4375, 0.6133),
@@ -7610,10 +7655,11 @@ loadcolorscheme(:davos10, [
     RGB{Float64}(0.7852, 0.8203, 0.6172),
     RGB{Float64}(0.9492, 0.9492, 0.8203),
     RGB{Float64}(0.9922, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:davos25, [
+    RGB{Float64}(0.0, 0.0197, 0.292),
     RGB{Float64}(0.0195, 0.0859, 0.3516),
     RGB{Float64}(0.0469, 0.1367, 0.4062),
     RGB{Float64}(0.0781, 0.1953, 0.4648),
@@ -7638,10 +7684,11 @@ loadcolorscheme(:davos25, [
     RGB{Float64}(0.9648, 0.9648, 0.8672),
     RGB{Float64}(0.9844, 0.9805, 0.9297),
     RGB{Float64}(0.9922, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:davos50, [
+    RGB{Float64}(0.0, 0.0197, 0.292),
     RGB{Float64}(0.0039, 0.0547, 0.3164),
     RGB{Float64}(0.0156, 0.0781, 0.3477),
     RGB{Float64}(0.0312, 0.1094, 0.3789),
@@ -7691,10 +7738,11 @@ loadcolorscheme(:davos50, [
     RGB{Float64}(0.9844, 0.9844, 0.9375),
     RGB{Float64}(0.9883, 0.9883, 0.9648),
     RGB{Float64}(0.9922, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:davos100, [
+    RGB{Float64}(0.0, 0.0197, 0.292),
     RGB{Float64}(0.0, 0.043, 0.3086),
     RGB{Float64}(0.0039, 0.0547, 0.3164),
     RGB{Float64}(0.0117, 0.0703, 0.3359),
@@ -7794,9 +7842,9 @@ loadcolorscheme(:davos100, [
     RGB{Float64}(0.9883, 0.9883, 0.9648),
     RGB{Float64}(0.9922, 0.9922, 0.9766),
     RGB{Float64}(0.9922, 0.9922, 0.9922),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:davosS, [
     RGB{Float64}(0.0, 0.0197, 0.292),
     RGB{Float64}(0.9912, 0.9903, 0.9572),
@@ -7898,7 +7946,7 @@ loadcolorscheme(:davosS, [
     RGB{Float64}(0.3761, 0.5246, 0.5949),
     RGB{Float64}(0.442, 0.5679, 0.5672),
     RGB{Float64}(0.7348, 0.7816, 0.5804),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:davos, [
@@ -8158,11 +8206,11 @@ loadcolorscheme(:davos, [
     RGB{Float64}(0.9959, 0.9957, 0.9864),
     RGB{Float64}(0.9967, 0.9967, 0.9922),
     RGB{Float64}(0.9975, 0.9978, 0.998),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:devon10, [
+    RGB{Float64}(0.171, 0.1004, 0.2998),
     RGB{Float64}(0.1602, 0.2031, 0.4023),
     RGB{Float64}(0.1523, 0.3164, 0.5234),
     RGB{Float64}(0.2109, 0.4102, 0.6758),
@@ -8172,10 +8220,11 @@ loadcolorscheme(:devon10, [
     RGB{Float64}(0.8125, 0.7969, 0.957),
     RGB{Float64}(0.9062, 0.8945, 0.9766),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:devon25, [
+    RGB{Float64}(0.171, 0.1004, 0.2998),
     RGB{Float64}(0.168, 0.1406, 0.3398),
     RGB{Float64}(0.1641, 0.1758, 0.375),
     RGB{Float64}(0.1602, 0.2188, 0.4141),
@@ -8200,10 +8249,11 @@ loadcolorscheme(:devon25, [
     RGB{Float64}(0.9258, 0.9219, 0.9805),
     RGB{Float64}(0.9609, 0.957, 0.9883),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:devon50, [
+    RGB{Float64}(0.171, 0.1004, 0.2998),
     RGB{Float64}(0.168, 0.1172, 0.3164),
     RGB{Float64}(0.168, 0.1367, 0.3359),
     RGB{Float64}(0.1641, 0.1602, 0.3555),
@@ -8253,10 +8303,11 @@ loadcolorscheme(:devon50, [
     RGB{Float64}(0.9648, 0.9609, 0.9883),
     RGB{Float64}(0.9805, 0.9766, 0.9922),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:devon100, [
+    RGB{Float64}(0.171, 0.1004, 0.2998),
     RGB{Float64}(0.168, 0.1094, 0.3086),
     RGB{Float64}(0.168, 0.1172, 0.3164),
     RGB{Float64}(0.168, 0.1289, 0.3281),
@@ -8356,9 +8407,9 @@ loadcolorscheme(:devon100, [
     RGB{Float64}(0.9805, 0.9766, 0.9922),
     RGB{Float64}(0.9844, 0.9844, 0.9922),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:devonS, [
     RGB{Float64}(0.171, 0.1004, 0.2998),
     RGB{Float64}(0.9736, 0.971, 0.9946),
@@ -8460,7 +8511,7 @@ loadcolorscheme(:devonS, [
     RGB{Float64}(0.1568, 0.2368, 0.4367),
     RGB{Float64}(0.6447, 0.6345, 0.9209),
     RGB{Float64}(0.7342, 0.7107, 0.9451),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:devon, [
@@ -8720,11 +8771,11 @@ loadcolorscheme(:devon, [
     RGB{Float64}(0.9933, 0.9927, 0.9986),
     RGB{Float64}(0.9966, 0.9963, 0.9993),
     RGB{Float64}(0.9999, 1.0, 1.0),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:fes10, [
+    RGB{Float64}(0.0497, 0.0497, 0.0497),
     RGB{Float64}(0.25, 0.25, 0.25),
     RGB{Float64}(0.4258, 0.4258, 0.4258),
     RGB{Float64}(0.5898, 0.5898, 0.5898),
@@ -8734,10 +8785,11 @@ loadcolorscheme(:fes10, [
     RGB{Float64}(0.7109, 0.5117, 0.3008),
     RGB{Float64}(0.8242, 0.7578, 0.6641),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:fes25, [
+    RGB{Float64}(0.0497, 0.0497, 0.0497),
     RGB{Float64}(0.1328, 0.1328, 0.1328),
     RGB{Float64}(0.2031, 0.2031, 0.2031),
     RGB{Float64}(0.2734, 0.2734, 0.2734),
@@ -8762,10 +8814,11 @@ loadcolorscheme(:fes25, [
     RGB{Float64}(0.8516, 0.8086, 0.7539),
     RGB{Float64}(0.8867, 0.8672, 0.8633),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:fes50, [
+    RGB{Float64}(0.0497, 0.0497, 0.0497),
     RGB{Float64}(0.0938, 0.0938, 0.0938),
     RGB{Float64}(0.1289, 0.1289, 0.1289),
     RGB{Float64}(0.168, 0.168, 0.168),
@@ -8815,10 +8868,11 @@ loadcolorscheme(:fes50, [
     RGB{Float64}(0.8906, 0.8711, 0.875),
     RGB{Float64}(0.9062, 0.8984, 0.9258),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:fes100, [
+    RGB{Float64}(0.0497, 0.0497, 0.0497),
     RGB{Float64}(0.0781, 0.0781, 0.0781),
     RGB{Float64}(0.0938, 0.0938, 0.0938),
     RGB{Float64}(0.1133, 0.1133, 0.1133),
@@ -8918,9 +8972,9 @@ loadcolorscheme(:fes100, [
     RGB{Float64}(0.9062, 0.8984, 0.9258),
     RGB{Float64}(0.9141, 0.9102, 0.9492),
     RGB{Float64}(0.9258, 0.9258, 0.9844),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential, discrete, cvd")
 loadcolorscheme(:fes, [
     RGB{Float64}(0.0497, 0.0497, 0.0497),
     RGB{Float64}(0.0604, 0.0604, 0.0604),
@@ -9178,11 +9232,11 @@ loadcolorscheme(:fes, [
     RGB{Float64}(0.9222, 0.9175, 0.9641),
     RGB{Float64}(0.9259, 0.9232, 0.9759),
     RGB{Float64}(0.9296, 0.929, 0.9879),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, sequential , cvd")
-
 loadcolorscheme(:glasgow10, [
+    RGB{Float64}(0.2118, 0.0739, 0.2206),
     RGB{Float64}(0.3086, 0.1016, 0.1367),
     RGB{Float64}(0.418, 0.1484, 0.043),
     RGB{Float64}(0.4531, 0.2695, 0.0),
@@ -9192,10 +9246,11 @@ loadcolorscheme(:glasgow10, [
     RGB{Float64}(0.4531, 0.6602, 0.6875),
     RGB{Float64}(0.6484, 0.7422, 0.8438),
     RGB{Float64}(0.8555, 0.8242, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:glasgow25, [
+    RGB{Float64}(0.2118, 0.0739, 0.2206),
     RGB{Float64}(0.25, 0.0859, 0.1836),
     RGB{Float64}(0.2852, 0.0938, 0.1562),
     RGB{Float64}(0.3203, 0.1055, 0.125),
@@ -9220,10 +9275,11 @@ loadcolorscheme(:glasgow25, [
     RGB{Float64}(0.6953, 0.7617, 0.8789),
     RGB{Float64}(0.7656, 0.7891, 0.9297),
     RGB{Float64}(0.8555, 0.8242, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:glasgow50, [
+    RGB{Float64}(0.2118, 0.0739, 0.2206),
     RGB{Float64}(0.2305, 0.0781, 0.2031),
     RGB{Float64}(0.25, 0.082, 0.1875),
     RGB{Float64}(0.2695, 0.0898, 0.1719),
@@ -9273,10 +9329,11 @@ loadcolorscheme(:glasgow50, [
     RGB{Float64}(0.7734, 0.793, 0.9375),
     RGB{Float64}(0.8125, 0.8086, 0.9648),
     RGB{Float64}(0.8555, 0.8242, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:glasgow100, [
+    RGB{Float64}(0.2118, 0.0739, 0.2206),
     RGB{Float64}(0.2227, 0.0781, 0.2109),
     RGB{Float64}(0.2305, 0.0781, 0.2031),
     RGB{Float64}(0.2422, 0.082, 0.1953),
@@ -9376,9 +9433,9 @@ loadcolorscheme(:glasgow100, [
     RGB{Float64}(0.8125, 0.8086, 0.9648),
     RGB{Float64}(0.8281, 0.8164, 0.9766),
     RGB{Float64}(0.8555, 0.8242, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:glasgowS, [
     RGB{Float64}(0.2118, 0.0739, 0.2206),
     RGB{Float64}(0.859, 0.8286, 1.0),
@@ -9480,7 +9537,7 @@ loadcolorscheme(:glasgowS, [
     RGB{Float64}(0.435, 0.4203, 0.131),
     RGB{Float64}(0.4503, 0.3586, 0.028),
     RGB{Float64}(0.3745, 0.5829, 0.5207),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:glasgow, [
@@ -9740,11 +9797,11 @@ loadcolorscheme(:glasgow, [
     RGB{Float64}(0.8413, 0.8215, 0.9877),
     RGB{Float64}(0.8501, 0.8251, 0.9939),
     RGB{Float64}(0.859, 0.8286, 1.0),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:grayC10, [
+    RGB{Float64}(0.0, 0.0, 0.0),
     RGB{Float64}(0.1367, 0.1367, 0.1367),
     RGB{Float64}(0.2383, 0.2383, 0.2383),
     RGB{Float64}(0.3359, 0.3359, 0.3359),
@@ -9754,10 +9811,11 @@ loadcolorscheme(:grayC10, [
     RGB{Float64}(0.7109, 0.7109, 0.7109),
     RGB{Float64}(0.8438, 0.8438, 0.8438),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:grayC25, [
+    RGB{Float64}(0.0, 0.0, 0.0),
     RGB{Float64}(0.0703, 0.0703, 0.0703),
     RGB{Float64}(0.1094, 0.1094, 0.1094),
     RGB{Float64}(0.1484, 0.1484, 0.1484),
@@ -9782,10 +9840,11 @@ loadcolorscheme(:grayC25, [
     RGB{Float64}(0.8828, 0.8828, 0.8828),
     RGB{Float64}(0.9336, 0.9336, 0.9336),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:grayC50, [
+    RGB{Float64}(0.0, 0.0, 0.0),
     RGB{Float64}(0.0352, 0.0352, 0.0352),
     RGB{Float64}(0.0664, 0.0664, 0.0664),
     RGB{Float64}(0.0898, 0.0898, 0.0898),
@@ -9835,10 +9894,11 @@ loadcolorscheme(:grayC50, [
     RGB{Float64}(0.9414, 0.9414, 0.9414),
     RGB{Float64}(0.9688, 0.9688, 0.9688),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:grayC100, [
+    RGB{Float64}(0.0, 0.0, 0.0),
     RGB{Float64}(0.0195, 0.0195, 0.0195),
     RGB{Float64}(0.0352, 0.0352, 0.0352),
     RGB{Float64}(0.0547, 0.0547, 0.0547),
@@ -9938,9 +9998,9 @@ loadcolorscheme(:grayC100, [
     RGB{Float64}(0.9688, 0.9688, 0.9688),
     RGB{Float64}(0.9805, 0.9805, 0.9805),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:grayCS, [
     RGB{Float64}(0.0285, 0.0285, 0.0285),
     RGB{Float64}(0.9773, 0.9773, 0.9773),
@@ -10042,7 +10102,7 @@ loadcolorscheme(:grayCS, [
     RGB{Float64}(0.2083, 0.2083, 0.2083),
     RGB{Float64}(0.3551, 0.3551, 0.3551),
     RGB{Float64}(0.9003, 0.9003, 0.9003),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:grayC, [
@@ -10302,11 +10362,11 @@ loadcolorscheme(:grayC, [
     RGB{Float64}(0.9888, 0.9888, 0.9888),
     RGB{Float64}(0.9945, 0.9945, 0.9945),
     RGB{Float64}(1.0, 1.0, 1.0),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:hawaii10, [
+    RGB{Float64}(0.5505, 0.0068, 0.452),
     RGB{Float64}(0.5703, 0.1641, 0.3477),
     RGB{Float64}(0.5859, 0.2773, 0.2578),
     RGB{Float64}(0.5977, 0.3867, 0.1875),
@@ -10316,10 +10376,11 @@ loadcolorscheme(:hawaii10, [
     RGB{Float64}(0.3984, 0.8438, 0.6094),
     RGB{Float64}(0.4219, 0.918, 0.8555),
     RGB{Float64}(0.6992, 0.9453, 0.9883),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:hawaii25, [
+    RGB{Float64}(0.5505, 0.0068, 0.452),
     RGB{Float64}(0.5586, 0.0859, 0.4062),
     RGB{Float64}(0.5664, 0.1367, 0.3711),
     RGB{Float64}(0.5703, 0.1797, 0.332),
@@ -10344,10 +10405,11 @@ loadcolorscheme(:hawaii25, [
     RGB{Float64}(0.4766, 0.9297, 0.9023),
     RGB{Float64}(0.582, 0.9414, 0.9531),
     RGB{Float64}(0.6992, 0.9453, 0.9883),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:hawaii50, [
+    RGB{Float64}(0.5505, 0.0068, 0.452),
     RGB{Float64}(0.5547, 0.0508, 0.4297),
     RGB{Float64}(0.5586, 0.082, 0.4102),
     RGB{Float64}(0.5625, 0.1133, 0.3867),
@@ -10397,10 +10459,11 @@ loadcolorscheme(:hawaii50, [
     RGB{Float64}(0.5938, 0.9414, 0.957),
     RGB{Float64}(0.6484, 0.9414, 0.9727),
     RGB{Float64}(0.6992, 0.9453, 0.9883),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:hawaii100, [
+    RGB{Float64}(0.5505, 0.0068, 0.452),
     RGB{Float64}(0.5508, 0.0312, 0.4375),
     RGB{Float64}(0.5547, 0.0508, 0.4297),
     RGB{Float64}(0.5547, 0.0703, 0.418),
@@ -10500,9 +10563,9 @@ loadcolorscheme(:hawaii100, [
     RGB{Float64}(0.6484, 0.9414, 0.9727),
     RGB{Float64}(0.668, 0.9453, 0.9805),
     RGB{Float64}(0.6992, 0.9453, 0.9883),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:hawaiiS, [
     RGB{Float64}(0.5505, 0.0068, 0.452),
     RGB{Float64}(0.7038, 0.949, 0.9938),
@@ -10604,7 +10667,7 @@ loadcolorscheme(:hawaiiS, [
     RGB{Float64}(0.5915, 0.312, 0.2364),
     RGB{Float64}(0.6049, 0.6216, 0.1261),
     RGB{Float64}(0.6061, 0.4249, 0.1633),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:hawaii, [
@@ -10864,11 +10927,11 @@ loadcolorscheme(:hawaii, [
     RGB{Float64}(0.6823, 0.9483, 0.9878),
     RGB{Float64}(0.6931, 0.9487, 0.9908),
     RGB{Float64}(0.7038, 0.949, 0.9938),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:imola10, [
+    RGB{Float64}(0.1014, 0.2001, 0.7002),
     RGB{Float64}(0.1406, 0.2734, 0.6602),
     RGB{Float64}(0.1797, 0.3477, 0.6211),
     RGB{Float64}(0.2227, 0.418, 0.5781),
@@ -10878,10 +10941,11 @@ loadcolorscheme(:imola10, [
     RGB{Float64}(0.5938, 0.793, 0.4258),
     RGB{Float64}(0.7656, 0.9141, 0.4023),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:imola25, [
+    RGB{Float64}(0.1014, 0.2001, 0.7002),
     RGB{Float64}(0.1172, 0.2305, 0.6836),
     RGB{Float64}(0.1328, 0.2578, 0.668),
     RGB{Float64}(0.1445, 0.2852, 0.6562),
@@ -10906,10 +10970,11 @@ loadcolorscheme(:imola25, [
     RGB{Float64}(0.8242, 0.9375, 0.3984),
     RGB{Float64}(0.9062, 0.9648, 0.3984),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:imola50, [
+    RGB{Float64}(0.1014, 0.2001, 0.7002),
     RGB{Float64}(0.1094, 0.2148, 0.6914),
     RGB{Float64}(0.1172, 0.2266, 0.6836),
     RGB{Float64}(0.125, 0.2422, 0.6758),
@@ -10959,10 +11024,11 @@ loadcolorscheme(:imola50, [
     RGB{Float64}(0.9141, 0.9688, 0.3984),
     RGB{Float64}(0.957, 0.9805, 0.3984),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:imola100, [
+    RGB{Float64}(0.1014, 0.2001, 0.7002),
     RGB{Float64}(0.1055, 0.207, 0.6914),
     RGB{Float64}(0.1094, 0.2148, 0.6914),
     RGB{Float64}(0.1133, 0.2227, 0.6875),
@@ -11062,9 +11128,9 @@ loadcolorscheme(:imola100, [
     RGB{Float64}(0.957, 0.9805, 0.3984),
     RGB{Float64}(0.9727, 0.9883, 0.3984),
     RGB{Float64}(0.9961, 0.9961, 0.3984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:imolaS, [
     RGB{Float64}(0.1014, 0.2001, 0.7002),
     RGB{Float64}(1.0, 1.0, 0.4001),
@@ -11166,7 +11232,7 @@ loadcolorscheme(:imolaS, [
     RGB{Float64}(0.391, 0.589, 0.4784),
     RGB{Float64}(0.2694, 0.4659, 0.5357),
     RGB{Float64}(0.451, 0.6496, 0.4632),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:imola, [
@@ -11426,11 +11492,11 @@ loadcolorscheme(:imola, [
     RGB{Float64}(0.9836, 0.9945, 0.4001),
     RGB{Float64}(0.9918, 0.9972, 0.4001),
     RGB{Float64}(1.0, 1.0, 0.4001),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:lajolla10, [
+    RGB{Float64}(0.0988, 0.0997, 0.0001),
     RGB{Float64}(0.1992, 0.1328, 0.0586),
     RGB{Float64}(0.3555, 0.1875, 0.1367),
     RGB{Float64}(0.5586, 0.25, 0.2383),
@@ -11440,10 +11506,11 @@ loadcolorscheme(:lajolla10, [
     RGB{Float64}(0.9297, 0.707, 0.332),
     RGB{Float64}(0.9688, 0.8711, 0.4844),
     RGB{Float64}(0.9961, 0.9922, 0.793),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lajolla25, [
+    RGB{Float64}(0.0988, 0.0997, 0.0001),
     RGB{Float64}(0.1367, 0.1133, 0.0195),
     RGB{Float64}(0.1719, 0.125, 0.043),
     RGB{Float64}(0.2148, 0.1406, 0.0664),
@@ -11468,10 +11535,11 @@ loadcolorscheme(:lajolla25, [
     RGB{Float64}(0.9805, 0.9062, 0.5625),
     RGB{Float64}(0.9883, 0.9531, 0.6797),
     RGB{Float64}(0.9961, 0.9922, 0.793),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lajolla50, [
+    RGB{Float64}(0.0988, 0.0997, 0.0001),
     RGB{Float64}(0.1172, 0.1055, 0.0078),
     RGB{Float64}(0.1328, 0.1094, 0.0195),
     RGB{Float64}(0.1523, 0.1172, 0.0312),
@@ -11521,10 +11589,11 @@ loadcolorscheme(:lajolla50, [
     RGB{Float64}(0.9883, 0.957, 0.6875),
     RGB{Float64}(0.9922, 0.9766, 0.7422),
     RGB{Float64}(0.9961, 0.9922, 0.793),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lajolla100, [
+    RGB{Float64}(0.0988, 0.0997, 0.0001),
     RGB{Float64}(0.1094, 0.1016, 0.0039),
     RGB{Float64}(0.1172, 0.1055, 0.0078),
     RGB{Float64}(0.125, 0.1094, 0.0156),
@@ -11624,9 +11693,9 @@ loadcolorscheme(:lajolla100, [
     RGB{Float64}(0.9922, 0.9766, 0.7422),
     RGB{Float64}(0.9961, 0.9844, 0.7617),
     RGB{Float64}(0.9961, 0.9922, 0.793),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lajollaS, [
     RGB{Float64}(0.0988, 0.0997, 0.0001),
     RGB{Float64}(1.0, 0.9978, 0.7942),
@@ -11728,7 +11797,7 @@ loadcolorscheme(:lajollaS, [
     RGB{Float64}(0.9225, 0.6528, 0.3266),
     RGB{Float64}(0.8962, 0.5248, 0.3169),
     RGB{Float64}(0.999, 0.9908, 0.7745),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:lajolla, [
@@ -11988,11 +12057,11 @@ loadcolorscheme(:lajolla, [
     RGB{Float64}(0.999, 0.9908, 0.7745),
     RGB{Float64}(0.9995, 0.9943, 0.7844),
     RGB{Float64}(1.0, 0.9978, 0.7942),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:lapaz10, [
+    RGB{Float64}(0.1035, 0.0478, 0.3935),
     RGB{Float64}(0.1367, 0.1758, 0.4805),
     RGB{Float64}(0.1641, 0.2969, 0.5586),
     RGB{Float64}(0.2109, 0.4023, 0.6133),
@@ -12002,10 +12071,11 @@ loadcolorscheme(:lapaz10, [
     RGB{Float64}(0.7461, 0.6914, 0.5977),
     RGB{Float64}(0.9336, 0.8242, 0.75),
     RGB{Float64}(0.9922, 0.9453, 0.9492),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lapaz25, [
+    RGB{Float64}(0.1035, 0.0478, 0.3935),
     RGB{Float64}(0.1172, 0.1016, 0.4258),
     RGB{Float64}(0.1289, 0.1484, 0.457),
     RGB{Float64}(0.1406, 0.1953, 0.4922),
@@ -12030,10 +12100,11 @@ loadcolorscheme(:lapaz25, [
     RGB{Float64}(0.957, 0.8555, 0.8008),
     RGB{Float64}(0.9805, 0.9023, 0.8711),
     RGB{Float64}(0.9922, 0.9453, 0.9492),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lapaz50, [
+    RGB{Float64}(0.1035, 0.0478, 0.3935),
     RGB{Float64}(0.1094, 0.0742, 0.4062),
     RGB{Float64}(0.1172, 0.0977, 0.4258),
     RGB{Float64}(0.125, 0.125, 0.4414),
@@ -12083,10 +12154,11 @@ loadcolorscheme(:lapaz50, [
     RGB{Float64}(0.9805, 0.9062, 0.8789),
     RGB{Float64}(0.9883, 0.9258, 0.9141),
     RGB{Float64}(0.9922, 0.9453, 0.9492),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lapaz100, [
+    RGB{Float64}(0.1035, 0.0478, 0.3935),
     RGB{Float64}(0.1055, 0.0625, 0.4023),
     RGB{Float64}(0.1094, 0.0742, 0.4062),
     RGB{Float64}(0.1133, 0.0898, 0.418),
@@ -12186,9 +12258,9 @@ loadcolorscheme(:lapaz100, [
     RGB{Float64}(0.9883, 0.9258, 0.9141),
     RGB{Float64}(0.9922, 0.9336, 0.9258),
     RGB{Float64}(0.9922, 0.9453, 0.9492),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lapazS, [
     RGB{Float64}(0.1035, 0.0478, 0.3935),
     RGB{Float64}(0.9971, 0.9498, 0.9512),
@@ -12290,7 +12362,7 @@ loadcolorscheme(:lapazS, [
     RGB{Float64}(0.134, 0.1698, 0.4757),
     RGB{Float64}(0.5306, 0.623, 0.6072),
     RGB{Float64}(0.9265, 0.8168, 0.7394),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:lapaz, [
@@ -12550,11 +12622,11 @@ loadcolorscheme(:lapaz, [
     RGB{Float64}(0.9954, 0.9418, 0.9375),
     RGB{Float64}(0.9962, 0.9458, 0.9444),
     RGB{Float64}(0.9971, 0.9498, 0.9512),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:lipari10, [
+    RGB{Float64}(0.0114, 0.0732, 0.1483),
     RGB{Float64}(0.0742, 0.2188, 0.3516),
     RGB{Float64}(0.2773, 0.3438, 0.4766),
     RGB{Float64}(0.418, 0.3711, 0.4609),
@@ -12564,10 +12636,11 @@ loadcolorscheme(:lipari10, [
     RGB{Float64}(0.9023, 0.6328, 0.4727),
     RGB{Float64}(0.9102, 0.7852, 0.6211),
     RGB{Float64}(0.9883, 0.957, 0.8516),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lipari25, [
+    RGB{Float64}(0.0114, 0.0732, 0.1483),
     RGB{Float64}(0.0273, 0.1289, 0.2266),
     RGB{Float64}(0.0469, 0.1797, 0.3008),
     RGB{Float64}(0.0938, 0.2422, 0.3789),
@@ -12592,10 +12665,11 @@ loadcolorscheme(:lipari25, [
     RGB{Float64}(0.9258, 0.8242, 0.6758),
     RGB{Float64}(0.9531, 0.8867, 0.7578),
     RGB{Float64}(0.9883, 0.957, 0.8516),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lipari50, [
+    RGB{Float64}(0.0114, 0.0732, 0.1483),
     RGB{Float64}(0.0195, 0.0977, 0.1836),
     RGB{Float64}(0.0234, 0.125, 0.2188),
     RGB{Float64}(0.0352, 0.1562, 0.2656),
@@ -12645,10 +12719,11 @@ loadcolorscheme(:lipari50, [
     RGB{Float64}(0.957, 0.8945, 0.7656),
     RGB{Float64}(0.9727, 0.9258, 0.8086),
     RGB{Float64}(0.9883, 0.957, 0.8516),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lipari100, [
+    RGB{Float64}(0.0114, 0.0732, 0.1483),
     RGB{Float64}(0.0156, 0.0898, 0.168),
     RGB{Float64}(0.0195, 0.0977, 0.1836),
     RGB{Float64}(0.0234, 0.1133, 0.207),
@@ -12748,9 +12823,9 @@ loadcolorscheme(:lipari100, [
     RGB{Float64}(0.9727, 0.9258, 0.8086),
     RGB{Float64}(0.9805, 0.9375, 0.8281),
     RGB{Float64}(0.9883, 0.957, 0.8516),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:lipariS, [
     RGB{Float64}(0.0114, 0.0732, 0.1483),
     RGB{Float64}(0.9923, 0.959, 0.8566),
@@ -12852,7 +12927,7 @@ loadcolorscheme(:lipariS, [
     RGB{Float64}(0.8986, 0.7098, 0.5397),
     RGB{Float64}(0.0302, 0.1455, 0.251),
     RGB{Float64}(0.3514, 0.3639, 0.4766),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:lipari, [
@@ -13112,11 +13187,11 @@ loadcolorscheme(:lipari, [
     RGB{Float64}(0.9858, 0.9466, 0.8391),
     RGB{Float64}(0.989, 0.9528, 0.8478),
     RGB{Float64}(0.9923, 0.959, 0.8566),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:lisbon10, [
+    RGB{Float64}(0.9002, 0.8999, 0.9999),
     RGB{Float64}(0.6055, 0.6836, 0.8242),
     RGB{Float64}(0.3164, 0.4648, 0.6406),
     RGB{Float64}(0.1172, 0.2617, 0.4062),
@@ -13126,10 +13201,11 @@ loadcolorscheme(:lisbon10, [
     RGB{Float64}(0.5508, 0.5195, 0.3359),
     RGB{Float64}(0.7852, 0.7617, 0.5625),
     RGB{Float64}(0.9961, 0.9961, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:lisbon25, [
+    RGB{Float64}(0.9002, 0.8999, 0.9999),
     RGB{Float64}(0.7812, 0.8125, 0.9258),
     RGB{Float64}(0.6758, 0.7344, 0.8672),
     RGB{Float64}(0.5625, 0.6523, 0.7969),
@@ -13154,10 +13230,11 @@ loadcolorscheme(:lisbon25, [
     RGB{Float64}(0.8398, 0.8203, 0.6328),
     RGB{Float64}(0.9141, 0.9023, 0.7344),
     RGB{Float64}(0.9961, 0.9961, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:lisbon50, [
+    RGB{Float64}(0.9002, 0.8999, 0.9999),
     RGB{Float64}(0.8438, 0.8594, 0.9648),
     RGB{Float64}(0.793, 0.8203, 0.9336),
     RGB{Float64}(0.7305, 0.7734, 0.8945),
@@ -13207,10 +13284,11 @@ loadcolorscheme(:lisbon50, [
     RGB{Float64}(0.9219, 0.9102, 0.7422),
     RGB{Float64}(0.957, 0.9531, 0.793),
     RGB{Float64}(0.9961, 0.9961, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:lisbon100, [
+    RGB{Float64}(0.9002, 0.8999, 0.9999),
     RGB{Float64}(0.8633, 0.875, 0.9766),
     RGB{Float64}(0.8438, 0.8594, 0.9648),
     RGB{Float64}(0.8125, 0.8359, 0.9453),
@@ -13310,7 +13388,7 @@ loadcolorscheme(:lisbon100, [
     RGB{Float64}(0.957, 0.9531, 0.793),
     RGB{Float64}(0.9727, 0.9688, 0.8164),
     RGB{Float64}(0.9961, 0.9961, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:lisbon, [
@@ -13570,11 +13648,11 @@ loadcolorscheme(:lisbon, [
     RGB{Float64}(0.9847, 0.9828, 0.829),
     RGB{Float64}(0.9923, 0.9914, 0.8395),
     RGB{Float64}(0.9999, 1.0, 0.85),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:managua10, [
+    RGB{Float64}(1.0, 0.8126, 0.4042),
     RGB{Float64}(0.8633, 0.6016, 0.332),
     RGB{Float64}(0.7227, 0.4219, 0.2734),
     RGB{Float64}(0.5703, 0.2734, 0.2305),
@@ -13584,10 +13662,11 @@ loadcolorscheme(:managua10, [
     RGB{Float64}(0.3555, 0.5, 0.7344),
     RGB{Float64}(0.4258, 0.6914, 0.8672),
     RGB{Float64}(0.5039, 0.9023, 0.9961),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:managua25, [
+    RGB{Float64}(1.0, 0.8126, 0.4042),
     RGB{Float64}(0.9414, 0.7227, 0.375),
     RGB{Float64}(0.8945, 0.6484, 0.3477),
     RGB{Float64}(0.8438, 0.5742, 0.3242),
@@ -13612,10 +13691,11 @@ loadcolorscheme(:managua25, [
     RGB{Float64}(0.4453, 0.7422, 0.8984),
     RGB{Float64}(0.4727, 0.8164, 0.9453),
     RGB{Float64}(0.5039, 0.9023, 0.9961),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:managua50, [
+    RGB{Float64}(1.0, 0.8126, 0.4042),
     RGB{Float64}(0.9727, 0.7695, 0.3906),
     RGB{Float64}(0.9492, 0.7305, 0.375),
     RGB{Float64}(0.918, 0.6875, 0.3633),
@@ -13665,10 +13745,11 @@ loadcolorscheme(:managua50, [
     RGB{Float64}(0.4766, 0.8242, 0.9492),
     RGB{Float64}(0.4883, 0.8633, 0.9727),
     RGB{Float64}(0.5039, 0.9023, 0.9961),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:managua100, [
+    RGB{Float64}(1.0, 0.8126, 0.4042),
     RGB{Float64}(0.9805, 0.7852, 0.3945),
     RGB{Float64}(0.9727, 0.7695, 0.3906),
     RGB{Float64}(0.957, 0.7461, 0.3828),
@@ -13768,7 +13849,7 @@ loadcolorscheme(:managua100, [
     RGB{Float64}(0.4883, 0.8633, 0.9727),
     RGB{Float64}(0.4922, 0.8789, 0.9805),
     RGB{Float64}(0.5039, 0.9023, 0.9961),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:managua, [
@@ -14028,11 +14109,11 @@ loadcolorscheme(:managua, [
     RGB{Float64}(0.4988, 0.891, 0.9905),
     RGB{Float64}(0.5014, 0.899, 0.9951),
     RGB{Float64}(0.5041, 0.9071, 0.9998),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:navia10, [
+    RGB{Float64}(0.0134, 0.0758, 0.153),
     RGB{Float64}(0.0273, 0.2031, 0.3672),
     RGB{Float64}(0.082, 0.3438, 0.543),
     RGB{Float64}(0.1562, 0.4453, 0.5586),
@@ -14042,10 +14123,11 @@ loadcolorscheme(:navia10, [
     RGB{Float64}(0.5938, 0.793, 0.4336),
     RGB{Float64}(0.8438, 0.8945, 0.6562),
     RGB{Float64}(0.9844, 0.9531, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:navia25, [
+    RGB{Float64}(0.0134, 0.0758, 0.153),
     RGB{Float64}(0.0195, 0.125, 0.2344),
     RGB{Float64}(0.0234, 0.168, 0.3125),
     RGB{Float64}(0.0273, 0.2227, 0.3984),
@@ -14070,10 +14152,11 @@ loadcolorscheme(:navia25, [
     RGB{Float64}(0.8867, 0.9141, 0.7109),
     RGB{Float64}(0.9375, 0.9336, 0.7812),
     RGB{Float64}(0.9844, 0.9531, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:navia50, [
+    RGB{Float64}(0.0134, 0.0758, 0.153),
     RGB{Float64}(0.0156, 0.0977, 0.1875),
     RGB{Float64}(0.0195, 0.1172, 0.2266),
     RGB{Float64}(0.0195, 0.1445, 0.2734),
@@ -14123,10 +14206,11 @@ loadcolorscheme(:navia50, [
     RGB{Float64}(0.9414, 0.9375, 0.7891),
     RGB{Float64}(0.9648, 0.9453, 0.8203),
     RGB{Float64}(0.9844, 0.9531, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:navia100, [
+    RGB{Float64}(0.0134, 0.0758, 0.153),
     RGB{Float64}(0.0156, 0.0898, 0.1719),
     RGB{Float64}(0.0156, 0.0977, 0.1875),
     RGB{Float64}(0.0195, 0.1094, 0.2109),
@@ -14226,7 +14310,7 @@ loadcolorscheme(:navia100, [
     RGB{Float64}(0.9648, 0.9453, 0.8203),
     RGB{Float64}(0.9727, 0.9492, 0.832),
     RGB{Float64}(0.9844, 0.9531, 0.8477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:naviaS, [
@@ -14330,7 +14414,7 @@ loadcolorscheme(:naviaS, [
     RGB{Float64}(0.2821, 0.5674, 0.4853),
     RGB{Float64}(0.2937, 0.5779, 0.4785),
     RGB{Float64}(0.5137, 0.752, 0.4097),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential, categorical, cvd")
 loadcolorscheme(:navia, [
@@ -14590,11 +14674,11 @@ loadcolorscheme(:navia, [
     RGB{Float64}(0.9793, 0.9549, 0.8394),
     RGB{Float64}(0.983, 0.9566, 0.845),
     RGB{Float64}(0.9867, 0.9583, 0.8505),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential, cvd")
-
 loadcolorscheme(:nuuk10, [
+    RGB{Float64}(0.018, 0.3508, 0.5506),
     RGB{Float64}(0.1602, 0.3828, 0.5156),
     RGB{Float64}(0.2891, 0.4453, 0.5117),
     RGB{Float64}(0.4336, 0.5273, 0.5508),
@@ -14604,10 +14688,11 @@ loadcolorscheme(:nuuk10, [
     RGB{Float64}(0.7773, 0.7734, 0.5156),
     RGB{Float64}(0.875, 0.875, 0.5547),
     RGB{Float64}(0.9922, 0.9922, 0.6953),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:nuuk25, [
+    RGB{Float64}(0.018, 0.3508, 0.5506),
     RGB{Float64}(0.0898, 0.3594, 0.5312),
     RGB{Float64}(0.1328, 0.375, 0.5195),
     RGB{Float64}(0.1758, 0.3906, 0.5117),
@@ -14632,10 +14717,11 @@ loadcolorscheme(:nuuk25, [
     RGB{Float64}(0.9062, 0.9062, 0.582),
     RGB{Float64}(0.9492, 0.9492, 0.6367),
     RGB{Float64}(0.9922, 0.9922, 0.6953),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:nuuk50, [
+    RGB{Float64}(0.018, 0.3508, 0.5506),
     RGB{Float64}(0.0547, 0.3555, 0.543),
     RGB{Float64}(0.082, 0.3594, 0.5352),
     RGB{Float64}(0.1094, 0.3672, 0.5273),
@@ -14685,10 +14771,11 @@ loadcolorscheme(:nuuk50, [
     RGB{Float64}(0.9531, 0.9531, 0.6406),
     RGB{Float64}(0.9727, 0.9727, 0.668),
     RGB{Float64}(0.9922, 0.9922, 0.6953),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:nuuk100, [
+    RGB{Float64}(0.018, 0.3508, 0.5506),
     RGB{Float64}(0.043, 0.3516, 0.543),
     RGB{Float64}(0.0547, 0.3555, 0.543),
     RGB{Float64}(0.0742, 0.3594, 0.5352),
@@ -14788,9 +14875,9 @@ loadcolorscheme(:nuuk100, [
     RGB{Float64}(0.9727, 0.9727, 0.668),
     RGB{Float64}(0.9805, 0.9805, 0.6797),
     RGB{Float64}(0.9922, 0.9922, 0.6953),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:nuukS, [
     RGB{Float64}(0.018, 0.3508, 0.5506),
     RGB{Float64}(0.9962, 0.9962, 0.699),
@@ -14892,7 +14979,7 @@ loadcolorscheme(:nuukS, [
     RGB{Float64}(0.5015, 0.5674, 0.5729),
     RGB{Float64}(0.637, 0.6538, 0.5945),
     RGB{Float64}(0.1858, 0.3953, 0.5118),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:nuuk, [
@@ -15152,11 +15239,11 @@ loadcolorscheme(:nuuk, [
     RGB{Float64}(0.9889, 0.9887, 0.6877),
     RGB{Float64}(0.9926, 0.9924, 0.6934),
     RGB{Float64}(0.9962, 0.9962, 0.699),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:oleron10, [
+    RGB{Float64}(0.1011, 0.15, 0.3503),
     RGB{Float64}(0.2695, 0.3203, 0.5195),
     RGB{Float64}(0.4648, 0.5156, 0.7148),
     RGB{Float64}(0.6641, 0.7148, 0.9062),
@@ -15166,10 +15253,11 @@ loadcolorscheme(:oleron10, [
     RGB{Float64}(0.7148, 0.6016, 0.3672),
     RGB{Float64}(0.9414, 0.8047, 0.6406),
     RGB{Float64}(0.9883, 0.9883, 0.8984),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, surface topography, discrete, cvd")
 loadcolorscheme(:oleron25, [
+    RGB{Float64}(0.1011, 0.15, 0.3503),
     RGB{Float64}(0.168, 0.2148, 0.4141),
     RGB{Float64}(0.2266, 0.2773, 0.4766),
     RGB{Float64}(0.2969, 0.3477, 0.5469),
@@ -15194,10 +15282,11 @@ loadcolorscheme(:oleron25, [
     RGB{Float64}(0.9609, 0.8516, 0.707),
     RGB{Float64}(0.9727, 0.9141, 0.7969),
     RGB{Float64}(0.9883, 0.9883, 0.8984),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, surface topography, discrete, cvd")
 loadcolorscheme(:oleron50, [
+    RGB{Float64}(0.1011, 0.15, 0.3503),
     RGB{Float64}(0.1289, 0.1797, 0.3789),
     RGB{Float64}(0.1602, 0.207, 0.4062),
     RGB{Float64}(0.1953, 0.2461, 0.4453),
@@ -15247,10 +15336,11 @@ loadcolorscheme(:oleron50, [
     RGB{Float64}(0.9766, 0.9219, 0.8047),
     RGB{Float64}(0.9805, 0.9531, 0.8516),
     RGB{Float64}(0.9883, 0.9883, 0.8984),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, surface topography, discrete, cvd")
 loadcolorscheme(:oleron100, [
+    RGB{Float64}(0.1011, 0.15, 0.3503),
     RGB{Float64}(0.1172, 0.168, 0.3672),
     RGB{Float64}(0.1289, 0.1797, 0.3789),
     RGB{Float64}(0.1484, 0.1953, 0.3945),
@@ -15350,7 +15440,7 @@ loadcolorscheme(:oleron100, [
     RGB{Float64}(0.9805, 0.9531, 0.8516),
     RGB{Float64}(0.9844, 0.9688, 0.8672),
     RGB{Float64}(0.9883, 0.9883, 0.8984),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, surface topography, discrete, cvd")
 loadcolorscheme(:oleron, [
@@ -15610,11 +15700,11 @@ loadcolorscheme(:oleron, [
     RGB{Float64}(0.9883, 0.9772, 0.8816),
     RGB{Float64}(0.9894, 0.9837, 0.8909),
     RGB{Float64}(0.9905, 0.9902, 0.9002),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, multi-sequential gradient, surface topography, cvd")
-
 loadcolorscheme(:oslo10, [
+    RGB{Float64}(0.0037, 0.0051, 0.0025),
     RGB{Float64}(0.0508, 0.1055, 0.1602),
     RGB{Float64}(0.0742, 0.1953, 0.3164),
     RGB{Float64}(0.1211, 0.2969, 0.4805),
@@ -15624,10 +15714,11 @@ loadcolorscheme(:oslo10, [
     RGB{Float64}(0.6641, 0.7109, 0.7891),
     RGB{Float64}(0.8281, 0.8359, 0.8555),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:oslo25, [
+    RGB{Float64}(0.0037, 0.0051, 0.0025),
     RGB{Float64}(0.0273, 0.0508, 0.082),
     RGB{Float64}(0.0469, 0.0859, 0.125),
     RGB{Float64}(0.0547, 0.1172, 0.1797),
@@ -15652,10 +15743,11 @@ loadcolorscheme(:oslo25, [
     RGB{Float64}(0.8672, 0.875, 0.8828),
     RGB{Float64}(0.9297, 0.9297, 0.9336),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:oslo50, [
+    RGB{Float64}(0.0037, 0.0051, 0.0025),
     RGB{Float64}(0.0156, 0.0273, 0.043),
     RGB{Float64}(0.0234, 0.0469, 0.0742),
     RGB{Float64}(0.0391, 0.0703, 0.1055),
@@ -15705,10 +15797,11 @@ loadcolorscheme(:oslo50, [
     RGB{Float64}(0.9336, 0.9375, 0.9414),
     RGB{Float64}(0.9648, 0.9648, 0.9688),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:oslo100, [
+    RGB{Float64}(0.0037, 0.0051, 0.0025),
     RGB{Float64}(0.0078, 0.0195, 0.0273),
     RGB{Float64}(0.0156, 0.0273, 0.043),
     RGB{Float64}(0.0195, 0.0391, 0.0625),
@@ -15808,9 +15901,9 @@ loadcolorscheme(:oslo100, [
     RGB{Float64}(0.9648, 0.9648, 0.9688),
     RGB{Float64}(0.9766, 0.9766, 0.9805),
     RGB{Float64}(0.9961, 0.9961, 0.9961),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:osloS, [
     RGB{Float64}(0.012, 0.0226, 0.0359),
     RGB{Float64}(0.9755, 0.9763, 0.9774),
@@ -15912,7 +16005,7 @@ loadcolorscheme(:osloS, [
     RGB{Float64}(0.0162, 0.0313, 0.0514),
     RGB{Float64}(0.0753, 0.1977, 0.3169),
     RGB{Float64}(0.1192, 0.2954, 0.4767),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:oslo, [
@@ -16172,11 +16265,11 @@ loadcolorscheme(:oslo, [
     RGB{Float64}(0.9876, 0.9881, 0.9886),
     RGB{Float64}(0.9937, 0.9941, 0.9943),
     RGB{Float64}(0.9998, 1.0, 1.0),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:roma10, [
+    RGB{Float64}(0.4923, 0.0908, 0.0001),
     RGB{Float64}(0.5977, 0.3203, 0.082),
     RGB{Float64}(0.6875, 0.5, 0.168),
     RGB{Float64}(0.7812, 0.7031, 0.332),
@@ -16186,10 +16279,11 @@ loadcolorscheme(:roma10, [
     RGB{Float64}(0.1953, 0.5703, 0.7578),
     RGB{Float64}(0.125, 0.3906, 0.6797),
     RGB{Float64}(0.0117, 0.1914, 0.5938),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, seismic topography, discrete, cvd")
 loadcolorscheme(:roma25, [
+    RGB{Float64}(0.4923, 0.0908, 0.0001),
     RGB{Float64}(0.5391, 0.1953, 0.0312),
     RGB{Float64}(0.5742, 0.2734, 0.0625),
     RGB{Float64}(0.6133, 0.3438, 0.0938),
@@ -16214,10 +16308,11 @@ loadcolorscheme(:roma25, [
     RGB{Float64}(0.1094, 0.3438, 0.6602),
     RGB{Float64}(0.0781, 0.2734, 0.6289),
     RGB{Float64}(0.0117, 0.1914, 0.5938),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, seismic topography, discrete, cvd")
 loadcolorscheme(:roma50, [
+    RGB{Float64}(0.4923, 0.0908, 0.0001),
     RGB{Float64}(0.5117, 0.1445, 0.0156),
     RGB{Float64}(0.5312, 0.1875, 0.0312),
     RGB{Float64}(0.5586, 0.2344, 0.0469),
@@ -16267,10 +16362,11 @@ loadcolorscheme(:roma50, [
     RGB{Float64}(0.0742, 0.2656, 0.625),
     RGB{Float64}(0.0469, 0.2305, 0.6094),
     RGB{Float64}(0.0117, 0.1914, 0.5938),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, seismic topography, discrete, cvd")
 loadcolorscheme(:roma100, [
+    RGB{Float64}(0.4923, 0.0908, 0.0001),
     RGB{Float64}(0.5039, 0.125, 0.0117),
     RGB{Float64}(0.5117, 0.1445, 0.0156),
     RGB{Float64}(0.5234, 0.1719, 0.0234),
@@ -16370,7 +16466,7 @@ loadcolorscheme(:roma100, [
     RGB{Float64}(0.0469, 0.2305, 0.6094),
     RGB{Float64}(0.0352, 0.2148, 0.6055),
     RGB{Float64}(0.0117, 0.1914, 0.5938),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, seismic topography, discrete, cvd")
 loadcolorscheme(:roma, [
@@ -16630,11 +16726,11 @@ loadcolorscheme(:roma, [
     RGB{Float64}(0.0262, 0.2077, 0.6034),
     RGB{Float64}(0.0182, 0.1999, 0.6),
     RGB{Float64}(0.0098, 0.1921, 0.5967),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, seismic topography, cvd")
-
 loadcolorscheme(:romaO10, [
+    RGB{Float64}(0.4514, 0.2235, 0.3419),
     RGB{Float64}(0.5273, 0.25, 0.2148),
     RGB{Float64}(0.6367, 0.4023, 0.1719),
     RGB{Float64}(0.7617, 0.6367, 0.293),
@@ -16644,10 +16740,11 @@ loadcolorscheme(:romaO10, [
     RGB{Float64}(0.3086, 0.5312, 0.7227),
     RGB{Float64}(0.3594, 0.3242, 0.543),
     RGB{Float64}(0.4453, 0.2227, 0.3477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, discrete, cvd")
 loadcolorscheme(:romaO25, [
+    RGB{Float64}(0.4514, 0.2235, 0.3419),
     RGB{Float64}(0.4805, 0.2188, 0.2812),
     RGB{Float64}(0.5078, 0.2344, 0.2383),
     RGB{Float64}(0.543, 0.2656, 0.1992),
@@ -16672,10 +16769,11 @@ loadcolorscheme(:romaO25, [
     RGB{Float64}(0.3828, 0.2852, 0.4883),
     RGB{Float64}(0.4141, 0.2461, 0.418),
     RGB{Float64}(0.4453, 0.2227, 0.3477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, discrete, cvd")
 loadcolorscheme(:romaO50, [
+    RGB{Float64}(0.4514, 0.2235, 0.3419),
     RGB{Float64}(0.4648, 0.2188, 0.3125),
     RGB{Float64}(0.4766, 0.2188, 0.2852),
     RGB{Float64}(0.4922, 0.2227, 0.2578),
@@ -16725,10 +16823,11 @@ loadcolorscheme(:romaO50, [
     RGB{Float64}(0.418, 0.2461, 0.4102),
     RGB{Float64}(0.4336, 0.2305, 0.375),
     RGB{Float64}(0.4453, 0.2227, 0.3477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, discrete, cvd")
 loadcolorscheme(:romaO100, [
+    RGB{Float64}(0.4514, 0.2235, 0.3419),
     RGB{Float64}(0.457, 0.2188, 0.3242),
     RGB{Float64}(0.4648, 0.2188, 0.3125),
     RGB{Float64}(0.4727, 0.2188, 0.2969),
@@ -16828,7 +16927,7 @@ loadcolorscheme(:romaO100, [
     RGB{Float64}(0.4336, 0.2305, 0.375),
     RGB{Float64}(0.4375, 0.2266, 0.3633),
     RGB{Float64}(0.4453, 0.2227, 0.3477),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, discrete, cvd")
 loadcolorscheme(:romaO, [
@@ -17088,11 +17187,11 @@ loadcolorscheme(:romaO, [
     RGB{Float64}(0.4429, 0.2274, 0.3597),
     RGB{Float64}(0.4457, 0.226, 0.3537),
     RGB{Float64}(0.4486, 0.2246, 0.3477),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cvd")
-
 loadcolorscheme(:tofino10, [
+    RGB{Float64}(0.8704, 0.8498, 0.9999),
     RGB{Float64}(0.5742, 0.6406, 0.8672),
     RGB{Float64}(0.2891, 0.418, 0.6719),
     RGB{Float64}(0.1523, 0.2344, 0.3945),
@@ -17102,10 +17201,11 @@ loadcolorscheme(:tofino10, [
     RGB{Float64}(0.2461, 0.5039, 0.2656),
     RGB{Float64}(0.5312, 0.7227, 0.4375),
     RGB{Float64}(0.8555, 0.8984, 0.6055),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:tofino25, [
+    RGB{Float64}(0.8704, 0.8498, 0.9999),
     RGB{Float64}(0.75, 0.7656, 0.9453),
     RGB{Float64}(0.6484, 0.6914, 0.8984),
     RGB{Float64}(0.5312, 0.6133, 0.8477),
@@ -17130,10 +17230,11 @@ loadcolorscheme(:tofino25, [
     RGB{Float64}(0.6133, 0.7695, 0.4805),
     RGB{Float64}(0.7266, 0.8281, 0.5391),
     RGB{Float64}(0.8555, 0.8984, 0.6055),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:tofino50, [
+    RGB{Float64}(0.8704, 0.8498, 0.9999),
     RGB{Float64}(0.8125, 0.8086, 0.9727),
     RGB{Float64}(0.7617, 0.7734, 0.9492),
     RGB{Float64}(0.6992, 0.7305, 0.9219),
@@ -17183,10 +17284,11 @@ loadcolorscheme(:tofino50, [
     RGB{Float64}(0.7383, 0.8359, 0.5469),
     RGB{Float64}(0.7969, 0.8672, 0.5781),
     RGB{Float64}(0.8555, 0.8984, 0.6055),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:tofino100, [
+    RGB{Float64}(0.8704, 0.8498, 0.9999),
     RGB{Float64}(0.8359, 0.8242, 0.9805),
     RGB{Float64}(0.8125, 0.8086, 0.9727),
     RGB{Float64}(0.7812, 0.7891, 0.9609),
@@ -17286,7 +17388,7 @@ loadcolorscheme(:tofino100, [
     RGB{Float64}(0.7969, 0.8672, 0.5781),
     RGB{Float64}(0.8203, 0.8789, 0.5898),
     RGB{Float64}(0.8555, 0.8984, 0.6055),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:tofino, [
@@ -17546,11 +17648,11 @@ loadcolorscheme(:tofino, [
     RGB{Float64}(0.8366, 0.8879, 0.5975),
     RGB{Float64}(0.8483, 0.894, 0.6036),
     RGB{Float64}(0.86, 0.9, 0.6098),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:tokyo10, [
+    RGB{Float64}(0.1088, 0.0557, 0.2025),
     RGB{Float64}(0.293, 0.125, 0.2656),
     RGB{Float64}(0.4102, 0.25, 0.3047),
     RGB{Float64}(0.4375, 0.3398, 0.3164),
@@ -17560,10 +17662,11 @@ loadcolorscheme(:tokyo10, [
     RGB{Float64}(0.5508, 0.7539, 0.4297),
     RGB{Float64}(0.7539, 0.9258, 0.668),
     RGB{Float64}(0.9336, 0.9844, 0.8633),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:tokyo25, [
+    RGB{Float64}(0.1088, 0.0557, 0.2025),
     RGB{Float64}(0.1836, 0.0742, 0.2266),
     RGB{Float64}(0.2461, 0.1016, 0.25),
     RGB{Float64}(0.3164, 0.1406, 0.2734),
@@ -17588,10 +17691,11 @@ loadcolorscheme(:tokyo25, [
     RGB{Float64}(0.8086, 0.9531, 0.7305),
     RGB{Float64}(0.875, 0.9727, 0.8047),
     RGB{Float64}(0.9336, 0.9844, 0.8633),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:tokyo50, [
+    RGB{Float64}(0.1088, 0.0557, 0.2025),
     RGB{Float64}(0.1406, 0.0625, 0.2109),
     RGB{Float64}(0.1758, 0.0742, 0.2227),
     RGB{Float64}(0.2148, 0.0859, 0.2383),
@@ -17641,10 +17745,11 @@ loadcolorscheme(:tokyo50, [
     RGB{Float64}(0.8828, 0.9727, 0.8086),
     RGB{Float64}(0.9102, 0.9805, 0.8398),
     RGB{Float64}(0.9336, 0.9844, 0.8633),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:tokyo100, [
+    RGB{Float64}(0.1088, 0.0557, 0.2025),
     RGB{Float64}(0.1289, 0.0625, 0.207),
     RGB{Float64}(0.1406, 0.0625, 0.2109),
     RGB{Float64}(0.1602, 0.0703, 0.2188),
@@ -17744,9 +17849,9 @@ loadcolorscheme(:tokyo100, [
     RGB{Float64}(0.9102, 0.9805, 0.8398),
     RGB{Float64}(0.918, 0.9805, 0.8477),
     RGB{Float64}(0.9336, 0.9844, 0.8633),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:tokyoS, [
     RGB{Float64}(0.1088, 0.0557, 0.2025),
     RGB{Float64}(0.9371, 0.988, 0.8662),
@@ -17848,7 +17953,7 @@ loadcolorscheme(:tokyoS, [
     RGB{Float64}(0.9278, 0.9865, 0.8566),
     RGB{Float64}(0.4508, 0.4206, 0.3252),
     RGB{Float64}(0.511, 0.6786, 0.3784),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:tokyo, [
@@ -18108,11 +18213,11 @@ loadcolorscheme(:tokyo, [
     RGB{Float64}(0.9278, 0.9865, 0.8566),
     RGB{Float64}(0.9325, 0.9873, 0.8614),
     RGB{Float64}(0.9371, 0.988, 0.8662),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:turku10, [
+    RGB{Float64}(0.0001, 0.0, 0.0),
     RGB{Float64}(0.1406, 0.1406, 0.125),
     RGB{Float64}(0.2578, 0.2578, 0.207),
     RGB{Float64}(0.3711, 0.3711, 0.2656),
@@ -18122,10 +18227,11 @@ loadcolorscheme(:turku10, [
     RGB{Float64}(0.9141, 0.6758, 0.5938),
     RGB{Float64}(0.9844, 0.7773, 0.7617),
     RGB{Float64}(0.9961, 0.8984, 0.8984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:turku25, [
+    RGB{Float64}(0.0001, 0.0, 0.0),
     RGB{Float64}(0.0703, 0.0703, 0.0664),
     RGB{Float64}(0.1133, 0.1133, 0.1016),
     RGB{Float64}(0.1562, 0.1562, 0.1367),
@@ -18150,10 +18256,11 @@ loadcolorscheme(:turku25, [
     RGB{Float64}(0.9922, 0.8086, 0.7969),
     RGB{Float64}(0.9961, 0.8516, 0.8477),
     RGB{Float64}(0.9961, 0.8984, 0.8984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:turku50, [
+    RGB{Float64}(0.0001, 0.0, 0.0),
     RGB{Float64}(0.0352, 0.0352, 0.0312),
     RGB{Float64}(0.0664, 0.0664, 0.0625),
     RGB{Float64}(0.0938, 0.0938, 0.0859),
@@ -18203,10 +18310,11 @@ loadcolorscheme(:turku50, [
     RGB{Float64}(0.9961, 0.8555, 0.8516),
     RGB{Float64}(0.9961, 0.875, 0.875),
     RGB{Float64}(0.9961, 0.8984, 0.8984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:turku100, [
+    RGB{Float64}(0.0001, 0.0, 0.0),
     RGB{Float64}(0.0234, 0.0234, 0.0195),
     RGB{Float64}(0.0352, 0.0352, 0.0312),
     RGB{Float64}(0.0547, 0.0547, 0.0508),
@@ -18306,9 +18414,9 @@ loadcolorscheme(:turku100, [
     RGB{Float64}(0.9961, 0.875, 0.875),
     RGB{Float64}(0.9961, 0.8867, 0.8828),
     RGB{Float64}(0.9961, 0.8984, 0.8984),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, sequential , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, sequential, discrete, cvd")
 loadcolorscheme(:turkuS, [
     RGB{Float64}(0.0292, 0.029, 0.0263),
     RGB{Float64}(1.0, 0.9017, 0.9007),
@@ -18410,7 +18518,7 @@ loadcolorscheme(:turkuS, [
     RGB{Float64}(0.8122, 0.65, 0.4844),
     RGB{Float64}(0.78, 0.6438, 0.4628),
     RGB{Float64}(0.49, 0.4811, 0.3183),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, sequential , categorical, cvd")
 loadcolorscheme(:turku, [
@@ -18670,11 +18778,11 @@ loadcolorscheme(:turku, [
     RGB{Float64}(1.0, 0.8932, 0.8915),
     RGB{Float64}(1.0, 0.8975, 0.8961),
     RGB{Float64}(1.0, 0.9017, 0.9007),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, sequential , cvd")
-
 loadcolorscheme(:vanimo10, [
+    RGB{Float64}(1.0, 0.8035, 0.9922),
     RGB{Float64}(0.8242, 0.5039, 0.7656),
     RGB{Float64}(0.6289, 0.2852, 0.5547),
     RGB{Float64}(0.3594, 0.1406, 0.3086),
@@ -18684,10 +18792,11 @@ loadcolorscheme(:vanimo10, [
     RGB{Float64}(0.3516, 0.4844, 0.1641),
     RGB{Float64}(0.5195, 0.707, 0.3008),
     RGB{Float64}(0.7422, 0.9883, 0.6445),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, diverging , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vanimo25, [
+    RGB{Float64}(1.0, 0.8035, 0.9922),
     RGB{Float64}(0.9297, 0.6758, 0.8984),
     RGB{Float64}(0.8672, 0.5742, 0.8203),
     RGB{Float64}(0.8008, 0.4688, 0.7383),
@@ -18712,10 +18821,11 @@ loadcolorscheme(:vanimo25, [
     RGB{Float64}(0.5703, 0.7734, 0.3633),
     RGB{Float64}(0.6484, 0.8711, 0.4844),
     RGB{Float64}(0.7422, 0.9883, 0.6445),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, diverging , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vanimo50, [
+    RGB{Float64}(1.0, 0.8035, 0.9922),
     RGB{Float64}(0.9648, 0.7422, 0.9453),
     RGB{Float64}(0.9375, 0.6875, 0.9062),
     RGB{Float64}(0.8984, 0.625, 0.8594),
@@ -18765,10 +18875,11 @@ loadcolorscheme(:vanimo50, [
     RGB{Float64}(0.6602, 0.8828, 0.4961),
     RGB{Float64}(0.6992, 0.9336, 0.5703),
     RGB{Float64}(0.7422, 0.9883, 0.6445),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, diverging , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vanimo100, [
+    RGB{Float64}(1.0, 0.8035, 0.9922),
     RGB{Float64}(0.9766, 0.7656, 0.9648),
     RGB{Float64}(0.9648, 0.7422, 0.9453),
     RGB{Float64}(0.9492, 0.7109, 0.9219),
@@ -18868,9 +18979,9 @@ loadcolorscheme(:vanimo100, [
     RGB{Float64}(0.6992, 0.9336, 0.5703),
     RGB{Float64}(0.7148, 0.957, 0.5977),
     RGB{Float64}(0.7422, 0.9883, 0.6445),
-	],
+    ],
     "scientific",
-    "Crameri, F. (2018). Scientific colour-maps, diverging , discrete, cvd")
+    "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vanimo, [
     RGB{Float64}(1.0, 0.8035, 0.9922),
     RGB{Float64}(0.994, 0.792, 0.9837),
@@ -19128,11 +19239,11 @@ loadcolorscheme(:vanimo, [
     RGB{Float64}(0.7278, 0.9699, 0.6165),
     RGB{Float64}(0.7362, 0.9806, 0.6319),
     RGB{Float64}(0.7446, 0.9914, 0.6475),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging , cvd")
-
 loadcolorscheme(:vik10, [
+    RGB{Float64}(0.0013, 0.0698, 0.3795),
     RGB{Float64}(0.0117, 0.2422, 0.4883),
     RGB{Float64}(0.1172, 0.4336, 0.6133),
     RGB{Float64}(0.4414, 0.6562, 0.7656),
@@ -19142,10 +19253,11 @@ loadcolorscheme(:vik10, [
     RGB{Float64}(0.7422, 0.3945, 0.1992),
     RGB{Float64}(0.543, 0.1523, 0.0234),
     RGB{Float64}(0.3477, 0.0, 0.0312),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vik25, [
+    RGB{Float64}(0.0013, 0.0698, 0.3795),
     RGB{Float64}(0.0078, 0.1367, 0.4219),
     RGB{Float64}(0.0078, 0.1992, 0.4609),
     RGB{Float64}(0.0117, 0.2656, 0.5039),
@@ -19170,10 +19282,11 @@ loadcolorscheme(:vik25, [
     RGB{Float64}(0.4922, 0.1133, 0.0234),
     RGB{Float64}(0.4219, 0.0547, 0.0273),
     RGB{Float64}(0.3477, 0.0, 0.0312),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vik50, [
+    RGB{Float64}(0.0013, 0.0698, 0.3795),
     RGB{Float64}(0.0039, 0.1016, 0.3984),
     RGB{Float64}(0.0078, 0.1328, 0.418),
     RGB{Float64}(0.0078, 0.168, 0.4414),
@@ -19223,10 +19336,11 @@ loadcolorscheme(:vik50, [
     RGB{Float64}(0.4141, 0.0508, 0.0273),
     RGB{Float64}(0.3828, 0.0234, 0.0273),
     RGB{Float64}(0.3477, 0.0, 0.0312),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vik100, [
+    RGB{Float64}(0.0013, 0.0698, 0.3795),
     RGB{Float64}(0.0039, 0.0898, 0.3906),
     RGB{Float64}(0.0039, 0.1016, 0.3984),
     RGB{Float64}(0.0078, 0.1211, 0.4102),
@@ -19326,7 +19440,7 @@ loadcolorscheme(:vik100, [
     RGB{Float64}(0.3828, 0.0234, 0.0273),
     RGB{Float64}(0.3672, 0.0117, 0.0312),
     RGB{Float64}(0.3477, 0.0, 0.0312),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, diverging, discrete, cvd")
 loadcolorscheme(:vik, [
@@ -19586,11 +19700,11 @@ loadcolorscheme(:vik, [
     RGB{Float64}(0.3632, 0.0082, 0.0301),
     RGB{Float64}(0.3568, 0.004, 0.0303),
     RGB{Float64}(0.3504, 0.0001, 0.0305),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, diverging, cvd")
-
 loadcolorscheme(:vikO10, [
+    RGB{Float64}(0.3098, 0.1009, 0.2384),
     RGB{Float64}(0.2266, 0.207, 0.4023),
     RGB{Float64}(0.2305, 0.4023, 0.5898),
     RGB{Float64}(0.457, 0.6172, 0.7344),
@@ -19600,10 +19714,11 @@ loadcolorscheme(:vikO10, [
     RGB{Float64}(0.582, 0.2422, 0.1445),
     RGB{Float64}(0.4062, 0.0977, 0.1367),
     RGB{Float64}(0.3125, 0.0977, 0.2344),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:vikO25, [
+    RGB{Float64}(0.3098, 0.1009, 0.2384),
     RGB{Float64}(0.2773, 0.1289, 0.293),
     RGB{Float64}(0.2461, 0.1719, 0.3555),
     RGB{Float64}(0.2188, 0.2305, 0.4297),
@@ -19628,10 +19743,11 @@ loadcolorscheme(:vikO25, [
     RGB{Float64}(0.3789, 0.0859, 0.1523),
     RGB{Float64}(0.3438, 0.0859, 0.1875),
     RGB{Float64}(0.3125, 0.0977, 0.2344),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:vikO50, [
+    RGB{Float64}(0.3098, 0.1009, 0.2384),
     RGB{Float64}(0.293, 0.1133, 0.2617),
     RGB{Float64}(0.2812, 0.1289, 0.2891),
     RGB{Float64}(0.2617, 0.1484, 0.3242),
@@ -19681,10 +19797,11 @@ loadcolorscheme(:vikO50, [
     RGB{Float64}(0.3398, 0.0859, 0.1914),
     RGB{Float64}(0.3242, 0.0898, 0.2109),
     RGB{Float64}(0.3125, 0.0977, 0.2344),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:vikO100, [
+    RGB{Float64}(0.3098, 0.1009, 0.2384),
     RGB{Float64}(0.3008, 0.1055, 0.2539),
     RGB{Float64}(0.293, 0.1133, 0.2617),
     RGB{Float64}(0.2852, 0.1211, 0.2773),
@@ -19784,7 +19901,7 @@ loadcolorscheme(:vikO100, [
     RGB{Float64}(0.3242, 0.0898, 0.2109),
     RGB{Float64}(0.3203, 0.0938, 0.2188),
     RGB{Float64}(0.3125, 0.0977, 0.2344),
-	],
+    ],
     "scientific",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, discrete, cvd")
 loadcolorscheme(:vikO, [
@@ -20044,7 +20161,6 @@ loadcolorscheme(:vikO, [
     RGB{Float64}(0.3184, 0.0953, 0.2247),
     RGB{Float64}(0.3155, 0.097, 0.2292),
     RGB{Float64}(0.3126, 0.0989, 0.2338),
-	],
+    ],
     "scientific colour-maps (crameri)",
     "Crameri, F. (2018). Scientific colour-maps, cyclic gradient, cyclic, cvd")
-

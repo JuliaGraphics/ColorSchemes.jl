@@ -82,6 +82,8 @@ html.theme--documenter-dark .modal-card-head {
 
 .schemename {
     font-family: "JuliaMono";
+    font-size: 0.7em;
+	margin-top: 1em;
 }
 
 /*
@@ -150,7 +152,7 @@ html.theme--documenter-dark #documenter .docs-sidebar form.docs-search>input.is-
 	width: 500px;
 	background-color: black;
 	color: #fff;
-	text-align: center;
+	text-align: left;
 	border-radius: 5px;
 	padding: 5px 0;
 	transition: opacity 1s ease-in-out;

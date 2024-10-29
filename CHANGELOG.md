@@ -1,10 +1,24 @@
 # Changelog
 
-## [v3.27.0] - forthcoming
+## [v3.28.0] - 
+
+### Added
+### Changed
+### Removed
+### Deprecated
+
+###################################################################
+
+## [v3.27.0] - 2024-10-22
 
 ### Added
 
 - resample
+- add flare and crest to seaborn.jl (#134) (thanks @sebastiantk)
+
+### Changed
+
+- missing colors in discrete scientific colorschemes (#131) (thanks @kdyrhage)
 
 ### Removed
 

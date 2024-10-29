@@ -33,12 +33,16 @@ function generate_scheme_svg(schemename;
 
     # fill the template
     schemetemplate = """
-    <span class="hovertext" data-hover=
-        "category: $(colorschemes[schemename].category),
-         notes: $(colorschemes[schemename].notes)">
-        <div class="schemename">:$(schemename)</div>
-    </span>
+    <div class="schemename"><h2>$(schemename)
+
+        <span class="hovertext" data-hover=
+        "name: $(schemename), 
+        length: $(length(colorschemes[schemename])), 
+        category: $(colorschemes[schemename].category), notes: $(colorschemes[schemename].notes).">※</span>
+
+    </h2>
     <div class="swatch">$(swatch)</div>
+    </div>
     """
     return schemetemplate
 end
@@ -96,7 +100,7 @@ At the REPL you can search for colorschemes by name:
 findcolorscheme("julia")
 ```
 
-## ✦ cmocean
+# cmocean
 
 From "Beautiful colormaps for oceanography": [cmocean](https://matplotlib.org/cmocean/)
 
@@ -105,7 +109,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("cmocean") # hide
 ```
 
-## ✦ scientific
+# scientific
 
 From [Scientific colormaps](http://www.fabiocrameri.ch/colourmaps.php)
 
@@ -114,7 +118,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("scientific") # hide
 ```
 
-## ✦ matplotlib
+# matplotlib
 
 From [matplot](https://matplotlib.org)
 
@@ -123,7 +127,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("matplotlib") # hide
 ```
 
-## ✦ colorbrewer
+# colorbrewer
 
 From [ColorBrewer](http://colorbrewer2.org/)
 
@@ -132,7 +136,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("colorbrewer") # hide
 ```
 
-## ✦ gnuplot
+# gnuplot
 
 From [GNUPlot](http://www.gnuplot.info)
 
@@ -141,7 +145,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("gnuplot") # hide
 ```
 
-## ✦ colorcet
+# colorcet
 
 From ["collection of perceptually accurate colormaps"](https://colorcet.holoviz.org)
 
@@ -150,7 +154,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("colorcet") # hide
 ```
 
-## ✦ Seaborn
+# Seaborn
 
 From ["colorschemes used by Seaborn, a Python data visualization library based on matplotlib."](http://seaborn.pydata.org/tutorial/color_palettes.html)
 
@@ -159,7 +163,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("seaborn") # hide
 ```
 
-## ✦ ggthemes/tableau
+# ggthemes/tableau
 
 From ["ggthemes tableau palettes"](https://github.com/jrnold/ggthemes)
 
@@ -168,7 +172,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("tableau") # hide
 ```
 
-## ✦ Color-Vision Deficient-friendly schemes
+# Color-Vision Deficient-friendly schemes
 
 Colorschemes designed with color-vision deficient users in mind, by authors such as Paul Tol, Masataka Okabe, Kei Ito, and Martin Krzywinski. This list also includes schemes with "cvd" in the Notes field.
 
@@ -178,7 +182,7 @@ ColorSchemeCategory("cvd") # hide
 ColorSchemeGroup("cvd") # hide
 ```
 
-## ✦ Flags
+# Flags
 
 Colors extracted from flags of different countries and regions, downloaded from
 [Flagpedia](https://flagpedia.net). Intended to represent these regions in
@@ -191,7 +195,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("flags") # hide
 ```
 
-## ✦ MetBrewer
+# MetBrewer
 
 Palettes inspired by works at the Metropolitan Museum of Art
 in New York. See [Blake Mills' github
@@ -202,7 +206,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("MetBrewer") # hide
 ```
 
-## ✦ Pacific North West
+# Pacific North West
 
 The colors of Washington State and the Pacific Northwest of the USA. See [Jake Lawlor's github
 repository](https://github.com/jakelawlor/PNWColors).
@@ -212,7 +216,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("PNW Pacific North West") # hide
 ```
 
-## ✦ Wes Anderson
+# Wes Anderson
 
 Palettes derived from the films of Wes Anderson. See [Karthik's github
 repository](https://github.com/karthik/wesanderson).
@@ -222,7 +226,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Wes Anderson") # hide
 ```
 
-## ✦ Ghibli
+# Ghibli
 
 Palettes derived from the films of Studio Ghibli. See [Ewenme's github
 repository](https://github.com/ewenme/ghibli).
@@ -232,7 +236,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Ghibli") # hide
 ```
 
-## + Feathers
+# + Feathers
 Palattes derived from the plumage of Australian birds. See [Shandiya's github 
 repository](https://github.com/shandiya/feathers).
 
@@ -241,7 +245,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Feathers") # hide
 ```
 
-## ✦ general and miscellaneous
+# general and miscellaneous
 
 ```@example catalog
 using Luxor, ColorSchemes # hide
@@ -258,14 +262,14 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("kindlmann") # hide
 ```
 
-## ✦ Julia logo colorschemes
+# Julia logo colorschemes
 
 ```@example catalog
 using Luxor, ColorSchemes # hide
 ColorSchemeCategory("julia") # hide
 ```
 
-## ✦ Pride colorschemes
+# Pride colorschemes
 
 ```@example catalog
 using Luxor, ColorSchemes # hide

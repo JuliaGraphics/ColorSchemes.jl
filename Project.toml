@@ -13,7 +13,7 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [compat]
 ColorTypes = "0.11, 0.12"
-ColorVectorSpace = "0.10"
+ColorVectorSpace = "0.10, 0.11"
 Colors = "0.12, 0.13"
 FixedPointNumbers = "0.8"
 PrecompileTools = "1"

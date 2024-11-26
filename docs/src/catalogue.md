@@ -36,8 +36,8 @@ function generate_scheme_svg(schemename;
     <div class="schemename"><h2>$(schemename)
 
         <span class="hovertext" data-hover=
-        "name: $(schemename), 
-        length: $(length(colorschemes[schemename])), 
+        "name: $(schemename),
+        length: $(length(colorschemes[schemename])),
         category: $(colorschemes[schemename].category), notes: $(colorschemes[schemename].notes).">※</span>
 
     </h2>
@@ -236,8 +236,20 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Ghibli") # hide
 ```
 
+# Catppuccin
+
+Catppuccin is a community-driven pastel theme that aims to be the middle
+ground between low and high contrast themes. It consists of 4 soothing
+warm flavors with 26 eye-candy colors each, perfect for coding, designing,
+and much more! See [Catppuccin main project](https://github.com/catppuccin)
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("Catppuccin") # hide
+```
+
 # + Feathers
-Palattes derived from the plumage of Australian birds. See [Shandiya's github 
+Palattes derived from the plumage of Australian birds. See [Shandiya's github
 repository](https://github.com/shandiya/feathers).
 
 ```@example catalog

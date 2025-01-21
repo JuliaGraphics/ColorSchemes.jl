@@ -1,10 +1,29 @@
 # Changelog
 
-## [v3.28.0] - 
+## [v3.28.0] - 2025-01-21
 
 ### Added
+
+- missing mako colormap to seaborn.jl (thanks @nealmckee)
+- Catppuccin color scheme (thanks @daviehh)
+- cmocean v2 :diff, :topo, :tarn and :rain colorschemes (thanks @evetion)
+
 ### Changed
+
 ### Removed
+
+###################################################################
+
+## [v3.27.1] - 2024-11-09
+
+### Added
+
+### Changed
+
+- compat
+
+### Removed
+
 ### Deprecated
 
 ###################################################################

@@ -150,4 +150,4 @@ loadcolorscheme(:galah, [
         colorant"#725f77",
     ],
   "Feathers",
-    "bird, Blue winged Kookaburra (Dacelo leachii)")
+  "bird, Blue winged Kookaburra (Dacelo leachii)")

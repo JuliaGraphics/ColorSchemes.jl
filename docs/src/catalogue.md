@@ -248,7 +248,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Catppuccin") # hide
 ```
 
-# + Feathers
+# Feathers
 Palattes derived from the plumage of Australian birds. See [Shandiya's github
 repository](https://github.com/shandiya/feathers).
 

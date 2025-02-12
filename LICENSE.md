@@ -92,3 +92,9 @@ SPDX-License-Identifier: Apache-2.0
 See https://flagpedia.net/about
 
 The flags from which these color schemes were extracted are public domain.
+
+
+## feathers
+
+License is MIT
+https://github.com/shandiya/feathers/tree/main

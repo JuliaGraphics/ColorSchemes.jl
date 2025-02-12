@@ -1,5 +1,19 @@
 # Changelog
 
+## [v3.29.0] - 2025-02-12 18:24:15
+
+### Added
+
+- kookaburura to Feathers (thanks @briochemc)
+
+### Changed
+
+- license for jcolors.jl is no longer restrictive (thanks @stefankarpinski)
+
+### Removed
+
+###################################################################
+
 ## [v3.28.0] - 2025-01-21
 
 ### Added

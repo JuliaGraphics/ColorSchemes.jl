@@ -135,3 +135,19 @@ loadcolorscheme(:galah, [
     ],
     "Feathers",
     "bird, Galah (Eolophus roseicapilla)")
+
+ loadcolorscheme(:kookaburra, [
+        colorant"#b5effb",
+        colorant"#0b7595",
+        colorant"#02407c",
+        colorant"#06213a",
+        colorant"#c45829",
+        colorant"#9C4620",
+        colorant"#622C14",
+        colorant"#d4d8e3",
+        colorant"#b8bcd8",
+        colorant"#ad8d9f",
+        colorant"#725f77",
+    ],
+  "Feathers",
+    "bird, Blue winged Kookaburra (Dacelo leachii)")

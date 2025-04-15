@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.30.0] - forthcoming 2025-
+
+### Added
+
+- CMasher schemes #142 (thanks @andrew-saydjari !)
+
+### Changed
+
+### Removed
+
+###################################################################
+
 ## [v3.29.0] - 2025-02-12 18:24:15
 
 ### Added

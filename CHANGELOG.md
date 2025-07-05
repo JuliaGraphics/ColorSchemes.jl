@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.30.0] - forthcoming 2025-
+## [v3.30.0] - 2025-007-05
 
 ### Added
 

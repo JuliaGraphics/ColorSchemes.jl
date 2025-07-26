@@ -163,6 +163,15 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("CMasher") # hide
 ```
 
+# cmyt
+
+From ["Scientific colormaps from the yt project"](https://github.com/yt-project/cmyt/)
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("cmyt") # hide
+```
+
 # Seaborn
 
 From ["colorschemes used by Seaborn, a Python data visualization library based on matplotlib."](http://seaborn.pydata.org/tutorial/color_palettes.html)

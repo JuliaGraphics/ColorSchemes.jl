@@ -144,6 +144,7 @@ function loadallschemes()
     include(joinpath(datadir, "feathers.jl"))
     include(joinpath(datadir, "progress.jl"))
     include(joinpath(datadir, "catppuccin_scheme.jl"))
+    include(joinpath(datadir, "sanzowada.jl"))
 
     # create them as constants...
     for key in keys(colorschemes)

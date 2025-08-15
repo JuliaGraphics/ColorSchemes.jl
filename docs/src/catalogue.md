@@ -275,6 +275,14 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Feathers") # hide
 ```
 
+# sanzo
+Color combinations derived from "A Dictionary of Color Combinations", a book based on the original 6-volumes of color studies called _Haishoku Soukan_ by [Sanzo Wada](https://en.wikipedia.org/wiki/Sanzo_Wada), a Japanese artist and designer.
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("sanzo") # hide
+```
+
 # general and miscellaneous
 
 ```@example catalog

@@ -80,9 +80,9 @@ Original version by [cormullion](https://github.com/cormullion).
 
 If you think a new colorscheme would be a great addition for you and for Julians everywhere, you can contribute it as follows:
 
-1 Add a file to the `data/` directory. The file should be a Julia file, with a `.jl` suffix.
+1. Add a file to the `data/` directory. The file should be a Julia file, with a `.jl` suffix.
 
-2 Inside the file, define a colorscheme in this format, which calls [loadcolorscheme](@ref):
+2. Inside the file, define a colorscheme in this format, which calls [loadcolorscheme](@ref):
 
 ```julia
 loadcolorscheme(:mynewcolorscheme, [
@@ -97,9 +97,9 @@ loadcolorscheme(:mynewcolorscheme, [
 
 The new name - here `mynewcolorscheme` - should be a valid Julia variable name.
 
-3 If you're adding the new colorscheme to an existing category, it will appear in the catalog document automatically.
+3. If you're adding the new colorscheme to an existing category, it will appear in the catalog document automatically.
 
-4 Otherwise, to add a new category to the catalog (which will add all the colorschemes in that category), add this code to `catalogue.md`:
+4. Otherwise, to add a new category to the catalog (which will add all the colorschemes in that category), add this code to `catalogue.md`:
 
 ```markdown
     ```@example catalog
@@ -108,7 +108,9 @@ The new name - here `mynewcolorscheme` - should be a valid Julia variable name.
     ```
 ```
 
-5 If there's a license file, add it to `data/` as well.
+5. If there's a license file, add it to `data/` as well. (This is a courtesy thing rather than a legal thing.)
+
+6. Add your new file to the include list in the function `src/ColorSchemes.jl/loadallschemes` (around line 118).
 
 ## Documentation
 

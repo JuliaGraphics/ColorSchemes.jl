@@ -149,7 +149,7 @@ html.theme--documenter-dark #documenter .docs-sidebar form.docs-search>input.is-
 	content: attr(data-hover);
 	visibility: hidden;
 	opacity: 0;
-	width: 500px;
+	width: 600px;
 	background-color: black;
 	color: #fff;
 	text-align: left;

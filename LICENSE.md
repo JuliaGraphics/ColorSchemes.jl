@@ -93,7 +93,6 @@ See https://flagpedia.net/about
 
 The flags from which these color schemes were extracted are public domain.
 
-
 ## feathers
 
 License is MIT

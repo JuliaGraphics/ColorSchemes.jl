@@ -1,6 +1,20 @@
 # Changelog
 
-## [v3.30.0] - 2025-007-05
+## [v3.31.0] - 2025-09-14
+
+### Added
+
+- Sanzo Wada Color combinations #151 (thanks  max-de-rooij)
+
+- add yt colormaps as cmyt_names #149 (thanks @andrew-saydjari)
+
+### Changed
+
+### Removed
+
+###################################################################
+
+## [v3.30.0] - 2025-07-05
 
 ### Added
 

@@ -15,7 +15,7 @@ end
 
 function generate_scheme_svg(schemename;
         swatchwidth = 800,
-        swatchheight = 20)
+        swatchheight = 30)
     # create swatch
     cols = colorschemes[schemename].colors
     l = length(cols)
@@ -275,7 +275,7 @@ using Luxor, ColorSchemes # hide
 ColorSchemeCategory("Feathers") # hide
 ```
 
-# sanzo
+# Sanzo Wada
 Color combinations derived from "A Dictionary of Color Combinations", a book based on the original 6-volumes of color studies called _Haishoku Soukan_ by [Sanzo Wada](https://en.wikipedia.org/wiki/Sanzo_Wada), a Japanese artist and designer.
 
 ```@example catalog

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Basic usage · ColorSchemes</title><meta name="title" content="Basic usage · ColorSchemes"/><meta property="og:title" content="Basic usage · ColorSchemes"/><meta property="twitter:title" content="Basic usage · ColorSchemes"/><meta name="description" content="Documentation for ColorSchemes."/><meta property="og:description" content="Documentation for ColorSchemes."/><meta property="twitter:description" content="Documentation for ColorSchemes."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/colorschemes-docs.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.svg" alt="ColorSchemes logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../">ColorSchemes</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Introduction</a></li><li><a class="tocitem" href="../catalogue/">Catalogue</a></li><li class="is-active"><a class="tocitem" href>Basic usage</a><ul class="internal"><li><a class="tocitem" href="#ColorScheme-objects"><span>ColorScheme objects</span></a></li><li><a class="tocitem" href="#The-colorschemes-dictionary"><span>The colorschemes dictionary</span></a></li><li><a class="tocitem" href="#Finding-colorschemes"><span>Finding colorschemes</span></a></li><li><a class="tocitem" href="#Make-your-own-colorscheme"><span>Make your own colorscheme</span></a></li><li><a class="tocitem" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users"><span>For CVD (color-vision deficient or &quot;color-blind&quot;) users</span></a></li><li><a class="tocitem" href="#The-resample()-function"><span>The <code>resample()</code> function</span></a></li><li><a class="tocitem" href="#More-about-color-sampling"><span>More about color sampling</span></a></li><li><a class="tocitem" href="#Matplotlib-compatibility"><span>Matplotlib compatibility</span></a></li></ul></li><li><a class="tocitem" href="../goodpractice/">Good practice</a></li><li><a class="tocitem" href="../finding/">Finding colors</a></li><li><a class="tocitem" href="../plotting/">Plotting</a></li><li><a class="tocitem" href="../images/">Images</a></li><li><a class="tocitem" href="../functionindex/">Functions</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Basic usage</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Basic usage</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/master/docs/src/basics.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Basics"><a class="docs-heading-anchor" href="#Basics">Basics</a><a id="Basics-1"></a><a class="docs-heading-anchor-permalink" href="#Basics" title="Permalink"></a></h1><h2 id="ColorScheme-objects"><a class="docs-heading-anchor" href="#ColorScheme-objects">ColorScheme objects</a><a id="ColorScheme-objects-1"></a><a class="docs-heading-anchor-permalink" href="#ColorScheme-objects" title="Permalink"></a></h2><p>When you start <code>using ColorSchemes</code>, it loads a set of pre-defined ColorSchemes in a dictionary called <code>colorschemes</code>.</p><p>A ColorScheme is a Julia object which contains:</p><ul><li>an ordered array of colors (see Colors.jl)</li><li>a string defining a category</li><li>a string containing descriptive notes</li></ul><p>To access one of the built-in colorschemes, use its symbol:</p><pre><code class="language-julia hljs">ColorSchemes.leonardo</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 32 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".82" height=".96" x="0" y="0" fill="%230E0405" />
+<rect width=".82" height=".96" x="1" y="0" fill="%2313090A" />
+<rect width=".82" height=".96" x="2" y="0" fill="%231C0907" />
+<rect width=".82" height=".96" x="3" y="0" fill="%231A0E0D" />
+<rect width=".82" height=".96" x="4" y="0" fill="%231C1112" />
+<rect width=".82" height=".96" x="5" y="0" fill="%2327110C" />
+<rect width=".82" height=".96" x="6" y="0" fill="%23291B13" />
+<rect width=".82" height=".96" x="7" y="0" fill="%233A180E" />
+<rect width=".82" height=".96" x="8" y="0" fill="%233E2518" />
+<rect width=".82" height=".96" x="9" y="0" fill="%23332B15" />
+<rect width=".82" height=".96" x="10" y="0" fill="%234A2812" />
+<rect width=".82" height=".96" x="11" y="0" fill="%23592511" />
+<rect width=".82" height=".96" x="12" y="0" fill="%23433A1D" />
+<rect width=".82" height=".96" x="13" y="0" fill="%235B3D16" />
+<rect width=".82" height=".96" x="14" y="0" fill="%236D3313" />
+<rect width=".82" height=".96" x="15" y="0" fill="%23564D26" />
+<rect width=".82" height=".96" x="16" y="0" fill="%23844214" />
+<rect width=".82" height=".96" x="17" y="0" fill="%2370561B" />
+<rect width=".82" height=".96" x="18" y="0" fill="%23676835" />
+<rect width=".82" height=".96" x="19" y="0" fill="%239E5616" />
+<rect width=".82" height=".96" x="20" y="0" fill="%23826A23" />
+<rect width=".82" height=".96" x="21" y="0" fill="%23867837" />
+<rect width=".82" height=".96" x="22" y="0" fill="%23987A25" />
+<rect width=".82" height=".96" x="23" y="0" fill="%23BB6E1B" />
+<rect width=".82" height=".96" x="24" y="0" fill="%239E8537" />
+<rect width=".82" height=".96" x="25" y="0" fill="%23B1902F" />
+<rect width=".82" height=".96" x="26" y="0" fill="%23AE9445" />
+<rect width=".82" height=".96" x="27" y="0" fill="%23D98A23" />
+<rect width=".82" height=".96" x="28" y="0" fill="%23C1A240" />
+<rect width=".82" height=".96" x="29" y="0" fill="%23D0B252" />
+<rect width=".82" height=".96" x="30" y="0" fill="%23EEAA33" />
+<rect width=".82" height=".96" x="31" y="0" fill="%23F8CA49" />
+</svg>'/><p>or</p><pre><code class="language-julia hljs">colorschemes[:leonardo]</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 32 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".82" height=".96" x="0" y="0" fill="%230E0405" />
+<rect width=".82" height=".96" x="1" y="0" fill="%2313090A" />
+<rect width=".82" height=".96" x="2" y="0" fill="%231C0907" />
+<rect width=".82" height=".96" x="3" y="0" fill="%231A0E0D" />
+<rect width=".82" height=".96" x="4" y="0" fill="%231C1112" />
+<rect width=".82" height=".96" x="5" y="0" fill="%2327110C" />
+<rect width=".82" height=".96" x="6" y="0" fill="%23291B13" />
+<rect width=".82" height=".96" x="7" y="0" fill="%233A180E" />
+<rect width=".82" height=".96" x="8" y="0" fill="%233E2518" />
+<rect width=".82" height=".96" x="9" y="0" fill="%23332B15" />
+<rect width=".82" height=".96" x="10" y="0" fill="%234A2812" />
+<rect width=".82" height=".96" x="11" y="0" fill="%23592511" />
+<rect width=".82" height=".96" x="12" y="0" fill="%23433A1D" />
+<rect width=".82" height=".96" x="13" y="0" fill="%235B3D16" />
+<rect width=".82" height=".96" x="14" y="0" fill="%236D3313" />
+<rect width=".82" height=".96" x="15" y="0" fill="%23564D26" />
+<rect width=".82" height=".96" x="16" y="0" fill="%23844214" />
+<rect width=".82" height=".96" x="17" y="0" fill="%2370561B" />
+<rect width=".82" height=".96" x="18" y="0" fill="%23676835" />
+<rect width=".82" height=".96" x="19" y="0" fill="%239E5616" />
+<rect width=".82" height=".96" x="20" y="0" fill="%23826A23" />
+<rect width=".82" height=".96" x="21" y="0" fill="%23867837" />
+<rect width=".82" height=".96" x="22" y="0" fill="%23987A25" />
+<rect width=".82" height=".96" x="23" y="0" fill="%23BB6E1B" />
+<rect width=".82" height=".96" x="24" y="0" fill="%239E8537" />
+<rect width=".82" height=".96" x="25" y="0" fill="%23B1902F" />
+<rect width=".82" height=".96" x="26" y="0" fill="%23AE9445" />
+<rect width=".82" height=".96" x="27" y="0" fill="%23D98A23" />
+<rect width=".82" height=".96" x="28" y="0" fill="%23C1A240" />
+<rect width=".82" height=".96" x="29" y="0" fill="%23D0B252" />
+<rect width=".82" height=".96" x="30" y="0" fill="%23EEAA33" />
+<rect width=".82" height=".96" x="31" y="0" fill="%23F8CA49" />
+</svg>'/><p>The display depends on your working environment. If you’re using a notebook or IDE environment, the colors in the colorscheme should appear as a swatch in a cell or in a Plots window. Otherwise, you’ll see the colors listed as RGB values:</p><pre><code class="language-julia hljs">32-element Array{RGB{Float64},1}:
+ RGB{Float64}(0.0548203,0.016509,0.0193152)
+ RGB{Float64}(0.0750816,0.0341102,0.0397083)
+ RGB{Float64}(0.10885,0.0336675,0.0261204)
+ RGB{Float64}(0.100251,0.0534243,0.0497594)
+ ...
+ RGB{Float64}(0.620187,0.522792,0.216707)
+ RGB{Float64}(0.692905,0.56631,0.185515)
+ RGB{Float64}(0.681411,0.58149,0.270391)
+ RGB{Float64}(0.85004,0.540122,0.136212)
+ RGB{Float64}(0.757552,0.633425,0.251451)
+ RGB{Float64}(0.816472,0.697015,0.322421)
+ RGB{Float64}(0.933027,0.665164,0.198652)
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can access the array of colors as:</p><pre><code class="language-julia hljs">ColorSchemes.leonardo.colors</code></pre><p>By default, the names of the built-in colorschemes aren’t imported. You can import the ones that you want:</p><pre><code class="language-julia hljs">julia&gt; import ColorSchemes.leonardo
+julia&gt; leonardo
+32-element Array{RGB{Float64},1}:
+ RGB{Float64}(0.0548203,0.016509,0.0193152)
+ RGB{Float64}(0.0750816,0.0341102,0.0397083)
+ RGB{Float64}(0.10885,0.0336675,0.0261204)
+ RGB{Float64}(0.100251,0.0534243,0.0497594)
+ ...
+ RGB{Float64}(0.757552,0.633425,0.251451)
+ RGB{Float64}(0.816472,0.697015,0.322421)
+ RGB{Float64}(0.933027,0.665164,0.198652)
+ RGB{Float64}(0.972441,0.790701,0.285136)</code></pre><p>You can reference a single color in a scheme:</p><pre><code class="language-julia hljs">leonardo[3]
+
+-&gt; RGB{Float64}(0.10884977211887092,0.033667530751245296,0.026120424375656533)</code></pre><p>Or you can ‘sample’ the scheme at any point between 0 and 1 using <code>get</code> or <code>getindex</code>:</p><pre><code class="language-julia hljs">get(leonardo, 0.5)
+
+-&gt; RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)
+
+leonardo[0.5]
+
+-&gt; RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><p>With <code>get</code> you can resample an existing colorscheme, by passing a range:</p><pre><code class="language-julia hljs">get(ColorSchemes.darkrainbow, range(0.0, 1.0, length=14))
+
+-&gt; RGB{Float64}[
+      RGB{Float64}(0.237736, 0.340215, 0.575113), 
+      RGB{Float64}(0.249978, 0.343813, 0.5620657), 
+      RGB{Float64}(0.259452, 0.386963, 0.464862), 
+      RGB{Float64}(0.272746, 0.439684, 0.3499807), 
+      ...
+      RGB{Float64}(0.72987,0.239399,0.230961), 
+      RGB{Float64}(0.72987,0.239399,0.230961)]</code></pre><p>and you can make a new scheme from this:</p><pre><code class="language-julia hljs">ndr = ColorScheme(get(ColorSchemes.darkrainbow, range(0.0, 1.0, length=14)))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 14 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".92" height=".96" x="0" y="0" fill="%233D5793" />
+<rect width=".92" height=".96" x="1" y="0" fill="%2340588F" />
+<rect width=".92" height=".96" x="2" y="0" fill="%23426377" />
+<rect width=".92" height=".96" x="3" y="0" fill="%23467059" />
+<rect width=".92" height=".96" x="4" y="0" fill="%234D7B45" />
+<rect width=".92" height=".96" x="5" y="0" fill="%23658B3F" />
+<rect width=".92" height=".96" x="6" y="0" fill="%238BA041" />
+<rect width=".92" height=".96" x="7" y="0" fill="%23B2B547" />
+<rect width=".92" height=".96" x="8" y="0" fill="%23D2C24E" />
+<rect width=".92" height=".96" x="9" y="0" fill="%23DFBB53" />
+<rect width=".92" height=".96" x="10" y="0" fill="%23D4954F" />
+<rect width=".92" height=".96" x="11" y="0" fill="%23C66345" />
+<rect width=".92" height=".96" x="12" y="0" fill="%23BA3D3B" />
+<rect width=".92" height=".96" x="13" y="0" fill="%23BA3D3B" />
+</svg>'/><p>See below for more possibilities.</p><h2 id="The-colorschemes-dictionary"><a class="docs-heading-anchor" href="#The-colorschemes-dictionary">The colorschemes dictionary</a><a id="The-colorschemes-dictionary-1"></a><a class="docs-heading-anchor-permalink" href="#The-colorschemes-dictionary" title="Permalink"></a></h2><p>The ColorSchemes module automatically provides a number of predefined schemes. All the colorschemes are stored in an exported dictionary, called <code>colorschemes</code>.</p><pre><code class="language-julia hljs">colorschemes[:summer] |&gt; show
+    ColorScheme(
+        ColorTypes.RGB{Float64}[
+            RGB{Float64}(0.0,0.5,0.4),
+            RGB{Float64}(0.01,0.505,0.4),
+            RGB{Float64}(0.02,0.51,0.4),
+            RGB{Float64}(0.03,0.515,0.4),
+            ...
+            RGB{Float64}(1.0,1.0,0.4)],
+       &quot;matplotlib&quot;,
+       &quot;sampled color schemes, sequential linearly-increasing shades of green-yellow&quot;)</code></pre><h2 id="Finding-colorschemes"><a class="docs-heading-anchor" href="#Finding-colorschemes">Finding colorschemes</a><a id="Finding-colorschemes-1"></a><a class="docs-heading-anchor-permalink" href="#Finding-colorschemes" title="Permalink"></a></h2><p>Use the <a href="#ColorSchemes.findcolorscheme">findcolorscheme</a> function to search through the pre-defined colorschemes. The string you provide can occur in the colorscheme’s name, in the category, or (optionally) in the notes. It’s interpreted as a case-insensitive regular expression.</p><pre><code class="language-julia hljs">julia&gt; findcolorscheme(&quot;ice&quot;)
+
+colorschemes containing &quot;ice&quot;
+
+  seaborn_icefire_gradient
+  seaborn_icefire_gradient  (notes) sequential, ice fire gradient...
+  ice                 
+  flag_is                   (notes) The flag of Iceland...
+  botticelli          
+  botticelli                (notes) palette from artist Sandro Bot...
+
+
+ ...found 6 results for &quot;ice&quot;</code></pre><p>The function returns a list of matching colorscheme names as symbols.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="ColorSchemes.findcolorscheme" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">findcolorscheme(str;
+    search_notes=true)</code></pre><p>Find all colorschemes matching <code>str</code>. <code>str</code> is interpreted as a regular expression (case-insensitive).</p><p>This returns an array of symbols which are the names of matching schemes in the <code>colorschemes</code> dictionary.</p><pre><code class="language-julia hljs">julia&gt; findcolorscheme(&quot;ice&quot;)
+
+colorschemes containing &quot;ice&quot;
+
+  seaborn_icefire_gradient
+  seaborn_icefire_gradient  (notes) sequential, ice fire gradient...
+  ice
+  flag_is               (notes) The flag of Iceland...
+  botticelli
+  botticelli            (notes) palette from artist Sandro Bot...
+
+
+ ...found 6 results for &quot;ice&quot;</code></pre><p>To read the notes of a built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-julia hljs">colorschemes[:cscheme].notes</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/08ff9a64015699a1042e4d2a817b035529f942e8/src/ColorSchemes.jl#L157-L188">source</a></section></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="language-julia hljs">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
+265-element Array{Symbol,1}:
+ :BuPu_6
+ :Spectral_4
+ :RdYlGn_5
+ ⋮
+ :BrBG_8
+ :Oranges_4</code></pre><h2 id="Make-your-own-colorscheme"><a class="docs-heading-anchor" href="#Make-your-own-colorscheme">Make your own colorscheme</a><a id="Make-your-own-colorscheme-1"></a><a class="docs-heading-anchor-permalink" href="#Make-your-own-colorscheme" title="Permalink"></a></h2><p>Using Colors.jl, you can use the <code>ColorScheme</code> constructor to make a range of colors into a colorscheme.</p><p>Using Colors.jl&#39;s <code>range()</code>:</p><pre><code class="language-julia hljs">cs1 = ColorScheme(range(colorant&quot;red&quot;, colorant&quot;green&quot;, length=5))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="125mm" height="25mm"
+     viewBox="0 0 5 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".96" height=".96" x="0" y="0" fill="%23FF0000" />
+<rect width=".96" height=".96" x="1" y="0" fill="%23BF2000" />
+<rect width=".96" height=".96" x="2" y="0" fill="%23804000" />
+<rect width=".96" height=".96" x="3" y="0" fill="%23406000" />
+<rect width=".96" height=".96" x="4" y="0" fill="%23008000" />
+</svg>'/><p>Using <code>get()</code>:</p><pre><code class="language-julia hljs">cs1 = ColorScheme(get(ColorSchemes.darkrainbow, range(0.3, 0.7, length=10)))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 10 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".94" height=".96" x="0" y="0" fill="%234A7A45" />
+<rect width=".94" height=".96" x="1" y="0" fill="%23588342" />
+<rect width=".94" height=".96" x="2" y="0" fill="%23678B3F" />
+<rect width=".94" height=".96" x="3" y="0" fill="%237C9840" />
+<rect width=".94" height=".96" x="4" y="0" fill="%2394A542" />
+<rect width=".94" height=".96" x="5" y="0" fill="%23AAB146" />
+<rect width=".94" height=".96" x="6" y="0" fill="%23BFBC4A" />
+<rect width=".94" height=".96" x="7" y="0" fill="%23D1C24E" />
+<rect width=".94" height=".96" x="8" y="0" fill="%23D9BE51" />
+<rect width=".94" height=".96" x="9" y="0" fill="%23E0BA53" />
+</svg>'/><p>Converting from a sequential palette:</p><pre><code class="language-julia hljs">cs1 = ColorScheme(reverse(Colors.sequential_palette(300, 100, logscale=true)))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 100 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width="1" height=".96" x="0" y="0" fill="%234A0952" />
+<rect width="1" height=".96" x="1" y="0" fill="%23601369" />
+<rect width="1" height=".96" x="2" y="0" fill="%23731E7E" />
+<rect width="1" height=".96" x="3" y="0" fill="%2385298F" />
+<rect width="1" height=".96" x="4" y="0" fill="%2394349F" />
+<rect width="1" height=".96" x="5" y="0" fill="%23A23EAC" />
+<rect width="1" height=".96" x="6" y="0" fill="%23AE48B7" />
+<rect width="1" height=".96" x="7" y="0" fill="%23B952C0" />
+<rect width="1" height=".96" x="8" y="0" fill="%23C25CC8" />
+<rect width="1" height=".96" x="9" y="0" fill="%23CA65CE" />
+<rect width="1" height=".96" x="10" y="0" fill="%23D06ED3" />
+<rect width="1" height=".96" x="11" y="0" fill="%23D677D8" />
+<rect width="1" height=".96" x="12" y="0" fill="%23DC7EDC" />
+<rect width="1" height=".96" x="13" y="0" fill="%23E086DF" />
+<rect width="1" height=".96" x="14" y="0" fill="%23E48DE1" />
+<rect width="1" height=".96" x="15" y="0" fill="%23E793E4" />
+<rect width="1" height=".96" x="16" y="0" fill="%23EA99E6" />
+<rect width="1" height=".96" x="17" y="0" fill="%23ED9FE8" />
+<rect width="1" height=".96" x="18" y="0" fill="%23EFA4E9" />
+<rect width="1" height=".96" x="19" y="0" fill="%23F2A9EB" />
+<rect width="1" height=".96" x="20" y="0" fill="%23F3ADEC" />
+<rect width="1" height=".96" x="21" y="0" fill="%23F5B2ED" />
+<rect width="1" height=".96" x="22" y="0" fill="%23F6B6EE" />
+<rect width="1" height=".96" x="23" y="0" fill="%23F8B9EF" />
+<rect width="1" height=".96" x="24" y="0" fill="%23F9BDF0" />
+<rect width="1" height=".96" x="25" y="0" fill="%23FAC0F1" />
+<rect width="1" height=".96" x="26" y="0" fill="%23FAC3F2" />
+<rect width="1" height=".96" x="27" y="0" fill="%23FBC6F2" />
+<rect width="1" height=".96" x="28" y="0" fill="%23FCC9F3" />
+<rect width="1" height=".96" x="29" y="0" fill="%23FCCBF4" />
+<rect width="1" height=".96" x="30" y="0" fill="%23FDCEF4" />
+<rect width="1" height=".96" x="31" y="0" fill="%23FDD0F5" />
+<rect width="1" height=".96" x="32" y="0" fill="%23FED2F5" />
+<rect width="1" height=".96" x="33" y="0" fill="%23FED4F6" />
+<rect width="1" height=".96" x="34" y="0" fill="%23FED6F6" />
+<rect width="1" height=".96" x="35" y="0" fill="%23FFD8F7" />
+<rect width="1" height=".96" x="36" y="0" fill="%23FFDAF7" />
+<rect width="1" height=".96" x="37" y="0" fill="%23FFDCF7" />
+<rect width="1" height=".96" x="38" y="0" fill="%23FFDDF8" />
+<rect width="1" height=".96" x="39" y="0" fill="%23FFDEF8" />
+<rect width="1" height=".96" x="40" y="0" fill="%23FFE0F8" />
+<rect width="1" height=".96" x="41" y="0" fill="%23FFE1F8" />
+<rect width="1" height=".96" x="42" y="0" fill="%23FFE2F9" />
+<rect width="1" height=".96" x="43" y="0" fill="%23FFE4F9" />
+<rect width="1" height=".96" x="44" y="0" fill="%23FFE5F9" />
+<rect width="1" height=".96" x="45" y="0" fill="%23FFE6F9" />
+<rect width="1" height=".96" x="46" y="0" fill="%23FFE7FA" />
+<rect width="1" height=".96" x="47" y="0" fill="%23FFE8FA" />
+<rect width="1" height=".96" x="48" y="0" fill="%23FFE9FA" />
+<rect width="1" height=".96" x="49" y="0" fill="%23FFE9FA" />
+<rect width="1" height=".96" x="50" y="0" fill="%23FFEAFA" />
+<rect width="1" height=".96" x="51" y="0" fill="%23FFEBFA" />
+<rect width="1" height=".96" x="52" y="0" fill="%23FFECFB" />
+<rect width="1" height=".96" x="53" y="0" fill="%23FFECFB" />
+<rect width="1" height=".96" x="54" y="0" fill="%23FFEDFB" />
+<rect width="1" height=".96" x="55" y="0" fill="%23FFEEFB" />
+<rect width="1" height=".96" x="56" y="0" fill="%23FFEEFB" />
+<rect width="1" height=".96" x="57" y="0" fill="%23FFEFFB" />
+<rect width="1" height=".96" x="58" y="0" fill="%23FFEFFB" />
+<rect width="1" height=".96" x="59" y="0" fill="%23FFF0FC" />
+<rect width="1" height=".96" x="60" y="0" fill="%23FFF0FC" />
+<rect width="1" height=".96" x="61" y="0" fill="%23FFF1FC" />
+<rect width="1" height=".96" x="62" y="0" fill="%23FFF1FC" />
+<rect width="1" height=".96" x="63" y="0" fill="%23FFF2FC" />
+<rect width="1" height=".96" x="64" y="0" fill="%23FFF2FC" />
+<rect width="1" height=".96" x="65" y="0" fill="%23FFF2FC" />
+<rect width="1" height=".96" x="66" y="0" fill="%23FFF3FC" />
+<rect width="1" height=".96" x="67" y="0" fill="%23FFF3FC" />
+<rect width="1" height=".96" x="68" y="0" fill="%23FFF3FC" />
+<rect width="1" height=".96" x="69" y="0" fill="%23FFF4FC" />
+<rect width="1" height=".96" x="70" y="0" fill="%23FFF4FC" />
+<rect width="1" height=".96" x="71" y="0" fill="%23FFF4FC" />
+<rect width="1" height=".96" x="72" y="0" fill="%23FFF5FD" />
+<rect width="1" height=".96" x="73" y="0" fill="%23FFF5FD" />
+<rect width="1" height=".96" x="74" y="0" fill="%23FFF5FD" />
+<rect width="1" height=".96" x="75" y="0" fill="%23FFF5FD" />
+<rect width="1" height=".96" x="76" y="0" fill="%23FFF5FD" />
+<rect width="1" height=".96" x="77" y="0" fill="%23FFF6FD" />
+<rect width="1" height=".96" x="78" y="0" fill="%23FFF6FD" />
+<rect width="1" height=".96" x="79" y="0" fill="%23FFF6FD" />
+<rect width="1" height=".96" x="80" y="0" fill="%23FFF6FD" />
+<rect width="1" height=".96" x="81" y="0" fill="%23FFF6FD" />
+<rect width="1" height=".96" x="82" y="0" fill="%23FFF7FD" />
+<rect width="1" height=".96" x="83" y="0" fill="%23FFF7FD" />
+<rect width="1" height=".96" x="84" y="0" fill="%23FFF7FD" />
+<rect width="1" height=".96" x="85" y="0" fill="%23FFF7FD" />
+<rect width="1" height=".96" x="86" y="0" fill="%23FFF7FD" />
+<rect width="1" height=".96" x="87" y="0" fill="%23FFF7FD" />
+<rect width="1" height=".96" x="88" y="0" fill="%23FFF7FD" />
+<rect width="1" height=".96" x="89" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="90" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="91" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="92" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="93" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="94" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="95" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="96" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="97" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="98" y="0" fill="%23FFF8FD" />
+<rect width="1" height=".96" x="99" y="0" fill="%23FFF8FD" />
+</svg>'/><p>From an array comprehension:</p><pre><code class="language-julia hljs">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0])</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 11 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".94" height=".96" x="0" y="0" fill="%23000000" />
+<rect width=".94" height=".96" x="1" y="0" fill="%231A1A1A" />
+<rect width=".94" height=".96" x="2" y="0" fill="%23333333" />
+<rect width=".94" height=".96" x="3" y="0" fill="%234C4C4C" />
+<rect width=".94" height=".96" x="4" y="0" fill="%23666666" />
+<rect width=".94" height=".96" x="5" y="0" fill="%23808080" />
+<rect width=".94" height=".96" x="6" y="0" fill="%23999999" />
+<rect width=".94" height=".96" x="7" y="0" fill="%23B2B2B2" />
+<rect width=".94" height=".96" x="8" y="0" fill="%23CCCCCC" />
+<rect width=".94" height=".96" x="9" y="0" fill="%23E6E6E6" />
+<rect width=".94" height=".96" x="10" y="0" fill="%23FFFFFF" />
+</svg>'/><p>A logarithmic scheme:</p><pre><code class="language-julia hljs">ColorScheme(get(ColorSchemes.darkrainbow, 10 .^ range(-2, stop=0, length=50)))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 50 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".72" height=".96" x="0" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="1" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="2" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="3" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="4" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="5" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="6" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="7" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="8" y="0" fill="%233D5792" />
+<rect width=".72" height=".96" x="9" y="0" fill="%233E5792" />
+<rect width=".72" height=".96" x="10" y="0" fill="%233E5792" />
+<rect width=".72" height=".96" x="11" y="0" fill="%233E5791" />
+<rect width=".72" height=".96" x="12" y="0" fill="%233E5791" />
+<rect width=".72" height=".96" x="13" y="0" fill="%233E5791" />
+<rect width=".72" height=".96" x="14" y="0" fill="%233E5791" />
+<rect width=".72" height=".96" x="15" y="0" fill="%233E5791" />
+<rect width=".72" height=".96" x="16" y="0" fill="%233E5791" />
+<rect width=".72" height=".96" x="17" y="0" fill="%233F5791" />
+<rect width=".72" height=".96" x="18" y="0" fill="%233F5790" />
+<rect width=".72" height=".96" x="19" y="0" fill="%233F5790" />
+<rect width=".72" height=".96" x="20" y="0" fill="%233F5890" />
+<rect width=".72" height=".96" x="21" y="0" fill="%23405890" />
+<rect width=".72" height=".96" x="22" y="0" fill="%2340588F" />
+<rect width=".72" height=".96" x="23" y="0" fill="%2340588F" />
+<rect width=".72" height=".96" x="24" y="0" fill="%2340588F" />
+<rect width=".72" height=".96" x="25" y="0" fill="%2341598C" />
+<rect width=".72" height=".96" x="26" y="0" fill="%23415B88" />
+<rect width=".72" height=".96" x="27" y="0" fill="%23415D83" />
+<rect width=".72" height=".96" x="28" y="0" fill="%2342607D" />
+<rect width=".72" height=".96" x="29" y="0" fill="%23426277" />
+<rect width=".72" height=".96" x="30" y="0" fill="%23436570" />
+<rect width=".72" height=".96" x="31" y="0" fill="%23436969" />
+<rect width=".72" height=".96" x="32" y="0" fill="%23446C61" />
+<rect width=".72" height=".96" x="33" y="0" fill="%23456F5C" />
+<rect width=".72" height=".96" x="34" y="0" fill="%23467255" />
+<rect width=".72" height=".96" x="35" y="0" fill="%2348754E" />
+<rect width=".72" height=".96" x="36" y="0" fill="%234A7947" />
+<rect width=".72" height=".96" x="37" y="0" fill="%23527E43" />
+<rect width=".72" height=".96" x="38" y="0" fill="%235C8541" />
+<rect width=".72" height=".96" x="39" y="0" fill="%23678C3E" />
+<rect width=".72" height=".96" x="40" y="0" fill="%237A963F" />
+<rect width=".72" height=".96" x="41" y="0" fill="%2390A342" />
+<rect width=".72" height=".96" x="42" y="0" fill="%23A8B045" />
+<rect width=".72" height=".96" x="43" y="0" fill="%23C0BC4A" />
+<rect width=".72" height=".96" x="44" y="0" fill="%23D3C14F" />
+<rect width=".72" height=".96" x="45" y="0" fill="%23DEBC53" />
+<rect width=".72" height=".96" x="46" y="0" fill="%23D79D50" />
+<rect width=".72" height=".96" x="47" y="0" fill="%23C97048" />
+<rect width=".72" height=".96" x="48" y="0" fill="%23BA3D3B" />
+<rect width=".72" height=".96" x="49" y="0" fill="%23BA3D3B" />
+</svg>'/><p>Give it a category or some added notes if you want:</p><pre><code class="language-julia hljs">mygrays = ColorScheme([RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+    &quot;my useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>although this scheme won’t be stored in the supplied <code>colorschemes</code> dictionary.</p><p>Another example: start with a two-color scheme, then building a gradient from the first color to the other.</p><pre><code class="language-julia hljs">myscheme = ColorScheme([Colors.RGB(1.0, 0.0, 0.0), Colors.RGB(0.0, 1.0, 0.0)],
+               &quot;custom&quot;, &quot;twotone, red and green&quot;)
+ColorScheme([get(myscheme, i) for i in 0.0:0.01:1.0])</code></pre><p>Another way is to use the <a href="@ref">loadcolorscheme</a> function used to build the colorschemes dictionary when the package is loaded:</p><pre><code class="language-julia hljs">using Colors, ColorSchemes
+loadcolorscheme(:mygrays, [RGB{Float64}(i, i, i) for i in 0:0.1:1.0],
+     &quot;useful schemes&quot;, &quot;just some dull grey shades&quot;)</code></pre><p>and that will be added (temporarily) to the built-in dictionary.</p><pre><code class="language-julia hljs">julia&gt; findcolorscheme(&quot;dull&quot;)
+
+colorschemes containing &quot;dull&quot;
+
+  mygrays               (notes) just some dull grey shades...
+
+
+ ...found 1 result for &quot;dull&quot;</code></pre><div class="admonition is-info" id="Note-1773706597f1f6f1"><header class="admonition-header">Note<a class="admonition-anchor" href="#Note-1773706597f1f6f1" title="Permalink"></a></header><div class="admonition-body"><p>If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the <code>make_colorscheme()</code> function in the <a href="https://github.com/JuliaGraphics/ColorSchemeTools.jl">ColorSchemeTools.jl</a> package.</p></div></div><h2 id="For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users"><a class="docs-heading-anchor" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users">For CVD (color-vision deficient or &quot;color-blind&quot;) users</a><a id="For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users-1"></a><a class="docs-heading-anchor-permalink" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users" title="Permalink"></a></h2><p>This package contains a number of colorschemes that are designed to be helpful for people with some deficiencies in their perception of color:</p><ul><li><p><em>deuteranomaly</em> (where green looks more red)</p></li><li><p><em>protanomaly</em> (where red looks more green and less bright)</p></li><li><p><em>tritanomaly</em> (difficult to tell the difference between blue and green, and between yellow and red)</p></li><li><p><em>tritanopia</em> (difficult to tell the difference between blue and green, purple and red, and yellow and pink)</p></li></ul><pre><code class="language-julia hljs">findcolorscheme(&quot;cvd&quot;)
+
+colorschemes containing &quot;cvd&quot;
+
+  tol_light            (category) cvd
+  tol_muted            (category) cvd
+  tol_bright           (category) cvd
+  okabe_ito            (category) cvd
+  mk_8                 (category) cvd
+  mk_12                (category) cvd
+  mk_15                (category) cvd</code></pre><h3 id=":tol_light"><a class="docs-heading-anchor" href="#:tol_light">:tol_light</a><a id=":tol_light-1"></a><a class="docs-heading-anchor-permalink" href="#:tol_light" title="Permalink"></a></h3><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 9 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".95" height=".96" x="0" y="0" fill="%2377AADD" />
+<rect width=".95" height=".96" x="1" y="0" fill="%23EE8866" />
+<rect width=".95" height=".96" x="2" y="0" fill="%23EEDD88" />
+<rect width=".95" height=".96" x="3" y="0" fill="%23FFAABB" />
+<rect width=".95" height=".96" x="4" y="0" fill="%2399DDFF" />
+<rect width=".95" height=".96" x="5" y="0" fill="%2344BB99" />
+<rect width=".95" height=".96" x="6" y="0" fill="%23BBCC33" />
+<rect width=".95" height=".96" x="7" y="0" fill="%23AAAA00" />
+<rect width=".95" height=".96" x="8" y="0" fill="%23DDDDDD" />
+</svg>'/><h3 id=":tol_muted"><a class="docs-heading-anchor" href="#:tol_muted">:tol_muted</a><a id=":tol_muted-1"></a><a class="docs-heading-anchor-permalink" href="#:tol_muted" title="Permalink"></a></h3><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 9 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".95" height=".96" x="0" y="0" fill="%23332288" />
+<rect width=".95" height=".96" x="1" y="0" fill="%2388CCEE" />
+<rect width=".95" height=".96" x="2" y="0" fill="%2344AA99" />
+<rect width=".95" height=".96" x="3" y="0" fill="%23117733" />
+<rect width=".95" height=".96" x="4" y="0" fill="%23999933" />
+<rect width=".95" height=".96" x="5" y="0" fill="%23DDCC77" />
+<rect width=".95" height=".96" x="6" y="0" fill="%23CC6677" />
+<rect width=".95" height=".96" x="7" y="0" fill="%23882255" />
+<rect width=".95" height=".96" x="8" y="0" fill="%23AA4499" />
+</svg>'/><h3 id=":tol_bright"><a class="docs-heading-anchor" href="#:tol_bright">:tol_bright</a><a id=":tol_bright-1"></a><a class="docs-heading-anchor-permalink" href="#:tol_bright" title="Permalink"></a></h3><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="175mm" height="25mm"
+     viewBox="0 0 7 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".96" height=".96" x="0" y="0" fill="%234477AA" />
+<rect width=".96" height=".96" x="1" y="0" fill="%23EE6677" />
+<rect width=".96" height=".96" x="2" y="0" fill="%23228833" />
+<rect width=".96" height=".96" x="3" y="0" fill="%23CCBB44" />
+<rect width=".96" height=".96" x="4" y="0" fill="%2366CCEE" />
+<rect width=".96" height=".96" x="5" y="0" fill="%23AA3377" />
+<rect width=".96" height=".96" x="6" y="0" fill="%23BBBBBB" />
+</svg>'/><h3 id=":okabe_ito"><a class="docs-heading-anchor" href="#:okabe_ito">:okabe_ito</a><a id=":okabe_ito-1"></a><a class="docs-heading-anchor-permalink" href="#:okabe_ito" title="Permalink"></a></h3><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 8 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".96" height=".96" x="0" y="0" fill="%23E69F00" />
+<rect width=".96" height=".96" x="1" y="0" fill="%2356B4E9" />
+<rect width=".96" height=".96" x="2" y="0" fill="%23009E73" />
+<rect width=".96" height=".96" x="3" y="0" fill="%23F0E442" />
+<rect width=".96" height=".96" x="4" y="0" fill="%230072B2" />
+<rect width=".96" height=".96" x="5" y="0" fill="%23D55E00" />
+<rect width=".96" height=".96" x="6" y="0" fill="%23CC79A7" />
+<rect width=".96" height=".96" x="7" y="0" fill="%23000000" />
+</svg>'/><h3 id=":mk_8"><a class="docs-heading-anchor" href="#:mk_8">:mk_8</a><a id=":mk_8-1"></a><a class="docs-heading-anchor-permalink" href="#:mk_8" title="Permalink"></a></h3><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 8 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".96" height=".96" x="0" y="0" fill="%23000000" />
+<rect width=".96" height=".96" x="1" y="0" fill="%232271B2" />
+<rect width=".96" height=".96" x="2" y="0" fill="%233DB7E9" />
+<rect width=".96" height=".96" x="3" y="0" fill="%23F748A5" />
+<rect width=".96" height=".96" x="4" y="0" fill="%23359B73" />
+<rect width=".96" height=".96" x="5" y="0" fill="%23D55E00" />
+<rect width=".96" height=".96" x="6" y="0" fill="%23E69F00" />
+<rect width=".96" height=".96" x="7" y="0" fill="%23F0E442" />
+</svg>'/><h3 id=":mk_12"><a class="docs-heading-anchor" href="#:mk_12">:mk_12</a><a id=":mk_12-1"></a><a class="docs-heading-anchor-permalink" href="#:mk_12" title="Permalink"></a></h3><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 12 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".93" height=".96" x="0" y="0" fill="%239F0162" />
+<rect width=".93" height=".96" x="1" y="0" fill="%23009F81" />
+<rect width=".93" height=".96" x="2" y="0" fill="%23FF5AAF" />
+<rect width=".93" height=".96" x="3" y="0" fill="%2300FCCF" />
+<rect width=".93" height=".96" x="4" y="0" fill="%238400CD" />
+<rect width=".93" height=".96" x="5" y="0" fill="%23008DF9" />
+<rect width=".93" height=".96" x="6" y="0" fill="%2300C2F9" />
+<rect width=".93" height=".96" x="7" y="0" fill="%23FFB2FD" />
+<rect width=".93" height=".96" x="8" y="0" fill="%23A40122" />
+<rect width=".93" height=".96" x="9" y="0" fill="%23E20134" />
+<rect width=".93" height=".96" x="10" y="0" fill="%23FF6E3A" />
+<rect width=".93" height=".96" x="11" y="0" fill="%23FFC33B" />
+</svg>'/><h3 id=":mk_15"><a class="docs-heading-anchor" href="#:mk_15">:mk_15</a><a id=":mk_15-1"></a><a class="docs-heading-anchor-permalink" href="#:mk_15" title="Permalink"></a></h3><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 15 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".92" height=".96" x="0" y="0" fill="%2368023F" />
+<rect width=".92" height=".96" x="1" y="0" fill="%23008169" />
+<rect width=".92" height=".96" x="2" y="0" fill="%23EF0096" />
+<rect width=".92" height=".96" x="3" y="0" fill="%2300DCB5" />
+<rect width=".92" height=".96" x="4" y="0" fill="%23FFCFE2" />
+<rect width=".92" height=".96" x="5" y="0" fill="%23003C86" />
+<rect width=".92" height=".96" x="6" y="0" fill="%239400E6" />
+<rect width=".92" height=".96" x="7" y="0" fill="%23009FFA" />
+<rect width=".92" height=".96" x="8" y="0" fill="%23FF71FD" />
+<rect width=".92" height=".96" x="9" y="0" fill="%237CFFFA" />
+<rect width=".92" height=".96" x="10" y="0" fill="%236A0213" />
+<rect width=".92" height=".96" x="11" y="0" fill="%23008607" />
+<rect width=".92" height=".96" x="12" y="0" fill="%23F60239" />
+<rect width=".92" height=".96" x="13" y="0" fill="%2300E307" />
+<rect width=".92" height=".96" x="14" y="0" fill="%23FFDC3D" />
+</svg>'/><p>Also, it&#39;s possible to generate schemes using <code>Colors.distinguishable_colors()</code>:</p><pre><code class="language-julia hljs">using Colors, ColorSchemes
+ColorScheme(distinguishable_colors(10, transform=protanopic))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 10 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".94" height=".96" x="0" y="0" fill="%23000000" />
+<rect width=".94" height=".96" x="1" y="0" fill="%23F7FF11" />
+<rect width=".94" height=".96" x="2" y="0" fill="%23D7A6FF" />
+<rect width=".94" height=".96" x="3" y="0" fill="%23527000" />
+<rect width=".94" height=".96" x="4" y="0" fill="%236842EF" />
+<rect width=".94" height=".96" x="5" y="0" fill="%2397B6A6" />
+<rect width=".94" height=".96" x="6" y="0" fill="%23ED526A" />
+<rect width=".94" height=".96" x="7" y="0" fill="%2300004C" />
+<rect width=".94" height=".96" x="8" y="0" fill="%23003400" />
+<rect width=".94" height=".96" x="9" y="0" fill="%236BAD26" />
+</svg>'/><h2 id="The-resample()-function"><a class="docs-heading-anchor" href="#The-resample()-function">The <code>resample()</code> function</a><a id="The-resample()-function-1"></a><a class="docs-heading-anchor-permalink" href="#The-resample()-function" title="Permalink"></a></h2><p>Use <code>resample()</code> to make a new colorscheme by resampling an existing one:</p><pre><code class="language-julia hljs">ColorSchemes.turbo</code></pre><img src="275ab45f.svg" alt="Example block output"/><pre><code class="language-julia hljs">resample(ColorSchemes.turbo, 9)</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm"
+     viewBox="0 0 9 1" preserveAspectRatio="none"
+     shape-rendering="crispEdges" stroke="none">
+<rect width=".95" height=".96" x="0" y="0" fill="%2330123B" />
+<rect width=".95" height=".96" x="1" y="0" fill="%23466BE3" />
+<rect width=".95" height=".96" x="2" y="0" fill="%2329BBEC" />
+<rect width=".95" height=".96" x="3" y="0" fill="%2331F299" />
+<rect width=".95" height=".96" x="4" y="0" fill="%23A3FD3C" />
+<rect width=".95" height=".96" x="5" y="0" fill="%23EDD03A" />
+<rect width=".95" height=".96" x="6" y="0" fill="%23FB8022" />
+<rect width=".95" height=".96" x="7" y="0" fill="%23D23105" />
+<rect width=".95" height=".96" x="8" y="0" fill="%237A0403" />
+</svg>'/><p>You can pass a function to <code>resample()</code> to control the alpha opacity of each color in the color scheme.</p><pre><code class="language-julia hljs">resample(ColorSchemes.turbo, 9, (alpha) -&gt; 0.5)</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm" viewBox="0 0 9 1" stroke="none"
+     preserveAspectRatio="none" shape-rendering="crispEdges">
+<defs>
+    <pattern id="pat_22t8u2" width=".2" height=".2"
+             patternUnits="userSpaceOnUse" patternTransform="scale(1.25,1)" >
+        <path d="M.1,0h.1v.1h-.2v.1h.1z" fill="%23999" opacity=".5" />
+    </pattern>
+</defs>
+<rect width="9" height="1" fill="url(%23pat_22t8u2)" />
+<path d="M1,.1V1h-1V.9z" fill="%2330123B" />
+<path d="M0,0h1v1h-1z" fill="%2330123B" fill-opacity=".5" />
+<path d="M2,.1V1h-1V.9z" fill="%23466BE3" />
+<path d="M1,0h1v1h-1z" fill="%23466BE3" fill-opacity=".5" />
+<path d="M3,.1V1h-1V.9z" fill="%2329BBEC" />
+<path d="M2,0h1v1h-1z" fill="%2329BBEC" fill-opacity=".5" />
+<path d="M4,.1V1h-1V.9z" fill="%2331F299" />
+<path d="M3,0h1v1h-1z" fill="%2331F299" fill-opacity=".5" />
+<path d="M5,.1V1h-1V.9z" fill="%23A3FD3C" />
+<path d="M4,0h1v1h-1z" fill="%23A3FD3C" fill-opacity=".5" />
+<path d="M6,.1V1h-1V.9z" fill="%23EDD03A" />
+<path d="M5,0h1v1h-1z" fill="%23EDD03A" fill-opacity=".5" />
+<path d="M7,.1V1h-1V.9z" fill="%23FB8022" />
+<path d="M6,0h1v1h-1z" fill="%23FB8022" fill-opacity=".5" />
+<path d="M8,.1V1h-1V.9z" fill="%23D23105" />
+<path d="M7,0h1v1h-1z" fill="%23D23105" fill-opacity=".5" />
+<path d="M9,.1V1h-1V.9z" fill="%237A0403" />
+<path d="M8,0h1v1h-1z" fill="%237A0403" fill-opacity=".5" />
+</svg>'/><p>This sets the alpha value of every color to 0.5.</p><pre><code class="language-julia hljs">resample(ColorSchemes.turbo, 30, (alpha) -&gt; sin(alpha * π))</code></pre><img src='data:image/svg+xml;utf-8,<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="180mm" height="25mm" viewBox="0 0 30 1" stroke="none"
+     preserveAspectRatio="none" shape-rendering="crispEdges">
+<defs>
+    <pattern id="pat_4PIkin" width=".2" height=".2"
+             patternUnits="userSpaceOnUse" patternTransform="scale(4.167,1)" >
+        <path d="M.1,0h.1v.1h-.2v.1h.1z" fill="%23999" opacity=".5" />
+    </pattern>
+</defs>
+<rect width="30" height="1" fill="url(%23pat_4PIkin)" />
+<path d="M1,.38V1h-1V.62z" fill="%2330123B" />
+<path d="M0,0h1v1h-1z" fill="%2330123B" fill-opacity="0" />
+<path d="M2,.38V1h-1V.62z" fill="%233A2C78" />
+<path d="M1,0h1v1h-1z" fill="%233A2C78" fill-opacity=".1081" />
+<path d="M3,.38V1h-1V.62z" fill="%234145AA" />
+<path d="M2,0h1v1h-1z" fill="%234145AA" fill-opacity=".215" />
+<path d="M4,.38V1h-1V.62z" fill="%23455DD0" />
+<path d="M3,0h1v1h-1z" fill="%23455DD0" fill-opacity=".3193" />
+<path d="M5,.38V1h-1V.62z" fill="%234774EC" />
+<path d="M4,0h1v1h-1z" fill="%234774EC" fill-opacity=".4199" />
+<path d="M6,.38V1h-1V.62z" fill="%23458AFC" />
+<path d="M5,0h1v1h-1z" fill="%23458AFC" fill-opacity=".5156" />
+<path d="M7,.38V1h-1V.62z" fill="%233CA0FD" />
+<path d="M6,0h1v1h-1z" fill="%233CA0FD" fill-opacity=".6052" />
+<path d="M8,.38V1h-1V.62z" fill="%232DB6F1" />
+<path d="M7,0h1v1h-1z" fill="%232DB6F1" fill-opacity=".6877" />
+<path d="M9,.38V1h-1V.62z" fill="%231FCADC" />
+<path d="M8,0h1v1h-1z" fill="%231FCADC" fill-opacity=".7622" />
+<path d="M10,.38V1h-1V.62z" fill="%2318DBC5" />
+<path d="M9,0h1v1h-1z" fill="%2318DBC5" fill-opacity=".8277" />
+<path d="M11,.38V1h-1V.62z" fill="%231FE8AF" />
+<path d="M10,0h1v1h-1z" fill="%231FE8AF" fill-opacity=".8835" />
+<path d="M12,.38V1h-1V.62z" fill="%2334F395" />
+<path d="M11,0h1v1h-1z" fill="%2334F395" fill-opacity=".929" />
+<path d="M13,.38V1h-1V.62z" fill="%2354FA78" />
+<path d="M12,0h1v1h-1z" fill="%2354FA78" fill-opacity=".9635" />
+<path d="M14,.38V1h-1V.62z" fill="%2376FE5B" />
+<path d="M13,0h1v1h-1z" fill="%2376FE5B" fill-opacity=".9868" />
+<path d="M15,.38V1h-1V.62z" fill="%2396FE44" />
+<path d="M14,0h1v1h-1z" fill="%2396FE44" fill-opacity=".9985" />
+<path d="M16,.38V1h-1V.62z" fill="%23AEFA37" />
+<path d="M15,0h1v1h-1z" fill="%23AEFA37" fill-opacity=".9985" />
+<path d="M17,.38V1h-1V.62z" fill="%23C5F034" />
+<path d="M16,0h1v1h-1z" fill="%23C5F034" fill-opacity=".9868" />
+<path d="M18,.38V1h-1V.62z" fill="%23DAE336" />
+<path d="M17,0h1v1h-1z" fill="%23DAE336" fill-opacity=".9635" />
+<path d="M19,.38V1h-1V.62z" fill="%23EBD339" />
+<path d="M18,0h1v1h-1z" fill="%23EBD339" fill-opacity=".929" />
+<path d="M20,.38V1h-1V.62z" fill="%23F7C03A" />
+<path d="M19,0h1v1h-1z" fill="%23F7C03A" fill-opacity=".8835" />
+<path d="M21,.38V1h-1V.62z" fill="%23FDAC34" />
+<path d="M20,0h1v1h-1z" fill="%23FDAC34" fill-opacity=".8277" />
+<path d="M22,.38V1h-1V.62z" fill="%23FE942A" />
+<path d="M21,0h1v1h-1z" fill="%23FE942A" fill-opacity=".7622" />
+<path d="M23,.38V1h-1V.62z" fill="%23FA791F" />
+<path d="M22,0h1v1h-1z" fill="%23FA791F" fill-opacity=".6877" />
+<path d="M24,.38V1h-1V.62z" fill="%23F26014" />
+<path d="M23,0h1v1h-1z" fill="%23F26014" fill-opacity=".6052" />
+<path d="M25,.38V1h-1V.62z" fill="%23E7490B" />
+<path d="M24,0h1v1h-1z" fill="%23E7490B" fill-opacity=".5156" />
+<path d="M26,.38V1h-1V.62z" fill="%23D83706" />
+<path d="M25,0h1v1h-1z" fill="%23D83706" fill-opacity=".4199" />
+<path d="M27,.38V1h-1V.62z" fill="%23C62703" />
+<path d="M26,0h1v1h-1z" fill="%23C62703" fill-opacity=".3193" />
+<path d="M28,.38V1h-1V.62z" fill="%23B11901" />
+<path d="M27,0h1v1h-1z" fill="%23B11901" fill-opacity=".215" />
+<path d="M29,.38V1h-1V.62z" fill="%23970E01" />
+<path d="M28,0h1v1h-1z" fill="%23970E01" fill-opacity=".1081" />
+<path d="M30,.38V1h-1V.62z" fill="%237A0403" />
+<path d="M29,0h1v1h-1z" fill="%237A0403" fill-opacity="0" />
+</svg>'/><p>This example varies the alpha from 0 (at 0.0), 1 (at 0.5), and 0 (at 1.0). </p><h2 id="More-about-color-sampling"><a class="docs-heading-anchor" href="#More-about-color-sampling">More about color sampling</a><a id="More-about-color-sampling-1"></a><a class="docs-heading-anchor-permalink" href="#More-about-color-sampling" title="Permalink"></a></h2><p>You can access the specific colors of a colorscheme by indexing (eg <code>leonardo[2]</code> or <code>leonardo[5:end]</code>). Or you can sample a ColorScheme at a point between 0.0 and 1.0 as if it were a continuous range of colors:</p><pre><code class="language-julia hljs">get(leonardo, 0.5)</code></pre><p>returns</p><pre><code class="language-julia hljs">RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)</code></pre><p><img src="../assets/figures/get-example.png" alt="&quot;get example&quot;"/></p><p>The colors in the predefined ColorSchemes are usually sorted by LUV luminance, so this often makes sense.</p><p>You can use <code>get()</code> with index data in arrays to return arrays of colors:</p><pre><code class="language-julia hljs">julia&gt; get(leonardo, [0.0, 0.5, 1.0])
+3-element Array{RGB{Float64},1} with eltype ColorTypes.RGB{Float64}:
+ RGB{Float64}(0.05482025926320272,0.016508952654741622,0.019315160361063788)
+ RGB{Float64}(0.42637271063618504,0.28028983973265065,0.11258024276603132)  
+ RGB{Float64}(0.9724409077178674,0.7907008712807734,0.2851364857083522)</code></pre><p><img src="../assets/figures/get-example-2.png" alt="&quot;get example 2&quot;"/></p><pre><code class="language-julia hljs">julia&gt; simg = get(leonardo, rand(10, 16));
+julia&gt; using FileIO
+julia&gt; save(&quot;mosaic.png&quot;, simg)</code></pre><p><img src="../assets/figures/get-example-1.png" alt="&quot;get example 1&quot;"/></p><h2 id="Matplotlib-compatibility"><a class="docs-heading-anchor" href="#Matplotlib-compatibility">Matplotlib compatibility</a><a id="Matplotlib-compatibility-1"></a><a class="docs-heading-anchor-permalink" href="#Matplotlib-compatibility" title="Permalink"></a></h2><p>Most of the color schemes in Matplotlib are available. The following code example gives a general picture.</p><pre><code class="language-julia hljs">using ColorSchemes
+
+# https://matplotlib.org/examples/color/colormaps_reference.html
+
+matplotlibcmaps = Dict(
+   :perceptuallyuniformsequential =&gt; [
+      :viridis, :plasma, :inferno, :magma],
+   :sequential =&gt; [
+      :Greys_9, :Purples_9, :Blues_9, :Greens_9, :Oranges_9, :Reds_9,
+      :YlOrBr_9, :YlOrRd_9, :OrRd_9, :PuRd_9, :RdPu_9, :BuPu_9,
+      :GnBu_9, :PuBu_9, :YlGnBu_9, :PuBuGn_9, :BuGn_9, :YlGn_9],
+   :sequential2 =&gt; [
+      :binary, :gist_yarg, :gist_gray, :gray, :bone, :pink,
+      :spring, :summer, :autumn, :winter, :cool, :Wistia,
+      :hot, :afmhot, :gist_heat, :copper],
+   :diverging =&gt; [
+      :PiYG_11, :PRGn_11, :BrBG_11, :PuOr_11, :RdGy_11, :RdBu_11,
+      :RdYlBu_11, :RdYlGn_11, :Spectral_11, :coolwarm, :bwr, :seismic],
+   :cyclical =&gt; [
+        :twilight, :twilight_shifted, :hsv],
+   :qualitative =&gt; [
+      :Pastel1_9, :Pastel2_8, :Paired_11, :Accent_8,
+      :Dark2_8, :Set1_9, :Set2_8, :Set3_12,
+      :tab10, :tab20, :tab20b, :tab20c],
+   :miscellaneous =&gt; [
+      :flag, :prism, :ocean, :gist_earth, :terrain, :gist_stern,
+      :gnuplot, :gnuplot2, :CMRmap, :cubehelix, :brg, :hsv,
+      :gist_rainbow, :rainbow, :jet, :nipy_spectral, :gist_ncar]
+   )
+
+for (k, v) in matplotlibcmaps
+   println(&quot;$(rpad(k, 12)) $(length(v))&quot;)
+   for cs in v
+      try
+         c = ColorSchemes.colorschemes[cs]
+      catch
+         println(&quot;\t$(rpad(cs, 12)) not currently in stock&quot;)
+      end
+   end
+end</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">cyclical     3
+	twilight_shifted not currently in stock
+sequential   18
+qualitative  12
+sequential2  16
+	gray         not currently in stock
+perceptuallyuniformsequential 4
+diverging    12
+miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../catalogue/">« Catalogue</a><a class="docs-footer-nextpage" href="../goodpractice/">Good practice »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.14.1 on <span class="colophon-date" title="Sunday 14 September 2025 12:17">Sunday 14 September 2025</span>. Using Julia version 1.11.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

@@ -60,9 +60,8 @@ jobs:
       - run: julia --project=docs -e 'using Pkg; Pkg.instantiate()'
       - run: |
           julia --project=docs -e '
-            using Documenter: doctest
-            using ColorSchemes
-            doctest(joinpoath("docs", "src"), ColorSchemes)'
+            import Documenter, ColorSchemes
+            Documenter.doctest(joinpath("docs", "src"), ColorSchemes)'
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

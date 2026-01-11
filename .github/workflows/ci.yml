@@ -15,15 +15,12 @@ jobs:
       fail-fast: false
       matrix:
         julia-version:
-          - '1.6'
+          - '1.6'  # lowest declared LTS
+          - 'lts'  # latest LTS
           - '1'
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         julia-arch:
           - x64
-        exclude:
-          - os: macOS-latest
-            julia-arch: aarch64
-            julia-version: '1'
 
     steps:
       - uses: actions/checkout@v6

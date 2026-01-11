@@ -1,5 +1,7 @@
 *.cov
 .vscode/*
+
 docs/build/*
-Manifest.toml
-src/build_*
+**/Manifest.toml
+
+**/src/build_*

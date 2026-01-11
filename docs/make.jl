@@ -5,6 +5,7 @@ makedocs(
     sitename = "ColorSchemes",
     warnonly = true,
     format = Documenter.HTML(
+        inventory_version = pkgversion(ColorSchemes),
         size_threshold = nothing,
         prettyurls = get(ENV, "CI", nothing) == "true",
         assets = ["assets/colorschemes-docs.css"]),

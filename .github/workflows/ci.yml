@@ -2,11 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches:
-      - master
+    branches: [master]
   push:
-    branches:
-      - master
+    branches: [master]
     tags: '*'
 
 concurrency:
@@ -15,25 +13,24 @@ concurrency:
 
 jobs:
   test:
-    name: Julia ${{ matrix.julia-version }} - ${{ matrix.os }} - ${{ matrix.julia-arch }}
+    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        julia-version:
-          - '1.6'  # lowest declared LTS
+        version:
+          - '1.6'  # lowest declared LTS in Project.toml
           - 'lts'  # latest LTS
           - '1'
         os: [ubuntu-latest, windows-latest, macos-latest]
-        julia-arch:
-          - x64
+        arch: [x64]
 
     steps:
       - uses: actions/checkout@v6
       - uses: julia-actions/setup-julia@v2
         with:
-          version: ${{ matrix.julia-version }}
-          arch: ${{ matrix.julia-arch }}
+          version: ${{ matrix.version }}
+          arch: ${{ matrix.arch }}
       - uses: julia-actions/cache@v2
       - uses: julia-actions/julia-buildpkg@latest
         with:
@@ -61,7 +58,7 @@ jobs:
       - run: |
           julia --project=docs -e '
             import Documenter, ColorSchemes
-            Documenter.doctest(joinpath("docs", "src"), ColorSchemes)'
+            Documenter.doctest(joinpath("docs", "src"), [ColorSchemes])'
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

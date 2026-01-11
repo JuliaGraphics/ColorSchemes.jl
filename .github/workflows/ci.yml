@@ -58,7 +58,7 @@ jobs:
       - run: |
           julia --project=docs -e '
             import Documenter, ColorSchemes
-            Documenter.doctest(joinpath(@__DIR__, "src"), [ColorSchemes])
+            Documenter.doctest(joinpath(@__DIR__, "docs", "src"), [ColorSchemes])
           '
       - run: julia --project=docs docs/make.jl
         env:

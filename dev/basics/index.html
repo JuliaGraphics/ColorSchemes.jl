@@ -161,7 +161,7 @@ colorschemes containing &quot;ice&quot;
   botticelli                (notes) palette from artist Sandro Bot...
 
 
- ...found 6 results for &quot;ice&quot;</code></pre><p>The function returns a list of matching colorscheme names as symbols.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="ColorSchemes.findcolorscheme" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">findcolorscheme(str;
+ ...found 6 results for &quot;ice&quot;</code></pre><p>The function returns a list of matching colorscheme names as symbols.</p><article><details class="docstring" open="true"><summary id="ColorSchemes.findcolorscheme"><a class="docstring-binding" href="#ColorSchemes.findcolorscheme"><code>ColorSchemes.findcolorscheme</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">findcolorscheme(str;
     search_notes=true)</code></pre><p>Find all colorschemes matching <code>str</code>. <code>str</code> is interpreted as a regular expression (case-insensitive).</p><p>This returns an array of symbols which are the names of matching schemes in the <code>colorschemes</code> dictionary.</p><pre><code class="language-julia hljs">julia&gt; findcolorscheme(&quot;ice&quot;)
 
 colorschemes containing &quot;ice&quot;
@@ -174,7 +174,7 @@ colorschemes containing &quot;ice&quot;
   botticelli            (notes) palette from artist Sandro Bot...
 
 
- ...found 6 results for &quot;ice&quot;</code></pre><p>To read the notes of a built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-julia hljs">colorschemes[:cscheme].notes</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/08ff9a64015699a1042e4d2a817b035529f942e8/src/ColorSchemes.jl#L157-L188">source</a></section></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="language-julia hljs">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
+ ...found 6 results for &quot;ice&quot;</code></pre><p>To read the notes of a built-in colorscheme <code>cscheme</code>:</p><pre><code class="language-julia hljs">colorschemes[:cscheme].notes</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/JuliaGraphics/ColorSchemes.jl/blob/11f9afc58042b399c7c55d3733d9566a7d2a9eb1/ColorSchemes/src/ColorSchemes.jl#L157-L188">source</a></section></details></article><p>If you prefer, you can ‘roll your own’ search.</p><pre><code class="language-julia hljs">[k for (k, v) in ColorSchemes.colorschemes if occursin(r&quot;colorbrew&quot;i, v.category)]
 265-element Array{Symbol,1}:
  :BuPu_6
  :Spectral_4
@@ -404,7 +404,7 @@ colorschemes containing &quot;dull&quot;
   mygrays               (notes) just some dull grey shades...
 
 
- ...found 1 result for &quot;dull&quot;</code></pre><div class="admonition is-info" id="Note-1773706597f1f6f1"><header class="admonition-header">Note<a class="admonition-anchor" href="#Note-1773706597f1f6f1" title="Permalink"></a></header><div class="admonition-body"><p>If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the <code>make_colorscheme()</code> function in the <a href="https://github.com/JuliaGraphics/ColorSchemeTools.jl">ColorSchemeTools.jl</a> package.</p></div></div><h2 id="For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users"><a class="docs-heading-anchor" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users">For CVD (color-vision deficient or &quot;color-blind&quot;) users</a><a id="For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users-1"></a><a class="docs-heading-anchor-permalink" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users" title="Permalink"></a></h2><p>This package contains a number of colorschemes that are designed to be helpful for people with some deficiencies in their perception of color:</p><ul><li><p><em>deuteranomaly</em> (where green looks more red)</p></li><li><p><em>protanomaly</em> (where red looks more green and less bright)</p></li><li><p><em>tritanomaly</em> (difficult to tell the difference between blue and green, and between yellow and red)</p></li><li><p><em>tritanopia</em> (difficult to tell the difference between blue and green, purple and red, and yellow and pink)</p></li></ul><pre><code class="language-julia hljs">findcolorscheme(&quot;cvd&quot;)
+ ...found 1 result for &quot;dull&quot;</code></pre><div class="admonition is-info" id="Note-f9341af6be15fed8"><header class="admonition-header">Note<a class="admonition-anchor" href="#Note-f9341af6be15fed8" title="Permalink"></a></header><div class="admonition-body"><p>If you want to make more advanced ColorSchemes, use linear-segment dictionaries or indexed lists, and use functions to generate color values, see the <code>make_colorscheme()</code> function in the <a href="https://github.com/JuliaGraphics/ColorSchemeTools.jl">ColorSchemeTools.jl</a> package.</p></div></div><h2 id="For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users"><a class="docs-heading-anchor" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users">For CVD (color-vision deficient or &quot;color-blind&quot;) users</a><a id="For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users-1"></a><a class="docs-heading-anchor-permalink" href="#For-CVD-(color-vision-deficient-or-&quot;color-blind&quot;)-users" title="Permalink"></a></h2><p>This package contains a number of colorschemes that are designed to be helpful for people with some deficiencies in their perception of color:</p><ul><li><p><em>deuteranomaly</em> (where green looks more red)</p></li><li><p><em>protanomaly</em> (where red looks more green and less bright)</p></li><li><p><em>tritanomaly</em> (difficult to tell the difference between blue and green, and between yellow and red)</p></li><li><p><em>tritanopia</em> (difficult to tell the difference between blue and green, purple and red, and yellow and pink)</p></li></ul><pre><code class="language-julia hljs">findcolorscheme(&quot;cvd&quot;)
 
 colorschemes containing &quot;cvd&quot;
 
@@ -572,12 +572,12 @@ ColorScheme(distinguishable_colors(10, transform=protanopic))</code></pre><img s
      width="180mm" height="25mm" viewBox="0 0 9 1" stroke="none"
      preserveAspectRatio="none" shape-rendering="crispEdges">
 <defs>
-    <pattern id="pat_15JAV0" width=".2" height=".2"
+    <pattern id="pat_3rSA13" width=".2" height=".2"
              patternUnits="userSpaceOnUse" patternTransform="scale(1.25,1)" >
         <path d="M.1,0h.1v.1h-.2v.1h.1z" fill="%23999" opacity=".5" />
     </pattern>
 </defs>
-<rect width="9" height="1" fill="url(%23pat_15JAV0)" />
+<rect width="9" height="1" fill="url(%23pat_3rSA13)" />
 <path d="M1,.1V1h-1V.9z" fill="%2330123B" />
 <path d="M0,0h1v1h-1z" fill="%2330123B" fill-opacity=".5" />
 <path d="M2,.1V1h-1V.9z" fill="%23466BE3" />
@@ -603,12 +603,12 @@ ColorScheme(distinguishable_colors(10, transform=protanopic))</code></pre><img s
      width="180mm" height="25mm" viewBox="0 0 30 1" stroke="none"
      preserveAspectRatio="none" shape-rendering="crispEdges">
 <defs>
-    <pattern id="pat_1W6QGr" width=".2" height=".2"
+    <pattern id="pat_3SB8cb" width=".2" height=".2"
              patternUnits="userSpaceOnUse" patternTransform="scale(4.167,1)" >
         <path d="M.1,0h.1v.1h-.2v.1h.1z" fill="%23999" opacity=".5" />
     </pattern>
 </defs>
-<rect width="30" height="1" fill="url(%23pat_1W6QGr)" />
+<rect width="30" height="1" fill="url(%23pat_3SB8cb)" />
 <path d="M1,.38V1h-1V.62z" fill="%2330123B" />
 <path d="M0,0h1v1h-1z" fill="%2330123B" fill-opacity="0" />
 <path d="M2,.38V1h-1V.62z" fill="%233A2C78" />
@@ -722,4 +722,4 @@ sequential2  16
 	gray         not currently in stock
 perceptuallyuniformsequential 4
 diverging    12
-miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../catalogue/">« Catalogue</a><a class="docs-footer-nextpage" href="../goodpractice/">Good practice »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.14.1 on <span class="colophon-date" title="Sunday 14 September 2025 12:12">Sunday 14 September 2025</span>. Using Julia version 1.11.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+miscellaneous 17</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../catalogue/">« Catalogue</a><a class="docs-footer-nextpage" href="../goodpractice/">Good practice »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.16.1 on <span class="colophon-date" title="Sunday 11 January 2026 18:34">Sunday 11 January 2026</span>. Using Julia version 1.12.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

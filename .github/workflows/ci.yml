@@ -34,6 +34,8 @@ jobs:
       - uses: julia-actions/cache@v2
       - uses: julia-actions/julia-buildpkg@latest
       - uses: julia-actions/julia-runtest@latest
+        with:
+          project: ColorSchemes
       - uses: julia-actions/julia-processcoverage@latest
         with:
           directories: ColorSchemes/src

@@ -1,4 +1,5 @@
 name: CI
+
 on:
   pull_request:
     branches:
@@ -7,6 +8,11 @@ on:
     branches:
       - master
     tags: '*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Julia ${{ matrix.julia-version }} - ${{ matrix.os }} - ${{ matrix.julia-arch }}
@@ -30,6 +36,8 @@ jobs:
           arch: ${{ matrix.julia-arch }}
       - uses: julia-actions/cache@v2
       - uses: julia-actions/julia-buildpkg@latest
+        with:
+          project: ColorSchemes
       - uses: julia-actions/julia-runtest@latest
         with:
           project: ColorSchemes
@@ -54,7 +62,7 @@ jobs:
           julia --project=docs -e '
             using Documenter: doctest
             using ColorSchemes
-            doctest(ColorSchemes)' # change ColorSchemes to the name of your package
+            doctest(ColorSchemes)'
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

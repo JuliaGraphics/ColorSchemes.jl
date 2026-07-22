@@ -313,3 +313,13 @@ ColorSchemeCategory("julia") # hide
 using Luxor, ColorSchemes # hide
 ColorSchemeCategory("pride") # hide
 ```
+
+# ltc colorschemes
+
+The [ltc](https://github.com/loukesio/ltc-color-palettes) package offers a curated collection of color palettes inspired by
+the drawings and life of Pablo Picasso and other artists.
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("ltc") # hide
+```

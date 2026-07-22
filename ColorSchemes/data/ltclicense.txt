@@ -1,0 +1,11 @@
+# https://github.com/loukesio/ltc-color-palettes
+#
+# ltc_palettes: Tailored for data visualization enthusiasts, 
+# ltc_palettes is an R package that offers a curated collection 
+# of color palettes. Crafted to enhance clarity and impact, 
+# these palettes ensure that your visual representations not 
+# only communicate data effectively but also aesthetically
+
+# MIT License
+
+# Copyright (c) 2021 ltc authors

@@ -415,18 +415,27 @@ Create new colorscheme by concatenating two colorschemes.
 """
     resample(cs::colorscheme, n=10)
 
-Create a new colorscheme that samples an existing colorscheme `cs` `n` times.
+Create a new colorscheme that samples an existing colorscheme `cs` at `n` positions,
+including 0 and 1.
 
 ```julia
-resample(ColorSchemes.turbo)
-resample(ColorSchemes.turbo, 5)
+resample(ColorSchemes.leonardo, 10)
+
+ColorScheme{Vector{RGB{Float64}}, String, String}(
+    RGB{Float64}[
+        RGB(0.05482025926320272, 0.016508952654741622, 0.019315160361063788), 
+        RGB(0.3097689451431823, 0.15249301022575068, 0.06809921145717472), 
+        RGB(0.5217774204862555, 0.4520916788504707, 0.18791801451894713), 
+        RGB(0.9724409077178674, 0.7907008712807734, 0.2851364857083522)], 
+        "general", 
+        "color palette from artist Leonardo Da Vinci's Mona Lisa resampled × 4")
 ```
 """
 function resample(cs::ColorScheme, n=10)
     return ColorScheme(
         [get(cs, i) for i in range(0, 1, length=max(n, 2))],
         cs.category,
-        cs.notes * " resampled $n")
+        cs.notes * " resampled × $n")
 end
 
 """

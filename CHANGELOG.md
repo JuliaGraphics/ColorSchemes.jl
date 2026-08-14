@@ -1,5 +1,23 @@
 # Changelog
 
+## [v3.32.0] - forthcoming
+
+### Added
+
+- added Paraview Fast colourmap (#156) Thanks @maucejo
+
+- added [ltc colorschemes](github.com/loukesio/ltc-color-palettes/) #158 
+  Thanks @chelate
+
+- add DocumenterCodeBlocks.jl
+
+### Changed
+
+- Restructured the repository to avoid shipping the docs files 
+ (eating bandwidth to DL, and not useful for the end user). #154
+
+### Removed
+
 ## [v3.31.0] - 2025-09-14
 
 ### Added

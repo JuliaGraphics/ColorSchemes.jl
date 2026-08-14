@@ -1,9 +1,10 @@
-using Documenter, Luxor, ColorSchemes
+using Documenter, Luxor, ColorSchemes, DocumenterCodeBlocks
 
 makedocs(
     modules = [ColorSchemes],
     sitename = "ColorSchemes",
     warnonly = true,
+    plugins = [CodeBlocks()],
     format = Documenter.HTML(
         inventory_version = pkgversion(ColorSchemes),
         size_threshold = nothing,

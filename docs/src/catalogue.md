@@ -323,3 +323,13 @@ the drawings and life of Pablo Picasso and other artists.
 using Luxor, ColorSchemes # hide
 ColorSchemeCategory("ltc") # hide
 ```
+
+# Historical
+
+Historical color schemes from notable works and historical sources.
+
+```@example catalog
+using Luxor, ColorSchemes # hide
+ColorSchemeCategory("historical") # hide
+```
+

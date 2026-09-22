@@ -5,6 +5,6 @@ loadcolorscheme(:byrne,
         colorant"#fbc22b", #yellow
         colorant"#000000", #black
     ],
-    "Historical",
+    "historical",
     "Oliver Byrne, Euclid, geometry, red, blue, yellow, black"
 )

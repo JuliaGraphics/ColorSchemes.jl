@@ -4,6 +4,54 @@ DocTestSetup = quote
 end
 ```
 
+```@raw html
+---
+layout: home
+
+hero:
+  name: ColorSchemes.jl
+  text: colormaps and color schemes 
+  tagline: colors to suit all palettes
+  actions:
+    - theme: brand
+      text: Introduction
+      link: index.html#Installation-and-basic-usage
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/JuliaGraphics/ColorSchemes.jl
+  image:
+    src: /assets/logo.svg
+    alt: ColorSchemes.jl
+    dark: /assets/logo.svg # optional: a variant for dark themes
+
+features:
+  - icon:
+      light: /assets/figures/icon-1.svg
+      dark: /assets/figures/icon-1.svg
+      alt: catalogue
+      wrap: true
+    title: Catalogue
+    details: "hundreds of scientifically devised colorschemes, including ones from ColorBrewer, CMOcean, ScientificColorMaps, ColorCet, Seaborn"
+    link: /catalogue
+  - icon:
+      light: /assets/figures/icon-2.svg
+      dark: /assets/figures/icon-2.svg
+      alt: popular colormaps
+      wrap: true
+    title: Popular colormaps
+    details: "old favourites such as viridis, inferno, and magma from MATPlotLib"
+    link: /catalogue
+  - icon:
+      light: /assets/figures/icon-3.png
+      dark: /assets/figures/icon-3.png
+      alt: finding
+      wrap: true
+    title: More schemes and tools
+    details: "various artistic and fun colorschemes, and useful tools for working with colorschemes"
+    link: finding
+---
+```
+
 # Introduction to ColorSchemes
 This package provides a collection of colorschemes:
 

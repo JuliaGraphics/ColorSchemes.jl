@@ -1,10 +1,19 @@
-using Documenter, Luxor, ColorSchemes, DocumenterCodeBlocks
+using Documenter
+using Luxor
+using ColorSchemes
+using DocumenterCodeBlocks
+using DocumenterTools: Themes
+using DocumenterLandingPage
+using DocumenterCodeBlocks
 
 makedocs(
     modules = [ColorSchemes],
     sitename = "ColorSchemes",
     warnonly = true,
-    plugins = [CodeBlocks()],
+    plugins = [
+        LandingPage(),
+        CodeBlocks()
+        ],
     format = Documenter.HTML(
         inventory_version = pkgversion(ColorSchemes),
         size_threshold = nothing,
@@ -25,5 +34,6 @@ makedocs(
 deploydocs(
     push_preview = true,
     repo = "github.com/JuliaGraphics/ColorSchemes.jl.git",
-    target = "build"
+    target = "build",
+    forcepush = true
 )

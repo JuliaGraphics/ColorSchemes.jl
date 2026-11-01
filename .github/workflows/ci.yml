@@ -19,7 +19,6 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.6'  # lowest declared LTS in Project.toml
           - 'lts'  # latest LTS
           - '1'
         os: [ubuntu-latest, windows-latest, macos-latest]

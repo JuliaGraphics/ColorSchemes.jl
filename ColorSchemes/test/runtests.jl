@@ -208,4 +208,8 @@ end
     l1 = length(monalisa)
     l2 = length(monalisa * monalisa)
     @test l2 == 2l1
+
+    # visual test for show in terminal
+    foreach(cs -> (print(cs), display(colorschemes[cs])),
+           collect(findcolorscheme("Purples", search_notes=false)))
 end

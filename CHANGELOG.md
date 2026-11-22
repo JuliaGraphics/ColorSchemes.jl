@@ -1,6 +1,16 @@
 # Changelog
 
-## [v3.32.0] - forthcoming
+## [v3.32.0] - 2026-11-02
+
+### Added
+
+- show
+
+### Changed
+
+### Removed
+
+## [v3.32.0] - 2026-11-02
 
 ### Added
 

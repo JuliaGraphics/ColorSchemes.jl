@@ -53,6 +53,22 @@ ColorScheme(colors::V, category::S1 = "", notes::S2 = "") where {V,S1,S2} =
 # displaying swatches
 Base.show(io::IO, m::MIME"image/svg+xml", cscheme::ColorScheme) = show(io, m, cscheme.colors)
 
+# displaying swatches in a suitable terminal
+function _color_to_ansi(c)
+    rgb = convert(RGB, c)
+    r = clamp(round(Int, 255 * red(rgb)), 0, 255)
+    g = clamp(round(Int, 255 * green(rgb)), 0, 255)
+    b = clamp(round(Int, 255 * blue(rgb)), 0, 255)
+    return "\e[48;2;$(r);$(g);$(b)m"
+end
+
+function Base.show(io::IO, ::MIME"text/plain", cs::ColorScheme)
+    for c in cs.colors
+        print(io, string(_color_to_ansi(c), " "))
+    end
+    return print(io, "\e[0m")
+end
+
 # for making the catalogue pages in the docs
 struct ColorSchemeCategory
     name :: String

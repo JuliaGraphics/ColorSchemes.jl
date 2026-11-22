@@ -9,13 +9,31 @@
 	--lessdark: hsl(237, 20%, 16%);
 }
 
+/* for the DocumenterLandinhPage 
+the 20 at the end of each color is /ff alpha?
+*/
+
+html.theme--documenter-dark,
+html.theme--catppuccin-frappe,
+html.theme--catppuccin-macchiato,
+html.theme--catppuccin-mocha {
+	--landing-glow: hsla(240, 33%, 81%, 0.1);
+	--landing-glow-filter: blur(40px);
+}
+
+html.theme--documenter-light,
+html.theme--catppuccin-latte {
+	--landing-glow: hsla(240, 8%, 10%, 0.1);
+	--landing-glow-filter: blur(40px);
+}
+
 
 html.theme--documenter-dark body {
 	background-color: var(--verydark);
 	color: #eff;
 	font-size: 1.1em;
 	font-weight: 400;
-	line-height: 1.8rem;
+	line-height: 1.5rem;
 }
 
 html.theme--documenter-dark a {
